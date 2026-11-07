@@ -29,6 +29,8 @@ tests/            bun test：守住文案里必须保留的声明
 
 - **没有** webpack / vite / React / 独立 ESLint / Prettier / Biome。需要的能力优先用 bun
   自带（`bun build`、`bun test`、`bun --hot`）；`tsc` 只做类型检查。
+- **不用框架**：这就是一个静态站。Astro（或其他 SSG）是**可选项**——等真出现多页、内容集合、
+  或需要构建期图片处理时再评估；引入前先在 ADR 里记一句为什么静态 HTML 不够用。
 - 依赖只有两个 devDependency（`typescript`、`@types/bun`），`bunfig.toml` 里 `exact = true`。
   `bun.lock` 目前未提交：生成它的机器上 bun 会 segfault；bun 修好后先跑 `bun install`
   提交 lock，再把 `justfile` 与 CI 切成 `--frozen-lockfile`。
