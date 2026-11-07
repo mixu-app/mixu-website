@@ -11,7 +11,13 @@ lint-md:
 # nothing, which looks like a pass. A silent bun run is treated as a failure.
 bun-check:
     @command -v bun >/dev/null || { echo "MISSING TOOL: bun"; exit 1; }
-    bun install   # TODO: switch to --frozen-lockfile once bun.lock is generated (bun segfaults on the authoring host)
+    @if ! bun --version >/dev/null 2>&1; then \
+        echo "ENV DEFECT: bun segfaults on this host (rc=139, known environment issue)."; \
+        echo "The gate cannot run. Fix bun (reinstall / different build) or verify in CI;"; \
+        echo "\`just node-typecheck\` only covers types. This is not a code failure."; \
+        exit 1; \
+    fi
+    bun install
     bun run check
 
 # Local fallback when bun is broken on this host; CI remains the authority.
