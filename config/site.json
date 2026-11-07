@@ -1,0 +1,105 @@
+{
+  "$schema": "./site.schema.json",
+  "siteUrl": "https://mixu.app",
+  "defaultLocale": "zh-CN",
+  "supportedLocales": ["zh-CN", "en", "ja"],
+  "ogImage": "/og.png",
+  "twitterCard": "summary_large_image",
+  "locales": {
+    "zh-CN": {
+      "ogLocale": "zh_CN",
+      "siteName": "谜序 Mixu",
+      "tagline": "记住每一个线索，推理留给你。",
+      "subhead": "按阅读进度展开案情板，不剧透，不替你推理。",
+      "pages": {
+        "index": {
+          "path": "/",
+          "title": "谜序 Mixu — 记住每一个线索，推理留给你。",
+          "description": "谜序是一款离线优先的悬疑阅读器：按阅读进度展开的案情板，不剧透、不替你推理。"
+        },
+        "download": {
+          "path": "/download.html",
+          "title": "客户端下载与校验 — 谜序 Mixu",
+          "description": "谜序 (Mixu) 官方客户端下载与安装包完整性校验说明。当前处于开发起步阶段，尚未发布公开安装包。"
+        },
+        "notFound": {
+          "path": "/404.html",
+          "title": "页面未找到 (404) — 谜序 Mixu",
+          "description": "您寻找的页面不存在或已移至新地址。",
+          "heading": "页面未找到 (404)",
+          "subhead": "您寻找的页面不存在或已移至新地址。",
+          "calloutTitle": "线索中断了",
+          "calloutBody": "推理不必停下：您可以返回首页了解谜序的核心理念，或前往客户端下载页面查看安装包发布与签名校验状态。"
+        }
+      }
+    },
+    "en": {
+      "ogLocale": "en_US",
+      "siteName": "Mixu",
+      "tagline": "Remember every clue. The deduction is yours.",
+      "subhead": "A spoiler-free mystery reader that unfolds a case board as you read.",
+      "pages": {
+        "index": {
+          "path": "/en/",
+          "title": "Mixu — Remember every clue. The deduction is yours.",
+          "description": "Mixu is an offline-first mystery reader: an interactive case board that unfolds as you read, spoiler-free."
+        },
+        "download": {
+          "path": "/en/download.html",
+          "title": "Download & Verification — Mixu",
+          "description": "Official Mixu client download and package integrity verification guide."
+        },
+        "notFound": {
+          "path": "/en/404.html",
+          "title": "Page Not Found (404) — Mixu",
+          "description": "The page you are looking for does not exist or has been moved.",
+          "heading": "Page Not Found (404)",
+          "subhead": "The page you are looking for does not exist or has been moved.",
+          "calloutTitle": "Clue interrupted",
+          "calloutBody": "The deduction does not have to stop: return to the homepage or check the client download verification guide."
+        }
+      }
+    },
+    "ja": {
+      "ogLocale": "ja_JP",
+      "siteName": "Mixu (ミクス)",
+      "tagline": "すべての手がかりを記録し、推理はあなたに。",
+      "subhead": "読書進度に合わせて広がるネタバレなしの捜査ボード。",
+      "pages": {
+        "index": {
+          "path": "/ja/",
+          "title": "Mixu — すべての手がかりを記録し、推理はあなたに。",
+          "description": "Mixuはオフライン優先のミステリー読書アプリです：読書進度に合わせて展開するネタバレなしの捜査ボード。"
+        },
+        "download": {
+          "path": "/ja/download.html",
+          "title": "ダウンロードと検証 — Mixu",
+          "description": "Mixu 公式クライアントのダウンロードとパッケージ整合性検証の手引き。"
+        },
+        "notFound": {
+          "path": "/ja/404.html",
+          "title": "ページが見つかりません (404) — Mixu",
+          "description": "お探しのページは存在しないか、移動した可能性があります。",
+          "heading": "ページが見つかりません (404)",
+          "subhead": "お探しのページは存在しないか、移動した可能性があります。",
+          "calloutTitle": "手がかりが途切れました",
+          "calloutBody": "推理を止める必要はありません：トップページに戻るか、ダウンロード検証ページをご確認ください。"
+        }
+      }
+    }
+  },
+  "sitemap": {
+    "entries": [
+      {
+        "path": "/",
+        "changefreq": "weekly",
+        "priority": 1.0
+      },
+      {
+        "path": "/download.html",
+        "changefreq": "weekly",
+        "priority": 0.8
+      }
+    ]
+  }
+}

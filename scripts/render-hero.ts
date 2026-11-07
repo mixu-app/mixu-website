@@ -196,7 +196,7 @@ export function renderHero(
 
   const rawTemplate = readFileSync(resolvedTemplate, "utf-8");
   const fullHtml = rawTemplate
-    .replace("{{HERO_HEADLINE}}", data.headline)
+    .replaceAll("{{HERO_HEADLINE}}", data.headline)
     .replace("<!-- HERO_CONTENT -->", heroHtml)
     .replace("{{HERO_CONTENT}}", heroHtml);
 

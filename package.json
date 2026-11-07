@@ -8,8 +8,11 @@
     "start": "bun src/server.ts",
     "render:hero": "bun scripts/render-hero.ts",
     "render:download": "bun scripts/render-download.ts",
-    "prebuild": "bun run render:hero && bun run render:download",
-    "build": "bun run prebuild && bun build ./src/index.html ./src/download.html --outdir ./dist --minify",
+    "render:404": "bun scripts/render-404.ts",
+    "generate:og": "bun scripts/generate-og-image.ts",
+    "copy:assets": "bun scripts/copy-assets.ts",
+    "prebuild": "bun run render:hero && bun run render:download && bun run render:404 && bun run generate:og",
+    "build": "bun run prebuild && bun build ./src/index.html ./src/download.html ./src/404.html --outdir ./dist --minify && bun run copy:assets",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
     "check": "bun run prebuild && bun run typecheck && bun run test && bun run build"
