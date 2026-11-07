@@ -2,7 +2,7 @@
   "name": "mixu-website",
   "private": true,
   "type": "module",
-  "description": "Mixu (谜序) landing page — bun-only, no framework, no separate lint/format toolchain",
+  "description": "Mixu (\u8c1c\u5e8f) landing page \u2014 bun-only, no framework, no separate lint/format toolchain",
   "scripts": {
     "dev": "bun --hot src/server.ts",
     "start": "bun src/server.ts",
@@ -12,7 +12,7 @@
     "check": "bun run typecheck && bun run test && bun run build"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "typescript": "^5.7.0"
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2"
   }
 }
