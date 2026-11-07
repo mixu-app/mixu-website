@@ -54,3 +54,12 @@ h1 {
     transform: none;
   }
 }
+
+/* Brand mark: one flat colour, no effects. Height matches the h1 cap height. */
+.mark {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 0 0.75rem;
+  color: #211431;
+}
