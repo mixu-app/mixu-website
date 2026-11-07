@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>谜序 Mixu — 记住每一个线索，推理留给你</title>
+    <title>谜序 Mixu — 记住每一个线索，推理留给你。</title>
     <meta
       name="description"
       content="谜序是一款离线优先的悬疑阅读器：按阅读进度展开的案情板，不剧透、不替你推理。"
@@ -15,16 +15,51 @@
   </head>
   <body>
     <main id="app">
-      <img class="mark" src="./logo-mark.svg" alt="谜序 Mixu" width="56" height="56" />
-      <h1>记住每一个线索，推理留给你。</h1>
-      <p>
-        谜序是一款离线优先的悬疑阅读器。它把<strong>你已经读到的内容</strong>整理成一张可点击的案情板，
-        不登录也能读完一本书。当前处于开发阶段，页面内容以
-        <code>content/hero.zh-CN.md</code> 为准。
-      </p>
-      <p class="note">
-        「不剧透」是工程目标：按阅读进度做确定性过滤，并有可失败的回归测试；它不等于数学保证。
-      </p>
+      <header class="hero-header">
+        <img class="mark" src="./logo-mark.svg" alt="谜序 Mixu" width="56" height="56" />
+        <h1>记住每一个线索，推理留给你。</h1>
+        <p class="subhead">谜序是一款离线优先的悬疑阅读器。它把<strong>你已经读到的内容</strong>整理成一张可点击的案情板——
+人物、地点、事件、各执一词的证词，都能跳回原文。它不剧透，不猜凶手，也不替你推理。</p>
+        <div class="cta-group">
+          <a class="cta cta-primary" href="#demo"><span class="cta-label">看看它怎么工作</span> <span class="cta-hint">（跳到 3 步演示）</span></a>
+        <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">在 GitHub 上看客户端</span> <span class="cta-hint">（公开客户端仓库）</span></a>
+        </div>
+      </header>
+
+      <section class="section values">
+        <h2>三条价值</h2>
+        <ol>
+<li><strong>只显示你读过的。</strong> 案情板按阅读进度过滤：读到第 10 章，就看不到第 14 章才揭晓的身份。</li>
+<li><strong>点一下，回到原句。</strong> 每条信息都带原文定位，跳过去、再跳回来，位置不丢。</li>
+<li><strong>不登录也能读完一本书。</strong> 导入、阅读、书签、笔记、已下载的图包，全部离线可用。
+E-Ink 设备用同一个安装包，只是少一点动画。</li>
+</ol>
+      </section>
+
+      <section class="section audience">
+        <h2>适合谁</h2>
+        <ul>
+<li>人物多、时间线绕、隔几天再读就忘了"这人是谁"的长篇推理读者。</li>
+<li>喜欢自己做笔记、自己列嫌疑人表的读者。</li>
+<li>用墨水屏、只想安静读完一本书的读者。</li>
+</ul>
+      </section>
+
+      <section class="section limitations">
+        <h2>不适合谁（诚实说明）</h2>
+        <ul>
+<li>想要"AI 直接告诉我凶手"的人：这是产品原则之外的功能。</li>
+<li>想要在线阅读、下载书源、绕过 DRM 的人：这不是阅读器的定位。</li>
+</ul>
+      </section>
+
+      <footer class="footer-disclaimers note">
+        <ul>
+<li>谜序当前处于开发阶段，本站描述的是设计目标，不是已发布功能。</li>
+<li>「不剧透」是工程目标：按阅读进度做确定性过滤，并有可失败的回归测试；它不等于数学保证。</li>
+<li>客户端代码开源（Apache-2.0），托管服务与图库另计；书名、品牌与第三方图书内容不在开源许可内。</li>
+</ul>
+      </footer>
     </main>
     <script type="module" src="./main.ts"></script>
   </body>
