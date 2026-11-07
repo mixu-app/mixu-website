@@ -14,18 +14,24 @@
 - **One** package manager and build tool: `bun`. No webpack, no vite, no React
   until a component model is genuinely justified, no separate ESLint, Prettier or
   Biome packages.
+- **No framework and no static-site generator.** This is a static page plus CSS.
+  Astro (or any SSG) is an option, not a default: adopt it only when multi-page
+  content, content collections or build-time asset processing actually pay for
+  the dependency, and record the reason in an ADR first.
+- `bun.lock` is committed and every gate installs with `--frozen-lockfile`, so a
+  dependency change is a reviewable diff. On a host where `bun` segfaults, run
+  `just bun-docker` — the same commands inside `oven/bun`, not a skipped gate.
 - Prefer bun built-ins: `bun build`, `bun test`, `bun --hot`. The TypeScript
   compiler is used only for `--noEmit` type checking.
 - Dependencies stay dev-only: `typescript`, `@types/bun`. A runtime dependency
   needs a decision, not a convenience.
-- `just check` runs markdownlint, then `bun install`, `bun run typecheck`,
-  `bun test`, `bun run build`.
+- `just check` runs markdownlint, then `bun install --frozen-lockfile`,
+  `bun run typecheck`, `bun test`, `bun run build`.
 - **Known host defect:** on the authoring machine `bun`/`bunx` segfault (rc=139)
   and print nothing, which looks like success. A silent bun run is a failure,
-  never a pass. CI (`oven-sh/setup-bun`) is the authority; `just node-typecheck`
-  is the local fallback for types only. `bun.lock` is not committed yet because
-  it cannot be generated here; switch the gate to `--frozen-lockfile` in the same
-  change that adds it.
+  never a pass. `just bun-docker` runs the identical gate inside `oven/bun`;
+  `just node-typecheck` covers types only. CI (`oven-sh/setup-bun`) remains the
+  authority.
 
 ## Copy rules
 
@@ -51,8 +57,9 @@
 ## Gates
 
 ```sh
-just check          # markdownlint + bun(typecheck/test/build)
-just node-typecheck # local fallback when bun segfaults here
+just check          # markdownlint + bun(install --frozen-lockfile / typecheck / test / build)
+just bun-docker     # same bun gate inside oven/bun, for a host where bun segfaults
+just node-typecheck # types only, when neither bun path is available
 ```
 
 ## CarryCtx
