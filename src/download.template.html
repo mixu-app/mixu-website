@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>客户端下载与校验 — 谜序 Mixu</title>
+    <meta
+      name="description"
+      content="谜序 (Mixu) 官方客户端下载与安装包完整性校验说明。当前处于开发起步阶段，尚未发布公开安装包。"
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon-small.svg" type="image/svg+xml" sizes="16x16" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <nav class="top-nav">
+        <a class="nav-link" href="./index.html">← 返回首页</a>
+      </nav>
+      <img class="mark" src="./logo-mark.svg" alt="谜序 Mixu" width="56" height="56" />
+      <h1>客户端下载</h1>
+      <p class="intro">
+        谜序是一款离线优先的悬疑阅读器。这里提供官方 Android 客户端安装包 (APK) 下载以及发布签名、校验和验证说明。
+      </p>
+
+<!-- {{RELEASES_CONTENT}} -->
+
+      <section class="verification-section">
+        <h2>安装包真实性与签名校验</h2>
+        <p>
+          为确保您的设备安全，避免运行恶意篡改版本，在安装从网络下载的 APK 前，请务必进行 SHA-256 校验和核对与官方数字签名验证。
+        </p>
+
+        <h3>1. SHA-256 校验和比对</h3>
+        <p>
+          在本地终端运行系统工具计算下载文件的 SHA-256 哈希，核对是否与官方清单中给出的校验值完全一致：
+        </p>
+        <p><strong>Linux / macOS：</strong></p>
+        <pre><code>sha256sum mixu-app-*.apk</code></pre>
+        <p><strong>Windows (PowerShell)：</strong></p>
+        <pre><code>Get-FileHash .\mixu-app-*.apk -Algorithm SHA256</code></pre>
+
+        <h3>2. 官方数字签名验证 (APK Signature Scheme)</h3>
+        <p>
+          谜序官方构建使用发布证书进行 APK Signature Scheme (v2/v3) 签名。您可使用 Android SDK 提供的 <code>apksigner</code> 工具验证签名真实性：
+        </p>
+        <pre><code>apksigner verify --verbose mixu-app-*.apk</code></pre>
+        <p>
+          验证结果中必须包含 <code>Verified using v2 scheme (APK Signature Scheme v2): true</code>（或 v3 为 <code>true</code>），且证书指纹与官方公布的指纹一致。
+        </p>
+
+        <h3>3. 官方发布渠道与源码构建</h3>
+        <p>
+          官方安装包仅通过本站及 GitHub 官方 Releases 页面发布：
+          <a href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">https://github.com/mixu-app/mixu-client</a>。
+          请勿在任何未经验证的第三方应用市场或网盘下载安装包。您也可以直接获取客户端开源代码，在本地使用 Android Studio / Gradle 进行构建。
+        </p>
+      </section>
+
+      <p class="note">
+        「不剧透」是工程目标：按阅读进度做确定性过滤，并有可失败的回归测试；它不等于数学保证。
+      </p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
