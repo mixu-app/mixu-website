@@ -1,0 +1,5 @@
+{
+  "$schema": "./download-manifest.schema.json",
+  "schema_version": 1,
+  "releases": []
+}

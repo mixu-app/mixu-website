@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "bun --hot src/server.ts",
     "start": "bun src/server.ts",
-    "prebuild": "bun scripts/render-hero.ts",
-    "build": "bun build ./src/index.html --outdir ./dist --minify",
+    "render:hero": "bun scripts/render-hero.ts",
+    "render:download": "bun scripts/render-download.ts",
+    "prebuild": "bun run render:hero && bun run render:download",
+    "build": "bun run prebuild && bun build ./src/index.html ./src/download.html --outdir ./dist --minify",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
-    "check": "bun run typecheck && bun run test && bun run build"
+    "check": "bun run prebuild && bun run typecheck && bun run test && bun run build"
   },
   "devDependencies": {
     "@types/bun": "^1.4.4",

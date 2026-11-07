@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mixu.app/website/v1/download-manifest.schema.json",
+  "title": "DownloadManifest",
+  "description": "Catalog manifest of Mixu client releases and download artifacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "releases"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "URI of the JSON Schema describing this document."
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Schema version for the download manifest format."
+    },
+    "releases": {
+      "type": "array",
+      "description": "List of available client releases ordered by release date descending.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "build_number",
+          "channel",
+          "release_date",
+          "download_url",
+          "sha256",
+          "min_sdk",
+          "changelog_zh"
+        ],
+        "properties": {
+          "version": {
+            "type": "string",
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)?$",
+            "description": "Semantic release version (e.g. 0.1.0 or 0.1.0-alpha.1)."
+          },
+          "build_number": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Monotonically increasing build number / Android versionCode."
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "alpha",
+              "beta",
+              "stable"
+            ],
+            "description": "Release distribution channel."
+          },
+          "release_date": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "ISO-8601 release date (YYYY-MM-DD)."
+          },
+          "download_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct download URL for the package artifact."
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{64}$",
+            "description": "SHA-256 hex digest of the release package."
+          },
+          "min_sdk": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Minimum Android SDK API level required (e.g. 26)."
+          },
+          "changelog_zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Chinese release notes highlighting changes in this build."
+          }
+        }
+      }
+    }
+  }
+}
