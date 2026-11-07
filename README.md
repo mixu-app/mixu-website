@@ -18,15 +18,34 @@ content/README.md         # 文案规则：能说什么、不能说什么
   AI 已知名著结局属于已记录的风险（R-01）。
 - 不把"开源"说成"免费云服务"。代码许可 ≠ 托管服务、品牌与图库可自由复制。
 
-## 站点技术栈
+## 站点技术栈：只用 bun
 
-待定（M0 之后再选）。倾向：静态构建 + 极简依赖，中文排版优先，E-Ink/低带宽可用。
-无论选什么，`just check` 必须仍然只依赖 markdownlint 就能跑通文档门禁。
+```text
+src/index.html    静态页面（中文排版优先，无框架运行时）
+src/main.ts       少量渐进增强，能力探测后才启用
+src/style.css     CSS，尊重 prefers-reduced-motion / color-scheme
+tests/            bun test：守住文案里必须保留的声明
+```
+
+- **没有** webpack / vite / React / 独立 ESLint / Prettier / Biome。需要的能力优先用 bun
+  自带（`bun build`、`bun test`、`bun --hot`）；`tsc` 只做类型检查。
+- 依赖只有两个 devDependency（`typescript`、`@types/bun`），`bunfig.toml` 里 `exact = true`。
+  `bun.lock` 目前未提交：生成它的机器上 bun 会 segfault；bun 修好后先跑 `bun install`
+  提交 lock，再把 `justfile` 与 CI 切成 `--frozen-lockfile`。
+- 命令：`bun install` → `bun run dev` / `bun run check`；`just check` 依次跑
+  markdownlint、typecheck、test、build。
+
+### 本机已知缺陷：bun 段错误
+
+在这台机器上 `bun` / `bunx` 会 segfault（rc=139）并且**不输出任何内容**——那看起来像"通过"。
+因此规则是：**静默的 bun 运行一律视为失败**，以 CI 为准（CI 用 `oven-sh/setup-bun`）。
+需要本地验证类型时用 `just node-typecheck`（`npx tsc --noEmit`）。
 
 ## 质量门禁
 
 ```sh
-just check     # markdownlint（文案也是代码）
+just check          # markdownlint + bun(typecheck/test/build)
+just node-typecheck # 本机 bun 坏掉时的类型检查回退
 ```
 
 ## 相关文档

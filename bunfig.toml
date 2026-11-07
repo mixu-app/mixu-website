@@ -1,0 +1,6 @@
+# Bun-only toolchain: no webpack, no vite, no separate linter/formatter packages.
+# Formatting and linting are intentionally not installed; keep the toolchain small
+# until the site actually needs a component model. Markdown is gated by
+# markdownlint-cli2 (see justfile).
+[install]
+exact = true

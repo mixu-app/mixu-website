@@ -2,8 +2,8 @@
 [repo]
 name = "mixu-website"
 kind = "web"
-lang = "md"
-role = "landing page copy and site (deferred until M0 content is stable)"
+lang = "ts/bun"
+role = "landing page: bun-only static site plus Chinese copy"
 visibility = "public"
 docs = "mixu-docs"
 
