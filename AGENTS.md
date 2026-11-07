@@ -9,6 +9,24 @@
   claims must map to a milestone in `docs/roadmap-and-decisions.md`; if they do
   not, they do not go on the page.
 
+## Toolchain: bun only (normative)
+
+- **One** package manager and build tool: `bun`. No webpack, no vite, no React
+  until a component model is genuinely justified, no separate ESLint, Prettier or
+  Biome packages.
+- Prefer bun built-ins: `bun build`, `bun test`, `bun --hot`. The TypeScript
+  compiler is used only for `--noEmit` type checking.
+- Dependencies stay dev-only: `typescript`, `@types/bun`. A runtime dependency
+  needs a decision, not a convenience.
+- `just check` runs markdownlint, then `bun install`, `bun run typecheck`,
+  `bun test`, `bun run build`.
+- **Known host defect:** on the authoring machine `bun`/`bunx` segfault (rc=139)
+  and print nothing, which looks like success. A silent bun run is a failure,
+  never a pass. CI (`oven-sh/setup-bun`) is the authority; `just node-typecheck`
+  is the local fallback for types only. `bun.lock` is not committed yet because
+  it cannot be generated here; switch the gate to `--frozen-lockfile` in the same
+  change that adds it.
+
 ## Copy rules
 
 1. **Honest status.** The product is documentation-first; say so. Never use
@@ -33,7 +51,8 @@
 ## Gates
 
 ```sh
-just check     # markdownlint (copy is reviewed like code)
+just check          # markdownlint + bun(typecheck/test/build)
+just node-typecheck # local fallback when bun segfaults here
 ```
 
 ## CarryCtx

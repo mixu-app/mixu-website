@@ -50,8 +50,8 @@ just node-typecheck # 本机 bun 坏掉时的类型检查回退
 
 ## 相关文档
 
-- 定位：[mixu-docs · 产品简报](https://github.com/mixu-app/mixu-docs/blob/main/docs/product/product-brief.md)
-- 开源边界：[mixu-docs · 开源策略](https://github.com/mixu-app/mixu-docs/blob/main/docs/open-source-strategy.md)
+- 定位：`mixu-docs`（内部私有仓库）
+- 开源边界：`mixu-docs`（内部私有仓库）
 
 ## English
 
