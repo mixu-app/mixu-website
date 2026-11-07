@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mixu.app/website/v1/site.schema.json",
+  "title": "SiteConfig",
+  "description": "Configuration schema for website SEO metadata, canonical domains, and i18n locales.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "siteUrl",
+    "defaultLocale",
+    "supportedLocales",
+    "locales",
+    "sitemap"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "URI of the JSON Schema describing this document."
+    },
+    "siteUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical base URL of the website without trailing slash."
+    },
+    "defaultLocale": {
+      "type": "string",
+      "description": "Default locale identifier."
+    },
+    "supportedLocales": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of supported locale codes."
+    },
+    "ogImage": {
+      "type": "string",
+      "description": "Relative path to canonical OpenGraph image."
+    },
+    "twitterCard": {
+      "type": "string",
+      "enum": ["summary", "summary_large_image", "app", "player"],
+      "description": "Twitter card type."
+    },
+    "locales": {
+      "type": "object",
+      "description": "Locale-specific metadata dictionary keyed by locale code.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["ogLocale", "siteName", "tagline", "pages"],
+        "properties": {
+          "ogLocale": { "type": "string" },
+          "siteName": { "type": "string" },
+          "tagline": { "type": "string" },
+          "subhead": { "type": "string" },
+          "pages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["path", "title", "description"],
+              "properties": {
+                "path": { "type": "string" },
+                "title": { "type": "string" },
+                "description": { "type": "string" },
+                "heading": { "type": "string" },
+                "subhead": { "type": "string" },
+                "calloutTitle": { "type": "string" },
+                "calloutBody": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sitemap": {
+      "type": "object",
+      "required": ["entries"],
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path"],
+            "properties": {
+              "path": { "type": "string" },
+              "changefreq": {
+                "type": "string",
+                "enum": ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]
+              },
+              "priority": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
