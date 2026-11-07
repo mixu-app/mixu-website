@@ -1,0 +1,12 @@
+# mixu-website: workspace identity descriptor (mirrors workspace.toml).
+[repo]
+name = "mixu-website"
+kind = "web"
+lang = "md"
+role = "landing page copy and site (deferred until M0 content is stable)"
+visibility = "public"
+docs = "mixu-docs"
+
+[contracts.consumes]
+product-positioning = "mixu-docs: docs/product/product-brief.md"
+open-source-boundary = "mixu-docs: docs/open-source-strategy.md"

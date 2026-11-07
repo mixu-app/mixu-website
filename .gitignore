@@ -1,0 +1,9 @@
+/node_modules/
+/dist/
+/.astro/
+/site/
+/_site/
+/.worktrees/
+.DS_Store
+.carryctx/config.local.toml
+.worktrees/
