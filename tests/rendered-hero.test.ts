@@ -83,18 +83,27 @@ describe("rendered hero content", () => {
   });
 
   test("built page (dist/index.html) contains verbatim hero copy", async () => {
+    const indexPath = resolve(import.meta.dir, "../src/index.html");
     const distPath = resolve(import.meta.dir, "../dist/index.html");
-    if (existsSync(distPath)) {
-      const distHtml = await Bun.file(distPath).text();
-      expect(distHtml).toContain("记住每一个线索，推理留给你。");
-      expect(distHtml).toContain("只显示你读过的。");
-      expect(distHtml).toContain("点一下，回到原句。");
-      expect(distHtml).toContain("不登录也能读完一本书。");
-      expect(distHtml).toContain("人物多、时间线绕、隔几天再读就忘了\"这人是谁\"的长篇推理读者。");
-      expect(distHtml).toContain("想要\"AI 直接告诉我凶手\"的人：这是产品原则之外的功能。");
-      expect(distHtml).toContain("看看它怎么工作");
-      expect(distHtml).toContain("在 GitHub 上看客户端");
-      expect(distHtml).toContain("不等于数学保证");
+
+    if (!existsSync(distPath)) {
+      await Bun.build({
+        entrypoints: [indexPath],
+        outdir: resolve(import.meta.dir, "../dist"),
+        minify: true,
+      });
     }
+
+    expect(existsSync(distPath)).toBe(true);
+    const distHtml = await Bun.file(distPath).text();
+    expect(distHtml).toContain("记住每一个线索，推理留给你。");
+    expect(distHtml).toContain("只显示你读过的。");
+    expect(distHtml).toContain("点一下，回到原句。");
+    expect(distHtml).toContain("不登录也能读完一本书。");
+    expect(distHtml).toContain("人物多、时间线绕、隔几天再读就忘了\"这人是谁\"的长篇推理读者。");
+    expect(distHtml).toContain("想要\"AI 直接告诉我凶手\"的人：这是产品原则之外的功能。");
+    expect(distHtml).toContain("看看它怎么工作");
+    expect(distHtml).toContain("在 GitHub 上看客户端");
+    expect(distHtml).toContain("不等于数学保证");
   });
 });

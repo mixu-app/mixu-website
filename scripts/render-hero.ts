@@ -151,7 +151,7 @@ export function renderHeroHtml(data: HeroData): string {
         </div>
       </header>
 
-      <section class="section values">
+      <section id="demo" class="section values">
         <h2>三条价值</h2>
         ${data.valuesHtml}
       </section>
