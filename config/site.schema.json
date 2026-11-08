@@ -51,6 +51,10 @@
           "siteName": { "type": "string" },
           "tagline": { "type": "string" },
           "subhead": { "type": "string" },
+          "ui": {
+            "type": "object",
+            "description": "Localized UI dictionaries for hero, navigation, download, and error pages."
+          },
           "pages": {
             "type": "object",
             "additionalProperties": {

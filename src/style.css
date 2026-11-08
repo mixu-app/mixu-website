@@ -170,6 +170,34 @@ pre code {
   margin-bottom: 2rem;
 }
 
+.lang-switcher {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang-switcher a {
+  color: var(--lead);
+  text-decoration: none;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  transition: color 120ms ease;
+}
+
+.lang-switcher a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.lang-switcher a.active,
+.lang-switcher a[aria-current="page"] {
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--accent);
+}
+
 .nav-link {
   display: inline-block;
   font-size: 0.95rem;

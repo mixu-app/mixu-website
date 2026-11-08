@@ -86,13 +86,11 @@ describe("rendered hero content", () => {
     const indexPath = resolve(import.meta.dir, "../src/index.html");
     const distPath = resolve(import.meta.dir, "../dist/index.html");
 
-    if (!existsSync(distPath)) {
-      await Bun.build({
-        entrypoints: [indexPath],
-        outdir: resolve(import.meta.dir, "../dist"),
-        minify: true,
-      });
-    }
+    await Bun.build({
+      entrypoints: [indexPath],
+      outdir: resolve(import.meta.dir, "../dist"),
+      minify: true,
+    });
 
     expect(existsSync(distPath)).toBe(true);
     const distHtml = await Bun.file(distPath).text();
