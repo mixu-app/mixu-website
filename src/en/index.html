@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mixu — Remember every clue. The deduction is yours.</title>
+    <meta
+      name="description"
+      content="Mixu is an offline-first mystery reader: an interactive case board that unfolds as you read, spoiler-free."
+    />
+    <link rel="canonical" href="https://mixu.app/en/" />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Mixu — Remember every clue. The deduction is yours." />
+    <meta
+      property="og:description"
+      content="Mixu is an offline-first mystery reader: an interactive case board that unfolds as you read, spoiler-free."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://mixu.app/og.png" />
+    <meta property="og:url" content="https://mixu.app/en/" />
+    <meta property="og:site_name" content="Mixu" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mixu — Remember every clue. The deduction is yours." />
+    <meta
+      name="twitter:description"
+      content="Mixu is an offline-first mystery reader: an interactive case board that unfolds as you read, spoiler-free."
+    />
+    <meta name="twitter:image" content="https://mixu.app/og.png" />
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-small.svg" type="image/svg+xml" sizes="16x16" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <nav class="lang-switcher" aria-label="Language">
+        <a href="/">中文</a>
+        <a href="/en/" class="active" aria-current="page">English</a>
+        <a href="/ja/">日本語</a>
+      </nav>
+      <header class="hero-header">
+        <img class="mark" src="../logo-mark.svg" alt="Mixu" width="56" height="56" />
+        <h1>Remember every clue. The deduction is yours.</h1>
+        <p class="subhead">Mixu is an offline-first mystery reader. It arranges <strong>what you have already read</strong> into an interactive case board—characters, locations, events, and conflicting testimonies, all linking back to the original text. It never spoils, never guesses the culprit, and never deduces for you.</p>
+        <div class="cta-group">
+          <a class="cta cta-primary" href="#demo"><span class="cta-label">See how it works</span> <span class="cta-hint">(jump to 3-step demo)</span></a>
+        <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">View client on GitHub</span> <span class="cta-hint">(open-source client repo)</span></a>
+        </div>
+      </header>
+
+      <section id="demo" class="section values">
+        <h2>Core Values</h2>
+        <ol>
+<li><strong>Shows only what you've read.</strong> The case board filters strictly by your reading progress: on Chapter 10, you won't see an identity revealed only in Chapter 14.</li>
+<li><strong>One tap back to the original text.</strong> Every entry anchors to the source sentence—jump back and forth without losing your place.</li>
+<li><strong>Read an entire book without signing in.</strong> Imports, reading, bookmarks, notes, and downloaded graph packs are all fully offline. E-Ink devices use the exact same package, just with reduced animations.</li>
+</ol>
+      </section>
+
+      <section class="section audience">
+        <h2>Who It Is For</h2>
+        <ul>
+<li>Mystery readers tackling complex novels with vast casts and twisted timelines who forget "who was that again?" after a few days.</li>
+<li>Readers who love taking their own notes and maintaining suspect boards.</li>
+<li>E-Ink readers who just want to finish a book in peace.</li>
+</ul>
+      </section>
+
+      <section class="section limitations">
+        <h2>Who It Is Not For (Honest Limitations)</h2>
+        <ul>
+<li>Readers wanting "AI to solve the mystery and name the culprit": this is fundamentally against our product principles.</li>
+<li>Readers seeking online web novel streaming, pirate sources, or DRM circumvention: this is not what Mixu is designed for.</li>
+</ul>
+      </section>
+
+      <footer class="footer-disclaimers note">
+        <ul>
+<li>Mixu is currently in development. This site describes design goals, not released features.</li>
+<li>"Spoiler-free" is an engineering objective: deterministic filtering based on reading progress backed by failing regression tests; it is not a mathematical guarantee.</li>
+<li>Client code is open source (Apache-2.0). Hosted sync services and graph packs are licensed separately. Book titles, brand marks, and third-party literary works are not covered by the open source license.</li>
+</ul>
+      </footer>
+      <nav class="site-links" aria-label="Navigation">
+        <a class="download-link" href="./download.html">Client Download & Verification Guide →</a>
+      </nav>
+    </main>
+    <script type="module" src="../main.ts"></script>
+  </body>
+</html>

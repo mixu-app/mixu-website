@@ -1,48 +1,48 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="{{HTML_LANG}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>谜序 Mixu — {{HERO_HEADLINE}}</title>
+    <title>{{PAGE_TITLE}}</title>
     <meta
       name="description"
-      content="谜序是一款离线优先的悬疑阅读器：按阅读进度展开的案情板，不剧透、不替你推理。"
+      content="{{PAGE_DESCRIPTION}}"
     />
-    <link rel="canonical" href="https://mixu.app/" />
+    <link rel="canonical" href="{{CANONICAL_URL}}" />
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="谜序 Mixu — {{HERO_HEADLINE}}" />
+    <meta property="og:title" content="{{PAGE_TITLE}}" />
     <meta
       property="og:description"
-      content="谜序是一款离线优先的悬疑阅读器：按阅读进度展开的案情板，不剧透、不替你推理。"
+      content="{{PAGE_DESCRIPTION}}"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://mixu.app/og.png" />
-    <meta property="og:url" content="https://mixu.app/" />
-    <meta property="og:site_name" content="谜序 Mixu" />
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:url" content="{{CANONICAL_URL}}" />
+    <meta property="og:site_name" content="{{OG_SITE_NAME}}" />
+    <meta property="og:locale" content="{{OG_LOCALE}}" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="谜序 Mixu — {{HERO_HEADLINE}}" />
+    <meta name="twitter:title" content="{{PAGE_TITLE}}" />
     <meta
       name="twitter:description"
-      content="谜序是一款离线优先的悬疑阅读器：按阅读进度展开的案情板，不剧透、不替你推理。"
+      content="{{PAGE_DESCRIPTION}}"
     />
     <meta name="twitter:image" content="https://mixu.app/og.png" />
 
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="./favicon-small.svg" type="image/svg+xml" sizes="16x16" />
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="{{ASSET_PREFIX}}/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="{{ASSET_PREFIX}}/favicon-small.svg" type="image/svg+xml" sizes="16x16" />
+    <link rel="apple-touch-icon" href="{{ASSET_PREFIX}}/apple-touch-icon.png" />
+    <link rel="stylesheet" href="{{ASSET_PREFIX}}/style.css" />
   </head>
   <body>
     <main id="app">
       <!-- HERO_CONTENT -->
-      <nav class="site-links" aria-label="页面导航">
-        <a class="download-link" href="./download.html">客户端下载与签名校验说明 →</a>
+      <nav class="site-links" aria-label="{{NAV_ARIA_LABEL}}">
+        <a class="download-link" href="{{DOWNLOAD_LINK_HREF}}">{{DOWNLOAD_LINK_TEXT}}</a>
       </nav>
     </main>
-    <script type="module" src="./main.ts"></script>
+    <script type="module" src="{{ASSET_PREFIX}}/main.ts"></script>
   </body>
 </html>

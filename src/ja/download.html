@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ダウンロードと検証 — Mixu</title>
+    <meta
+      name="description"
+      content="Mixu 公式クライアントのダウンロードとパッケージ整合性検証の手引き。"
+    />
+    <link rel="canonical" href="https://mixu.app/ja/download.html" />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="ダウンロードと検証 — Mixu" />
+    <meta
+      property="og:description"
+      content="Mixu 公式クライアントのダウンロードとパッケージ整合性検証の手引き。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://mixu.app/og.png" />
+    <meta property="og:url" content="https://mixu.app/ja/download.html" />
+    <meta property="og:site_name" content="Mixu (ミクス)" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ダウンロードと検証 — Mixu" />
+    <meta
+      name="twitter:description"
+      content="Mixu 公式クライアントのダウンロードとパッケージ整合性検証の手引き。"
+    />
+    <meta name="twitter:image" content="https://mixu.app/og.png" />
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon-small.svg" type="image/svg+xml" sizes="16x16" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <nav class="top-nav">
+        <a class="nav-link" href="./index.html">← ホームに戻る</a>
+      </nav>
+      <nav class="lang-switcher" aria-label="言語">
+        <a href="/download.html">中文</a>
+        <a href="/en/download.html">English</a>
+        <a href="/ja/download.html" class="active" aria-current="page">日本語</a>
+      </nav>
+      <img class="mark" src="../logo-mark.svg" alt="Mixu (ミクス)" width="56" height="56" />
+      <h1>クライアントダウンロード</h1>
+      <p class="intro">
+        Mixuはオフライン優先のミステリー読書アプリです。ここでは公式Androidクライアント（APK）のダウンロードと、リリース署名およびチェックサムの検証手順を提供しています。
+      </p>
+
+      <section class="callout phase-notice">
+        <h2>リリース状況</h2>
+        <p>
+          <strong>現在はドキュメント先行・開発初期段階のため、公開パッケージ（APK）はまだリリースされていません。</strong>
+        </p>
+        <p>
+          Mixuは「ドキュメント先行・仕様駆動」の原則に従っています。M0（リーダー基盤）およびM1（捜査ボード）のマイルストーン完了後、本ページにて最初の公開Alphaプレビュー版をリリース予定です。
+        </p>
+        <p>
+          オープンソースクライアントリポジトリの最新の進捗をご確認ください：<a href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">github.com/mixu-app/mixu-client</a>。
+        </p>
+      </section>
+
+      <section class="verification-section">
+        <h2>パッケージの真正性と署名検証</h2>
+        <p>
+          端末の安全性を確保し、改ざんされたビルドの実行を防ぐため、ダウンロードしたAPKをインストールする前に必ずSHA-256チェックサムと公式デジタル署名の検証を行ってください。
+        </p>
+
+        <h3>1. SHA-256 チェックサムの照合</h3>
+        <p>
+          ターミナルでダウンロードファイルのSHA-256ハッシュを計算し、公式マニフェストの値と完全に一致することを確認してください：
+        </p>
+        <p><strong>Linux / macOS：</strong></p>
+        <pre><code>sha256sum mixu-app-*.apk</code></pre>
+        <p><strong>Windows (PowerShell)：</strong></p>
+        <pre><code>Get-FileHash .\mixu-app-*.apk -Algorithm SHA256</code></pre>
+
+        <h3>2. 公式デジタル署名検証 (APK Signature Scheme)</h3>
+        <p>
+          Mixuの公式ビルドはリリース証明書を用いてAPK Signature Scheme（v2/v3）で署名されています。Android SDKの<code>apksigner</code>ツールを使用して真正性を検証できます：
+        </p>
+        <pre><code>apksigner verify --verbose mixu-app-*.apk</code></pre>
+        <p>
+          検証結果に<code>Verified using v2 scheme (APK Signature Scheme v2): true</code>（またはv3が<code>true</code>）が含まれ、証明書のフィンガープリントが公式発表のものと一致する必要があります。
+        </p>
+
+        <h3>3. 公式リリースチャネルとソースコードビルド</h3>
+        <p>
+          公式パッケージは当サイトおよび公式GitHub Releasesページ（<a href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">https://github.com/mixu-app/mixu-client</a>）でのみ配布されます。未検証のサードパーティサイトからダウンロードしないでください。クライアントのソースコードを取得し、Android Studio / Gradleでローカルビルドすることも可能です。
+        </p>
+      </section>
+
+      <p class="note">
+        「ネタバレなし」は工学的な目標です：読書進度に基づく決定論的フィルタリングと回帰テストによって担保されており、数学的な絶対保証ではありません。
+      </p>
+    </main>
+    <script type="module" src="../main.ts"></script>
+  </body>
+</html>
