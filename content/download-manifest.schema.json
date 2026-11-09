@@ -81,6 +81,20 @@
               "type": "string"
             },
             "description": "Chinese release notes highlighting changes in this build."
+          },
+          "changelog_en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "English release notes highlighting changes in this build."
+          },
+          "changelog_ja": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Japanese release notes highlighting changes in this build."
           }
         }
       }

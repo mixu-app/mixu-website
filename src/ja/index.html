@@ -38,20 +38,107 @@
   </head>
   <body>
     <main id="app">
-      <nav class="lang-switcher" aria-label="言語">
+      <div class="site-topbar">
+        <a class="brand-lockup" href="./index.html">
+          <img class="mark" src="../logo-mark.svg" alt="Mixu (ミクス)" width="40" height="40" />
+          <span class="brand-name">Mixu (ミクス)</span>
+        </a>
+        <div class="topbar-actions">
+          <nav class="topbar-nav" aria-label="Primary">
+            <a href="#showcase">捜査ボード実演</a>
+            <a href="#demo">3つの価値</a>
+            <a class="topbar-download-pill" href="./download.html">v0.0.1 ダウンロード</a>
+          </nav>
+          <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink モード</button>
+          <nav class="lang-switcher" aria-label="言語">
         <a href="/">中文</a>
         <a href="/en/">English</a>
         <a href="/ja/" class="active" aria-current="page">日本語</a>
       </nav>
+        </div>
+      </div>
+
       <header class="hero-header">
-        <img class="mark" src="../logo-mark.svg" alt="Mixu (ミクス)" width="56" height="56" />
+        <div class="hero-badge-row">
+          <a class="release-pill" href="./download.html">
+            <span class="release-dot" aria-hidden="true"></span>
+            <span>v0.0.1 Alpha · Android APK 公開中</span>
+          </a>
+        </div>
         <h1>すべての手がかりを記録し、推理はあなたに。</h1>
         <p class="subhead">Mixuはオフライン優先のミステリー読書アプリです。<strong>あなたがすでに読んだ内容</strong>を整理し、クリック可能な捜査ボードを展開します——登場人物、場所、事件、食い違う証言のすべてから原文へジャンプできます。ネタバレせず、犯人を推測せず、あなたに代わって推理することもありません。</p>
         <div class="cta-group">
           <a class="cta cta-primary" href="#demo"><span class="cta-label">仕組みを見る</span> <span class="cta-hint">（3ステップのデモへ）</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">GitHub でクライアントを見る</span> <span class="cta-hint">（公開クライアントリポジトリ）</span></a>
         </div>
+        <div class="hero-quick-download">
+          <a href="./download.html">v0.0.1 APK をダウンロード（SHA-256 署名検証済）→</a>
+        </div>
       </header>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>読書進度連動・捜査ボードプレビュー</h2>
+          <p class="showcase-sub">読書進度を切り替えると、知識ホライズン投影 P(G, h) が未来の章のネタバレをどのように遮断するか体験できます。</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="読書進度連動・捜査ボードプレビュー">
+          <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
+            第2章 · 15%（館への到着）
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
+            第8章 · 48%（アリバイの矛盾）
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
+            第12章 · 72%（時計塔の証言）
+          </button>
+        </div>
+
+        <div class="caseboard-stage" id="horizon-board" data-active-step="0">
+          <div class="firewall-banner">
+            <span class="firewall-tag">ネタバレ防止ファイアウォール P(G, h)</span>
+            <span class="firewall-desc" id="firewall-status-text">現在の読書位置より先の14ノード・29エッジを決定論的に遮断中</span>
+          </div>
+
+          <div class="caseboard-grid">
+            <article class="clue-node status-observed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-observed">OBSERVED</span>
+                <span class="clue-locus">OBSERVED · 第1章 第4段落</span>
+              </div>
+              <h3>リン・シェン（記録係）</h3>
+              <p class="clue-quote">「21時15分、真鍮の鍵を持って書斎へ入った。」</p>
+            </article>
+
+            <article class="clue-node status-claimed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-claimed">CLAIMED</span>
+                <span class="clue-locus">CLAIMED · 第2章 第19段落</span>
+              </div>
+              <h3>スー・ワン（相続人）</h3>
+              <p class="clue-quote">「21時から22時の間、温室から一歩も出ていないと主張。」</p>
+            </article>
+
+            <article class="clue-node status-contradicted" data-min-step="1">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
+                <span class="clue-locus">CONTRADICTED · 第8章 第11段落</span>
+              </div>
+              <h3>止まった懐中時計 (21:38)</h3>
+              <p class="clue-quote">「温室の格子下で発見。スー・ワンの不在証明と矛盾する。」</p>
+            </article>
+
+            <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
+                <span class="clue-locus">P(G, h)</span>
+              </div>
+              <h3>[未解放] 第24章 地下室の真相</h3>
+              <p class="clue-quote">ホライズンフィルタにより遮断：初出位置 (第24章) &gt; 現在の読書位置</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section id="demo" class="section values">
         <h2>3つの価値</h2>
@@ -62,21 +149,58 @@
 </ol>
       </section>
 
-      <section class="section audience">
-        <h2>対象読者</h2>
-        <ul>
+      <div class="dual-section-grid">
+        <section class="section audience">
+          <h2>対象読者</h2>
+          <ul>
 <li>登場人物が多く、タイムラインが入り組んでいて、数日空くと「この人誰だっけ？」となりがちな長編ミステリーの読者。</li>
 <li>自分でメモを取り、容疑者リストを作ることが好きな読者。</li>
 <li>電子ペーパー端末で、静かに一冊の本を読み終えたい読者。</li>
 </ul>
-      </section>
+        </section>
 
-      <section class="section limitations">
-        <h2>対象外の方（誠実な説明）</h2>
-        <ul>
+        <section class="section limitations">
+          <h2>対象外の方（誠実な説明）</h2>
+          <ul>
 <li>「AIに犯人をズバリ教えてほしい」方：これはプロダクトの設計原則に反する機能です。</li>
 <li>オンラインでのストリーミング読書、海賊版のダウンロード、DRMの回避を求める方：これは本リーダーの目的ではありません。</li>
 </ul>
+        </section>
+      </div>
+
+      <section class="section architecture-section">
+        <h2>オープンコア・アーキテクチャ</h2>
+        <p class="showcase-sub">Kotlin Multiplatform 製。物語グラフモデル、ネタバレ防止フィルタ、E-Ink レンダラはオープンソースで検証可能です。</p>
+        <div class="arch-grid">
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-client</strong>
+              <span class="license-pill">MPL-2.0</span>
+            </div>
+            <p>Android / KMP オフライン優先 EPUB・TXT リーダー、ローカル SQLite、捜査ボード UI。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-graph &amp; mixu-spoiler</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>時系列ナラティブグラフと決定論的知識ホライズン投影エンジン P(G, h)。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-renderer</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>Compose Canvas グラフレイアウトと E-Ink 電子ペーパー向け高コントラスト描画。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-contracts &amp; fixtures</strong>
+              <span class="license-pill">Apache-2.0 / CC0</span>
+            </div>
+            <p>JSON Schema グラフパック仕様、HTTP 契約、および CC0 ネタバレ回帰テストコーパス。</p>
+          </a>
+        </div>
       </section>
 
       <footer class="footer-disclaimers note">
@@ -85,6 +209,15 @@
 <li>「ネタバレなし」は工学的な目標です：読書進度に基づく決定論的フィルタリングと回帰テストによって担保されており、数学的な絶対保証ではありません。</li>
 <li>クライアントコードはオープンソース（Apache-2.0）です。ホスト同期サービスおよびグラフパックは別個の規約となります。書籍タイトル、ブランド、第三者の著作物はオープンソースライセンスの対象外です。</li>
 </ul>
+        <div class="footer-meta-links">
+          <span>mixuread.com · Open-Core Mystery Reader</span>
+          <span class="footer-sep">·</span>
+          <a href="../privacy.html">プライバシーポリシー</a>
+          <span class="footer-sep">·</span>
+          <a href="../terms.html">利用規約</a>
+          <span class="footer-sep">·</span>
+          <a href="https://github.com/mixu-app/mixu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </footer>
       <nav class="site-links" aria-label="ナビゲーション">
         <a class="download-link" href="./download.html">クライアントのダウンロードと検証手順 →</a>

@@ -5,6 +5,7 @@ import {
   escapeHtml,
   renderDownloadPage,
   renderReleasesSection,
+  run as runDownload,
   type DownloadManifest,
   type Release,
 } from "../scripts/render-download.ts";
@@ -32,35 +33,45 @@ describe("download manifest and schema", () => {
     expect(releaseItemProps).toHaveProperty("changelog_zh");
   });
 
-  test("initial manifest is empty during pre-release phase", () => {
+  test("manifest contains official v0.0.1 alpha release", () => {
     const manifest = JSON.parse(readFileSync(manifestPath, "utf-8")) as DownloadManifest;
     expect(manifest.schema_version).toBeGreaterThanOrEqual(1);
     expect(Array.isArray(manifest.releases)).toBe(true);
-    expect(manifest.releases.length).toBe(0);
+    expect(manifest.releases.length).toBeGreaterThanOrEqual(1);
+    expect(manifest.releases[0]?.version).toBe("0.0.1");
+    expect(manifest.releases[0]?.sha256).toBe(
+      "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb"
+    );
   });
 });
 
 describe("download page content and phase honesty", () => {
-  const html = readFileSync(sourceHtmlPath, "utf-8");
+  beforeAll(() => {
+    runDownload();
+  });
 
-  test("states the product phase honestly without fake builds", () => {
-    expect(html).toContain("当前处于文档与开发起步阶段，尚未发布公开安装包 (APK)");
-    expect(html).not.toContain("class=\"release-card\"");
-    expect(html).not.toContain(".apk\"");
+  test("renders the official v0.0.1 release card with SHA-256 checksum", () => {
+    const html = readFileSync(sourceHtmlPath, "utf-8");
+    expect(html).toContain('class="release-card"');
+    expect(html).toContain("v0.0.1");
+    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
   });
 
   test("provides link back to main page and client repository", () => {
-    expect(html).toContain("href=\"./index.html\"");
+    const html = readFileSync(sourceHtmlPath, "utf-8");
+    expect(html).toContain('href="./index.html"');
     expect(html).toContain("https://github.com/mixu-app/mixu-client");
   });
 
   test("includes visual branding elements", () => {
+    const html = readFileSync(sourceHtmlPath, "utf-8");
     expect(html).toContain("logo-mark.svg");
     expect(html).toContain("style.css");
     expect(html).toContain("客户端下载");
   });
 
   test("documents signature and checksum verification process", () => {
+    const html = readFileSync(sourceHtmlPath, "utf-8");
     expect(html).toContain("SHA-256 校验和");
     expect(html).toContain("sha256sum");
     expect(html).toContain("Get-FileHash");
@@ -126,7 +137,8 @@ describe("built distribution artifact", () => {
   test("dist/download.html exists and contains bundled content", () => {
     expect(existsSync(distHtmlPath)).toBe(true);
     const distHtml = readFileSync(distHtmlPath, "utf-8");
-    expect(distHtml).toContain("当前处于文档与开发起步阶段，尚未发布公开安装包 (APK)");
+    expect(distHtml).toContain("v0.0.1");
+    expect(distHtml).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
     expect(distHtml).toContain("sha256sum");
     expect(distHtml).toContain("apksigner");
     expect(distHtml).toContain("https://github.com/mixu-app/mixu-client");

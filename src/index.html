@@ -38,13 +38,33 @@
   </head>
   <body>
     <main id="app">
-      <nav class="lang-switcher" aria-label="Language">
+      <div class="site-topbar">
+        <a class="brand-lockup" href="./index.html">
+          <img class="mark" src="./logo-mark.svg" alt="谜序 Mixu" width="40" height="40" />
+          <span class="brand-name">谜序 Mixu</span>
+        </a>
+        <div class="topbar-actions">
+          <nav class="topbar-nav" aria-label="Primary">
+            <a href="#showcase">案情板演示</a>
+            <a href="#demo">核心价值</a>
+            <a class="topbar-download-pill" href="./download.html">下载 v0.0.1</a>
+          </nav>
+          <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink 墨水屏模式</button>
+          <nav class="lang-switcher" aria-label="Language">
         <a href="/" class="active" aria-current="page">中文</a>
         <a href="/en/">English</a>
         <a href="/ja/">日本語</a>
       </nav>
+        </div>
+      </div>
+
       <header class="hero-header">
-        <img class="mark" src="./logo-mark.svg" alt="谜序 Mixu" width="56" height="56" />
+        <div class="hero-badge-row">
+          <a class="release-pill" href="./download.html">
+            <span class="release-dot" aria-hidden="true"></span>
+            <span>v0.0.1 Alpha · Android 签名安装包已发布</span>
+          </a>
+        </div>
         <h1>记住每一个线索，推理留给你。</h1>
         <p class="subhead">谜序是一款离线优先的悬疑阅读器。它把<strong>你已经读到的内容</strong>整理成一张可点击的案情板——
 人物、地点、事件、各执一词的证词，都能跳回原文。它不剧透，不猜凶手，也不替你推理。</p>
@@ -52,7 +72,74 @@
           <a class="cta cta-primary" href="#demo"><span class="cta-label">看看它怎么工作</span> <span class="cta-hint">（跳到 3 步演示）</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">在 GitHub 上看客户端</span> <span class="cta-hint">（公开客户端仓库）</span></a>
         </div>
+        <div class="hero-quick-download">
+          <a href="./download.html">下载 v0.0.1 客户端 APK（附 SHA-256 签名校验）→</a>
+        </div>
       </header>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>按阅读进度展开的案情板（交互演示）</h2>
+          <p class="showcase-sub">点击切换下方阅读进度游标，直观体验确定性知识视界投影 P(G, h) 如何随章节解锁线索、标记证言矛盾并拦截未来剧透。</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="按阅读进度展开的案情板（交互演示）">
+          <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
+            第 2 章 · 15%（初抵雾庄）
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
+            第 8 章 · 48%（不在场证明破裂）
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
+            第 12 章 · 72%（钟楼密道浮现）
+          </button>
+        </div>
+
+        <div class="caseboard-stage" id="horizon-board" data-active-step="0">
+          <div class="firewall-banner">
+            <span class="firewall-tag">防剧透防火墙 P(G, h)</span>
+            <span class="firewall-desc" id="firewall-status-text">已确定性拦截当前进度之后的 14 个未来节点与 29 条关系边</span>
+          </div>
+
+          <div class="caseboard-grid">
+            <article class="clue-node status-observed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-observed">OBSERVED</span>
+                <span class="clue-locus">OBSERVED · 第 1 章 第 4 段</span>
+              </div>
+              <h3>林深（档案管理员）</h3>
+              <p class="clue-quote">“21:15 持黄铜账本钥匙进入书房，袖口沾有冷杉树脂。”</p>
+            </article>
+
+            <article class="clue-node status-claimed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-claimed">CLAIMED</span>
+                <span class="clue-locus">CLAIMED · 第 2 章 第 19 段</span>
+              </div>
+              <h3>苏晚（庄园继承人）</h3>
+              <p class="clue-quote">“自称 21:00 至 22:00 一直在玻璃花房修剪白山茶，未曾离开。”</p>
+            </article>
+
+            <article class="clue-node status-contradicted" data-min-step="1">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
+                <span class="clue-locus">CONTRADICTED · 第 8 章 第 11 段</span>
+              </div>
+              <h3>停摆的怀表 (21:38)</h3>
+              <p class="clue-quote">“在花房排水格栅下寻获，表壳刻痕与苏晚的证言直接矛盾。”</p>
+            </article>
+
+            <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
+                <span class="clue-locus">P(G, h)</span>
+              </div>
+              <h3>[已锁止] 第 24 章 地下酒窖真相</h3>
+              <p class="clue-quote">已被知识视界过滤器拦截：首次揭示偏移量 (第 24 章) &gt; 当前阅读位置</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section id="demo" class="section values">
         <h2>三条价值</h2>
@@ -64,21 +151,58 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 </ol>
       </section>
 
-      <section class="section audience">
-        <h2>适合谁</h2>
-        <ul>
+      <div class="dual-section-grid">
+        <section class="section audience">
+          <h2>适合谁</h2>
+          <ul>
 <li>人物多、时间线绕、隔几天再读就忘了"这人是谁"的长篇推理读者。</li>
 <li>喜欢自己做笔记、自己列嫌疑人表的读者。</li>
 <li>用墨水屏、只想安静读完一本书的读者。</li>
 </ul>
-      </section>
+        </section>
 
-      <section class="section limitations">
-        <h2>不适合谁（诚实说明）</h2>
-        <ul>
+        <section class="section limitations">
+          <h2>不适合谁（诚实说明）</h2>
+          <ul>
 <li>想要"AI 直接告诉我凶手"的人：这是产品原则之外的功能。</li>
 <li>想要在线阅读、下载书源、绕过 DRM 的人：这不是阅读器的定位。</li>
 </ul>
+        </section>
+      </div>
+
+      <section class="section architecture-section">
+        <h2>开源核心架构 (Open-Core)</h2>
+        <p class="showcase-sub">基于 Kotlin Multiplatform 构建。时序叙事图谱、防剧透防火墙与墨水屏渲染引擎全部开源可审计，本地离线即可完整运行。</p>
+        <div class="arch-grid">
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-client</strong>
+              <span class="license-pill">MPL-2.0</span>
+            </div>
+            <p>Android / KMP 离线优先阅读器，支持本地 EPUB/TXT 导入、案情板交互与原文回跳。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-graph &amp; mixu-spoiler</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>时序叙事属性图模型与确定性知识视界投影算子 P(G, h)。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-renderer</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>Compose Canvas 案情板布局引擎，内置 1-bit E-Ink 墨水屏高对比度无动画策略。</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-contracts &amp; fixtures</strong>
+              <span class="license-pill">Apache-2.0 / CC0</span>
+            </div>
+            <p>JSON Schema 图谱包契约、HTTP 协议规范与 CC0 零版权防剧透回归测试语料库。</p>
+          </a>
+        </div>
       </section>
 
       <footer class="footer-disclaimers note">
@@ -87,6 +211,15 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 <li>「不剧透」是工程目标：按阅读进度做确定性过滤，并有可失败的回归测试；它不等于数学保证。</li>
 <li>客户端代码开源（Apache-2.0），托管服务与图库另计；书名、品牌与第三方图书内容不在开源许可内。</li>
 </ul>
+        <div class="footer-meta-links">
+          <span>mixuread.com · 谜序 Mixu 悬疑推理伴读工具</span>
+          <span class="footer-sep">·</span>
+          <a href="./privacy.html">隐私政策</a>
+          <span class="footer-sep">·</span>
+          <a href="./terms.html">服务条款</a>
+          <span class="footer-sep">·</span>
+          <a href="https://github.com/mixu-app/mixu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </footer>
       <nav class="site-links" aria-label="页面导航">
         <a class="download-link" href="./download.html">客户端下载与签名校验说明 →</a>

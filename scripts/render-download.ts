@@ -19,6 +19,8 @@ export interface Release {
   sha256: string;
   min_sdk: number;
   changelog_zh: string[];
+  changelog_en?: string[];
+  changelog_ja?: string[];
 }
 
 export interface DownloadManifest {
@@ -75,7 +77,13 @@ export function renderReleasesSection(
 
   const items = releases
     .map((rel) => {
-      const changelogItems = rel.changelog_zh
+      const notes =
+        locale === "en"
+          ? (rel.changelog_en ?? rel.changelog_zh)
+          : locale === "ja"
+            ? (rel.changelog_ja ?? rel.changelog_zh)
+            : rel.changelog_zh;
+      const changelogItems = notes
         .map((item) => `            <li>${escapeHtml(item)}</li>`)
         .join("\n");
 
