@@ -128,7 +128,7 @@ export function parseHeroMarkdown(source: string): HeroData {
         isPrimary,
         label,
         hint,
-        href: isPrimary ? "#gallery" : "https://github.com/mixu-app/mixu-client",
+        href: isPrimary ? "#showcase" : "https://github.com/mixu-app/mixu-client",
       });
     }
   }
@@ -169,16 +169,43 @@ interface ScreenshotItem {
   description: string;
 }
 
+interface HeroQuickTab {
+  id: string;
+  label: string;
+  imageFile: string;
+  caption: string;
+}
+
+interface MoreFeatureItem {
+  title: string;
+  desc: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 interface LocalizedLandingCopy {
   navGallery: string;
   navShowcase: string;
   navFeatures: string;
+  navFaq: string;
   navDownload: string;
   einkToggleLabel: string;
   releaseBadge: string;
-  quickDownloadText: string;
-  heroArtCaption: string;
-  heroPreviewCaption: string;
+  rotatePrefix: string;
+  rotateWords: string[];
+  downloadNowBtn: string;
+  githubStarNote: string;
+  heroQuickTabs: HeroQuickTab[];
+  pillarsSubtitle: string;
+  pillar1Title: string;
+  pillar1Desc: string;
+  pillar2Title: string;
+  pillar2Desc: string;
+  pillar3Title: string;
+  pillar3Desc: string;
   valArt1Label: string;
   valArt2Label: string;
   valArt3Label: string;
@@ -213,16 +240,20 @@ interface LocalizedLandingCopy {
   node3Quote: string;
   node4LockedTitle: string;
   node4LockedReason: string;
-  highlightsHeading: string;
-  highlightsSubtitle: string;
-  hl1Title: string;
-  hl1Desc: string;
-  hl2Title: string;
-  hl2Desc: string;
-  hl3Title: string;
-  hl3Desc: string;
-  hl4Title: string;
-  hl4Desc: string;
+  moreFeaturesHeading: string;
+  moreFeaturesSubtitle: string;
+  moreFeatures: MoreFeatureItem[];
+  mobileSectionTitle: string;
+  mobileSectionDesc: string;
+  mobileSectionCta: string;
+  faqHeading: string;
+  faqs: FaqItem[];
+  faqMoreTitle: string;
+  faqMoreSub: string;
+  copyBtnText: string;
+  copiedBtnText: string;
+  footerCtaTitle: string;
+  footerCtaSub: string;
   privacyLinkText: string;
   termsLinkText: string;
   contactLabel: string;
@@ -232,22 +263,72 @@ interface LocalizedLandingCopy {
 function getLandingCopy(locale: string): LocalizedLandingCopy {
   if (locale === "en") {
     return {
-      navGallery: "Screenshots",
+      navGallery: "Features",
       navShowcase: "Interactive Demo",
-      navFeatures: "Core Values",
+      navFeatures: "Why Mixu",
+      navFaq: "FAQ",
       navDownload: "Download v0.0.1",
       einkToggleLabel: "E-Ink Mode",
-      releaseBadge: "v0.0.1 Alpha · Android APK Available",
-      quickDownloadText: "Download v0.0.1 APK (Verified Package) →",
-      heroArtCaption: "Atmospheric Mystery Companion: Read the book, unfold the CaseBoard on your E-Ink tablet or phone",
-      heroPreviewCaption: "Live capture: 2D Interactive CaseBoard & Reading Progress Rewind Slider",
+      releaseBadge: "v0.0.1 Alpha · Android & E-Ink APK Available",
+      rotatePrefix: "With",
+      rotateWords: [
+        "Spoiler-Free Lock",
+        "2D CaseBoard",
+        "One-Tap Source Jump",
+        "1-Bit E-Ink Mode",
+        "Mystery Glossary",
+      ],
+      downloadNowBtn: "Download Now",
+      githubStarNote: "Open-core on GitHub — Star us to support spoiler-free reading",
+      heroQuickTabs: [
+        {
+          id: "tab-caseboard",
+          label: "2D CaseBoard",
+          imageFile: "caseboard-2d.png",
+          caption: "Live 2D suspect & clue board with reading-progress rewind slider",
+        },
+        {
+          id: "tab-reader",
+          label: "Dual-Column Reader",
+          imageFile: "reader-spread.png",
+          caption: "Book-grade dual-column spread pagination for tablets & wide screens",
+        },
+        {
+          id: "tab-claims",
+          label: "Alibi & Testimony Check",
+          imageFile: "caseboard-claims.png",
+          caption: "Every witness testimony links directly back to the source sentence",
+        },
+        {
+          id: "tab-dict",
+          label: "Mystery Dictionary",
+          imageFile: "dictionary-translate.png",
+          caption: "Offline mystery terminology lookup and dual-engine paragraph translation",
+        },
+        {
+          id: "tab-desk",
+          label: "Detective Study",
+          imageFile: "hero-mystery-desk.jpg",
+          caption: "Read on paper or E-Ink while keeping every suspect and alibi organized",
+        },
+      ],
+      pillarsSubtitle: "An Upgraded Reading Experience for Long-Form Mystery",
+      pillar1Title: "Spoiler-Free Progress Lock",
+      pillar1Desc:
+        "Your CaseBoard strictly mirrors your current reading position. Read up to Chapter 10 and twists from Chapter 14 stay completely invisible.",
+      pillar2Title: "One-Tap Source Jump",
+      pillar2Desc:
+        "Every character profile, alibi, and piece of evidence links back to the exact sentence in the book—verify clues and return in one tap.",
+      pillar3Title: "Offline-First & E-Ink Ready",
+      pillar3Desc:
+        "Import EPUB/TXT books, annotate, look up terms, and explore your CaseBoard 100% offline across phones, tablets, and E-Ink readers.",
       valArt1Label: "01 · Spoiler-Free Reading Horizon",
       valArt2Label: "02 · One-Tap Jump to Source Sentence",
       valArt3Label: "03 · Offline-First & E-Ink Ready",
-      galleryTitle: "Real App Screenshots & Feature Tour",
+      galleryTitle: "Our Features",
       gallerySubtitle:
-        "See how Mixu helps you track characters, verify alibis, look up mystery terminology, and read comfortably across tablets, phones, and E-Ink devices.",
-      filterAll: "All Features (8)",
+        "Explore real app screenshots in framed views—click any window below to inspect full-resolution details.",
+      filterAll: "All Screenshots (8)",
       filterCaseboard: "CaseBoard & Clues (4)",
       filterReader: "Reading & Themes (3)",
       filterTools: "Dictionary & Translation (1)",
@@ -258,19 +339,19 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-caseboard-2d",
           category: "caseboard",
           imageFile: "caseboard-2d.png",
-          badge: "CaseBoard · 2D Relationship Map",
+          badge: "CaseBoard · 2D Map",
           title: "Interactive 2D Suspect & Clue Relationship Board",
           description:
-            "Automatically organizes characters, locations, and key evidence from chapters you have already read. Drag nodes freely and rewind the top progress slider to review earlier chapters spoiler-free.",
+            "Automatically organizes characters, locations, and key evidence from chapters you have already read. Drag nodes freely and rewind the top progress slider spoiler-free.",
         },
         {
           id: "shot-caseboard-hierarchy",
           category: "caseboard",
           imageFile: "caseboard-hierarchy.png",
-          badge: "CaseBoard · Hierarchy View",
+          badge: "CaseBoard · Hierarchy",
           title: "One-Tap Hierarchical Topology View",
           description:
-            "Switch instantly from a force-directed web to a structured top-down hierarchy—ideal for untangling sprawling family trees, manor households, and command chains.",
+            "Switch instantly from a force-directed web to a structured top-down hierarchy—ideal for untangling sprawling family trees and manor households.",
         },
         {
           id: "shot-caseboard-claims",
@@ -279,13 +360,13 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           badge: "Testimonies · Source Jump",
           title: "Testimony & Evidence Checklist with Paragraph Links",
           description:
-            "Lists every observed fact and witness statement unlocked so far, complete with chapter anchors so you can jump straight back to the exact sentence in the book.",
+            "Lists every observed fact and witness statement unlocked so far, complete with chapter anchors so you can jump straight back to the exact sentence.",
         },
         {
           id: "shot-entity-dossier",
           category: "caseboard",
           imageFile: "entity-dossier.png",
-          badge: "Character Dossier · First Appearance",
+          badge: "Character Dossier",
           title: "Instant Character & Evidence Dossier Drawer",
           description:
             "Tap any character or clue on the board to inspect when they first appeared and review all statements associated with them up to your current page.",
@@ -294,7 +375,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-reader-spread",
           category: "reader",
           imageFile: "reader-spread.png",
-          badge: "Reader · Dual-Column Spread",
+          badge: "Reader · Dual-Column",
           title: "Book-Grade Dual-Column Spread Layout",
           description:
             "Crisp two-column pagination designed for tablets and wide screens, with one-tap access to the table of contents, dictionary lookup, and the live CaseBoard.",
@@ -303,7 +384,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-reader-themes",
           category: "reader",
           imageFile: "reader-themes.png",
-          badge: "Reader · Eye-Care & E-Ink Presets",
+          badge: "Reader · Eye-Care & E-Ink",
           title: "Daylight, Parchment, Night & 1-Bit E-Ink Themes",
           description:
             "Fine-tune font size, line spacing, page-turn mode, and color presets—including a dedicated high-contrast E-Ink mode with zero animation ghosting.",
@@ -312,7 +393,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-reader-mint",
           category: "reader",
           imageFile: "reader-mint.png",
-          badge: "Reader · Green Tea Eye-Care",
+          badge: "Reader · Green Tea Theme",
           title: "Soft Mint Eye-Care Theme for Marathon Reading",
           description:
             "Low-glare sage-green background tailored for multi-hour reading sessions through long golden-age and honkaku detective novels.",
@@ -321,13 +402,13 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-dictionary",
           category: "tools",
           imageFile: "dictionary-translate.png",
-          badge: "Offline Dictionary · Dual-Engine Translation",
+          badge: "Offline Dictionary",
           title: "Instant Mystery Dictionary & Context-Safe Translation",
           description:
             "Built-in glossary for classic mystery terms (alibi, inquest, coroner, locked-room) plus 1ms offline lookup and spoiler-safe paragraph translation.",
         },
       ],
-      showcaseTitle: "How the Spoiler-Free CaseBoard Unfolds As You Read",
+      showcaseTitle: "Interactive Demo: How the CaseBoard Unfolds As You Read",
       showcaseSubtitle:
         "Switch between reading progress milestones below to see how Mixu reveals new clues, highlights broken alibis, and hides unread twists.",
       step1Label: "Ch. 2 · 15% (Arrival at the Manor)",
@@ -350,21 +431,68 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       node3Quote: "\"Found beneath the glasshouse grates—directly contradicts Su Wan's alibi.\"",
       node4LockedTitle: "[Hidden] Ch. 24 Cellar Truth",
       node4LockedReason: "Automatically hidden until your reading progress reaches Chapter 24",
-      highlightsHeading: "Built for Mystery Readers on Every Device",
-      highlightsSubtitle:
-        "No complicated setup required—import your own EPUB or TXT books and start reading right away.",
-      hl1Title: "Never Forget Who Is Who",
-      hl1Desc:
-        "Pick up a 600-page mystery after a busy week and immediately recall every suspect, relationship, and timeline detail you have read so far.",
-      hl2Title: "One Tap Back to the Exact Sentence",
-      hl2Desc:
-        "Every testimony and clue on the CaseBoard links directly to the source paragraph, so you can verify the author's exact wording in seconds.",
-      hl3Title: "Tailored for E-Ink & Tablets",
-      hl3Desc:
-        "First-class support for Android E-Ink readers, tablets, and phones—with crisp solid borders, instant page turns, and zero motion clutter.",
-      hl4Title: "100% Offline Ready & Private",
-      hl4Desc:
-        "Read, annotate, use the mystery dictionary, and browse your CaseBoard completely offline without mandatory sign-ups.",
+      moreFeaturesHeading: "More Features",
+      moreFeaturesSubtitle:
+        "Designed specifically for readers of classic whodunits, locked-room mysteries, and sprawling historical detective fiction.",
+      moreFeatures: [
+        {
+          title: "Flexible Single & Dual-Column Layouts",
+          desc: "Switch effortlessly between single-column phone mode, two-column tablet book spreads, and continuous scrolling.",
+        },
+        {
+          title: "Historical Timeline Rewind Slider",
+          desc: "Drag the progress slider backward to see what the suspect network looked like three chapters ago without losing your current bookmark.",
+        },
+        {
+          title: "Contradiction & Alibi Highlighting",
+          desc: "Compare witness testimonies side by side with physical clues and jump directly to the source paragraph to verify every word.",
+        },
+        {
+          title: "Full Typography Customization",
+          desc: "Adjust font family, font size, line height, paragraph spacing, and first-line indentation to create your ideal reading page.",
+        },
+        {
+          title: "Night, Parchment & E-Ink Modes",
+          desc: "Switch to warm parchment, soft mint, deep night mode, or 1-bit E-Ink high-contrast mode for zero-glare reading day or night.",
+        },
+        {
+          title: "Offline Mystery Glossary & Notes",
+          desc: "Look up classic detective terminology offline in 1ms and keep personal deduction notes anchored to specific characters and chapters.",
+        },
+      ],
+      mobileSectionTitle: "Download for Android, Tablets & E-Ink",
+      mobileSectionDesc:
+        "Enjoy distraction-free mystery reading and a live spoiler-safe CaseBoard on your phone, tablet, or Android E-Ink reader—completely offline-capable from the first page.",
+      mobileSectionCta: "Download the App (v0.0.1 APK) →",
+      faqHeading: "Frequently Asked Questions",
+      faqs: [
+        {
+          question: "How does Mixu guarantee I won't see spoilers from later chapters?",
+          answer:
+            "Every character, relationship, and testimony in a Graph Pack is tagged with the exact chapter and paragraph where it first appears. Mixu filters out everything beyond your current reading position before rendering the CaseBoard.",
+        },
+        {
+          question: "Can I use Mixu completely offline without creating an account?",
+          answer:
+            "Yes. Importing EPUB/TXT books, paginated reading, themes, bookmarks, the offline mystery dictionary, and local CaseBoard packs all work 100% offline with no login required.",
+        },
+        {
+          question: "Does it work well on Onyx Boox, iReader, and other Android E-Ink devices?",
+          answer:
+            "Yes. Mixu includes a dedicated E-Ink mode that disables spring animations, removes gradients, and uses crisp 1-bit solid borders to eliminate screen ghosting.",
+        },
+        {
+          question: "How can I verify the downloaded APK is authentic?",
+          answer:
+            "Our download page provides the official SHA-256 checksum and apksigner certificate fingerprint so you can verify package integrity before installing.",
+        },
+      ],
+      faqMoreTitle: "Still have questions?",
+      faqMoreSub: "Feel free to reach out to us by email anytime:",
+      copyBtnText: "Copy",
+      copiedBtnText: "Copied ✓",
+      footerCtaTitle: "Start Reading Spoiler-Free",
+      footerCtaSub: "Ready to keep every suspect, alibi, and clue organized as you read?",
       privacyLinkText: "Privacy Policy",
       termsLinkText: "Terms of Service",
       contactLabel: "Contact: support@mixuread.com",
@@ -374,22 +502,72 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
 
   if (locale === "ja") {
     return {
-      navGallery: "画面スクリーンショット",
+      navGallery: "機能一覧",
       navShowcase: "捜査ボード実演",
       navFeatures: "3つの価値",
+      navFaq: "よくある質問",
       navDownload: "v0.0.1 ダウンロード",
       einkToggleLabel: "E-Ink モード",
-      releaseBadge: "v0.0.1 Alpha · Android APK 公開中",
-      quickDownloadText: "v0.0.1 APK をダウンロード（署名検証済）→",
-      heroArtCaption: "長編ミステリーの読書机：物語を読み進めながら、隣で捜査ボードを広げる",
-      heroPreviewCaption: "実機画面：2D 捜査ボードと読書進度連動スライダー",
+      releaseBadge: "v0.0.1 Alpha · Android / E-Ink 対応 APK 公開中",
+      rotatePrefix: "対応：",
+      rotateWords: [
+        "ネタバレ防止ロック",
+        "2D 捜査ボード",
+        "原文ワンタップ移動",
+        "E-Ink 高コントラスト",
+        "ミステリー用語辞典",
+      ],
+      downloadNowBtn: "今すぐダウンロード",
+      githubStarNote: "Mixu はオープンコアプロジェクトです。GitHub での Star をお待ちしています",
+      heroQuickTabs: [
+        {
+          id: "tab-caseboard",
+          label: "2D 捜査ボード",
+          imageFile: "caseboard-2d.png",
+          caption: "読書進度に合わせて広がる 2D 相関図と振り返りスライダー",
+        },
+        {
+          id: "tab-reader",
+          label: "見開き2段組リーダー",
+          imageFile: "reader-spread.png",
+          caption: "タブレットや大画面で紙の本のように読める見開き2段組レイアウト",
+        },
+        {
+          id: "tab-claims",
+          label: "証言・アリバイ照合",
+          imageFile: "caseboard-claims.png",
+          caption: "すべての証言と証拠カードから小説の該当段落へワンタップでジャンプ",
+        },
+        {
+          id: "tab-dict",
+          label: "ミステリー辞典・翻訳",
+          imageFile: "dictionary-translate.png",
+          caption: "本格ミステリー用語のオフライン即時検索と段落翻訳",
+        },
+        {
+          id: "tab-desk",
+          label: "ミステリー読書机",
+          imageFile: "hero-mystery-desk.jpg",
+          caption: "物語を読み進めながら、隣で手がかりと人物関係を整理",
+        },
+      ],
+      pillarsSubtitle: "長編ミステリー読書を全面的にアップグレード",
+      pillar1Title: "読んだ章だけを表示",
+      pillar1Desc:
+        "捜査ボードは現在の読書位置と連動。第10章まで読んでいる時は、第14章で明かされる真相や人物関係は一切表示されません。",
+      pillar2Title: "ワンタップで原文の行へ",
+      pillar2Desc:
+        "すべての人物カードや証言には原文の段落位置が記録されており、いつでも伏線の表現を確かめてから元のページへ戻れます。",
+      pillar3Title: "完全オフライン＆ E-Ink 対応",
+      pillar3Desc:
+        "アカウント登録不要。EPUB/TXT のインポート、しおり、オフライン辞典、E-Ink 電子ペーパー向け白黒表示が端末内で完結します。",
       valArt1Label: "01 · 読んだ章だけを表示（ネタバレ防止）",
       valArt2Label: "02 · ワンタップで原文の行へ戻る",
       valArt3Label: "03 · ログイン不要・E-Ink 端末対応",
-      galleryTitle: "アプリ画面ギャラリー・主要機能一覧",
+      galleryTitle: "主な機能",
       gallerySubtitle:
-        "登場人物の整理、証言とアリバイの照合、ミステリー用語辞典、2段組レイアウトや電子ペーパー表示まで、実際のアプリ画面でご紹介します。",
-      filterAll: "すべての機能 (8)",
+        "実際のアプリ画面で Mixu の機能をご紹介します。任意のカードをクリックすると高解像度で拡大表示できます。",
+      filterAll: "すべての機能画面 (8)",
       filterCaseboard: "捜査ボード・証拠管理 (4)",
       filterReader: "読書画面・テーマ (3)",
       filterTools: "オフライン辞典・翻訳 (1)",
@@ -409,7 +587,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-caseboard-hierarchy",
           category: "caseboard",
           imageFile: "caseboard-hierarchy.png",
-          badge: "捜査ボード · 階層トポロジー",
+          badge: "捜査ボード · 階層ビュー",
           title: "ワンタップで階層構造ビューに切り替え",
           description:
             "複雑な家系図や館の住人関係、組織の上下関係をワンタップで階層レイアウトに整列し、人間関係を一目で把握できます。",
@@ -445,7 +623,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-reader-themes",
           category: "reader",
           imageFile: "reader-themes.png",
-          badge: "リーダー · 読書テーマと E-Ink",
+          badge: "リーダー · テーマと E-Ink",
           title: "昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット",
           description:
             "文字サイズや行間、ページめくり方式を細かく調整可能。E-Ink 端末向けに残像を抑えた高コントラスト白黒表示も搭載しています。",
@@ -463,13 +641,13 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "shot-dictionary",
           category: "tools",
           imageFile: "dictionary-translate.png",
-          badge: "オフライン辞典 · 翻訳ツール",
+          badge: "オフライン辞典 · 翻訳",
           title: "ミステリー用語辞典の即時検索とネタバレ防止翻訳",
           description:
             "アリバイ、検死審問、密室などの本格ミステリー頻出用語を解説付きで収録。オフライン高速辞書と文脈翻訳をその場で利用できます。",
         },
       ],
-      showcaseTitle: "読書進度に合わせた捜査ボードの変化（操作デモ）",
+      showcaseTitle: "読書進度に合わせた捜査ボードの変化（3ステップ実演）",
       showcaseSubtitle:
         "下の読書進度ボタンを切り替えると、物語の進行に合わせて新しい手がかりが解放され、未読の章がどのように伏せられるかを体験できます。",
       step1Label: "第2章 · 15%（館への到着）",
@@ -492,21 +670,68 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       node3Quote: "「温室の格子下で発見。スー・ワンの不在証明と矛盾する。」",
       node4LockedTitle: "[未解放] 第24章 地下室の真相",
       node4LockedReason: "第24章まで読み進めるまで、この手がかりは表示されません",
-      highlightsHeading: "ミステリー読者のための心地よい読書体験",
-      highlightsSubtitle:
-        "手持ちの EPUB / TXT 書籍を読み込むだけで、すぐに捜査ボード付きの読書を始められます。",
-      hl1Title: "日数が空いても「この人は誰？」とならない",
-      hl1Desc:
-        "登場人物が多い長編や館シリーズでも、現在のページまでに登場した人物と関係性をいつでも振り返れます。",
-      hl2Title: "証拠カードから原文の行へワンタップで往復",
-      hl2Desc:
-        "すべての証言と手がかりに原文の位置が紐づいており、伏線の表現を確かめてから元のページへすぐ戻れます。",
-      hl3Title: "E-Ink 電子ペーパー端末とタブレットに最適化",
-      hl3Desc:
-        "アニメーションを排したくっきりとした線画表示と2段組レイアウトで、電子ペーパー端末でも紙の本のように快適です。",
-      hl4Title: "登録不要・完全オフラインでも利用可能",
-      hl4Desc:
-        "アカウント登録なしで書籍のインポート、読書、しおり、オフライン辞典、捜査ボードの閲覧がすべて端末内で完結します。",
+      moreFeaturesHeading: "その他の機能",
+      moreFeaturesSubtitle:
+        "古典本格ミステリーから大作長編まで、手元の EPUB / TXT 書籍を快適に読み解くためのツールを揃えています。",
+      moreFeatures: [
+        {
+          title: "柔軟な1段組・見開き2段組レイアウト",
+          desc: "スマートフォンの縦画面1段組からタブレットの見開き2段組、連続スクロールまで画面サイズに合わせて自在に切り替えられます。",
+        },
+        {
+          title: "過去の章を振り返るタイムラインスライダー",
+          desc: "現在のしおり位置を保ったまま、スライダーを戻して「第3章時点での人間関係と証言」を安全に振り返ることができます。",
+        },
+        {
+          title: "証言と物証の照合・原文ジャンプ",
+          desc: "登場人物ごとの主張と発見された物証を並べて比較し、気になった記述はワンタップで小説の原文段落へ戻って確認できます。",
+        },
+        {
+          title: "細やかな組版カスタマイズ",
+          desc: "フォントサイズ、行間、段落間隔、字下げ、余白を自由に調整し、自分にとって最も読みやすい紙面を作れます。",
+        },
+        {
+          title: "夜間・羊皮紙・アイケア・E-Ink テーマ",
+          desc: "目に優しい羊皮紙やグリーンのアイケア配色、暗所向けの夜間モード、電子ペーパー端末向けの白黒高コントラスト表示を搭載。",
+        },
+        {
+          title: "オフライン推理用語辞典と読書ノート",
+          desc: "ミステリー特有の専門用語をオフラインで即座に検索でき、人物や章に紐づけた自分だけの推理メモを残せます。",
+        },
+      ],
+      mobileSectionTitle: "モバイル＆ E-Ink 版をダウンロード",
+      mobileSectionDesc:
+        "スマートフォン、タブレット、Android 搭載 E-Ink リーダーで、ネタバレのない捜査ボード付き読書をいつでもどこでも楽しめます。",
+      mobileSectionCta: "アプリをダウンロード (v0.0.1 APK) →",
+      faqHeading: "よくある質問",
+      faqs: [
+        {
+          question: "なぜ後半の章のネタバレが表示されないのですか？",
+          answer:
+            "すべての人物・関係・証言データに初出の章と段落番号が記録されており、現在の読書進度より先の情報は自動的にロック・非表示になる仕組みです。",
+        },
+        {
+          question: "アカウント登録なし・完全オフラインでも使えますか？",
+          answer:
+            "はい。書籍のインポート、読書、テーマ変更、オフライン用語辞典、端末内の捜査ボード閲覧はすべてログイン不要・オフラインで利用できます。",
+        },
+        {
+          question: "BOOX などの Android 電子ペーパー（E-Ink）端末に対応していますか？",
+          answer:
+            "はい。アニメーションを無効化し、くっきりとした白黒実線のみで描画する専用 E-Ink モードを備えており、残像を抑えて快適に操作できます。",
+        },
+        {
+          question: "ダウンロードした APK ファイルの安全性はどう確認できますか？",
+          answer:
+            "ダウンロードページにて SHA-256 チェックサムと署名証明書のフィンガープリントを公開しており、インストール前に検証可能です。",
+        },
+      ],
+      faqMoreTitle: "他にご質問がありますか？",
+      faqMoreSub: "いつでもお気軽にメールでお問い合わせください：",
+      copyBtnText: "コピー",
+      copiedBtnText: "コピー完了 ✓",
+      footerCtaTitle: "無料で使い始める",
+      footerCtaSub: "ネタバレのない新しいミステリー読書体験を始めましょう。",
       privacyLinkText: "プライバシーポリシー",
       termsLinkText: "利用規約",
       contactLabel: "お問い合わせ: support@mixuread.com",
@@ -515,22 +740,72 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
   }
 
   return {
-    navGallery: "功能截图",
+    navGallery: "我们的功能",
     navShowcase: "案情板体验",
-    navFeatures: "核心价值",
+    navFeatures: "三条价值",
+    navFaq: "常见问题",
     navDownload: "下载 v0.0.1",
-    einkToggleLabel: "E-Ink 墨水屏模式",
-    releaseBadge: "v0.0.1 Alpha · Android 官方安装包已发布",
-    quickDownloadText: "下载 v0.0.1 客户端 APK（附安装校验说明）→",
-    heroArtCaption: "推理读者的书桌伴侣：一边展卷阅读，一边在平板或墨水屏上梳理线索网",
-    heroPreviewCaption: "应用实拍：按阅读进度展开的 2D 案情图板与不剧透历史复盘滑块",
+    einkToggleLabel: "E-Ink 墨水屏",
+    releaseBadge: "v0.0.1 Alpha · Android 与墨水屏安装包已发布",
+    rotatePrefix: "支持",
+    rotateWords: [
+      "防剧透进度锁",
+      "2D 案情关系板",
+      "证言一键回跳",
+      "墨水屏零残影",
+      "离线推理词典",
+    ],
+    downloadNowBtn: "立即下载",
+    githubStarNote: "谜序 Mixu 客户端与核心引擎开源，欢迎在 GitHub 上 Star",
+    heroQuickTabs: [
+      {
+        id: "tab-caseboard",
+        label: "2D 案情图板",
+        imageFile: "caseboard-2d.png",
+        caption: "随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节",
+      },
+      {
+        id: "tab-reader",
+        label: "双栏精排阅读",
+        imageFile: "reader-spread.png",
+        caption: "媲美实体精装书的平板双栏分页排版，底部一键呼出目录、查词与案情板",
+      },
+      {
+        id: "tab-claims",
+        label: "证言与线索核对",
+        imageFile: "caseboard-claims.png",
+        caption: "汇总已浮现的现场勘验与嫌疑人证词，点击任意条目直接跳回小说原句",
+      },
+      {
+        id: "tab-dict",
+        label: "离线推理词典",
+        imageFile: "dictionary-translate.png",
+        caption: "内置古典与本格推理专有名词词典，支持 1ms 离线秒查与双引擎段落精译",
+      },
+      {
+        id: "tab-desk",
+        label: "侦探书房伴读",
+        imageFile: "hero-mystery-desk.jpg",
+        caption: "一边展卷阅读长篇悬疑，一边在平板或墨水屏上梳理线索网",
+      },
+    ],
+    pillarsSubtitle: "全面升级的悬疑推理阅读体验",
+    pillar1Title: "进度锁防剧透",
+    pillar1Desc:
+      "案情板严格跟随你的当前阅读页码：读到第 10 章，就绝不会剧透第 14 章才揭晓的真凶身份与反转。",
+    pillar2Title: "原文一键回跳",
+    pillar2Desc:
+      "案情板上的每一条人物关系、不在场证明与关键物证都带有段落定位，点一下即可跳回原文核对伏笔。",
+    pillar3Title: "全端离线与墨水屏适配",
+    pillar3Desc:
+      "免登录离线即用，自适应手机竖屏、平板双栏与 E-Ink 电纸书高对比度无残影模式。",
     valArt1Label: "01 · 书签级防剧透屏障（只显示已读章节）",
     valArt2Label: "02 · 案情板红线直连原文段落",
     valArt3Label: "03 · 离线即用 · 墨水屏与平板静心伴读",
-    galleryTitle: "产品界面实拍 · 核心功能一览",
+    galleryTitle: "我们的功能",
     gallerySubtitle:
-      "从自动梳理人物关系的 2D 案情图板、一键回跳原文的证言核对表，到双栏精排、护眼主题与离线推理词典——点击下方任意截图可放大查看高清细节。",
-    filterAll: "全部功能截图 (8)",
+      "从自动梳理人物关系的 2D 案情图板、一键回跳原文的证言核对表，到双栏精排、护眼主题与离线推理词典——点击任意窗口即可放大查看高清实拍。",
+    filterAll: "全部功能实拍 (8)",
     filterCaseboard: "案情图板与线索核对 (4)",
     filterReader: "双栏精排与护眼主题 (3)",
     filterTools: "离线推理词典与秒译 (1)",
@@ -633,21 +908,68 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     node3Quote: "“在花房排水格栅下寻获，表壳刻痕与苏晚的不在场证明直接矛盾。”",
     node4LockedTitle: "[未读锁止] 第 24 章 地下酒窖真相",
     node4LockedReason: "该线索位于第 24 章，在你读到对应章节前会自动锁止隐藏，彻底杜绝剧透",
-    highlightsHeading: "为长篇悬疑推理读者量身打造的伴读体验",
-    highlightsSubtitle:
-      "导入本地 EPUB 或 TXT 图书即可直接开读，把繁琐的人物关系与时间线记忆交给谜序，把解谜的乐趣留给自己。",
-    hl1Title: "人物再多、隔周再读也不怕忘",
-    hl1Desc:
-      "读欧美黄金时代古典、日系新本格或长篇历史公案时，随时打开案情板查看已登场人物名册与关系线，一秒接上阅读记忆。",
-    hl2Title: "每条证言都能一键跳回原文原句",
-    hl2Desc:
-      "想核对某句证词是不是叙述性诡计？点击案情板上的线索卡片即可直接跳回小说对应段落，核对完毕再一键回到当前阅读页。",
-    hl3Title: "手机、平板与 E-Ink 墨水屏全适配",
-    hl3Desc:
-      "同一个安装包自适应手机竖屏、平板双栏与电纸书墨水屏，支持一键开启无残影纯黑白高对比模式，安静专注读完一本书。",
-    hl4Title: "免登录离线即用，阅读笔记留在本地",
-    hl4Desc:
-      "不强制注册登录，书籍导入、分页阅读、书签笔记、离线词典与本地案情图板全部可在离线环境下完整运行。",
+    moreFeaturesHeading: "更多功能",
+    moreFeaturesSubtitle:
+      "导入本地 EPUB 或 TXT 图书即可直接开读，把繁琐的人物谱系与时间线记忆交给谜序，把解谜的乐趣留给自己。",
+    moreFeatures: [
+      {
+        title: "灵活单双栏布局",
+        desc: "在手机单栏、平板双栏仿真书页与连续滚动视图之间自由切换，自适应各种屏幕尺寸。",
+      },
+      {
+        title: "历史进度复盘滑块",
+        desc: "随时向前回拨案情板顶部的时间轴滑块，安全回顾前几章的人物关系状态，不丢失当前阅读书签。",
+      },
+      {
+        title: "证言与不在场证明比对",
+        desc: "集中归档各执一词的人物证言与现场物证，发现矛盾之处可一键跳回小说对应原句核实。",
+      },
+      {
+        title: "完全自定义排版",
+        desc: "自由调节字号、行距、段距、首行缩进与页边距，打造最适合你长篇阅读习惯的纸书版面。",
+      },
+      {
+        title: "夜间、羊皮纸与墨水屏模式",
+        desc: "切换到羊皮纸、青茗护眼、深色夜读或 E-Ink 1-bit 纯黑白高对比度模式，日夜阅读均清晰舒适。",
+      },
+      {
+        title: "离线推理词典与专属档案",
+        desc: "毫秒级检索古典与本格推理专有术语，并为每位嫌疑人记录跟随阅读进度的无剧透随书笔记。",
+      },
+    ],
+    mobileSectionTitle: "下载移动版与墨水屏客户端",
+    mobileSectionDesc:
+      "随时随地享受不剧透的悬疑伴读体验。谜序 Mixu 为 Android 手机、平板与电纸书墨水屏设备提供离线优先、免登录即用的现代推理阅读器。",
+    mobileSectionCta: "下载应用 (v0.0.1 APK) →",
+    faqHeading: "常见问题",
+    faqs: [
+      {
+        question: "谜序是如何保证绝对不剧透后续章节的？",
+        answer:
+          "案情板中的每个人物、关系与证言都绑定了首次出场的章节与段落锚点。在你读到对应段落之前，后续章节的节点与反转在本地会被严格过滤锁止，绝不提前展示。",
+      },
+      {
+        question: "不注册登录、断网状态下可以使用全部核心阅读功能吗？",
+        answer:
+          "可以。本地导入 EPUB / TXT 书籍、单双栏分页阅读、护眼与墨水屏主题、书签笔记、离线推理词典以及已导入的案情图包均支持 100% 离线运行。",
+      },
+      {
+        question: "支持文石 BOOX、掌阅等 Android 墨水屏电纸书吗？",
+        answer:
+          "原生支持。点击顶部或阅读设置中的「E-Ink 墨水屏模式」，界面会立即关闭过渡动画并切换为高对比度纯黑白实线渲染，彻底消除电纸书翻页残影。",
+      },
+      {
+        question: "如何校验下载的客户端 APK 安装包未被篡改？",
+        answer:
+          "点击进入下载页面即可查看官方发布的 SHA-256 校验和与 apksigner 签名证书指纹说明，安装前可一行命令完成校验。",
+      },
+    ],
+    faqMoreTitle: "还有其他问题吗？",
+    faqMoreSub: "请随时向我们发送邮件询问：",
+    copyBtnText: "复制",
+    copiedBtnText: "已复制 ✓",
+    footerCtaTitle: "开始免费使用",
+    footerCtaSub: "准备好开启不剧透的长篇悬疑推理阅读体验了吗？",
     privacyLinkText: "隐私政策",
     termsLinkText: "服务条款",
     contactLabel: "联系邮箱：support@mixuread.com",
@@ -666,316 +988,499 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
   const copy = getLandingCopy(locale);
 
   const heroUi = locCfg.ui?.hero;
-  const valuesHeading = heroUi?.valuesHeading ?? (locale === "en" ? "Core Values" : locale === "ja" ? "3つの価値" : "三条价值");
-  const audienceHeading = heroUi?.audienceHeading ?? (locale === "en" ? "Who It Is For" : locale === "ja" ? "対象読者" : "适合谁");
-  const limitationsHeading = heroUi?.limitationsHeading ?? (locale === "en" ? "Who It Is Not For (Honest Limitations)" : locale === "ja" ? "対象外の方（誠実な説明）" : "不适合谁（诚实说明）");
+  const valuesHeading =
+    heroUi?.valuesHeading ?? (locale === "en" ? "Core Values" : locale === "ja" ? "3つの価値" : "三条价值");
+  const audienceHeading =
+    heroUi?.audienceHeading ?? (locale === "en" ? "Who It Is For" : locale === "ja" ? "対象読者" : "适合谁");
+  const limitationsHeading =
+    heroUi?.limitationsHeading ??
+    (locale === "en"
+      ? "Who It Is Not For (Honest Limitations)"
+      : locale === "ja"
+        ? "対象外の方（誠実な説明）"
+        : "不适合谁（诚实说明）");
 
-  const ctasHtml = data.ctas
-    .map((cta) => {
-      const cls = cta.isPrimary ? "cta cta-primary" : "cta cta-secondary";
-      const target = cta.href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : "";
-      const hintHtml = cta.hint ? ` <span class="cta-hint">${cta.hint}</span>` : "";
-      return `<a class="${cls}" href="${cta.href}"${target}><span class="cta-label">${cta.label}</span>${hintHtml}</a>`;
-    })
-    .join("\n        ");
+  const primaryCta = data.ctas.find((c) => c.isPrimary) ?? data.ctas[0];
+  const secondaryCta = data.ctas.find((c) => !c.isPrimary) ?? data.ctas[1];
+
+  const primaryHintHtml = primaryCta?.hint ? ` <span class="cta-hint">${primaryCta.hint}</span>` : "";
+  const secondaryHintHtml = secondaryCta?.hint ? ` <span class="cta-hint">${secondaryCta.hint}</span>` : "";
+
+  const heroTabsHtml = copy.heroQuickTabs
+    .map(
+      (tab, idx) => `
+                <button
+                  type="button"
+                  class="hero-window-tab${idx === 0 ? " active" : ""}"
+                  data-hero-tab-src="${assetPrefix}/screenshots/${tab.imageFile}"
+                  data-hero-tab-caption="${escapeHtml(tab.caption)}"
+                  aria-selected="${idx === 0 ? "true" : "false"}"
+                >
+                  ${escapeHtml(tab.label)}
+                </button>`
+    )
+    .join("\n");
 
   const galleryCardsHtml = copy.screenshots
     .map(
       (shot) => `
-          <article class="screenshot-card" data-shot-category="${shot.category}">
-            <button
-              type="button"
-              class="screenshot-Preview-trigger"
-              data-lightbox-src="${assetPrefix}/screenshots/${shot.imageFile}"
-              data-lightbox-title="${escapeHtml(shot.title)}"
-              data-lightbox-desc="${escapeHtml(shot.description)}"
-              aria-label="${escapeHtml(shot.title)} — ${escapeHtml(copy.zoomHint)}"
-            >
-              <div class="screenshot-frame">
-                <img
-                  src="${assetPrefix}/screenshots/${shot.imageFile}"
-                  alt="${escapeHtml(shot.title)}"
-                  width="1280"
-                  height="700"
-                  loading="lazy"
-                />
-                <span class="screenshot-zoom-pill">${escapeHtml(copy.zoomHint)}</span>
+            <article class="bento-feature-card screenshot-card" data-shot-category="${shot.category}">
+              <div class="bento-card-head">
+                <div class="bento-card-title-row">
+                  <h3>${escapeHtml(shot.title)}</h3>
+                  <button
+                    type="button"
+                    class="bento-corner-btn"
+                    data-lightbox-src="${assetPrefix}/screenshots/${shot.imageFile}"
+                    data-lightbox-title="${escapeHtml(shot.title)}"
+                    data-lightbox-desc="${escapeHtml(shot.description)}"
+                    aria-label="${escapeHtml(shot.title)} — ${escapeHtml(copy.zoomHint)}"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                  </button>
+                </div>
+                <p>${escapeHtml(shot.description)}</p>
               </div>
-            </button>
-            <div class="screenshot-body">
-              <span class="screenshot-badge">${escapeHtml(shot.badge)}</span>
-              <h3>${escapeHtml(shot.title)}</h3>
-              <p>${escapeHtml(shot.description)}</p>
-            </div>
-          </article>`
+              <button
+                type="button"
+                class="bento-window-trigger screenshot-Preview-trigger"
+                data-lightbox-src="${assetPrefix}/screenshots/${shot.imageFile}"
+                data-lightbox-title="${escapeHtml(shot.title)}"
+                data-lightbox-desc="${escapeHtml(shot.description)}"
+                aria-label="${escapeHtml(shot.title)} — ${escapeHtml(copy.zoomHint)}"
+              >
+                <div class="app-window-frame">
+                  <div class="app-window-bar" aria-hidden="true">
+                    <span class="win-dot dot-red"></span>
+                    <span class="win-dot dot-amber"></span>
+                    <span class="win-dot dot-green"></span>
+                    <span class="win-bar-title">${escapeHtml(shot.badge)}</span>
+                  </div>
+                  <div class="screenshot-frame">
+                    <img
+                      src="${assetPrefix}/screenshots/${shot.imageFile}"
+                      alt="${escapeHtml(shot.title)}"
+                      width="1280"
+                      height="700"
+                    />
+                  </div>
+                </div>
+              </button>
+            </article>`
     )
     .join("\n");
 
+  const moreFeaturesHtml = copy.moreFeatures
+    .map(
+      (item) => `
+            <div class="more-feature-item">
+              <h3>${escapeHtml(item.title)}</h3>
+              <p>${escapeHtml(item.desc)}</p>
+            </div>`
+    )
+    .join("\n");
+
+  const faqsHtml = copy.faqs
+    .map(
+      (faq, i) => `
+            <details class="koodo-faq-item"${i === 0 ? " open" : ""}>
+              <summary class="koodo-faq-question">
+                <span>${escapeHtml(faq.question)}</span>
+                <span class="faq-plus-icon" aria-hidden="true">+</span>
+              </summary>
+              <div class="koodo-faq-answer">
+                <p>${escapeHtml(faq.answer)}</p>
+              </div>
+            </details>`
+    )
+    .join("\n");
+
+  const firstTab = copy.heroQuickTabs[0];
+
   return `
-      <div class="site-topbar">
-        <a class="brand-lockup" href="./index.html">
-          <img class="mark" src="${assetPrefix}/logo-mark.svg" alt="${escapeHtml(locCfg.siteName)}" width="40" height="40" />
-          <span class="brand-name">${escapeHtml(locCfg.siteName)}</span>
-        </a>
-        <div class="topbar-actions">
+      <!-- Floating Pill Navbar (Koodo Reader Style) -->
+      <div class="koodo-nav-shell">
+        <div class="site-topbar koodo-pill-navbar">
+          <a class="brand-lockup" href="./index.html">
+            <img class="mark" src="${assetPrefix}/logo-mark.svg" alt="${escapeHtml(locCfg.siteName)}" width="34" height="34" />
+            <span class="brand-name">${escapeHtml(locCfg.siteName)}</span>
+          </a>
           <nav class="topbar-nav" aria-label="Primary">
             <a href="#gallery">${escapeHtml(copy.navGallery)}</a>
             <a href="#showcase">${escapeHtml(copy.navShowcase)}</a>
             <a href="#demo">${escapeHtml(copy.navFeatures)}</a>
-            <a class="topbar-download-pill" href="./download.html">${escapeHtml(copy.navDownload)}</a>
+            <a href="#faq">${escapeHtml(copy.navFaq)}</a>
           </nav>
-          <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">${escapeHtml(copy.einkToggleLabel)}</button>
-          ${langSwitcher}
+          <div class="topbar-actions">
+            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">${escapeHtml(copy.einkToggleLabel)}</button>
+            ${langSwitcher}
+            <a class="topbar-download-pill" href="./download.html">${escapeHtml(copy.navDownload)}</a>
+          </div>
         </div>
       </div>
 
-      <header class="hero-header">
+      <!-- Spacious Centered Hero Section (Koodo Reader Style) -->
+      <header class="hero-header koodo-hero-section">
         <div class="hero-badge-row">
           <a class="release-pill" href="./download.html">
             <span class="release-dot" aria-hidden="true"></span>
             <span>${escapeHtml(copy.releaseBadge)}</span>
           </a>
         </div>
-        <h1>${data.headline}</h1>
-        ${data.subheadHtml}
-        <div class="cta-group">
-          ${ctasHtml}
+
+        <h1 class="koodo-hero-title">
+          <span class="hero-main-headline">${data.headline}</span>
+          <span class="hero-rotate-line">
+            <span class="hero-rotate-prefix">${escapeHtml(copy.rotatePrefix)}</span>
+            <span
+              id="hero-rotate-word"
+              class="hero-rotate-word"
+              data-rotate-words="${escapeHtml(copy.rotateWords.join("|"))}"
+            >${escapeHtml(copy.rotateWords[0] ?? "")}</span>
+          </span>
+        </h1>
+
+        <div class="koodo-hero-subhead">
+          ${data.subheadHtml}
         </div>
-        <div class="hero-quick-download">
-          <a href="./download.html">${escapeHtml(copy.quickDownloadText)}</a>
+
+        <div class="cta-group koodo-cta-row">
+          <a class="cta cta-outline-pill" href="${primaryCta?.href ?? "#showcase"}">
+            <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="cta-label">${primaryCta?.label ?? ""}</span>${primaryHintHtml}
+          </a>
+          <a class="cta cta-solid-pill" href="./download.html">
+            <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
+          </a>
         </div>
-        <div class="hero-main-preview hero-dual-showcase">
-          <div class="hero-showcase-col">
+
+        <div class="koodo-github-row">
+          <a
+            class="koodo-github-link"
+            href="${secondaryCta?.href ?? "https://github.com/mixu-app/mixu-client"}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>${secondaryCta?.label ?? ""}${secondaryHintHtml} · ${escapeHtml(copy.githubStarNote)}</span>
+          </a>
+        </div>
+
+        <!-- Interactive Framed App Stage in Hero -->
+        <div class="hero-window-stage">
+          <div class="hero-window-frame">
+            <div class="hero-window-topbar">
+              <div class="window-dots" aria-hidden="true">
+                <span class="win-dot dot-red"></span>
+                <span class="win-dot dot-amber"></span>
+                <span class="win-dot dot-green"></span>
+              </div>
+              <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
+                ${heroTabsHtml}
+              </div>
+            </div>
             <button
               type="button"
-              class="hero-preview-btn"
-              data-lightbox-src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
-              data-lightbox-title="${escapeHtml(copy.heroArtCaption)}"
-              data-lightbox-desc="${escapeHtml(data.headline)}"
+              id="hero-stage-trigger"
+              class="hero-stage-screen"
+              data-lightbox-src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+              data-lightbox-title="${escapeHtml(firstTab?.label ?? "")}"
+              data-lightbox-desc="${escapeHtml(firstTab?.caption ?? "")}"
             >
               <img
-                src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
-                alt="${escapeHtml(copy.heroArtCaption)}"
-                width="1280"
-                height="714"
-              />
-            </button>
-            <p class="hero-preview-caption">${escapeHtml(copy.heroArtCaption)}</p>
-          </div>
-          <div class="hero-showcase-col">
-            <button
-              type="button"
-              class="hero-preview-btn"
-              data-lightbox-src="${assetPrefix}/screenshots/caseboard-2d.png"
-              data-lightbox-title="${escapeHtml(copy.screenshots[0]?.title ?? "")}"
-              data-lightbox-desc="${escapeHtml(copy.screenshots[0]?.description ?? "")}"
-            >
-              <img
-                src="${assetPrefix}/screenshots/caseboard-2d.png"
-                alt="${escapeHtml(copy.heroPreviewCaption)}"
+                id="hero-stage-img"
+                src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+                alt="${escapeHtml(firstTab?.caption ?? "")}"
                 width="1280"
                 height="691"
               />
             </button>
-            <p class="hero-preview-caption">${escapeHtml(copy.heroPreviewCaption)}</p>
           </div>
+          <p id="hero-stage-caption" class="hero-stage-caption">${escapeHtml(firstTab?.caption ?? "")}</p>
         </div>
       </header>
 
-      <section id="gallery" class="section gallery-section">
-        <div class="showcase-header">
-          <h2>${escapeHtml(copy.galleryTitle)}</h2>
-          <p class="showcase-sub">${escapeHtml(copy.gallerySubtitle)}</p>
-        </div>
+      <!-- Band 2: 3-Column Icon Pillars + Core Values (Koodo Warm Beige Band) -->
+      <section id="demo" class="koodo-band koodo-band-beige values">
+        <div class="koodo-container">
+          <div class="koodo-section-head">
+            <h2>${valuesHeading}</h2>
+            <p class="koodo-section-sub">${escapeHtml(copy.pillarsSubtitle)}</p>
+          </div>
 
-        <div class="gallery-filters" role="tablist" aria-label="${escapeHtml(copy.galleryTitle)}">
-          <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" role="tab" aria-selected="true">
-            ${escapeHtml(copy.filterAll)}
-          </button>
-          <button type="button" class="gallery-filter-btn" data-gallery-filter="caseboard" role="tab" aria-selected="false">
-            ${escapeHtml(copy.filterCaseboard)}
-          </button>
-          <button type="button" class="gallery-filter-btn" data-gallery-filter="reader" role="tab" aria-selected="false">
-            ${escapeHtml(copy.filterReader)}
-          </button>
-          <button type="button" class="gallery-filter-btn" data-gallery-filter="tools" role="tab" aria-selected="false">
-            ${escapeHtml(copy.filterTools)}
-          </button>
-        </div>
+          <div class="koodo-pillars-grid">
+            <div class="koodo-pillar-card">
+              <div class="koodo-pillar-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FB9937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3>${escapeHtml(copy.pillar1Title)}</h3>
+              <p>${escapeHtml(copy.pillar1Desc)}</p>
+            </div>
 
-        <div class="screenshot-grid" id="screenshot-grid">
-          ${galleryCardsHtml}
+            <div class="koodo-pillar-card">
+              <div class="koodo-pillar-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FB9937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              </div>
+              <h3>${escapeHtml(copy.pillar2Title)}</h3>
+              <p>${escapeHtml(copy.pillar2Desc)}</p>
+            </div>
+
+            <div class="koodo-pillar-card">
+              <div class="koodo-pillar-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FB9937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <h3>${escapeHtml(copy.pillar3Title)}</h3>
+              <p>${escapeHtml(copy.pillar3Desc)}</p>
+            </div>
+          </div>
+
+          <div class="values-visual-trio">
+            <figure class="bookplate-card">
+              <button
+                type="button"
+                class="bookplate-img-btn"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+                data-lightbox-title="${escapeHtml(copy.valArt1Label)}"
+                data-lightbox-desc="${escapeHtml(copy.pillar1Desc)}"
+              >
+                <img
+                  src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+                  alt="${escapeHtml(copy.valArt1Label)}"
+                  width="800"
+                  height="597"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>${escapeHtml(copy.valArt1Label)}</figcaption>
+            </figure>
+            <figure class="bookplate-card">
+              <button
+                type="button"
+                class="bookplate-img-btn"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+                data-lightbox-title="${escapeHtml(copy.valArt2Label)}"
+                data-lightbox-desc="${escapeHtml(copy.pillar2Desc)}"
+              >
+                <img
+                  src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+                  alt="${escapeHtml(copy.valArt2Label)}"
+                  width="800"
+                  height="597"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>${escapeHtml(copy.valArt2Label)}</figcaption>
+            </figure>
+            <figure class="bookplate-card">
+              <button
+                type="button"
+                class="bookplate-img-btn"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+                data-lightbox-title="${escapeHtml(copy.valArt3Label)}"
+                data-lightbox-desc="${escapeHtml(copy.pillar3Desc)}"
+              >
+                <img
+                  src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+                  alt="${escapeHtml(copy.valArt3Label)}"
+                  width="800"
+                  height="597"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>${escapeHtml(copy.valArt3Label)}</figcaption>
+            </figure>
+          </div>
+
+          <div class="values-verbatim-box">
+            ${data.valuesHtml}
+          </div>
         </div>
       </section>
 
-      <section id="showcase" class="section showcase-section">
-        <div class="showcase-header">
-          <h2>${escapeHtml(copy.showcaseTitle)}</h2>
-          <p class="showcase-sub">${escapeHtml(copy.showcaseSubtitle)}</p>
-        </div>
-
-        <div class="horizon-controls" role="tablist" aria-label="${escapeHtml(copy.showcaseTitle)}">
-          <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
-            ${escapeHtml(copy.step1Label)}
-          </button>
-          <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
-            ${escapeHtml(copy.step2Label)}
-          </button>
-          <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
-            ${escapeHtml(copy.step3Label)}
-          </button>
-        </div>
-
-        <div class="caseboard-stage" id="horizon-board" data-active-step="0">
-          <div class="firewall-banner">
-            <span class="firewall-tag">${escapeHtml(copy.firewallLabel)}</span>
-            <span class="firewall-desc" id="firewall-status-text">${escapeHtml(copy.firewallStatus)}</span>
+      <!-- Band 3: Dark Bento Framed Screenshot Section (Koodo Style) -->
+      <section id="gallery" class="koodo-band koodo-band-dark gallery-section">
+        <div class="koodo-container">
+          <div class="koodo-section-head koodo-head-light">
+            <h2>${escapeHtml(copy.galleryTitle)}</h2>
+            <p class="koodo-section-sub">${escapeHtml(copy.gallerySubtitle)}</p>
           </div>
 
-          <div class="caseboard-grid">
-            <article class="clue-node status-observed" data-min-step="0">
-              <div class="clue-node-header">
-                <span class="epistemic-badge badge-observed">${escapeHtml(copy.badgeObservedText)}</span>
-                <span class="clue-locus">${escapeHtml(copy.node1Role)}</span>
-              </div>
-              <h3>${escapeHtml(copy.node1Title)}</h3>
-              <p class="clue-quote">${escapeHtml(copy.node1Quote)}</p>
-            </article>
-
-            <article class="clue-node status-claimed" data-min-step="0">
-              <div class="clue-node-header">
-                <span class="epistemic-badge badge-claimed">${escapeHtml(copy.badgeClaimedText)}</span>
-                <span class="clue-locus">${escapeHtml(copy.node2Role)}</span>
-              </div>
-              <h3>${escapeHtml(copy.node2Title)}</h3>
-              <p class="clue-quote">${escapeHtml(copy.node2Quote)}</p>
-            </article>
-
-            <article class="clue-node status-contradicted" data-min-step="1">
-              <div class="clue-node-header">
-                <span class="epistemic-badge badge-contradicted">${escapeHtml(copy.badgeContradictedText)}</span>
-                <span class="clue-locus">${escapeHtml(copy.node3Role)}</span>
-              </div>
-              <h3>${escapeHtml(copy.node3Title)}</h3>
-              <p class="clue-quote">${escapeHtml(copy.node3Quote)}</p>
-            </article>
-
-            <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
-              <div class="clue-node-header">
-                <span class="epistemic-badge badge-locked">${escapeHtml(copy.badgeLockedText)}</span>
-                <span class="clue-locus">Ch. 24</span>
-              </div>
-              <h3>${escapeHtml(copy.node4LockedTitle)}</h3>
-              <p class="clue-quote">${escapeHtml(copy.node4LockedReason)}</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="demo" class="section values">
-        <h2>${valuesHeading}</h2>
-        <div class="values-visual-trio">
-          <figure class="bookplate-card">
-            <button
-              type="button"
-              class="bookplate-img-btn"
-              data-lightbox-src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
-              data-lightbox-title="${escapeHtml(copy.valArt1Label)}"
-              data-lightbox-desc="${escapeHtml(copy.firewallStatus)}"
-            >
-              <img
-                src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
-                alt="${escapeHtml(copy.valArt1Label)}"
-                width="800"
-                height="597"
-                loading="lazy"
-              />
+          <div class="gallery-filters" role="tablist" aria-label="${escapeHtml(copy.galleryTitle)}">
+            <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" role="tab" aria-selected="true">
+              ${escapeHtml(copy.filterAll)}
             </button>
-            <figcaption>${escapeHtml(copy.valArt1Label)}</figcaption>
-          </figure>
-          <figure class="bookplate-card">
-            <button
-              type="button"
-              class="bookplate-img-btn"
-              data-lightbox-src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
-              data-lightbox-title="${escapeHtml(copy.valArt2Label)}"
-              data-lightbox-desc="${escapeHtml(copy.hl2Desc)}"
-            >
-              <img
-                src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
-                alt="${escapeHtml(copy.valArt2Label)}"
-                width="800"
-                height="597"
-                loading="lazy"
-              />
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="caseboard" role="tab" aria-selected="false">
+              ${escapeHtml(copy.filterCaseboard)}
             </button>
-            <figcaption>${escapeHtml(copy.valArt2Label)}</figcaption>
-          </figure>
-          <figure class="bookplate-card">
-            <button
-              type="button"
-              class="bookplate-img-btn"
-              data-lightbox-src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
-              data-lightbox-title="${escapeHtml(copy.valArt3Label)}"
-              data-lightbox-desc="${escapeHtml(copy.hl3Desc)}"
-            >
-              <img
-                src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
-                alt="${escapeHtml(copy.valArt3Label)}"
-                width="800"
-                height="597"
-                loading="lazy"
-              />
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="reader" role="tab" aria-selected="false">
+              ${escapeHtml(copy.filterReader)}
             </button>
-            <figcaption>${escapeHtml(copy.valArt3Label)}</figcaption>
-          </figure>
-        </div>
-        ${data.valuesHtml}
-      </section>
+            <button type="button" class="gallery-filter-btn" data-gallery-filter="tools" role="tab" aria-selected="false">
+              ${escapeHtml(copy.filterTools)}
+            </button>
+          </div>
 
-      <section class="section highlights-section">
-        <h2>${escapeHtml(copy.highlightsHeading)}</h2>
-        <p class="showcase-sub">${escapeHtml(copy.highlightsSubtitle)}</p>
-        <div class="arch-grid">
-          <div class="arch-card">
-            <div class="arch-card-top">
-              <strong>${escapeHtml(copy.hl1Title)}</strong>
-            </div>
-            <p>${escapeHtml(copy.hl1Desc)}</p>
-          </div>
-          <div class="arch-card">
-            <div class="arch-card-top">
-              <strong>${escapeHtml(copy.hl2Title)}</strong>
-            </div>
-            <p>${escapeHtml(copy.hl2Desc)}</p>
-          </div>
-          <div class="arch-card">
-            <div class="arch-card-top">
-              <strong>${escapeHtml(copy.hl3Title)}</strong>
-            </div>
-            <p>${escapeHtml(copy.hl3Desc)}</p>
-          </div>
-          <div class="arch-card">
-            <div class="arch-card-top">
-              <strong>${escapeHtml(copy.hl4Title)}</strong>
-            </div>
-            <p>${escapeHtml(copy.hl4Desc)}</p>
+          <div class="bento-feature-grid" id="screenshot-grid">
+            ${galleryCardsHtml}
           </div>
         </div>
       </section>
 
-      <div class="dual-section-grid">
-        <section class="section audience">
-          <h2>${audienceHeading}</h2>
-          ${data.audienceHtml}
-        </section>
+      <!-- Band 4: Interactive 3-Step CaseBoard Progress Sandbox -->
+      <section id="showcase" class="koodo-band koodo-band-paper showcase-section">
+        <div class="koodo-container">
+          <div class="koodo-section-head">
+            <h2>${escapeHtml(copy.showcaseTitle)}</h2>
+            <p class="koodo-section-sub">${escapeHtml(copy.showcaseSubtitle)}</p>
+          </div>
 
-        <section class="section limitations">
-          <h2>${limitationsHeading}</h2>
-          ${data.limitationsHtml}
-        </section>
-      </div>
+          <div class="horizon-controls" role="tablist" aria-label="${escapeHtml(copy.showcaseTitle)}">
+            <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
+              ${escapeHtml(copy.step1Label)}
+            </button>
+            <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
+              ${escapeHtml(copy.step2Label)}
+            </button>
+            <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
+              ${escapeHtml(copy.step3Label)}
+            </button>
+          </div>
 
+          <div class="caseboard-stage" id="horizon-board" data-active-step="0">
+            <div class="firewall-banner">
+              <span class="firewall-tag">${escapeHtml(copy.firewallLabel)}</span>
+              <span class="firewall-desc" id="firewall-status-text">${escapeHtml(copy.firewallStatus)}</span>
+            </div>
+
+            <div class="caseboard-grid">
+              <article class="clue-node status-observed" data-min-step="0">
+                <div class="clue-node-header">
+                  <span class="epistemic-badge badge-observed">${escapeHtml(copy.badgeObservedText)}</span>
+                  <span class="clue-locus">${escapeHtml(copy.node1Role)}</span>
+                </div>
+                <h3>${escapeHtml(copy.node1Title)}</h3>
+                <p class="clue-quote">${escapeHtml(copy.node1Quote)}</p>
+              </article>
+
+              <article class="clue-node status-claimed" data-min-step="0">
+                <div class="clue-node-header">
+                  <span class="epistemic-badge badge-claimed">${escapeHtml(copy.badgeClaimedText)}</span>
+                  <span class="clue-locus">${escapeHtml(copy.node2Role)}</span>
+                </div>
+                <h3>${escapeHtml(copy.node2Title)}</h3>
+                <p class="clue-quote">${escapeHtml(copy.node2Quote)}</p>
+              </article>
+
+              <article class="clue-node status-contradicted" data-min-step="1">
+                <div class="clue-node-header">
+                  <span class="epistemic-badge badge-contradicted">${escapeHtml(copy.badgeContradictedText)}</span>
+                  <span class="clue-locus">${escapeHtml(copy.node3Role)}</span>
+                </div>
+                <h3>${escapeHtml(copy.node3Title)}</h3>
+                <p class="clue-quote">${escapeHtml(copy.node3Quote)}</p>
+              </article>
+
+              <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
+                <div class="clue-node-header">
+                  <span class="epistemic-badge badge-locked">${escapeHtml(copy.badgeLockedText)}</span>
+                  <span class="clue-locus">Ch. 24</span>
+                </div>
+                <h3>${escapeHtml(copy.node4LockedTitle)}</h3>
+                <p class="clue-quote">${escapeHtml(copy.node4LockedReason)}</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 5: More Features 3x2 Clean Grid + Who It Is For -->
+      <section class="koodo-band koodo-band-beige">
+        <div class="koodo-container">
+          <div class="koodo-section-head">
+            <h2>${escapeHtml(copy.moreFeaturesHeading)}</h2>
+            <p class="koodo-section-sub">${escapeHtml(copy.moreFeaturesSubtitle)}</p>
+          </div>
+
+          <div class="more-features-grid">
+            ${moreFeaturesHtml}
+          </div>
+
+          <div class="dual-section-grid">
+            <section class="audience-card audience">
+              <h2>${audienceHeading}</h2>
+              ${data.audienceHtml}
+            </section>
+
+            <section class="audience-card limitations">
+              <h2>${limitationsHeading}</h2>
+              ${data.limitationsHtml}
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 6: Split Mobile & E-Ink Download Section (Koodo Style) -->
+      <section class="koodo-band koodo-band-light">
+        <div class="koodo-container">
+          <div class="koodo-download-split">
+            <div class="koodo-download-copy">
+              <h2>${escapeHtml(copy.mobileSectionTitle)}</h2>
+              <p>${escapeHtml(copy.mobileSectionDesc)}</p>
+              <a class="koodo-amber-link" href="./download.html">${escapeHtml(copy.mobileSectionCta)}</a>
+            </div>
+            <div class="koodo-download-visual">
+              <button
+                type="button"
+                class="download-visual-card"
+                data-lightbox-src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+                data-lightbox-title="${escapeHtml(copy.mobileSectionTitle)}"
+                data-lightbox-desc="${escapeHtml(copy.mobileSectionDesc)}"
+              >
+                <img
+                  src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+                  alt="${escapeHtml(copy.mobileSectionTitle)}"
+                  width="1280"
+                  height="714"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 7: FAQ Accordion & Email Copy Pill (Koodo Style) -->
+      <section id="faq" class="koodo-band koodo-band-paper">
+        <div class="koodo-container koodo-faq-container">
+          <div class="koodo-section-head">
+            <h2>${escapeHtml(copy.faqHeading)}</h2>
+          </div>
+
+          <div class="koodo-faq-list">
+            ${faqsHtml}
+          </div>
+
+          <div class="koodo-contact-box">
+            <h3>${escapeHtml(copy.faqMoreTitle)}</h3>
+            <p>${escapeHtml(copy.faqMoreSub)}</p>
+            <div class="koodo-email-pill">
+              <span id="support-email-text">support@mixuread.com</span>
+              <button
+                type="button"
+                id="copy-email-btn"
+                class="koodo-copy-btn"
+                data-copy-value="support@mixuread.com"
+                data-copy-label="${escapeHtml(copy.copyBtnText)}"
+                data-copied-label="${escapeHtml(copy.copiedBtnText)}"
+              >
+                ${escapeHtml(copy.copyBtnText)}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox Modal -->
       <div id="screenshot-lightbox" class="screenshot-lightbox" hidden aria-modal="true" role="dialog">
         <div class="lightbox-backdrop" data-lightbox-close="true"></div>
         <div class="lightbox-dialog">
@@ -988,18 +1493,37 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
         </div>
       </div>
 
-      <footer class="footer-disclaimers note">
-        ${data.disclaimersHtml}
-        <div class="footer-meta-links">
-          <span>${escapeHtml(copy.icpNote)}</span>
-          <span class="footer-sep">·</span>
-          <a href="mailto:support@mixuread.com">${escapeHtml(copy.contactLabel)}</a>
-          <span class="footer-sep">·</span>
-          <a href="${assetPrefix}/privacy.html">${escapeHtml(copy.privacyLinkText)}</a>
-          <span class="footer-sep">·</span>
-          <a href="${assetPrefix}/terms.html">${escapeHtml(copy.termsLinkText)}</a>
-          <span class="footer-sep">·</span>
-          <a href="https://github.com/mixu-app/mixu" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <!-- Band 8: Dark Navy Footer CTA (Koodo Style) -->
+      <footer class="koodo-dark-footer footer-disclaimers note">
+        <div class="koodo-container">
+          <div class="koodo-footer-cta">
+            <h2>${escapeHtml(copy.footerCtaTitle)}</h2>
+            <p>${escapeHtml(copy.footerCtaSub)}</p>
+            <div class="koodo-cta-row">
+              <a class="cta cta-footer-light" href="#showcase">
+                <span class="cta-label">${primaryCta?.label ?? ""}</span>
+              </a>
+              <a class="cta cta-footer-outline" href="./download.html">
+                <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="koodo-footer-disclaimers">
+            ${data.disclaimersHtml}
+          </div>
+
+          <div class="footer-meta-links">
+            <span>${escapeHtml(copy.icpNote)}</span>
+            <span class="footer-sep">·</span>
+            <a href="mailto:support@mixuread.com">${escapeHtml(copy.contactLabel)}</a>
+            <span class="footer-sep">·</span>
+            <a href="${assetPrefix}/privacy.html">${escapeHtml(copy.privacyLinkText)}</a>
+            <span class="footer-sep">·</span>
+            <a href="${assetPrefix}/terms.html">${escapeHtml(copy.termsLinkText)}</a>
+            <span class="footer-sep">·</span>
+            <a href="https://github.com/mixu-app/mixu" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
       </footer>`.trim();
 }

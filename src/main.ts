@@ -1,6 +1,64 @@
 // SPDX-License-Identifier: Apache-2.0
 // Mixu landing page interactive enhancements (progressive enhancement; works without JS)
 
+function initHeroRotatingWords(): void {
+  const el = document.getElementById("hero-rotate-word");
+  if (!el) return;
+  const raw = el.getAttribute("data-rotate-words") ?? "";
+  const words = raw
+    .split("|")
+    .map((w) => w.trim())
+    .filter(Boolean);
+  if (words.length <= 1) return;
+
+  let idx = 0;
+  setInterval(() => {
+    if (document.documentElement.getAttribute("data-theme") === "eink") {
+      idx = (idx + 1) % words.length;
+      el.textContent = words[idx] ?? "";
+      return;
+    }
+    el.classList.add("is-switching");
+    setTimeout(() => {
+      idx = (idx + 1) % words.length;
+      el.textContent = words[idx] ?? "";
+      el.classList.remove("is-switching");
+    }, 180);
+  }, 2600);
+}
+
+function initHeroWindowTabs(): void {
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".hero-window-tab");
+  const stageImg = document.getElementById("hero-stage-img") as HTMLImageElement | null;
+  const stageCaption = document.getElementById("hero-stage-caption");
+  const stageTrigger = document.getElementById("hero-stage-trigger");
+  if (tabs.length === 0 || !stageImg) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const src = tab.getAttribute("data-hero-tab-src") ?? "";
+      const caption = tab.getAttribute("data-hero-tab-caption") ?? "";
+      const label = tab.textContent?.trim() ?? "";
+      if (!src) return;
+
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle("active", active);
+        t.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      stageImg.src = src;
+      stageImg.alt = caption;
+      if (stageCaption) stageCaption.textContent = caption;
+      if (stageTrigger) {
+        stageTrigger.setAttribute("data-lightbox-src", src);
+        stageTrigger.setAttribute("data-lightbox-title", label);
+        stageTrigger.setAttribute("data-lightbox-desc", caption);
+      }
+    });
+  });
+}
+
 function initHorizonShowcase(): void {
   const board = document.getElementById("horizon-board");
   const buttons = document.querySelectorAll<HTMLButtonElement>("[data-horizon-step]");
@@ -99,6 +157,26 @@ function initScreenshotGallery(): void {
   });
 }
 
+function initEmailCopyButton(): void {
+  const copyBtn = document.getElementById("copy-email-btn");
+  if (!copyBtn) return;
+
+  copyBtn.addEventListener("click", async () => {
+    const val = copyBtn.getAttribute("data-copy-value") ?? "support@mixuread.com";
+    const defaultLabel = copyBtn.getAttribute("data-copy-label") ?? "Copy";
+    const copiedLabel = copyBtn.getAttribute("data-copied-label") ?? "Copied ✓";
+    try {
+      await navigator.clipboard.writeText(val);
+      copyBtn.textContent = copiedLabel;
+      setTimeout(() => {
+        copyBtn.textContent = defaultLabel;
+      }, 2000);
+    } catch {
+      copyBtn.textContent = val;
+    }
+  });
+}
+
 function initEinkToggle(): void {
   const toggleBtn = document.getElementById("eink-toggle");
   if (!toggleBtn) return;
@@ -116,17 +194,20 @@ function initEinkToggle(): void {
   });
 }
 
+function initAll(): void {
+  initHeroRotatingWords();
+  initHeroWindowTabs();
+  initHorizonShowcase();
+  initScreenshotGallery();
+  initEmailCopyButton();
+  initEinkToggle();
+}
+
 if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initHorizonShowcase();
-      initScreenshotGallery();
-      initEinkToggle();
-    });
+    document.addEventListener("DOMContentLoaded", initAll);
   } else {
-    initHorizonShowcase();
-    initScreenshotGallery();
-    initEinkToggle();
+    initAll();
   }
 }
 
