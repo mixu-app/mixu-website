@@ -45,6 +45,7 @@
         </a>
         <div class="topbar-actions">
           <nav class="topbar-nav" aria-label="Primary">
+            <a href="#gallery">画面スクリーンショット</a>
             <a href="#showcase">捜査ボード実演</a>
             <a href="#demo">3つの価値</a>
             <a class="topbar-download-pill" href="./download.html">v0.0.1 ダウンロード</a>
@@ -68,21 +69,279 @@
         <h1>すべての手がかりを記録し、推理はあなたに。</h1>
         <p class="subhead">Mixuはオフライン優先のミステリー読書アプリです。<strong>あなたがすでに読んだ内容</strong>を整理し、クリック可能な捜査ボードを展開します——登場人物、場所、事件、食い違う証言のすべてから原文へジャンプできます。ネタバレせず、犯人を推測せず、あなたに代わって推理することもありません。</p>
         <div class="cta-group">
-          <a class="cta cta-primary" href="#demo"><span class="cta-label">仕組みを見る</span> <span class="cta-hint">（3ステップのデモへ）</span></a>
+          <a class="cta cta-primary" href="#gallery"><span class="cta-label">仕組みを見る</span> <span class="cta-hint">（3ステップのデモへ）</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">GitHub でクライアントを見る</span> <span class="cta-hint">（公開クライアントリポジトリ）</span></a>
         </div>
         <div class="hero-quick-download">
-          <a href="./download.html">v0.0.1 APK をダウンロード（SHA-256 署名検証済）→</a>
+          <a href="./download.html">v0.0.1 APK をダウンロード（署名検証済）→</a>
+        </div>
+        <div class="hero-main-preview">
+          <button
+            type="button"
+            class="hero-preview-btn"
+            data-lightbox-src="../screenshots/caseboard-2d.png"
+            data-lightbox-title="読書進度に合わせて広がる 2D 人物・証拠相関図"
+            data-lightbox-desc="読了した章までの人物・場所・証拠品を自動で整理。ノードを自由にドラッグでき、上部のスライダーで過去の章の状況をネタバレなしで振り返れます。"
+          >
+            <img
+              src="../screenshots/caseboard-2d.png"
+              alt="実機画面：2D 捜査ボードと読書進度連動スライダー"
+              width="1280"
+              height="691"
+            />
+          </button>
+          <p class="hero-preview-caption">実機画面：2D 捜査ボードと読書進度連動スライダー</p>
         </div>
       </header>
 
-      <section id="showcase" class="section showcase-section">
+      <section id="gallery" class="section gallery-section">
         <div class="showcase-header">
-          <h2>読書進度連動・捜査ボードプレビュー</h2>
-          <p class="showcase-sub">読書進度を切り替えると、知識ホライズン投影 P(G, h) が未来の章のネタバレをどのように遮断するか体験できます。</p>
+          <h2>アプリ画面ギャラリー・主要機能一覧</h2>
+          <p class="showcase-sub">登場人物の整理、証言とアリバイの照合、ミステリー用語辞典、2段組レイアウトや電子ペーパー表示まで、実際のアプリ画面でご紹介します。</p>
         </div>
 
-        <div class="horizon-controls" role="tablist" aria-label="読書進度連動・捜査ボードプレビュー">
+        <div class="gallery-filters" role="tablist" aria-label="アプリ画面ギャラリー・主要機能一覧">
+          <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" role="tab" aria-selected="true">
+            すべての機能 (8)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="caseboard" role="tab" aria-selected="false">
+            捜査ボード・証拠管理 (4)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="reader" role="tab" aria-selected="false">
+            読書画面・テーマ (3)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="tools" role="tab" aria-selected="false">
+            オフライン辞典・翻訳 (1)
+          </button>
+        </div>
+
+        <div class="screenshot-grid" id="screenshot-grid">
+          
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-2d.png"
+              data-lightbox-title="読書進度に合わせて広がる 2D 人物・証拠相関図"
+              data-lightbox-desc="読了した章までの人物・場所・証拠品を自動で整理。ノードを自由にドラッグでき、上部のスライダーで過去の章の状況をネタバレなしで振り返れます。"
+              aria-label="読書進度に合わせて広がる 2D 人物・証拠相関図 — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-2d.png"
+                  alt="読書進度に合わせて広がる 2D 人物・証拠相関図"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">捜査ボード · 2D 相関図</span>
+              <h3>読書進度に合わせて広がる 2D 人物・証拠相関図</h3>
+              <p>読了した章までの人物・場所・証拠品を自動で整理。ノードを自由にドラッグでき、上部のスライダーで過去の章の状況をネタバレなしで振り返れます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-hierarchy.png"
+              data-lightbox-title="ワンタップで階層構造ビューに切り替え"
+              data-lightbox-desc="複雑な家系図や館の住人関係、組織の上下関係をワンタップで階層レイアウトに整列し、人間関係を一目で把握できます。"
+              aria-label="ワンタップで階層構造ビューに切り替え — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-hierarchy.png"
+                  alt="ワンタップで階層構造ビューに切り替え"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">捜査ボード · 階層トポロジー</span>
+              <h3>ワンタップで階層構造ビューに切り替え</h3>
+              <p>複雑な家系図や館の住人関係、組織の上下関係をワンタップで階層レイアウトに整列し、人間関係を一目で把握できます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-claims.png"
+              data-lightbox-title="証言・証拠リストと原文段落へのダイレクトジャンプ"
+              data-lightbox-desc="登場人物の証言や目撃情報を一覧化。各項目には原文の位置が記録されており、いつでも小説の該当段落へ戻って確認できます。"
+              aria-label="証言・証拠リストと原文段落へのダイレクトジャンプ — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-claims.png"
+                  alt="証言・証拠リストと原文段落へのダイレクトジャンプ"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">証言一覧 · 原文ジャンプ</span>
+              <h3>証言・証拠リストと原文段落へのダイレクトジャンプ</h3>
+              <p>登場人物の証言や目撃情報を一覧化。各項目には原文の位置が記録されており、いつでも小説の該当段落へ戻って確認できます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/entity-dossier.png"
+              data-lightbox-title="人物・証拠品の個別ファイルカード"
+              data-lightbox-desc="相関図上の人物や証拠品をタップすると、初登場の章やこれまでの関連証言をまとめた詳細カードがその場で開きます。"
+              aria-label="人物・証拠品の個別ファイルカード — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/entity-dossier.png"
+                  alt="人物・証拠品の個別ファイルカード"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">人物ファイル · 初出追跡</span>
+              <h3>人物・証拠品の個別ファイルカード</h3>
+              <p>相関図上の人物や証拠品をタップすると、初登場の章やこれまでの関連証言をまとめた詳細カードがその場で開きます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-spread.png"
+              data-lightbox-title="紙の本のように読みやすい見開き2段組レイアウト"
+              data-lightbox-desc="タブレットや横画面に最適な2段組ページ表示。画面下部から目次・辞書検索・捜査ボードをワンタップで呼び出せます。"
+              aria-label="紙の本のように読みやすい見開き2段組レイアウト — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-spread.png"
+                  alt="紙の本のように読みやすい見開き2段組レイアウト"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">リーダー · 見開き2段組</span>
+              <h3>紙の本のように読みやすい見開き2段組レイアウト</h3>
+              <p>タブレットや横画面に最適な2段組ページ表示。画面下部から目次・辞書検索・捜査ボードをワンタップで呼び出せます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-themes.png"
+              data-lightbox-title="昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット"
+              data-lightbox-desc="文字サイズや行間、ページめくり方式を細かく調整可能。E-Ink 端末向けに残像を抑えた高コントラスト白黒表示も搭載しています。"
+              aria-label="昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-themes.png"
+                  alt="昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">リーダー · 読書テーマと E-Ink</span>
+              <h3>昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット</h3>
+              <p>文字サイズや行間、ページめくり方式を細かく調整可能。E-Ink 端末向けに残像を抑えた高コントラスト白黒表示も搭載しています。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-mint.png"
+              data-lightbox-title="長編ミステリーの長時間読書に優しいアイケアテーマ"
+              data-lightbox-desc="目の疲れを軽減する落ち着いたグリーン背景で、大作本格ミステリーも快適に読み進められます。"
+              aria-label="長編ミステリーの長時間読書に優しいアイケアテーマ — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-mint.png"
+                  alt="長編ミステリーの長時間読書に優しいアイケアテーマ"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">リーダー · アイケア配色</span>
+              <h3>長編ミステリーの長時間読書に優しいアイケアテーマ</h3>
+              <p>目の疲れを軽減する落ち着いたグリーン背景で、大作本格ミステリーも快適に読み進められます。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="tools">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/dictionary-translate.png"
+              data-lightbox-title="ミステリー用語辞典の即時検索とネタバレ防止翻訳"
+              data-lightbox-desc="アリバイ、検死審問、密室などの本格ミステリー頻出用語を解説付きで収録。オフライン高速辞書と文脈翻訳をその場で利用できます。"
+              aria-label="ミステリー用語辞典の即時検索とネタバレ防止翻訳 — クリックして拡大表示"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/dictionary-translate.png"
+                  alt="ミステリー用語辞典の即時検索とネタバレ防止翻訳"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">クリックして拡大表示</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">オフライン辞典 · 翻訳ツール</span>
+              <h3>ミステリー用語辞典の即時検索とネタバレ防止翻訳</h3>
+              <p>アリバイ、検死審問、密室などの本格ミステリー頻出用語を解説付きで収録。オフライン高速辞書と文脈翻訳をその場で利用できます。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>読書進度に合わせた捜査ボードの変化（操作デモ）</h2>
+          <p class="showcase-sub">下の読書進度ボタンを切り替えると、物語の進行に合わせて新しい手がかりが解放され、未読の章がどのように伏せられるかを体験できます。</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="読書進度に合わせた捜査ボードの変化（操作デモ）">
           <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
             第2章 · 15%（館への到着）
           </button>
@@ -90,21 +349,21 @@
             第8章 · 48%（アリバイの矛盾）
           </button>
           <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
-            第12章 · 72%（時計塔の証言）
+            第12章 · 72%（時計塔の隠し通路）
           </button>
         </div>
 
         <div class="caseboard-stage" id="horizon-board" data-active-step="0">
           <div class="firewall-banner">
-            <span class="firewall-tag">ネタバレ防止ファイアウォール P(G, h)</span>
-            <span class="firewall-desc" id="firewall-status-text">現在の読書位置より先の14ノード・29エッジを決定論的に遮断中</span>
+            <span class="firewall-tag">ネタバレ防止ロック有効</span>
+            <span class="firewall-desc" id="firewall-status-text">まだ読んでいない後半の章の14件の人物・29件の真相を自動で伏せています</span>
           </div>
 
           <div class="caseboard-grid">
             <article class="clue-node status-observed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-observed">OBSERVED</span>
-                <span class="clue-locus">OBSERVED · 第1章 第4段落</span>
+                <span class="epistemic-badge badge-observed">確認済の事実</span>
+                <span class="clue-locus">第1章 第4段落</span>
               </div>
               <h3>リン・シェン（記録係）</h3>
               <p class="clue-quote">「21時15分、真鍮の鍵を持って書斎へ入った。」</p>
@@ -112,8 +371,8 @@
 
             <article class="clue-node status-claimed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-claimed">CLAIMED</span>
-                <span class="clue-locus">CLAIMED · 第2章 第19段落</span>
+                <span class="epistemic-badge badge-claimed">本人の証言</span>
+                <span class="clue-locus">第2章 第19段落</span>
               </div>
               <h3>スー・ワン（相続人）</h3>
               <p class="clue-quote">「21時から22時の間、温室から一歩も出ていないと主張。」</p>
@@ -121,8 +380,8 @@
 
             <article class="clue-node status-contradicted" data-min-step="1">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
-                <span class="clue-locus">CONTRADICTED · 第8章 第11段落</span>
+                <span class="epistemic-badge badge-contradicted">アリバイ矛盾</span>
+                <span class="clue-locus">第8章 第11段落</span>
               </div>
               <h3>止まった懐中時計 (21:38)</h3>
               <p class="clue-quote">「温室の格子下で発見。スー・ワンの不在証明と矛盾する。」</p>
@@ -130,11 +389,11 @@
 
             <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
-                <span class="clue-locus">P(G, h)</span>
+                <span class="epistemic-badge badge-locked">未読の章</span>
+                <span class="clue-locus">Ch. 24</span>
               </div>
               <h3>[未解放] 第24章 地下室の真相</h3>
-              <p class="clue-quote">ホライズンフィルタにより遮断：初出位置 (第24章) &gt; 現在の読書位置</p>
+              <p class="clue-quote">第24章まで読み進めるまで、この手がかりは表示されません</p>
             </article>
           </div>
         </div>
@@ -147,6 +406,37 @@
 <li><strong>ワンタップで原典の文章へ。</strong> すべての情報に原文の位置情報が紐づいており、ジャンプして戻ってきても読書位置を見失いません。</li>
 <li><strong>ログイン不要で一冊まるごと読了。</strong> 取り込み、読書、しおり、ノート、ダウンロード済みのグラフパックはすべてオフラインで利用可能。E-Ink（電子ペーパー）端末でも同一のパッケージが動作します（アニメーションが控えめになります）。</li>
 </ol>
+      </section>
+
+      <section class="section highlights-section">
+        <h2>ミステリー読者のための心地よい読書体験</h2>
+        <p class="showcase-sub">手持ちの EPUB / TXT 書籍を読み込むだけで、すぐに捜査ボード付きの読書を始められます。</p>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>日数が空いても「この人は誰？」とならない</strong>
+            </div>
+            <p>登場人物が多い長編や館シリーズでも、現在のページまでに登場した人物と関係性をいつでも振り返れます。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>証拠カードから原文の行へワンタップで往復</strong>
+            </div>
+            <p>すべての証言と手がかりに原文の位置が紐づいており、伏線の表現を確かめてから元のページへすぐ戻れます。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>E-Ink 電子ペーパー端末とタブレットに最適化</strong>
+            </div>
+            <p>アニメーションを排したくっきりとした線画表示と2段組レイアウトで、電子ペーパー端末でも紙の本のように快適です。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>登録不要・完全オフラインでも利用可能</strong>
+            </div>
+            <p>アカウント登録なしで書籍のインポート、読書、しおり、オフライン辞典、捜査ボードの閲覧がすべて端末内で完結します。</p>
+          </div>
+        </div>
       </section>
 
       <div class="dual-section-grid">
@@ -168,40 +458,17 @@
         </section>
       </div>
 
-      <section class="section architecture-section">
-        <h2>オープンコア・アーキテクチャ</h2>
-        <p class="showcase-sub">Kotlin Multiplatform 製。物語グラフモデル、ネタバレ防止フィルタ、E-Ink レンダラはオープンソースで検証可能です。</p>
-        <div class="arch-grid">
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-client</strong>
-              <span class="license-pill">MPL-2.0</span>
-            </div>
-            <p>Android / KMP オフライン優先 EPUB・TXT リーダー、ローカル SQLite、捜査ボード UI。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-graph &amp; mixu-spoiler</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>時系列ナラティブグラフと決定論的知識ホライズン投影エンジン P(G, h)。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-renderer</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>Compose Canvas グラフレイアウトと E-Ink 電子ペーパー向け高コントラスト描画。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-contracts &amp; fixtures</strong>
-              <span class="license-pill">Apache-2.0 / CC0</span>
-            </div>
-            <p>JSON Schema グラフパック仕様、HTTP 契約、および CC0 ネタバレ回帰テストコーパス。</p>
-          </a>
+      <div id="screenshot-lightbox" class="screenshot-lightbox" hidden aria-modal="true" role="dialog">
+        <div class="lightbox-backdrop" data-lightbox-close="true"></div>
+        <div class="lightbox-dialog">
+          <button type="button" class="lightbox-close-btn" data-lightbox-close="true" aria-label="プレビューを閉じる">×</button>
+          <img id="lightbox-img" src="../screenshots/caseboard-2d.png" alt="" />
+          <div class="lightbox-caption">
+            <strong id="lightbox-title"></strong>
+            <p id="lightbox-desc"></p>
+          </div>
         </div>
-      </section>
+      </div>
 
       <footer class="footer-disclaimers note">
         <ul>
@@ -210,7 +477,9 @@
 <li>クライアントコードはオープンソース（Apache-2.0）です。ホスト同期サービスおよびグラフパックは別個の規約となります。書籍タイトル、ブランド、第三者の著作物はオープンソースライセンスの対象外です。</li>
 </ul>
         <div class="footer-meta-links">
-          <span>mixuread.com · Open-Core Mystery Reader</span>
+          <span>mixuread.com · Mixu ミステリー読書アプリ</span>
+          <span class="footer-sep">·</span>
+          <a href="mailto:support@mixuread.com">お問い合わせ: support@mixuread.com</a>
           <span class="footer-sep">·</span>
           <a href="../privacy.html">プライバシーポリシー</a>
           <span class="footer-sep">·</span>

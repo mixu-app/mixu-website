@@ -45,7 +45,8 @@
         </a>
         <div class="topbar-actions">
           <nav class="topbar-nav" aria-label="Primary">
-            <a href="#showcase">案情板演示</a>
+            <a href="#gallery">功能截图</a>
+            <a href="#showcase">案情板体验</a>
             <a href="#demo">核心价值</a>
             <a class="topbar-download-pill" href="./download.html">下载 v0.0.1</a>
           </nav>
@@ -62,50 +63,308 @@
         <div class="hero-badge-row">
           <a class="release-pill" href="./download.html">
             <span class="release-dot" aria-hidden="true"></span>
-            <span>v0.0.1 Alpha · Android 签名安装包已发布</span>
+            <span>v0.0.1 Alpha · Android 官方安装包已发布</span>
           </a>
         </div>
         <h1>记住每一个线索，推理留给你。</h1>
         <p class="subhead">谜序是一款离线优先的悬疑阅读器。它把<strong>你已经读到的内容</strong>整理成一张可点击的案情板——
 人物、地点、事件、各执一词的证词，都能跳回原文。它不剧透，不猜凶手，也不替你推理。</p>
         <div class="cta-group">
-          <a class="cta cta-primary" href="#demo"><span class="cta-label">看看它怎么工作</span> <span class="cta-hint">（跳到 3 步演示）</span></a>
+          <a class="cta cta-primary" href="#gallery"><span class="cta-label">看看它怎么工作</span> <span class="cta-hint">（跳到 3 步演示）</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">在 GitHub 上看客户端</span> <span class="cta-hint">（公开客户端仓库）</span></a>
         </div>
         <div class="hero-quick-download">
-          <a href="./download.html">下载 v0.0.1 客户端 APK（附 SHA-256 签名校验）→</a>
+          <a href="./download.html">下载 v0.0.1 客户端 APK（附安装校验说明）→</a>
+        </div>
+        <div class="hero-main-preview">
+          <button
+            type="button"
+            class="hero-preview-btn"
+            data-lightbox-src="./screenshots/caseboard-2d.png"
+            data-lightbox-title="随阅读进度展开的 2D 人物与证物关系板"
+            data-lightbox-desc="自动汇总你已读章节中的登场人物、案发地点与关键证物。支持自由拖拽节点排布，拖动顶部「历史叙事复盘」滑块即可回看前几章的线索演变，绝不泄露未读剧情。"
+          >
+            <img
+              src="./screenshots/caseboard-2d.png"
+              alt="应用实拍：按阅读进度展开的 2D 案情图板与不剧透历史复盘滑块"
+              width="1280"
+              height="691"
+            />
+          </button>
+          <p class="hero-preview-caption">应用实拍：按阅读进度展开的 2D 案情图板与不剧透历史复盘滑块</p>
         </div>
       </header>
 
-      <section id="showcase" class="section showcase-section">
+      <section id="gallery" class="section gallery-section">
         <div class="showcase-header">
-          <h2>按阅读进度展开的案情板（交互演示）</h2>
-          <p class="showcase-sub">点击切换下方阅读进度游标，直观体验确定性知识视界投影 P(G, h) 如何随章节解锁线索、标记证言矛盾并拦截未来剧透。</p>
+          <h2>产品界面实拍 · 核心功能一览</h2>
+          <p class="showcase-sub">从自动梳理人物关系的 2D 案情图板、一键回跳原文的证言核对表，到双栏精排、护眼主题与离线推理词典——点击下方任意截图可放大查看高清细节。</p>
         </div>
 
-        <div class="horizon-controls" role="tablist" aria-label="按阅读进度展开的案情板（交互演示）">
+        <div class="gallery-filters" role="tablist" aria-label="产品界面实拍 · 核心功能一览">
+          <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" role="tab" aria-selected="true">
+            全部功能截图 (8)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="caseboard" role="tab" aria-selected="false">
+            案情图板与线索核对 (4)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="reader" role="tab" aria-selected="false">
+            双栏精排与护眼主题 (3)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="tools" role="tab" aria-selected="false">
+            离线推理词典与秒译 (1)
+          </button>
+        </div>
+
+        <div class="screenshot-grid" id="screenshot-grid">
+          
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/caseboard-2d.png"
+              data-lightbox-title="随阅读进度展开的 2D 人物与证物关系板"
+              data-lightbox-desc="自动汇总你已读章节中的登场人物、案发地点与关键证物。支持自由拖拽节点排布，拖动顶部「历史叙事复盘」滑块即可回看前几章的线索演变，绝不泄露未读剧情。"
+              aria-label="随阅读进度展开的 2D 人物与证物关系板 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/caseboard-2d.png"
+                  alt="随阅读进度展开的 2D 人物与证物关系板"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">案情图板 · 2D 关系网</span>
+              <h3>随阅读进度展开的 2D 人物与证物关系板</h3>
+              <p>自动汇总你已读章节中的登场人物、案发地点与关键证物。支持自由拖拽节点排布，拖动顶部「历史叙事复盘」滑块即可回看前几章的线索演变，绝不泄露未读剧情。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/caseboard-hierarchy.png"
+              data-lightbox-title="一键切换「层级拓扑」理清复杂家族与阵营"
+              data-lightbox-desc="面对动辄二三十位登场人物的古典大家族或暴风雪山庄长篇，一键从网状视图切换为上下层级拓扑，阵营归属与核心证物脉络一目了然。"
+              aria-label="一键切换「层级拓扑」理清复杂家族与阵营 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/caseboard-hierarchy.png"
+                  alt="一键切换「层级拓扑」理清复杂家族与阵营"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">案情图板 · 层级拓扑</span>
+              <h3>一键切换「层级拓扑」理清复杂家族与阵营</h3>
+              <p>面对动辄二三十位登场人物的古典大家族或暴风雪山庄长篇，一键从网状视图切换为上下层级拓扑，阵营归属与核心证物脉络一目了然。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/caseboard-claims.png"
+              data-lightbox-title="各执一词的证言列表与一键回跳原文"
+              data-lightbox-desc="将已读章节中的现场勘验事实与嫌疑人证词集中归档。每条记录均带有原文段落定位，点击即可瞬间跳回小说原句核对伏笔细节。"
+              aria-label="各执一词的证言列表与一键回跳原文 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/caseboard-claims.png"
+                  alt="各执一词的证言列表与一键回跳原文"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">证言核对 · 原文锚点</span>
+              <h3>各执一词的证言列表与一键回跳原文</h3>
+              <p>将已读章节中的现场勘验事实与嫌疑人证词集中归档。每条记录均带有原文段落定位，点击即可瞬间跳回小说原句核对伏笔细节。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/entity-dossier.png"
+              data-lightbox-title="点按节点即开的人物与证物专属档案卡"
+              data-lightbox-desc="隔了几天继续读忘了“这人是谁”？在案情板上轻点人物头像，立即弹出该角色首次登场章节及截至当前页名下的所有陈述与关联线索。"
+              aria-label="点按节点即开的人物与证物专属档案卡 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/entity-dossier.png"
+                  alt="点按节点即开的人物与证物专属档案卡"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">人物档案 · 登场追踪</span>
+              <h3>点按节点即开的人物与证物专属档案卡</h3>
+              <p>隔了几天继续读忘了“这人是谁”？在案情板上轻点人物头像，立即弹出该角色首次登场章节及截至当前页名下的所有陈述与关联线索。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/reader-spread.png"
+              data-lightbox-title="媲美实体精装书的双栏分页阅读体验"
+              data-lightbox-desc="专为大屏手机、平板与横屏阅读打造的双栏精排视图，底部状态栏实时显示章节页码与总进度，并可随时一键呼出目录、查词翻译与案情图板。"
+              aria-label="媲美实体精装书的双栏分页阅读体验 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/reader-spread.png"
+                  alt="媲美实体精装书的双栏分页阅读体验"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">双栏精排 · 纸书体验</span>
+              <h3>媲美实体精装书的双栏分页阅读体验</h3>
+              <p>专为大屏手机、平板与横屏阅读打造的双栏精排视图，底部状态栏实时显示章节页码与总进度，并可随时一键呼出目录、查词翻译与案情图板。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/reader-themes.png"
+              data-lightbox-title="白昼、羊皮纸、深色夜间与墨水屏黑白高对比"
+              data-lightbox-desc="内置多套精调阅读主题，支持精准分页与平滑滚动自由切换、首行缩进与字号行距微调，针对 E-Ink 电纸书提供零残影纯黑白高对比模式。"
+              aria-label="白昼、羊皮纸、深色夜间与墨水屏黑白高对比 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/reader-themes.png"
+                  alt="白昼、羊皮纸、深色夜间与墨水屏黑白高对比"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">护眼预设 · 墨水屏适配</span>
+              <h3>白昼、羊皮纸、深色夜间与墨水屏黑白高对比</h3>
+              <p>内置多套精调阅读主题，支持精准分页与平滑滚动自由切换、首行缩进与字号行距微调，针对 E-Ink 电纸书提供零残影纯黑白高对比模式。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/reader-mint.png"
+              data-lightbox-title="柔和「青茗护眼」主题，长篇连读不累眼"
+              data-lightbox-desc="针对数十万字的大部头本格推理与社会派长篇特别调校的低眩光青茗绿底色，深夜或长途旅途中连续阅读数小时依然舒适清晰。"
+              aria-label="柔和「青茗护眼」主题，长篇连读不累眼 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/reader-mint.png"
+                  alt="柔和「青茗护眼」主题，长篇连读不累眼"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">青茗护眼 · 长篇久读</span>
+              <h3>柔和「青茗护眼」主题，长篇连读不累眼</h3>
+              <p>针对数十万字的大部头本格推理与社会派长篇特别调校的低眩光青茗绿底色，深夜或长途旅途中连续阅读数小时依然舒适清晰。</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="tools">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="./screenshots/dictionary-translate.png"
+              data-lightbox-title="内置推理专有名词词典与毫秒级离线段落翻译"
+              data-lightbox-desc="阅读原版或古典推理时遇到生僻词？内置不在场证明 (Alibi)、死因审讯 (Inquest)、巴比妥 (Veronal)、密室等推理核心术语详解，支持离线秒查与不剧透段落精译。"
+              aria-label="内置推理专有名词词典与毫秒级离线段落翻译 — 点击放大查看高清截图"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="./screenshots/dictionary-translate.png"
+                  alt="内置推理专有名词词典与毫秒级离线段落翻译"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">点击放大查看高清截图</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">推理词典 · 双引擎秒译</span>
+              <h3>内置推理专有名词词典与毫秒级离线段落翻译</h3>
+              <p>阅读原版或古典推理时遇到生僻词？内置不在场证明 (Alibi)、死因审讯 (Inquest)、巴比妥 (Veronal)、密室等推理核心术语详解，支持离线秒查与不剧透段落精译。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>三步交互体验：案情板如何随阅读进度防剧透展开</h2>
+          <p class="showcase-sub">点击下方不同章节进度按钮，直观感受当你从第 2 章读到第 12 章时，案情板如何一步步解锁新线索、标出不在场证明矛盾，并锁止后续章节真相。</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="三步交互体验：案情板如何随阅读进度防剧透展开">
           <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
-            第 2 章 · 15%（初抵雾庄）
+            读到第 2 章 · 15%（初抵雾庄）
           </button>
           <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
-            第 8 章 · 48%（不在场证明破裂）
+            读到第 8 章 · 48%（不在场证明破裂）
           </button>
           <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
-            第 12 章 · 72%（钟楼密道浮现）
+            读到第 12 章 · 72%（钟楼密道浮现）
           </button>
         </div>
 
         <div class="caseboard-stage" id="horizon-board" data-active-step="0">
           <div class="firewall-banner">
-            <span class="firewall-tag">防剧透防火墙 P(G, h)</span>
-            <span class="firewall-desc" id="firewall-status-text">已确定性拦截当前进度之后的 14 个未来节点与 29 条关系边</span>
+            <span class="firewall-tag">防剧透阅读保护已开启</span>
+            <span class="firewall-desc" id="firewall-status-text">已自动隐藏第 12 章之后的 14 位未登场人物与 29 条后续反转线索</span>
           </div>
 
           <div class="caseboard-grid">
             <article class="clue-node status-observed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-observed">OBSERVED</span>
-                <span class="clue-locus">OBSERVED · 第 1 章 第 4 段</span>
+                <span class="epistemic-badge badge-observed">已确认线索</span>
+                <span class="clue-locus">第 1 章 第 4 段</span>
               </div>
               <h3>林深（档案管理员）</h3>
               <p class="clue-quote">“21:15 持黄铜账本钥匙进入书房，袖口沾有冷杉树脂。”</p>
@@ -113,8 +372,8 @@
 
             <article class="clue-node status-claimed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-claimed">CLAIMED</span>
-                <span class="clue-locus">CLAIMED · 第 2 章 第 19 段</span>
+                <span class="epistemic-badge badge-claimed">嫌疑人证言</span>
+                <span class="clue-locus">第 2 章 第 19 段</span>
               </div>
               <h3>苏晚（庄园继承人）</h3>
               <p class="clue-quote">“自称 21:00 至 22:00 一直在玻璃花房修剪白山茶，未曾离开。”</p>
@@ -122,20 +381,20 @@
 
             <article class="clue-node status-contradicted" data-min-step="1">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
-                <span class="clue-locus">CONTRADICTED · 第 8 章 第 11 段</span>
+                <span class="epistemic-badge badge-contradicted">证言出现矛盾</span>
+                <span class="clue-locus">第 8 章 第 11 段</span>
               </div>
               <h3>停摆的怀表 (21:38)</h3>
-              <p class="clue-quote">“在花房排水格栅下寻获，表壳刻痕与苏晚的证言直接矛盾。”</p>
+              <p class="clue-quote">“在花房排水格栅下寻获，表壳刻痕与苏晚的不在场证明直接矛盾。”</p>
             </article>
 
             <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
-                <span class="clue-locus">P(G, h)</span>
+                <span class="epistemic-badge badge-locked">未读章节已锁止</span>
+                <span class="clue-locus">Ch. 24</span>
               </div>
-              <h3>[已锁止] 第 24 章 地下酒窖真相</h3>
-              <p class="clue-quote">已被知识视界过滤器拦截：首次揭示偏移量 (第 24 章) &gt; 当前阅读位置</p>
+              <h3>[未读锁止] 第 24 章 地下酒窖真相</h3>
+              <p class="clue-quote">该线索位于第 24 章，在你读到对应章节前会自动锁止隐藏，彻底杜绝剧透</p>
             </article>
           </div>
         </div>
@@ -149,6 +408,37 @@
 <li><strong>不登录也能读完一本书。</strong> 导入、阅读、书签、笔记、已下载的图包，全部离线可用。
 E-Ink 设备用同一个安装包，只是少一点动画。</li>
 </ol>
+      </section>
+
+      <section class="section highlights-section">
+        <h2>为长篇悬疑推理读者量身打造的伴读体验</h2>
+        <p class="showcase-sub">导入本地 EPUB 或 TXT 图书即可直接开读，把繁琐的人物关系与时间线记忆交给谜序，把解谜的乐趣留给自己。</p>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>人物再多、隔周再读也不怕忘</strong>
+            </div>
+            <p>读欧美黄金时代古典、日系新本格或长篇历史公案时，随时打开案情板查看已登场人物名册与关系线，一秒接上阅读记忆。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>每条证言都能一键跳回原文原句</strong>
+            </div>
+            <p>想核对某句证词是不是叙述性诡计？点击案情板上的线索卡片即可直接跳回小说对应段落，核对完毕再一键回到当前阅读页。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>手机、平板与 E-Ink 墨水屏全适配</strong>
+            </div>
+            <p>同一个安装包自适应手机竖屏、平板双栏与电纸书墨水屏，支持一键开启无残影纯黑白高对比模式，安静专注读完一本书。</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>免登录离线即用，阅读笔记留在本地</strong>
+            </div>
+            <p>不强制注册登录，书籍导入、分页阅读、书签笔记、离线词典与本地案情图板全部可在离线环境下完整运行。</p>
+          </div>
+        </div>
       </section>
 
       <div class="dual-section-grid">
@@ -170,40 +460,17 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
         </section>
       </div>
 
-      <section class="section architecture-section">
-        <h2>开源核心架构 (Open-Core)</h2>
-        <p class="showcase-sub">基于 Kotlin Multiplatform 构建。时序叙事图谱、防剧透防火墙与墨水屏渲染引擎全部开源可审计，本地离线即可完整运行。</p>
-        <div class="arch-grid">
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-client</strong>
-              <span class="license-pill">MPL-2.0</span>
-            </div>
-            <p>Android / KMP 离线优先阅读器，支持本地 EPUB/TXT 导入、案情板交互与原文回跳。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-graph &amp; mixu-spoiler</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>时序叙事属性图模型与确定性知识视界投影算子 P(G, h)。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-renderer</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>Compose Canvas 案情板布局引擎，内置 1-bit E-Ink 墨水屏高对比度无动画策略。</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-contracts &amp; fixtures</strong>
-              <span class="license-pill">Apache-2.0 / CC0</span>
-            </div>
-            <p>JSON Schema 图谱包契约、HTTP 协议规范与 CC0 零版权防剧透回归测试语料库。</p>
-          </a>
+      <div id="screenshot-lightbox" class="screenshot-lightbox" hidden aria-modal="true" role="dialog">
+        <div class="lightbox-backdrop" data-lightbox-close="true"></div>
+        <div class="lightbox-dialog">
+          <button type="button" class="lightbox-close-btn" data-lightbox-close="true" aria-label="关闭大图预览">×</button>
+          <img id="lightbox-img" src="./screenshots/caseboard-2d.png" alt="" />
+          <div class="lightbox-caption">
+            <strong id="lightbox-title"></strong>
+            <p id="lightbox-desc"></p>
+          </div>
         </div>
-      </section>
+      </div>
 
       <footer class="footer-disclaimers note">
         <ul>
@@ -212,7 +479,9 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 <li>客户端代码开源（Apache-2.0），托管服务与图库另计；书名、品牌与第三方图书内容不在开源许可内。</li>
 </ul>
         <div class="footer-meta-links">
-          <span>mixuread.com · 谜序 Mixu 悬疑推理伴读工具</span>
+          <span>mixuread.com · 谜序 Mixu 悬疑推理伴读阅读器</span>
+          <span class="footer-sep">·</span>
+          <a href="mailto:support@mixuread.com">联系邮箱：support@mixuread.com</a>
           <span class="footer-sep">·</span>
           <a href="./privacy.html">隐私政策</a>
           <span class="footer-sep">·</span>

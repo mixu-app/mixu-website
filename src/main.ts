@@ -37,6 +37,68 @@ function initHorizonShowcase(): void {
   updateStep(0);
 }
 
+function initScreenshotGallery(): void {
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>("[data-gallery-filter]");
+  const cards = document.querySelectorAll<HTMLElement>(".screenshot-card[data-shot-category]");
+  if (filterBtns.length > 0 && cards.length > 0) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-gallery-filter") ?? "all";
+        filterBtns.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle("active", active);
+          b.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        cards.forEach((card) => {
+          const cat = card.getAttribute("data-shot-category") ?? "";
+          const show = filter === "all" || cat === filter;
+          card.toggleAttribute("hidden", !show);
+        });
+      });
+    });
+  }
+
+  const lightbox = document.getElementById("screenshot-lightbox");
+  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxDesc = document.getElementById("lightbox-desc");
+  const triggers = document.querySelectorAll<HTMLElement>("[data-lightbox-src]");
+  const closeEls = document.querySelectorAll<HTMLElement>("[data-lightbox-close]");
+
+  if (!lightbox || !lightboxImg) return;
+
+  const openLightbox = (src: string, title: string, desc: string): void => {
+    lightboxImg.src = src;
+    lightboxImg.alt = title;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxDesc) lightboxDesc.textContent = desc;
+    lightbox.removeAttribute("hidden");
+  };
+
+  const closeLightbox = (): void => {
+    lightbox.setAttribute("hidden", "");
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const src = trigger.getAttribute("data-lightbox-src") ?? "";
+      const title = trigger.getAttribute("data-lightbox-title") ?? "";
+      const desc = trigger.getAttribute("data-lightbox-desc") ?? "";
+      if (src) openLightbox(src, title, desc);
+    });
+  });
+
+  closeEls.forEach((el) => {
+    el.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape" && !lightbox.hasAttribute("hidden")) {
+      closeLightbox();
+    }
+  });
+}
+
 function initEinkToggle(): void {
   const toggleBtn = document.getElementById("eink-toggle");
   if (!toggleBtn) return;
@@ -58,10 +120,12 @@ if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initHorizonShowcase();
+      initScreenshotGallery();
       initEinkToggle();
     });
   } else {
     initHorizonShowcase();
+    initScreenshotGallery();
     initEinkToggle();
   }
 }
