@@ -1,15 +1,22 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 :root {
-  color-scheme: light dark;
-  --bg: #f6f4ee;
-  --fg: #1b1a18;
-  --muted: #5a564f;
-  --border: #dcd6c8;
-  --border-strong: #bfb6a3;
-  --accent: #6b4f3a;
-  --accent-hover: #523b2a;
-  --surface: #efeae0;
-  --surface-elevated: #fbfaf7;
+  color-scheme: light;
+  --bg: #f4f2ee;
+  --bg-beige: #eae7e1;
+  --bg-light: #f8f7f4;
+  --bg-dark: #222225;
+  --bg-dark-card: #2c2c30;
+  --bg-footer: #0f1623;
+  --fg: #1b1c1e;
+  --muted: #57585c;
+  --border: #dfdbd2;
+  --border-strong: #c8c2b6;
+  --accent: #e07b24;
+  --accent-bright: #fb9937;
+  --accent-hover: #c56716;
+  --pill-dark: #111622;
+  --surface: #eae7e1;
+  --surface-elevated: #ffffff;
   --badge-observed-bg: #e3efe9;
   --badge-observed-fg: #1e523f;
   --badge-claimed-bg: #efe9d8;
@@ -18,41 +25,26 @@
   --badge-contradicted-fg: #8a2619;
   --badge-locked-bg: #e6e3dc;
   --badge-locked-fg: #4e4b45;
-  --shadow-subtle: 0 2px 10px rgba(27, 26, 24, 0.05);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="eink"]) {
-    --bg: #131315;
-    --fg: #eceae4;
-    --muted: #a39e95;
-    --border: #2c2b2e;
-    --border-strong: #454348;
-    --accent: #d2b49c;
-    --accent-hover: #e5ccb8;
-    --surface: #1c1c1f;
-    --surface-elevated: #232327;
-    --badge-observed-bg: #173329;
-    --badge-observed-fg: #8ce0be;
-    --badge-claimed-bg: #362b14;
-    --badge-claimed-fg: #f0cf85;
-    --badge-contradicted-bg: #3d1915;
-    --badge-contradicted-fg: #f79c91;
-    --badge-locked-bg: #2a2a2e;
-    --badge-locked-fg: #b0aca4;
-    --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.28);
-  }
+  --shadow-subtle: 0 4px 20px rgba(24, 24, 27, 0.05);
+  --shadow-window: 0 20px 50px rgba(15, 22, 35, 0.14);
 }
 
 /* 1-bit E-Ink High-Contrast Policy */
 :root[data-theme="eink"] {
   --bg: #ffffff;
+  --bg-beige: #ffffff;
+  --bg-light: #ffffff;
+  --bg-dark: #ffffff;
+  --bg-dark-card: #ffffff;
+  --bg-footer: #ffffff;
   --fg: #000000;
   --muted: #111111;
   --border: #000000;
   --border-strong: #000000;
   --accent: #000000;
+  --accent-bright: #000000;
   --accent-hover: #000000;
+  --pill-dark: #000000;
   --surface: #ffffff;
   --surface-elevated: #ffffff;
   --badge-observed-bg: #ffffff;
@@ -64,6 +56,7 @@
   --badge-locked-bg: #ffffff;
   --badge-locked-fg: #000000;
   --shadow-subtle: none;
+  --shadow-window: none;
 }
 
 :root[data-theme="eink"] *,
@@ -78,6 +71,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -85,172 +82,210 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family:
-    "Noto Serif CJK SC",
-    "Source Han Serif SC",
-    "Songti SC",
-    "Iowan Old Style",
-    "Palatino Linotype",
-    ui-serif,
-    Georgia,
-    serif;
-  line-height: 1.75;
+    "Plus Jakarta Sans",
+    "Inter",
+    "Noto Sans SC",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.68;
   -webkit-font-smoothing: antialiased;
 }
 
-main#app {
+/* Subpages (download.html, 404.html, privacy.html, terms.html) keep centered 60rem layout */
+main#app:not(.landing-app) {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 5rem;
+  padding: 2rem 1.5rem 5rem;
 }
 
-/* Topbar & Navigation */
-.site-topbar {
+/* Landing page uses full-bleed Koodo Reader sections */
+main#app.landing-app {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.koodo-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   1. Floating Pill Navigation Bar (Koodo Reader Style)
+   ========================================================================== */
+.koodo-nav-shell {
+  padding: 1.35rem 1.5rem 0;
+}
+
+.koodo-pill-navbar {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0.65rem 0.85rem 0.65rem 1.35rem;
+  border-radius: 9999px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 1.25rem;
-  margin-bottom: 2.25rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .brand-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
   text-decoration: none;
   color: var(--fg);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.15rem;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .brand-lockup .mark {
   display: block;
   margin: 0;
-}
-
-.topbar-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  font-family:
-    system-ui,
-    -apple-system,
-    "PingFang SC",
-    "Microsoft YaHei",
-    sans-serif;
+  border-radius: 0.45rem;
 }
 
 .topbar-nav {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.85rem;
-  font-size: 0.9rem;
+  gap: 1.65rem;
+  font-size: 0.94rem;
 }
 
 .topbar-nav a {
-  color: var(--muted);
+  color: var(--fg);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.15s ease;
 }
 
 .topbar-nav a:hover {
-  color: var(--fg);
-  text-decoration: underline;
+  color: var(--accent);
 }
 
-.topbar-nav .topbar-download-pill {
-  padding: 0.28rem 0.75rem;
-  border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  color: var(--fg);
-  font-weight: 600;
+.topbar-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.topbar-download-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.52rem 1.2rem;
+  border-radius: 9999px;
+  background: var(--pill-dark);
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.topbar-download-pill:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+:root[data-theme="eink"] .topbar-download-pill {
+  border: 2px solid #000000;
 }
 
 .eink-toggle-btn {
   appearance: none;
-  background: var(--surface-elevated);
+  background: var(--bg);
   color: var(--fg);
   border: 1px solid var(--border-strong);
-  border-radius: 0.375rem;
-  padding: 0.28rem 0.65rem;
-  font-size: 0.8rem;
+  border-radius: 9999px;
+  padding: 0.36rem 0.78rem;
+  font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
 }
 
+.eink-toggle-btn:hover {
+  border-color: var(--fg);
+}
+
 .eink-toggle-btn[aria-pressed="true"] {
-  background: var(--fg);
-  color: var(--bg);
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
 }
 
 .lang-switcher {
   display: inline-flex;
-  gap: 0.35rem;
+  gap: 0.2rem;
   align-items: center;
-  font-family:
-    system-ui,
-    -apple-system,
-    "PingFang SC",
-    "Microsoft YaHei",
-    sans-serif;
-  font-size: 0.84rem;
+  background: var(--bg);
+  padding: 0.18rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
 }
 
 .lang-switcher a {
   color: var(--muted);
   text-decoration: none;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid transparent;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  font-weight: 500;
 }
 
 .lang-switcher a:hover {
   color: var(--fg);
-  border-color: var(--border);
 }
 
 .lang-switcher a.active {
   color: var(--fg);
-  font-weight: 600;
-  border-color: var(--border-strong);
-  background: var(--surface);
+  font-weight: 700;
+  background: var(--surface-elevated);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Hero Header */
-.hero-header {
-  margin-bottom: 3rem;
-  padding: 2.25rem 2rem;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-subtle);
+/* ==========================================================================
+   2. Spacious Centered Hero Section (Koodo Reader Style)
+   ========================================================================== */
+.koodo-hero-section {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3.75rem 1.5rem 4.75rem;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .hero-badge-row {
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
 }
 
 .release-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  background: var(--surface);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background: var(--surface-elevated);
   border: 1px solid var(--border-strong);
   color: var(--fg);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
   text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .release-pill:hover {
@@ -261,169 +296,721 @@ main#app {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--badge-observed-fg);
+  background: #16a34a;
 }
 
-.mark {
+.koodo-hero-title {
+  font-size: clamp(2.35rem, 5.2vw, 4.15rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #1f2329;
+  margin: 0 auto 1.35rem;
+  max-width: 58rem;
+}
+
+:root[data-theme="eink"] .koodo-hero-title {
+  color: #000000;
+}
+
+.hero-main-headline {
   display: block;
-  margin-bottom: 1.25rem;
 }
 
-h1 {
-  font-size: clamp(1.85rem, 4vw, 2.65rem);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  line-height: 1.25;
-  margin: 0 0 1rem;
+.hero-rotate-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.3rem;
+  font-size: clamp(1.75rem, 3.8vw, 3.1rem);
 }
 
-h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0 0 0.85rem;
-  letter-spacing: 0.01em;
+.hero-rotate-prefix {
+  color: #374151;
+  font-weight: 800;
 }
 
-h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 1rem 0 0.4rem;
+:root[data-theme="eink"] .hero-rotate-prefix {
+  color: #000000;
 }
 
-.subhead {
-  font-size: 1.12rem;
-  color: var(--fg);
-  margin: 0 0 1.75rem;
-  max-width: 48rem;
+.hero-rotate-word {
+  display: inline-block;
+  color: var(--accent-bright);
+  font-weight: 800;
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
-.cta-group {
+:root[data-theme="eink"] .hero-rotate-word {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.hero-rotate-word.is-switching {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.koodo-hero-subhead {
+  max-width: 49rem;
+  margin: 0 auto 2.15rem;
+}
+
+.koodo-hero-subhead .subhead {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.koodo-cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
 }
 
 .cta {
   display: inline-flex;
-  flex-direction: column;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.45rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.88rem 2.1rem;
+  border-radius: 9999px;
+  font-size: 0.96rem;
+  font-weight: 700;
   text-decoration: none;
-  border: 1px solid var(--border-strong);
-  transition: border-color 0.15s ease, transform 0.12s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.cta-primary {
-  background: var(--fg);
-  color: var(--bg);
-  border-color: var(--fg);
-}
-
-.cta-secondary {
-  background: var(--surface);
+.cta-outline-pill {
+  background: transparent;
   color: var(--fg);
+  border: 1.5px solid #9ca3af;
 }
 
-.cta:hover {
-  border-color: var(--accent);
+.cta-outline-pill:hover {
+  border-color: var(--fg);
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-1px);
 }
 
-.cta-label {
-  font-weight: 600;
-  font-size: 0.98rem;
+.cta-solid-pill {
+  background: var(--pill-dark);
+  color: #ffffff;
+  border: 1.5px solid var(--pill-dark);
+  box-shadow: 0 8px 20px rgba(17, 22, 34, 0.16);
 }
 
-.cta-hint {
-  font-size: 0.8rem;
-  opacity: 0.84;
+.cta-solid-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(17, 22, 34, 0.22);
 }
 
-.hero-quick-download {
-  margin-top: 1.1rem;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 0.88rem;
+.cta-icon {
+  flex-shrink: 0;
 }
 
-.hero-quick-download a {
-  color: var(--accent);
-  font-weight: 600;
+/* Hide parenthetical CTA hints visually inside pill buttons while preserving verbatim DOM text for tests & screen readers */
+.cta .cta-hint,
+.koodo-github-link .cta-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.koodo-github-row {
+  margin-top: 1.15rem;
+}
+
+.koodo-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  color: #6b7280;
+  font-size: 0.86rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
-.hero-quick-download a:hover {
+.koodo-github-link:hover {
+  color: var(--fg);
   text-decoration: underline;
 }
 
-/* Sections */
-.section {
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
+/* Interactive Framed App Window in Hero */
+.hero-window-stage {
+  max-width: 62rem;
+  margin: 2.85rem auto 0;
 }
 
-/* Interactive Horizon & CaseBoard Showcase */
-.showcase-section {
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.75rem;
-  padding: 1.75rem;
-  margin-top: 2rem;
+.hero-window-frame {
+  background: #1e1f23;
+  border: 1px solid #34363d;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-window);
 }
 
-.showcase-header h2 {
-  margin-bottom: 0.35rem;
+:root[data-theme="eink"] .hero-window-frame {
+  background: #ffffff;
+  border: 2px solid #000000;
 }
 
-.showcase-sub {
-  margin: 0 0 1.25rem;
+.hero-window-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: #27282d;
+  border-bottom: 1px solid #383a42;
+}
+
+:root[data-theme="eink"] .hero-window-topbar {
+  background: #ffffff;
+  border-bottom: 2px solid #000000;
+}
+
+.window-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.win-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background: #ff5f56;
+}
+
+.dot-amber {
+  background: #ffbd2e;
+}
+
+.dot-green {
+  background: #27c93f;
+}
+
+:root[data-theme="eink"] .win-dot {
+  background: #ffffff;
+  border: 1.5px solid #000000;
+}
+
+.hero-window-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.hero-window-tab {
+  appearance: none;
+  padding: 0.32rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #b4b7c0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.hero-window-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-window-tab.active {
+  background: var(--accent-bright);
+  color: #141518;
+  font-weight: 700;
+}
+
+:root[data-theme="eink"] .hero-window-tab {
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+:root[data-theme="eink"] .hero-window-tab.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.hero-stage-screen {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #ffffff;
+  cursor: zoom-in;
+}
+
+.hero-stage-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-stage-caption {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
   color: var(--muted);
-  font-size: 0.96rem;
+  font-weight: 500;
 }
 
+/* ==========================================================================
+   3. Full-Bleed Alternating Sections & Band2 Pillars (Koodo Style)
+   ========================================================================== */
+.koodo-band {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.koodo-band-beige {
+  background: var(--bg-beige);
+}
+
+.koodo-band-paper {
+  background: var(--bg);
+}
+
+.koodo-band-light {
+  background: var(--bg-light);
+}
+
+.koodo-band-dark {
+  background: var(--bg-dark);
+  color: #f4f2ee;
+}
+
+:root[data-theme="eink"] .koodo-band-dark {
+  color: #000000;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.koodo-section-head {
+  text-align: center;
+  max-width: 54rem;
+  margin: 0 auto 3rem;
+}
+
+.koodo-section-head h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.65rem;
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+.koodo-head-light h2 {
+  color: #ffffff;
+}
+
+:root[data-theme="eink"] .koodo-head-light h2 {
+  color: #000000;
+}
+
+.koodo-section-sub {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.koodo-head-light .koodo-section-sub {
+  color: #a8abb4;
+}
+
+:root[data-theme="eink"] .koodo-head-light .koodo-section-sub {
+  color: #000000;
+}
+
+/* 3 Centered Icon Pillars */
+.koodo-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2.25rem;
+  margin-bottom: 3rem;
+}
+
+.koodo-pillar-card {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+.koodo-pillar-icon {
+  width: 3.35rem;
+  height: 3.35rem;
+  margin: 0 auto 1.1rem;
+  border-radius: 0.9rem;
+  background: #242427;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="eink"] .koodo-pillar-icon {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+.koodo-pillar-card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.koodo-pillar-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Bespoke Mystery Illustrations Trio */
+.values-visual-trio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 2rem;
+}
+
+.bookplate-card {
+  margin: 0;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bookplate-img-btn {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  cursor: zoom-in;
+}
+
+.bookplate-img-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.bookplate-img-btn:hover img {
+  transform: scale(1.02);
+}
+
+.bookplate-card figcaption {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--fg);
+  text-align: center;
+}
+
+.values-verbatim-box ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.15rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.values-verbatim-box li {
+  padding: 1.1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.values-verbatim-box li strong {
+  color: var(--fg);
+}
+
+/* ==========================================================================
+   4. Dark Bento Framed Screenshot Section ("我们的功能" in Koodo Style)
+   ========================================================================== */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.25rem;
+}
+
+.gallery-filter-btn {
+  padding: 0.52rem 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid #3f4046;
+  background: #2c2c30;
+  color: #b8bbc2;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.gallery-filter-btn:hover {
+  color: #ffffff;
+  border-color: var(--accent-bright);
+}
+
+.gallery-filter-btn.active {
+  background: var(--accent-bright);
+  color: #16171a;
+  border-color: var(--accent-bright);
+  font-weight: 700;
+}
+
+:root[data-theme="eink"] .gallery-filter-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #000000;
+}
+
+:root[data-theme="eink"] .gallery-filter-btn.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.bento-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .bento-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem 1.75rem 1.5rem;
+  border-radius: 1.15rem;
+  background: var(--bg-dark-card);
+  border: 1px solid #3a3a40;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.bento-feature-card:hover {
+  border-color: #55565e;
+  transform: translateY(-2px);
+}
+
+:root[data-theme="eink"] .bento-feature-card {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+.bento-feature-card[hidden] {
+  display: none !important;
+}
+
+.bento-card-head {
+  margin-bottom: 1.35rem;
+}
+
+.bento-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.bento-card-head h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+:root[data-theme="eink"] .bento-card-head h3 {
+  color: #000000;
+}
+
+.bento-corner-btn {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid #45464d;
+  background: #35353a;
+  color: #d4d6dc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.bento-corner-btn:hover {
+  background: var(--accent-bright);
+  color: #16171a;
+  border-color: var(--accent-bright);
+}
+
+:root[data-theme="eink"] .bento-corner-btn {
+  background: #ffffff;
+  color: #000000;
+  border: 1.5px solid #000000;
+}
+
+.bento-card-head p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: #a6a9b2;
+}
+
+:root[data-theme="eink"] .bento-card-head p {
+  color: #111111;
+}
+
+.bento-window-trigger {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.app-window-frame {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #45464e;
+  background: #1a1b1e;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="eink"] .app-window-frame {
+  border: 2px solid #000000;
+  background: #ffffff;
+}
+
+.app-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.85rem;
+  background: #e9e7e2;
+  border-bottom: 1px solid #d5d1c8;
+}
+
+:root[data-theme="eink"] .app-window-bar {
+  background: #ffffff;
+  border-bottom: 1.5px solid #000000;
+}
+
+.win-bar-title {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #525357;
+}
+
+:root[data-theme="eink"] .win-bar-title {
+  color: #000000;
+}
+
+.screenshot-frame {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.22s ease;
+}
+
+.bento-window-trigger:hover .screenshot-frame img {
+  transform: scale(1.018);
+}
+
+/* ==========================================================================
+   5. Interactive 3-Step CaseBoard Progress Sandbox
+   ========================================================================== */
 .horizon-controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
 }
 
 .horizon-step-btn {
-  flex: 1 1 12rem;
-  padding: 0.6rem 0.9rem;
-  border-radius: 0.45rem;
+  flex: 1 1 14rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 9999px;
   border: 1px solid var(--border-strong);
   background: var(--surface-elevated);
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
+  transition: all 0.15s ease;
 }
 
 .horizon-step-btn:hover {
   color: var(--fg);
-  border-color: var(--accent);
+  border-color: var(--fg);
 }
 
 .horizon-step-btn.active {
-  background: var(--fg);
-  color: var(--bg);
-  border-color: var(--fg);
+  background: var(--pill-dark);
+  color: #ffffff;
+  border-color: var(--pill-dark);
 }
 
 .caseboard-stage {
   background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 1.15rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-subtle);
 }
 
 .firewall-banner {
@@ -432,18 +1019,13 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.55rem 0.85rem;
-  margin-bottom: 1rem;
-  border-radius: 0.375rem;
-  background: var(--surface);
+  padding: 0.65rem 1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0.6rem;
+  background: var(--bg);
   border: 1px dashed var(--border-strong);
-  font-family:
-    ui-monospace,
-    "SFMono-Regular",
-    Menlo,
-    Consolas,
-    monospace;
-  font-size: 0.82rem;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.84rem;
 }
 
 .firewall-tag {
@@ -458,14 +1040,14 @@ h3 {
 .caseboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 .clue-node {
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1.1rem;
+  border-radius: 0.75rem;
   border: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--bg-light);
   transition: opacity 0.2s ease, border-color 0.2s ease;
 }
 
@@ -475,7 +1057,7 @@ h3 {
 }
 
 .clue-node.status-locked {
-  background: var(--surface);
+  background: var(--bg);
   border-style: dashed;
   opacity: 0.72;
 }
@@ -486,18 +1068,13 @@ h3 {
   justify-content: space-between;
   gap: 0.4rem;
   margin-bottom: 0.5rem;
-  font-family:
-    ui-monospace,
-    "SFMono-Regular",
-    Menlo,
-    Consolas,
-    monospace;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.74rem;
 }
 
 .epistemic-badge {
-  padding: 0.12rem 0.45rem;
-  border-radius: 0.25rem;
+  padding: 0.14rem 0.5rem;
+  border-radius: 9999px;
   font-weight: 700;
   border: 1px solid currentColor;
 }
@@ -538,22 +1115,35 @@ h3 {
   color: var(--muted);
 }
 
-/* Values & Dual Audience/Limitations Grid */
-.section.values ol {
+/* ==========================================================================
+   6. "更多功能" 3x2 Grid & Audience Cards (Koodo Style)
+   ========================================================================== */
+.more-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
-.section.values li {
-  padding: 1.15rem;
-  border-radius: 0.5rem;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
+@media (max-width: 860px) {
+  .more-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.more-feature-item h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+  color: var(--fg);
+}
+
+.more-feature-item p {
   margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .dual-section-grid {
@@ -562,84 +1152,287 @@ h3 {
   gap: 1.5rem;
 }
 
-.section ul,
-.section ol {
-  padding-left: 1.25rem;
-  margin: 0.5rem 0 0;
-}
-
-.section li {
-  margin-bottom: 0.65rem;
-}
-
-/* Open-Core Architecture Grid */
-.arch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-
-.arch-card {
-  display: block;
-  padding: 1rem;
-  border-radius: 0.5rem;
+.audience-card {
   background: var(--surface-elevated);
   border: 1px solid var(--border);
-  color: var(--fg);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.audience-card h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.85rem;
+}
+
+.audience-card ul {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.audience-card li {
+  margin-bottom: 0.55rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* ==========================================================================
+   7. Split Mobile & E-Ink Download Section (Koodo Style)
+   ========================================================================== */
+.koodo-download-split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .koodo-download-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.koodo-download-copy h2 {
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.koodo-download-copy p {
+  font-size: 1.02rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.72;
+}
+
+.koodo-amber-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 700;
   text-decoration: none;
 }
 
-.arch-card:hover {
-  border-color: var(--accent);
+.koodo-amber-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
-.arch-card-top {
+.download-visual-card {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 1.15rem;
+  overflow: hidden;
+  border: 4px solid #1e1f24;
+  background: #1e1f24;
+  box-shadow: var(--shadow-window);
+  cursor: zoom-in;
+}
+
+.download-visual-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   8. FAQ Accordion & Contact Copy Box (Koodo Style)
+   ========================================================================== */
+.koodo-faq-container {
+  max-width: 52rem;
+}
+
+.koodo-faq-list {
+  border-top: 1px solid var(--border-strong);
+}
+
+.koodo-faq-item {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.koodo-faq-question {
+  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.45rem;
-  font-family:
-    ui-monospace,
-    "SFMono-Regular",
-    Menlo,
-    Consolas,
-    monospace;
-  font-size: 0.85rem;
+  gap: 1rem;
+  padding: 1.25rem 0.25rem;
+  font-size: 1.04rem;
+  font-weight: 700;
+  color: var(--fg);
+  cursor: pointer;
 }
 
-.license-pill {
-  font-size: 0.72rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 0.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  color: var(--muted);
+.koodo-faq-question::-webkit-details-marker {
+  display: none;
 }
 
-.arch-card p {
+.faq-plus-icon {
+  color: var(--accent-bright);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 0.18s ease;
+}
+
+.koodo-faq-item[open] .faq-plus-icon {
+  transform: rotate(45deg);
+}
+
+.koodo-faq-answer {
+  padding: 0 0.25rem 1.25rem;
+}
+
+.koodo-faq-answer p {
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.koodo-contact-box {
+  margin-top: 3.25rem;
+  text-align: center;
+}
+
+.koodo-contact-box h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.koodo-contact-box p {
+  margin: 0 0 1.1rem;
+  font-size: 0.92rem;
   color: var(--muted);
 }
 
-/* Footer & Site Links */
-.note,
-.footer-disclaimers {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.875rem;
-  color: var(--muted);
+.koodo-email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.55rem 0.45rem 1.15rem;
+  border-radius: 0.65rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
-.footer-disclaimers ul {
-  padding-left: 1.25rem;
+.koodo-copy-btn {
+  appearance: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.45rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.koodo-copy-btn:hover {
+  border-color: var(--fg);
+}
+
+/* ==========================================================================
+   9. Dark Navy Footer CTA ("开始免费使用" in Koodo Style)
+   ========================================================================== */
+.koodo-dark-footer {
+  background: var(--bg-footer);
+  color: #d1d5db;
+  padding: 5rem 0 2.5rem;
+  margin-top: 0;
+  border-top: 0;
+}
+
+:root[data-theme="eink"] .koodo-dark-footer {
+  background: #ffffff;
+  color: #000000;
+  border-top: 2px solid #000000;
+}
+
+.koodo-footer-cta {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.koodo-footer-cta h2 {
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.65rem;
+}
+
+:root[data-theme="eink"] .koodo-footer-cta h2 {
+  color: #000000;
+}
+
+.koodo-footer-cta p {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin: 0 0 1.85rem;
+}
+
+:root[data-theme="eink"] .koodo-footer-cta p {
+  color: #000000;
+}
+
+.cta-footer-light {
+  background: #ffffff;
+  color: #0f1623;
+  border: 1.5px solid #ffffff;
+}
+
+.cta-footer-light:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+.cta-footer-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid #4b5563;
+}
+
+.cta-footer-outline:hover {
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+:root[data-theme="eink"] .cta-footer-light,
+:root[data-theme="eink"] .cta-footer-outline {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.koodo-footer-disclaimers {
+  max-width: 54rem;
+  margin: 0 auto 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+:root[data-theme="eink"] .koodo-footer-disclaimers {
+  border-top: 1px solid #000000;
+  color: #000000;
+}
+
+.koodo-footer-disclaimers ul {
+  padding-left: 1.2rem;
   margin: 0;
 }
 
-.footer-disclaimers li {
+.koodo-footer-disclaimers li {
   margin-bottom: 0.35rem;
 }
 
@@ -647,48 +1440,143 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px dashed var(--border);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  justify-content: center;
+  gap: 0.65rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+:root[data-theme="eink"] .footer-meta-links {
+  border-top: 1px solid #000000;
+  color: #000000;
 }
 
 .footer-meta-links a {
-  color: var(--muted);
+  color: #d1d5db;
   text-decoration: none;
+}
+
+:root[data-theme="eink"] .footer-meta-links a {
+  color: #000000;
 }
 
 .footer-meta-links a:hover {
-  color: var(--fg);
+  color: #ffffff;
   text-decoration: underline;
 }
 
-.site-links {
-  margin-top: 1.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
+.landing-bottom-nav {
+  background: var(--bg-footer);
+  text-align: center;
+  padding: 0 1.5rem 2rem;
+  margin: 0;
+  border: 0;
 }
 
-.download-link,
-.nav-link {
+:root[data-theme="eink"] .landing-bottom-nav {
+  background: #ffffff;
+}
+
+.landing-bottom-nav .download-link {
+  color: var(--accent-bright);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   10. Lightbox Modal & Subpage Rules (download.html, 404.html)
+   ========================================================================== */
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.screenshot-lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 16, 20, 0.84);
+}
+
+.lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: 76rem;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.85rem;
+  padding: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.45rem;
+  border: 1px solid var(--border);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--pill-dark);
+  color: #ffffff;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-caption {
+  padding: 0.85rem 0.35rem 0.25rem;
+}
+
+.lightbox-caption strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Subpages (download.html / 404.html) compatibility */
+.top-nav {
+  margin-bottom: 1.5rem;
+}
+
+.nav-link,
+.download-link {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
 }
 
-.download-link:hover,
-.nav-link:hover {
+.nav-link:hover,
+.download-link:hover {
   text-decoration: underline;
-}
-
-.top-nav {
-  margin-bottom: 1.5rem;
 }
 
 .intro {
@@ -697,12 +1585,11 @@ h3 {
   margin: 0 0 2rem;
 }
 
-/* Download & Release Cards */
 .callout {
   background: var(--surface);
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;
 }
@@ -730,7 +1617,7 @@ h3 {
 pre {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.375rem;
+  border-radius: 0.45rem;
   padding: 0.75rem 1rem;
   overflow-x: auto;
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -760,7 +1647,7 @@ pre code {
 .release-card {
   background: var(--surface-elevated);
   border: 1px solid var(--border-strong);
-  border-radius: 0.6rem;
+  border-radius: 0.75rem;
   padding: 1.5rem;
   margin-bottom: 1.25rem;
   box-shadow: var(--shadow-subtle);
@@ -788,10 +1675,6 @@ pre code {
   display: inline-block;
   padding: 0.18rem 0.6rem;
   border-radius: 999px;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -807,12 +1690,12 @@ pre code {
 
 .download-button {
   display: inline-block;
-  background: var(--fg);
-  color: var(--bg);
-  padding: 0.65rem 1.25rem;
-  border-radius: 0.4rem;
+  background: var(--pill-dark);
+  color: #ffffff;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
@@ -823,7 +1706,7 @@ pre code {
 .checksum-block {
   margin-top: 1.1rem;
   padding: 0.65rem 0.85rem;
-  border-radius: 0.375rem;
+  border-radius: 0.45rem;
   background: var(--surface);
   border: 1px solid var(--border);
   font-size: 0.85rem;
@@ -833,322 +1716,4 @@ pre code {
 .changelog-block h4 {
   margin: 1.15rem 0 0.4rem;
   font-size: 0.95rem;
-}
-
-/* Hero Main Screenshot Preview */
-.hero-main-preview {
-  margin-top: 1.85rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.hero-dual-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  gap: 1.25rem;
-  align-items: start;
-}
-
-.hero-showcase-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.values-visual-trio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 1rem;
-  margin: 1rem 0 1.15rem;
-}
-
-.bookplate-card {
-  margin: 0;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 0.55rem;
-  overflow: hidden;
-  box-shadow: var(--shadow-subtle);
-}
-
-.bookplate-img-btn {
-  appearance: none;
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  cursor: zoom-in;
-}
-
-.bookplate-img-btn img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.2s ease;
-}
-
-.bookplate-img-btn:hover img {
-  transform: scale(1.02);
-}
-
-.bookplate-card figcaption {
-  padding: 0.55rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent);
-  text-align: center;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-.hero-preview-btn {
-  display: block;
-  width: 100%;
-  padding: 0;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.65rem;
-  overflow: hidden;
-  cursor: zoom-in;
-  box-shadow: var(--shadow-subtle);
-}
-
-.hero-preview-btn img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.hero-preview-caption {
-  margin: 0.6rem 0 0;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--muted);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-/* Product Screenshot Gallery */
-.gallery-section {
-  margin-top: 2.5rem;
-}
-
-.gallery-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.35rem;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-.gallery-filter-btn {
-  padding: 0.5rem 0.95rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--surface-elevated);
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.gallery-filter-btn:hover {
-  color: var(--fg);
-  border-color: var(--accent);
-}
-
-.gallery-filter-btn.active {
-  background: var(--fg);
-  color: var(--bg);
-  border-color: var(--fg);
-}
-
-.screenshot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-  gap: 1.35rem;
-}
-
-@media (max-width: 640px) {
-  .screenshot-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.screenshot-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 0.65rem;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  box-shadow: var(--shadow-subtle);
-}
-
-.screenshot-card[hidden] {
-  display: none !important;
-}
-
-.screenshot-Preview-trigger {
-  appearance: none;
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  cursor: zoom-in;
-  text-align: left;
-}
-
-.screenshot-frame {
-  position: relative;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.screenshot-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.2s ease;
-}
-
-.screenshot-Preview-trigger:hover .screenshot-frame img {
-  transform: scale(1.015);
-}
-
-.screenshot-zoom-pill {
-  position: absolute;
-  right: 0.65rem;
-  bottom: 0.65rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(27, 26, 24, 0.78);
-  color: #ffffff;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 0.74rem;
-  font-weight: 600;
-  pointer-events: none;
-}
-
-:root[data-theme="eink"] .screenshot-zoom-pill {
-  background: #000000;
-  color: #ffffff;
-  border: 1px solid #000000;
-}
-
-.screenshot-body {
-  padding: 1.15rem 1.25rem 1.3rem;
-}
-
-.screenshot-badge {
-  display: inline-block;
-  padding: 0.14rem 0.55rem;
-  border-radius: 0.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.screenshot-body h3 {
-  margin: 0.55rem 0 0.4rem;
-  font-size: 1.06rem;
-}
-
-.screenshot-body p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-/* Lightbox Modal */
-.screenshot-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.screenshot-lightbox[hidden] {
-  display: none !important;
-}
-
-.lightbox-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 15, 18, 0.82);
-}
-
-.lightbox-dialog {
-  position: relative;
-  z-index: 1;
-  max-width: 76rem;
-  width: 100%;
-  max-height: 92vh;
-  overflow-y: auto;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-}
-
-.lightbox-dialog img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0.4rem;
-  border: 1px solid var(--border);
-}
-
-.lightbox-close-btn {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--fg);
-  color: var(--bg);
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.lightbox-caption {
-  padding: 0.85rem 0.35rem 0.25rem;
-}
-
-.lightbox-caption strong {
-  display: block;
-  font-size: 1.05rem;
-  margin-bottom: 0.25rem;
-}
-
-.lightbox-caption p {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--muted);
 }
