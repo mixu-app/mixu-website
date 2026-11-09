@@ -38,20 +38,107 @@
   </head>
   <body>
     <main id="app">
-      <nav class="lang-switcher" aria-label="Language">
+      <div class="site-topbar">
+        <a class="brand-lockup" href="./index.html">
+          <img class="mark" src="../logo-mark.svg" alt="Mixu" width="40" height="40" />
+          <span class="brand-name">Mixu</span>
+        </a>
+        <div class="topbar-actions">
+          <nav class="topbar-nav" aria-label="Primary">
+            <a href="#showcase">Interactive Board</a>
+            <a href="#demo">Core Values</a>
+            <a class="topbar-download-pill" href="./download.html">Download v0.0.1</a>
+          </nav>
+          <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink Mode</button>
+          <nav class="lang-switcher" aria-label="Language">
         <a href="/">中文</a>
         <a href="/en/" class="active" aria-current="page">English</a>
         <a href="/ja/">日本語</a>
       </nav>
+        </div>
+      </div>
+
       <header class="hero-header">
-        <img class="mark" src="../logo-mark.svg" alt="Mixu" width="56" height="56" />
+        <div class="hero-badge-row">
+          <a class="release-pill" href="./download.html">
+            <span class="release-dot" aria-hidden="true"></span>
+            <span>v0.0.1 Alpha · Android APK Available</span>
+          </a>
+        </div>
         <h1>Remember every clue. The deduction is yours.</h1>
         <p class="subhead">Mixu is an offline-first mystery reader. It arranges <strong>what you have already read</strong> into an interactive case board—characters, locations, events, and conflicting testimonies, all linking back to the original text. It never spoils, never guesses the culprit, and never deduces for you.</p>
         <div class="cta-group">
           <a class="cta cta-primary" href="#demo"><span class="cta-label">See how it works</span> <span class="cta-hint">(jump to 3-step demo)</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">View client on GitHub</span> <span class="cta-hint">(open-source client repo)</span></a>
         </div>
+        <div class="hero-quick-download">
+          <a href="./download.html">Download v0.0.1 APK (SHA-256 Verified) →</a>
+        </div>
       </header>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>Interactive Reading Horizon Preview</h2>
+          <p class="showcase-sub">Slide your reading progress to see how Mixu projects the narrative graph P(G, h) and blocks future chapters deterministically.</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="Interactive Reading Horizon Preview">
+          <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
+            Ch. 2 · 15% (Manor Arrival)
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
+            Ch. 8 · 48% (Alibi Broken)
+          </button>
+          <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
+            Ch. 12 · 72% ( Chiming Clock)
+          </button>
+        </div>
+
+        <div class="caseboard-stage" id="horizon-board" data-active-step="0">
+          <div class="firewall-banner">
+            <span class="firewall-tag">Anti-Spoiler Firewall P(G, h)</span>
+            <span class="firewall-desc" id="firewall-status-text">14 future nodes &amp; 29 edges strictly filtered beyond current offset</span>
+          </div>
+
+          <div class="caseboard-grid">
+            <article class="clue-node status-observed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-observed">OBSERVED</span>
+                <span class="clue-locus">OBSERVED · Ch. 1 Paragraph 4</span>
+              </div>
+              <h3>Lin Shen (Archivist)</h3>
+              <p class="clue-quote">&quot;Entered the study at 21:15 carrying the brass ledger key.&quot;</p>
+            </article>
+
+            <article class="clue-node status-claimed" data-min-step="0">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-claimed">CLAIMED</span>
+                <span class="clue-locus">CLAIMED · Ch. 2 Paragraph 19</span>
+              </div>
+              <h3>Su Wan (Heir)</h3>
+              <p class="clue-quote">&quot;Claims she never left the greenhouse between 21:00 and 22:00.&quot;</p>
+            </article>
+
+            <article class="clue-node status-contradicted" data-min-step="1">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
+                <span class="clue-locus">CONTRADICTED · Ch. 8 Paragraph 11</span>
+              </div>
+              <h3>Stopped Pocket Watch (21:38)</h3>
+              <p class="clue-quote">&quot;Found beneath the greenhouse grates—contradicts Su Wan&#39;s alibi.&quot;</p>
+            </article>
+
+            <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
+              <div class="clue-node-header">
+                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
+                <span class="clue-locus">P(G, h)</span>
+              </div>
+              <h3>[LOCKED] Ch. 24 Cellar Confession</h3>
+              <p class="clue-quote">Blocked by Horizon Filter: first_reveal_offset (Ch. 24) &gt; current_reading_offset</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section id="demo" class="section values">
         <h2>Core Values</h2>
@@ -62,21 +149,58 @@
 </ol>
       </section>
 
-      <section class="section audience">
-        <h2>Who It Is For</h2>
-        <ul>
+      <div class="dual-section-grid">
+        <section class="section audience">
+          <h2>Who It Is For</h2>
+          <ul>
 <li>Mystery readers tackling complex novels with vast casts and twisted timelines who forget "who was that again?" after a few days.</li>
 <li>Readers who love taking their own notes and maintaining suspect boards.</li>
 <li>E-Ink readers who just want to finish a book in peace.</li>
 </ul>
-      </section>
+        </section>
 
-      <section class="section limitations">
-        <h2>Who It Is Not For (Honest Limitations)</h2>
-        <ul>
+        <section class="section limitations">
+          <h2>Who It Is Not For (Honest Limitations)</h2>
+          <ul>
 <li>Readers wanting "AI to solve the mystery and name the culprit": this is fundamentally against our product principles.</li>
 <li>Readers seeking online web novel streaming, pirate sources, or DRM circumvention: this is not what Mixu is designed for.</li>
 </ul>
+        </section>
+      </div>
+
+      <section class="section architecture-section">
+        <h2>Open-Core Architecture</h2>
+        <p class="showcase-sub">Built with Kotlin Multiplatform. Core narrative graph, spoiler firewall, and E-Ink canvas renderer are open-source and verifiable.</p>
+        <div class="arch-grid">
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-client</strong>
+              <span class="license-pill">MPL-2.0</span>
+            </div>
+            <p>Android &amp; KMP offline-first EPUB/TXT reader, local SQLite storage, and interactive CaseBoard UI.</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-graph &amp; mixu-spoiler</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>Temporal narrative property graph &amp; deterministic knowledge-horizon projection P(G, h).</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-renderer</strong>
+              <span class="license-pill">Apache-2.0</span>
+            </div>
+            <p>Compose Canvas force-directed graph layout with 1-bit E-Ink high-contrast rendering policy.</p>
+          </a>
+          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
+            <div class="arch-card-top">
+              <strong>mixu-contracts &amp; fixtures</strong>
+              <span class="license-pill">Apache-2.0 / CC0</span>
+            </div>
+            <p>JSON Schema graph pack specifications, HTTP API contracts, and CC0 spoiler regression fixtures.</p>
+          </a>
+        </div>
       </section>
 
       <footer class="footer-disclaimers note">
@@ -85,6 +209,15 @@
 <li>"Spoiler-free" is an engineering objective: deterministic filtering based on reading progress backed by failing regression tests; it is not a mathematical guarantee.</li>
 <li>Client code is open source (Apache-2.0). Hosted sync services and graph packs are licensed separately. Book titles, brand marks, and third-party literary works are not covered by the open source license.</li>
 </ul>
+        <div class="footer-meta-links">
+          <span>mixuread.com · Open-Core Mystery Reader</span>
+          <span class="footer-sep">·</span>
+          <a href="../privacy.html">Privacy Policy</a>
+          <span class="footer-sep">·</span>
+          <a href="../terms.html">Terms of Service</a>
+          <span class="footer-sep">·</span>
+          <a href="https://github.com/mixu-app/mixu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </footer>
       <nav class="site-links" aria-label="Navigation">
         <a class="download-link" href="./download.html">Client Download & Verification Guide →</a>

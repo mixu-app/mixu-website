@@ -1,5 +1,30 @@
 {
   "$schema": "./download-manifest.schema.json",
   "schema_version": 1,
-  "releases": []
+  "releases": [
+    {
+      "version": "0.0.1",
+      "build_number": 1,
+      "channel": "alpha",
+      "release_date": "2026-11-10",
+      "download_url": "https://github.com/mixu-app/mixu-client/releases/download/v0.0.1/mixu-app-0.0.1.apk",
+      "sha256": "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb",
+      "min_sdk": 26,
+      "changelog_zh": [
+        "M0 阅读器基础：支持本地 EPUB 与 TXT 导入、章节目录跳转、细粒度阅读进度定位与墨水屏 (E-Ink) 高对比无动画模式",
+        "M1 案情板与防剧透防火墙：基于阅读进度游标 P(G, h) 的确定性防剧透过滤、认知状态徽章 (OBSERVED / CLAIMED / SUSPECTED / CONTRADICTED) 与原文证据回跳",
+        "M2/M3 端云协同预览：支持 BYOK 自定义 API 密钥、双层 AI 伴读助手（全局书架管家与单书防剧透副驾驶）及三桶积分钱包界面"
+      ],
+      "changelog_en": [
+        "M0 Reader Foundation: Local EPUB and TXT import, chapter navigation, fine-grained reading horizon tracking, and 1-bit E-Ink high-contrast mode",
+        "M1 CaseBoard & Anti-Spoiler Firewall: Deterministic horizon filtering P(G, h), epistemic status badges (OBSERVED / CLAIMED / SUSPECTED / CONTRADICTED), and one-tap source passage jump",
+        "M2/M3 Connected Alpha Preview: BYOK custom API key support, dual-tier AI reading assistant (Global Shelf Butler & Book-Scoped Spoiler-Free Copilot), and Three-Bucket Credit Wallet UI"
+      ],
+      "changelog_ja": [
+        "M0 リーダー基盤：ローカル EPUB・TXT インポート、目次ジャンプ、読書進度トラッキング、E-Ink 高コントラストモードを搭載",
+        "M1 捜査ボードとネタバレ防止ファイアウォール：読書進度 P(G, h) に基づく決定論的フィルタリング、認識ステータスバッジ、原文証拠へのワンタップジャンプ",
+        "M2/M3 クラウド連携プレビュー：BYOK カスタム API キー対応、2層 AI 読書アシスタント（本棚バトラー＆単一書籍コパイロット）、3バケットクレジットウォレット UI"
+      ]
+    }
+  ]
 }

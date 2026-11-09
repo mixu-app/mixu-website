@@ -141,7 +141,8 @@ describe("multi-locale download page rendering", () => {
     const html = readFileSync(resolve(srcDir, "download.html"), "utf-8");
     expect(html).toContain('<html lang="zh-CN">');
     expect(html).toContain("客户端下载");
-    expect(html).toContain("当前处于文档与开发起步阶段，尚未发布公开安装包 (APK)");
+    expect(html).toContain("v0.0.1");
+    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
     expect(html).toContain("安装包真实性与签名校验");
     expect(html).toContain("SHA-256 校验和");
     expect(html).toContain("apksigner");
@@ -151,7 +152,8 @@ describe("multi-locale download page rendering", () => {
     const html = readFileSync(resolve(srcDir, "en/download.html"), "utf-8");
     expect(html).toContain('<html lang="en">');
     expect(html).toContain("Client Download");
-    expect(html).toContain("Currently in the documentation and early development phase");
+    expect(html).toContain("v0.0.1");
+    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
     expect(html).toContain("Package Integrity &amp; Signature Verification");
     expect(html).toContain("SHA-256 Checksum");
     expect(html).toContain("apksigner");
@@ -165,7 +167,8 @@ describe("multi-locale download page rendering", () => {
     const html = readFileSync(resolve(srcDir, "ja/download.html"), "utf-8");
     expect(html).toContain('<html lang="ja">');
     expect(html).toContain("クライアントダウンロード");
-    expect(html).toContain("現在はドキュメント先行・開発初期段階のため、公開パッケージ（APK）はまだリリースされていません");
+    expect(html).toContain("v0.0.1");
+    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
     expect(html).toContain("パッケージの真正性と署名検証");
     expect(html).toContain("SHA-256 チェックサムの照合");
     expect(html).toContain("apksigner");

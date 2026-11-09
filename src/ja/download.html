@@ -52,17 +52,34 @@
         Mixuはオフライン優先のミステリー読書アプリです。ここでは公式Androidクライアント（APK）のダウンロードと、リリース署名およびチェックサムの検証手順を提供しています。
       </p>
 
-      <section class="callout phase-notice">
-        <h2>リリース状況</h2>
-        <p>
-          <strong>現在はドキュメント先行・開発初期段階のため、公開パッケージ（APK）はまだリリースされていません。</strong>
-        </p>
-        <p>
-          Mixuは「ドキュメント先行・仕様駆動」の原則に従っています。M0（リーダー基盤）およびM1（捜査ボード）のマイルストーン完了後、本ページにて最初の公開Alphaプレビュー版をリリース予定です。
-        </p>
-        <p>
-          オープンソースクライアントリポジトリの最新の進捗をご確認ください：<a href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">github.com/mixu-app/mixu-client</a>。
-        </p>
+      <section class="releases-section">
+        <h2>利用可能なバージョン</h2>
+        <ul class="release-list">
+        <li class="release-card">
+          <div class="release-header">
+            <h3>v0.0.1 <span class="build-number">(Build 1)</span></h3>
+            <span class="badge alpha">alpha</span>
+          </div>
+          <div class="meta-row">
+            <span>リリース日：2026-11-10</span> · <span>最低システム要件：Android API 26+</span>
+          </div>
+          <div class="download-action">
+            <a class="download-button" href="https://github.com/mixu-app/mixu-client/releases/download/v0.0.1/mixu-app-0.0.1.apk">APKをダウンロード</a>
+          </div>
+          <div class="checksum-block">
+            <span class="checksum-label">SHA-256 チェックサム：</span>
+            <code class="checksum">a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb</code>
+          </div>
+          <div class="changelog-block">
+            <h4>更新履歴</h4>
+            <ul>
+            <li>M0 リーダー基盤：ローカル EPUB・TXT インポート、目次ジャンプ、読書進度トラッキング、E-Ink 高コントラストモードを搭載</li>
+            <li>M1 捜査ボードとネタバレ防止ファイアウォール：読書進度 P(G, h) に基づく決定論的フィルタリング、認識ステータスバッジ、原文証拠へのワンタップジャンプ</li>
+            <li>M2/M3 クラウド連携プレビュー：BYOK カスタム API キー対応、2層 AI 読書アシスタント（本棚バトラー＆単一書籍コパイロット）、3バケットクレジットウォレット UI</li>
+            </ul>
+          </div>
+        </li>
+        </ul>
       </section>
 
       <section class="verification-section">
