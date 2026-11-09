@@ -25,7 +25,7 @@ export function copyAssets(options?: { srcDir?: string; distDir?: string }): str
   writeFileSync(resolve(distDir, "robots.txt"), robotsTxt, "utf-8");
   writeFileSync(resolve(distDir, "sitemap.xml"), sitemapXml, "utf-8");
 
-  const assetsToCopy = ["og.png", "og.svg"];
+  const assetsToCopy = ["og.png", "og.svg", "privacy.html", "terms.html"];
   const copied: string[] = ["robots.txt", "sitemap.xml"];
 
   for (const asset of assetsToCopy) {

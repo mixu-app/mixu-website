@@ -66,7 +66,7 @@ describe("OG social card deterministic generation", () => {
 describe("site configuration & i18n extensibility", () => {
   test("loads configuration with sensible defaults", () => {
     const cfg = getSiteConfig();
-    expect(cfg.siteUrl).toBe("https://mixu.app");
+    expect(cfg.siteUrl).toBe("https://mixuread.com");
     expect(cfg.defaultLocale).toBe("zh-CN");
     expect(cfg.supportedLocales).toContain("zh-CN");
     expect(cfg.supportedLocales).toContain("en");
@@ -90,9 +90,9 @@ describe("site configuration & i18n extensibility", () => {
   });
 
   test("calculates canonical URLs accurately", () => {
-    expect(getCanonicalUrl("/")).toBe("https://mixu.app/");
-    expect(getCanonicalUrl("/download.html")).toBe("https://mixu.app/download.html");
-    expect(getCanonicalUrl("og.png")).toBe("https://mixu.app/og.png");
+    expect(getCanonicalUrl("/")).toBe("https://mixuread.com/");
+    expect(getCanonicalUrl("/download.html")).toBe("https://mixuread.com/download.html");
+    expect(getCanonicalUrl("og.png")).toBe("https://mixuread.com/og.png");
   });
 });
 
@@ -108,7 +108,7 @@ describe("built distribution artifacts and SEO metadata", () => {
     const content = readFileSync(robotsPath, "utf-8");
     expect(content).toContain("User-agent: *");
     expect(content).toContain("Allow: /");
-    expect(content).toContain("Sitemap: https://mixu.app/sitemap.xml");
+    expect(content).toContain("Sitemap: https://mixuread.com/sitemap.xml");
   });
 
   test("sitemap.xml is emitted with canonical URL entries", () => {
@@ -118,8 +118,8 @@ describe("built distribution artifacts and SEO metadata", () => {
     const content = readFileSync(sitemapPath, "utf-8");
     expect(content).toContain('<?xml version="1.0" encoding="UTF-8"?>');
     expect(content).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-    expect(content).toContain("<loc>https://mixu.app/</loc>");
-    expect(content).toContain("<loc>https://mixu.app/download.html</loc>");
+    expect(content).toContain("<loc>https://mixuread.com/</loc>");
+    expect(content).toContain("<loc>https://mixuread.com/download.html</loc>");
   });
 
   test("og.png and og.svg are emitted to dist", () => {
@@ -134,9 +134,9 @@ describe("built distribution artifacts and SEO metadata", () => {
   });
 
   const pages = [
-    { file: "index.html", canonical: "https://mixu.app/" },
-    { file: "download.html", canonical: "https://mixu.app/download.html" },
-    { file: "404.html", canonical: "https://mixu.app/404.html" },
+    { file: "index.html", canonical: "https://mixuread.com/" },
+    { file: "download.html", canonical: "https://mixuread.com/download.html" },
+    { file: "404.html", canonical: "https://mixuread.com/404.html" },
   ];
 
   for (const { file, canonical } of pages) {
@@ -153,7 +153,7 @@ describe("built distribution artifacts and SEO metadata", () => {
       expect(html).toContain('property="og:title"');
       expect(html).toContain('property="og:description"');
       expect(html).toContain('property="og:type" content="website"');
-      expect(html).toContain('property="og:image" content="https://mixu.app/og.png"');
+      expect(html).toContain('property="og:image" content="https://mixuread.com/og.png"');
       expect(html).toContain(`property="og:url" content="${canonical}"`);
       expect(html).toContain('property="og:site_name" content="谜序 Mixu"');
       expect(html).toContain('property="og:locale" content="zh_CN"');
@@ -162,7 +162,7 @@ describe("built distribution artifacts and SEO metadata", () => {
       expect(html).toContain('name="twitter:card" content="summary_large_image"');
       expect(html).toContain('name="twitter:title"');
       expect(html).toContain('name="twitter:description"');
-      expect(html).toContain('name="twitter:image" content="https://mixu.app/og.png"');
+      expect(html).toContain('name="twitter:image" content="https://mixuread.com/og.png"');
     });
   }
 

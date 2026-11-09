@@ -1,6 +1,6 @@
 {
   "$schema": "./site.schema.json",
-  "siteUrl": "https://mixu.app",
+  "siteUrl": "https://mixuread.com",
   "defaultLocale": "zh-CN",
   "supportedLocales": ["zh-CN", "en", "ja"],
   "ogImage": "/og.png",

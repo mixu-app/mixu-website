@@ -96,7 +96,7 @@ describe("multi-locale hero page rendering", () => {
     expect(html).toContain("<h2>适合谁</h2>");
     expect(html).toContain("<h2>不适合谁（诚实说明）</h2>");
     expect(html).toContain('alt="谜序 Mixu"');
-    expect(html).toContain('<link rel="canonical" href="https://mixu.app/" />');
+    expect(html).toContain('<link rel="canonical" href="https://mixuread.com/" />');
     expect(html).toContain('property="og:locale" content="zh_CN"');
   });
 
@@ -108,7 +108,7 @@ describe("multi-locale hero page rendering", () => {
     expect(html).toContain("<h2>Who It Is For</h2>");
     expect(html).toContain("<h2>Who It Is Not For (Honest Limitations)</h2>");
     expect(html).toContain('alt="Mixu"');
-    expect(html).toContain('<link rel="canonical" href="https://mixu.app/en/" />');
+    expect(html).toContain('<link rel="canonical" href="https://mixuread.com/en/" />');
     expect(html).toContain('property="og:locale" content="en_US"');
   });
 
@@ -120,7 +120,7 @@ describe("multi-locale hero page rendering", () => {
     expect(html).toContain("<h2>対象読者</h2>");
     expect(html).toContain("<h2>対象外の方（誠実な説明）</h2>");
     expect(html).toContain('alt="Mixu (ミクス)"');
-    expect(html).toContain('<link rel="canonical" href="https://mixu.app/ja/" />');
+    expect(html).toContain('<link rel="canonical" href="https://mixuread.com/ja/" />');
     expect(html).toContain('property="og:locale" content="ja_JP"');
   });
 

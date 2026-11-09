@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mixu.app/sitemap.xml
+Sitemap: https://mixuread.com/sitemap.xml
