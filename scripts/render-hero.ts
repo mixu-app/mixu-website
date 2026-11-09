@@ -177,7 +177,11 @@ interface LocalizedLandingCopy {
   einkToggleLabel: string;
   releaseBadge: string;
   quickDownloadText: string;
+  heroArtCaption: string;
   heroPreviewCaption: string;
+  valArt1Label: string;
+  valArt2Label: string;
+  valArt3Label: string;
   galleryTitle: string;
   gallerySubtitle: string;
   filterAll: string;
@@ -235,7 +239,11 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       einkToggleLabel: "E-Ink Mode",
       releaseBadge: "v0.0.1 Alpha · Android APK Available",
       quickDownloadText: "Download v0.0.1 APK (Verified Package) →",
+      heroArtCaption: "Atmospheric Mystery Companion: Read the book, unfold the CaseBoard on your E-Ink tablet or phone",
       heroPreviewCaption: "Live capture: 2D Interactive CaseBoard & Reading Progress Rewind Slider",
+      valArt1Label: "01 · Spoiler-Free Reading Horizon",
+      valArt2Label: "02 · One-Tap Jump to Source Sentence",
+      valArt3Label: "03 · Offline-First & E-Ink Ready",
       galleryTitle: "Real App Screenshots & Feature Tour",
       gallerySubtitle:
         "See how Mixu helps you track characters, verify alibis, look up mystery terminology, and read comfortably across tablets, phones, and E-Ink devices.",
@@ -373,7 +381,11 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       einkToggleLabel: "E-Ink モード",
       releaseBadge: "v0.0.1 Alpha · Android APK 公開中",
       quickDownloadText: "v0.0.1 APK をダウンロード（署名検証済）→",
+      heroArtCaption: "長編ミステリーの読書机：物語を読み進めながら、隣で捜査ボードを広げる",
       heroPreviewCaption: "実機画面：2D 捜査ボードと読書進度連動スライダー",
+      valArt1Label: "01 · 読んだ章だけを表示（ネタバレ防止）",
+      valArt2Label: "02 · ワンタップで原文の行へ戻る",
+      valArt3Label: "03 · ログイン不要・E-Ink 端末対応",
       galleryTitle: "アプリ画面ギャラリー・主要機能一覧",
       gallerySubtitle:
         "登場人物の整理、証言とアリバイの照合、ミステリー用語辞典、2段組レイアウトや電子ペーパー表示まで、実際のアプリ画面でご紹介します。",
@@ -510,7 +522,11 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     einkToggleLabel: "E-Ink 墨水屏模式",
     releaseBadge: "v0.0.1 Alpha · Android 官方安装包已发布",
     quickDownloadText: "下载 v0.0.1 客户端 APK（附安装校验说明）→",
+    heroArtCaption: "推理读者的书桌伴侣：一边展卷阅读，一边在平板或墨水屏上梳理线索网",
     heroPreviewCaption: "应用实拍：按阅读进度展开的 2D 案情图板与不剧透历史复盘滑块",
+    valArt1Label: "01 · 书签级防剧透屏障（只显示已读章节）",
+    valArt2Label: "02 · 案情板红线直连原文段落",
+    valArt3Label: "03 · 离线即用 · 墨水屏与平板静心伴读",
     galleryTitle: "产品界面实拍 · 核心功能一览",
     gallerySubtitle:
       "从自动梳理人物关系的 2D 案情图板、一键回跳原文的证言核对表，到双栏精排、护眼主题与离线推理词典——点击下方任意截图可放大查看高清细节。",
@@ -728,22 +744,41 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
         <div class="hero-quick-download">
           <a href="./download.html">${escapeHtml(copy.quickDownloadText)}</a>
         </div>
-        <div class="hero-main-preview">
-          <button
-            type="button"
-            class="hero-preview-btn"
-            data-lightbox-src="${assetPrefix}/screenshots/caseboard-2d.png"
-            data-lightbox-title="${escapeHtml(copy.screenshots[0]?.title ?? "")}"
-            data-lightbox-desc="${escapeHtml(copy.screenshots[0]?.description ?? "")}"
-          >
-            <img
-              src="${assetPrefix}/screenshots/caseboard-2d.png"
-              alt="${escapeHtml(copy.heroPreviewCaption)}"
-              width="1280"
-              height="691"
-            />
-          </button>
-          <p class="hero-preview-caption">${escapeHtml(copy.heroPreviewCaption)}</p>
+        <div class="hero-main-preview hero-dual-showcase">
+          <div class="hero-showcase-col">
+            <button
+              type="button"
+              class="hero-preview-btn"
+              data-lightbox-src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+              data-lightbox-title="${escapeHtml(copy.heroArtCaption)}"
+              data-lightbox-desc="${escapeHtml(data.headline)}"
+            >
+              <img
+                src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+                alt="${escapeHtml(copy.heroArtCaption)}"
+                width="1280"
+                height="714"
+              />
+            </button>
+            <p class="hero-preview-caption">${escapeHtml(copy.heroArtCaption)}</p>
+          </div>
+          <div class="hero-showcase-col">
+            <button
+              type="button"
+              class="hero-preview-btn"
+              data-lightbox-src="${assetPrefix}/screenshots/caseboard-2d.png"
+              data-lightbox-title="${escapeHtml(copy.screenshots[0]?.title ?? "")}"
+              data-lightbox-desc="${escapeHtml(copy.screenshots[0]?.description ?? "")}"
+            >
+              <img
+                src="${assetPrefix}/screenshots/caseboard-2d.png"
+                alt="${escapeHtml(copy.heroPreviewCaption)}"
+                width="1280"
+                height="691"
+              />
+            </button>
+            <p class="hero-preview-caption">${escapeHtml(copy.heroPreviewCaption)}</p>
+          </div>
         </div>
       </header>
 
@@ -839,6 +874,62 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
 
       <section id="demo" class="section values">
         <h2>${valuesHeading}</h2>
+        <div class="values-visual-trio">
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+              data-lightbox-title="${escapeHtml(copy.valArt1Label)}"
+              data-lightbox-desc="${escapeHtml(copy.firewallStatus)}"
+            >
+              <img
+                src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+                alt="${escapeHtml(copy.valArt1Label)}"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>${escapeHtml(copy.valArt1Label)}</figcaption>
+          </figure>
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+              data-lightbox-title="${escapeHtml(copy.valArt2Label)}"
+              data-lightbox-desc="${escapeHtml(copy.hl2Desc)}"
+            >
+              <img
+                src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+                alt="${escapeHtml(copy.valArt2Label)}"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>${escapeHtml(copy.valArt2Label)}</figcaption>
+          </figure>
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+              data-lightbox-title="${escapeHtml(copy.valArt3Label)}"
+              data-lightbox-desc="${escapeHtml(copy.hl3Desc)}"
+            >
+              <img
+                src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+                alt="${escapeHtml(copy.valArt3Label)}"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>${escapeHtml(copy.valArt3Label)}</figcaption>
+          </figure>
+        </div>
         ${data.valuesHtml}
       </section>
 

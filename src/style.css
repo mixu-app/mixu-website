@@ -842,6 +842,68 @@ pre code {
   border-top: 1px solid var(--border);
 }
 
+.hero-dual-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.hero-showcase-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.values-visual-trio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.15rem;
+}
+
+.bookplate-card {
+  margin: 0;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bookplate-img-btn {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  cursor: zoom-in;
+}
+
+.bookplate-img-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.bookplate-img-btn:hover img {
+  transform: scale(1.02);
+}
+
+.bookplate-card figcaption {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
 .hero-preview-btn {
   display: block;
   width: 100%;
