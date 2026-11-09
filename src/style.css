@@ -834,3 +834,321 @@ pre code {
   margin: 1.15rem 0 0.4rem;
   font-size: 0.95rem;
 }
+
+/* Hero Main Screenshot Preview */
+.hero-main-preview {
+  margin-top: 1.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero-dual-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.hero-showcase-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.values-visual-trio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.15rem;
+}
+
+.bookplate-card {
+  margin: 0;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.bookplate-img-btn {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  cursor: zoom-in;
+}
+
+.bookplate-img-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.bookplate-img-btn:hover img {
+  transform: scale(1.02);
+}
+
+.bookplate-card figcaption {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.hero-preview-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.65rem;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: var(--shadow-subtle);
+}
+
+.hero-preview-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-preview-caption {
+  margin: 0.6rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Product Screenshot Gallery */
+.gallery-section {
+  margin-top: 2.5rem;
+}
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.35rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.gallery-filter-btn {
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gallery-filter-btn:hover {
+  color: var(--fg);
+  border-color: var(--accent);
+}
+
+.gallery-filter-btn.active {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 1.35rem;
+}
+
+@media (max-width: 640px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screenshot-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.65rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.screenshot-card[hidden] {
+  display: none !important;
+}
+
+.screenshot-Preview-trigger {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.screenshot-frame {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.screenshot-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.screenshot-Preview-trigger:hover .screenshot-frame img {
+  transform: scale(1.015);
+}
+
+.screenshot-zoom-pill {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(27, 26, 24, 0.78);
+  color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+:root[data-theme="eink"] .screenshot-zoom-pill {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.screenshot-body {
+  padding: 1.15rem 1.25rem 1.3rem;
+}
+
+.screenshot-badge {
+  display: inline-block;
+  padding: 0.14rem 0.55rem;
+  border-radius: 0.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.screenshot-body h3 {
+  margin: 0.55rem 0 0.4rem;
+  font-size: 1.06rem;
+}
+
+.screenshot-body p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Lightbox Modal */
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.screenshot-lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 18, 0.82);
+}
+
+.lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: 76rem;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-caption {
+  padding: 0.85rem 0.35rem 0.25rem;
+}
+
+.lightbox-caption strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}

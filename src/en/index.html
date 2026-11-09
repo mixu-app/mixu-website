@@ -45,7 +45,8 @@
         </a>
         <div class="topbar-actions">
           <nav class="topbar-nav" aria-label="Primary">
-            <a href="#showcase">Interactive Board</a>
+            <a href="#gallery">Screenshots</a>
+            <a href="#showcase">Interactive Demo</a>
             <a href="#demo">Core Values</a>
             <a class="topbar-download-pill" href="./download.html">Download v0.0.1</a>
           </nav>
@@ -68,43 +69,320 @@
         <h1>Remember every clue. The deduction is yours.</h1>
         <p class="subhead">Mixu is an offline-first mystery reader. It arranges <strong>what you have already read</strong> into an interactive case board—characters, locations, events, and conflicting testimonies, all linking back to the original text. It never spoils, never guesses the culprit, and never deduces for you.</p>
         <div class="cta-group">
-          <a class="cta cta-primary" href="#demo"><span class="cta-label">See how it works</span> <span class="cta-hint">(jump to 3-step demo)</span></a>
+          <a class="cta cta-primary" href="#gallery"><span class="cta-label">See how it works</span> <span class="cta-hint">(jump to 3-step demo)</span></a>
         <a class="cta cta-secondary" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer"><span class="cta-label">View client on GitHub</span> <span class="cta-hint">(open-source client repo)</span></a>
         </div>
         <div class="hero-quick-download">
-          <a href="./download.html">Download v0.0.1 APK (SHA-256 Verified) →</a>
+          <a href="./download.html">Download v0.0.1 APK (Verified Package) →</a>
+        </div>
+        <div class="hero-main-preview hero-dual-showcase">
+          <div class="hero-showcase-col">
+            <button
+              type="button"
+              class="hero-preview-btn"
+              data-lightbox-src="../screenshots/hero-mystery-desk.jpg"
+              data-lightbox-title="Atmospheric Mystery Companion: Read the book, unfold the CaseBoard on your E-Ink tablet or phone"
+              data-lightbox-desc="Remember every clue. The deduction is yours."
+            >
+              <img
+                src="../screenshots/hero-mystery-desk.jpg"
+                alt="Atmospheric Mystery Companion: Read the book, unfold the CaseBoard on your E-Ink tablet or phone"
+                width="1280"
+                height="714"
+              />
+            </button>
+            <p class="hero-preview-caption">Atmospheric Mystery Companion: Read the book, unfold the CaseBoard on your E-Ink tablet or phone</p>
+          </div>
+          <div class="hero-showcase-col">
+            <button
+              type="button"
+              class="hero-preview-btn"
+              data-lightbox-src="../screenshots/caseboard-2d.png"
+              data-lightbox-title="Interactive 2D Suspect &amp; Clue Relationship Board"
+              data-lightbox-desc="Automatically organizes characters, locations, and key evidence from chapters you have already read. Drag nodes freely and rewind the top progress slider to review earlier chapters spoiler-free."
+            >
+              <img
+                src="../screenshots/caseboard-2d.png"
+                alt="Live capture: 2D Interactive CaseBoard &amp; Reading Progress Rewind Slider"
+                width="1280"
+                height="691"
+              />
+            </button>
+            <p class="hero-preview-caption">Live capture: 2D Interactive CaseBoard &amp; Reading Progress Rewind Slider</p>
+          </div>
         </div>
       </header>
 
-      <section id="showcase" class="section showcase-section">
+      <section id="gallery" class="section gallery-section">
         <div class="showcase-header">
-          <h2>Interactive Reading Horizon Preview</h2>
-          <p class="showcase-sub">Slide your reading progress to see how Mixu projects the narrative graph P(G, h) and blocks future chapters deterministically.</p>
+          <h2>Real App Screenshots &amp; Feature Tour</h2>
+          <p class="showcase-sub">See how Mixu helps you track characters, verify alibis, look up mystery terminology, and read comfortably across tablets, phones, and E-Ink devices.</p>
         </div>
 
-        <div class="horizon-controls" role="tablist" aria-label="Interactive Reading Horizon Preview">
+        <div class="gallery-filters" role="tablist" aria-label="Real App Screenshots &amp; Feature Tour">
+          <button type="button" class="gallery-filter-btn active" data-gallery-filter="all" role="tab" aria-selected="true">
+            All Features (8)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="caseboard" role="tab" aria-selected="false">
+            CaseBoard &amp; Clues (4)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="reader" role="tab" aria-selected="false">
+            Reading &amp; Themes (3)
+          </button>
+          <button type="button" class="gallery-filter-btn" data-gallery-filter="tools" role="tab" aria-selected="false">
+            Dictionary &amp; Translation (1)
+          </button>
+        </div>
+
+        <div class="screenshot-grid" id="screenshot-grid">
+          
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-2d.png"
+              data-lightbox-title="Interactive 2D Suspect &amp; Clue Relationship Board"
+              data-lightbox-desc="Automatically organizes characters, locations, and key evidence from chapters you have already read. Drag nodes freely and rewind the top progress slider to review earlier chapters spoiler-free."
+              aria-label="Interactive 2D Suspect &amp; Clue Relationship Board — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-2d.png"
+                  alt="Interactive 2D Suspect &amp; Clue Relationship Board"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">CaseBoard · 2D Relationship Map</span>
+              <h3>Interactive 2D Suspect &amp; Clue Relationship Board</h3>
+              <p>Automatically organizes characters, locations, and key evidence from chapters you have already read. Drag nodes freely and rewind the top progress slider to review earlier chapters spoiler-free.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-hierarchy.png"
+              data-lightbox-title="One-Tap Hierarchical Topology View"
+              data-lightbox-desc="Switch instantly from a force-directed web to a structured top-down hierarchy—ideal for untangling sprawling family trees, manor households, and command chains."
+              aria-label="One-Tap Hierarchical Topology View — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-hierarchy.png"
+                  alt="One-Tap Hierarchical Topology View"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">CaseBoard · Hierarchy View</span>
+              <h3>One-Tap Hierarchical Topology View</h3>
+              <p>Switch instantly from a force-directed web to a structured top-down hierarchy—ideal for untangling sprawling family trees, manor households, and command chains.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/caseboard-claims.png"
+              data-lightbox-title="Testimony &amp; Evidence Checklist with Paragraph Links"
+              data-lightbox-desc="Lists every observed fact and witness statement unlocked so far, complete with chapter anchors so you can jump straight back to the exact sentence in the book."
+              aria-label="Testimony &amp; Evidence Checklist with Paragraph Links — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/caseboard-claims.png"
+                  alt="Testimony &amp; Evidence Checklist with Paragraph Links"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Testimonies · Source Jump</span>
+              <h3>Testimony &amp; Evidence Checklist with Paragraph Links</h3>
+              <p>Lists every observed fact and witness statement unlocked so far, complete with chapter anchors so you can jump straight back to the exact sentence in the book.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="caseboard">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/entity-dossier.png"
+              data-lightbox-title="Instant Character &amp; Evidence Dossier Drawer"
+              data-lightbox-desc="Tap any character or clue on the board to inspect when they first appeared and review all statements associated with them up to your current page."
+              aria-label="Instant Character &amp; Evidence Dossier Drawer — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/entity-dossier.png"
+                  alt="Instant Character &amp; Evidence Dossier Drawer"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Character Dossier · First Appearance</span>
+              <h3>Instant Character &amp; Evidence Dossier Drawer</h3>
+              <p>Tap any character or clue on the board to inspect when they first appeared and review all statements associated with them up to your current page.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-spread.png"
+              data-lightbox-title="Book-Grade Dual-Column Spread Layout"
+              data-lightbox-desc="Crisp two-column pagination designed for tablets and wide screens, with one-tap access to the table of contents, dictionary lookup, and the live CaseBoard."
+              aria-label="Book-Grade Dual-Column Spread Layout — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-spread.png"
+                  alt="Book-Grade Dual-Column Spread Layout"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Reader · Dual-Column Spread</span>
+              <h3>Book-Grade Dual-Column Spread Layout</h3>
+              <p>Crisp two-column pagination designed for tablets and wide screens, with one-tap access to the table of contents, dictionary lookup, and the live CaseBoard.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-themes.png"
+              data-lightbox-title="Daylight, Parchment, Night &amp; 1-Bit E-Ink Themes"
+              data-lightbox-desc="Fine-tune font size, line spacing, page-turn mode, and color presets—including a dedicated high-contrast E-Ink mode with zero animation ghosting."
+              aria-label="Daylight, Parchment, Night &amp; 1-Bit E-Ink Themes — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-themes.png"
+                  alt="Daylight, Parchment, Night &amp; 1-Bit E-Ink Themes"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Reader · Eye-Care &amp; E-Ink Presets</span>
+              <h3>Daylight, Parchment, Night &amp; 1-Bit E-Ink Themes</h3>
+              <p>Fine-tune font size, line spacing, page-turn mode, and color presets—including a dedicated high-contrast E-Ink mode with zero animation ghosting.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="reader">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/reader-mint.png"
+              data-lightbox-title="Soft Mint Eye-Care Theme for Marathon Reading"
+              data-lightbox-desc="Low-glare sage-green background tailored for multi-hour reading sessions through long golden-age and honkaku detective novels."
+              aria-label="Soft Mint Eye-Care Theme for Marathon Reading — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/reader-mint.png"
+                  alt="Soft Mint Eye-Care Theme for Marathon Reading"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Reader · Green Tea Eye-Care</span>
+              <h3>Soft Mint Eye-Care Theme for Marathon Reading</h3>
+              <p>Low-glare sage-green background tailored for multi-hour reading sessions through long golden-age and honkaku detective novels.</p>
+            </div>
+          </article>
+
+          <article class="screenshot-card" data-shot-category="tools">
+            <button
+              type="button"
+              class="screenshot-Preview-trigger"
+              data-lightbox-src="../screenshots/dictionary-translate.png"
+              data-lightbox-title="Instant Mystery Dictionary &amp; Context-Safe Translation"
+              data-lightbox-desc="Built-in glossary for classic mystery terms (alibi, inquest, coroner, locked-room) plus 1ms offline lookup and spoiler-safe paragraph translation."
+              aria-label="Instant Mystery Dictionary &amp; Context-Safe Translation — Click to enlarge"
+            >
+              <div class="screenshot-frame">
+                <img
+                  src="../screenshots/dictionary-translate.png"
+                  alt="Instant Mystery Dictionary &amp; Context-Safe Translation"
+                  width="1280"
+                  height="700"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom-pill">Click to enlarge</span>
+              </div>
+            </button>
+            <div class="screenshot-body">
+              <span class="screenshot-badge">Offline Dictionary · Dual-Engine Translation</span>
+              <h3>Instant Mystery Dictionary &amp; Context-Safe Translation</h3>
+              <p>Built-in glossary for classic mystery terms (alibi, inquest, coroner, locked-room) plus 1ms offline lookup and spoiler-safe paragraph translation.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="showcase" class="section showcase-section">
+        <div class="showcase-header">
+          <h2>How the Spoiler-Free CaseBoard Unfolds As You Read</h2>
+          <p class="showcase-sub">Switch between reading progress milestones below to see how Mixu reveals new clues, highlights broken alibis, and hides unread twists.</p>
+        </div>
+
+        <div class="horizon-controls" role="tablist" aria-label="How the Spoiler-Free CaseBoard Unfolds As You Read">
           <button type="button" class="horizon-step-btn active" data-horizon-step="0" role="tab" aria-selected="true">
-            Ch. 2 · 15% (Manor Arrival)
+            Ch. 2 · 15% (Arrival at the Manor)
           </button>
           <button type="button" class="horizon-step-btn" data-horizon-step="1" role="tab" aria-selected="false">
             Ch. 8 · 48% (Alibi Broken)
           </button>
           <button type="button" class="horizon-step-btn" data-horizon-step="2" role="tab" aria-selected="false">
-            Ch. 12 · 72% ( Chiming Clock)
+            Ch. 12 · 72% (Secret Passage Found)
           </button>
         </div>
 
         <div class="caseboard-stage" id="horizon-board" data-active-step="0">
           <div class="firewall-banner">
-            <span class="firewall-tag">Anti-Spoiler Firewall P(G, h)</span>
-            <span class="firewall-desc" id="firewall-status-text">14 future nodes &amp; 29 edges strictly filtered beyond current offset</span>
+            <span class="firewall-tag">Spoiler Guard Active</span>
+            <span class="firewall-desc" id="firewall-status-text">14 future characters &amp; 29 twists from unread chapters are safely hidden</span>
           </div>
 
           <div class="caseboard-grid">
             <article class="clue-node status-observed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-observed">OBSERVED</span>
-                <span class="clue-locus">OBSERVED · Ch. 1 Paragraph 4</span>
+                <span class="epistemic-badge badge-observed">Verified Fact</span>
+                <span class="clue-locus">Ch. 1 Paragraph 4</span>
               </div>
               <h3>Lin Shen (Archivist)</h3>
               <p class="clue-quote">&quot;Entered the study at 21:15 carrying the brass ledger key.&quot;</p>
@@ -112,29 +390,29 @@
 
             <article class="clue-node status-claimed" data-min-step="0">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-claimed">CLAIMED</span>
-                <span class="clue-locus">CLAIMED · Ch. 2 Paragraph 19</span>
+                <span class="epistemic-badge badge-claimed">Alibi Claim</span>
+                <span class="clue-locus">Ch. 2 Paragraph 19</span>
               </div>
               <h3>Su Wan (Heir)</h3>
-              <p class="clue-quote">&quot;Claims she never left the greenhouse between 21:00 and 22:00.&quot;</p>
+              <p class="clue-quote">&quot;Claims she never left the glasshouse between 21:00 and 22:00.&quot;</p>
             </article>
 
             <article class="clue-node status-contradicted" data-min-step="1">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-contradicted">CONTRADICTED</span>
-                <span class="clue-locus">CONTRADICTED · Ch. 8 Paragraph 11</span>
+                <span class="epistemic-badge badge-contradicted">Contradiction</span>
+                <span class="clue-locus">Ch. 8 Paragraph 11</span>
               </div>
               <h3>Stopped Pocket Watch (21:38)</h3>
-              <p class="clue-quote">&quot;Found beneath the greenhouse grates—contradicts Su Wan&#39;s alibi.&quot;</p>
+              <p class="clue-quote">&quot;Found beneath the glasshouse grates—directly contradicts Su Wan&#39;s alibi.&quot;</p>
             </article>
 
             <article class="clue-node status-locked" data-min-step="99" aria-disabled="true">
               <div class="clue-node-header">
-                <span class="epistemic-badge badge-locked">HORIZON GUARD</span>
-                <span class="clue-locus">P(G, h)</span>
+                <span class="epistemic-badge badge-locked">Unread Chapter</span>
+                <span class="clue-locus">Ch. 24</span>
               </div>
-              <h3>[LOCKED] Ch. 24 Cellar Confession</h3>
-              <p class="clue-quote">Blocked by Horizon Filter: first_reveal_offset (Ch. 24) &gt; current_reading_offset</p>
+              <h3>[Hidden] Ch. 24 Cellar Truth</h3>
+              <p class="clue-quote">Automatically hidden until your reading progress reaches Chapter 24</p>
             </article>
           </div>
         </div>
@@ -142,11 +420,98 @@
 
       <section id="demo" class="section values">
         <h2>Core Values</h2>
+        <div class="values-visual-trio">
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="../screenshots/illus-spoiler-shield.jpg"
+              data-lightbox-title="01 · Spoiler-Free Reading Horizon"
+              data-lightbox-desc="14 future characters &amp; 29 twists from unread chapters are safely hidden"
+            >
+              <img
+                src="../screenshots/illus-spoiler-shield.jpg"
+                alt="01 · Spoiler-Free Reading Horizon"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>01 · Spoiler-Free Reading Horizon</figcaption>
+          </figure>
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="../screenshots/illus-caseboard-threads.jpg"
+              data-lightbox-title="02 · One-Tap Jump to Source Sentence"
+              data-lightbox-desc="Every testimony and clue on the CaseBoard links directly to the source paragraph, so you can verify the author&#39;s exact wording in seconds."
+            >
+              <img
+                src="../screenshots/illus-caseboard-threads.jpg"
+                alt="02 · One-Tap Jump to Source Sentence"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>02 · One-Tap Jump to Source Sentence</figcaption>
+          </figure>
+          <figure class="bookplate-card">
+            <button
+              type="button"
+              class="bookplate-img-btn"
+              data-lightbox-src="../screenshots/illus-eink-reading.jpg"
+              data-lightbox-title="03 · Offline-First &amp; E-Ink Ready"
+              data-lightbox-desc="First-class support for Android E-Ink readers, tablets, and phones—with crisp solid borders, instant page turns, and zero motion clutter."
+            >
+              <img
+                src="../screenshots/illus-eink-reading.jpg"
+                alt="03 · Offline-First &amp; E-Ink Ready"
+                width="800"
+                height="597"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>03 · Offline-First &amp; E-Ink Ready</figcaption>
+          </figure>
+        </div>
         <ol>
 <li><strong>Shows only what you've read.</strong> The case board filters strictly by your reading progress: on Chapter 10, you won't see an identity revealed only in Chapter 14.</li>
 <li><strong>One tap back to the original text.</strong> Every entry anchors to the source sentence—jump back and forth without losing your place.</li>
 <li><strong>Read an entire book without signing in.</strong> Imports, reading, bookmarks, notes, and downloaded graph packs are all fully offline. E-Ink devices use the exact same package, just with reduced animations.</li>
 </ol>
+      </section>
+
+      <section class="section highlights-section">
+        <h2>Built for Mystery Readers on Every Device</h2>
+        <p class="showcase-sub">No complicated setup required—import your own EPUB or TXT books and start reading right away.</p>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>Never Forget Who Is Who</strong>
+            </div>
+            <p>Pick up a 600-page mystery after a busy week and immediately recall every suspect, relationship, and timeline detail you have read so far.</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>One Tap Back to the Exact Sentence</strong>
+            </div>
+            <p>Every testimony and clue on the CaseBoard links directly to the source paragraph, so you can verify the author&#39;s exact wording in seconds.</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>Tailored for E-Ink &amp; Tablets</strong>
+            </div>
+            <p>First-class support for Android E-Ink readers, tablets, and phones—with crisp solid borders, instant page turns, and zero motion clutter.</p>
+          </div>
+          <div class="arch-card">
+            <div class="arch-card-top">
+              <strong>100% Offline Ready &amp; Private</strong>
+            </div>
+            <p>Read, annotate, use the mystery dictionary, and browse your CaseBoard completely offline without mandatory sign-ups.</p>
+          </div>
+        </div>
       </section>
 
       <div class="dual-section-grid">
@@ -168,40 +533,17 @@
         </section>
       </div>
 
-      <section class="section architecture-section">
-        <h2>Open-Core Architecture</h2>
-        <p class="showcase-sub">Built with Kotlin Multiplatform. Core narrative graph, spoiler firewall, and E-Ink canvas renderer are open-source and verifiable.</p>
-        <div class="arch-grid">
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-client" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-client</strong>
-              <span class="license-pill">MPL-2.0</span>
-            </div>
-            <p>Android &amp; KMP offline-first EPUB/TXT reader, local SQLite storage, and interactive CaseBoard UI.</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-spoiler" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-graph &amp; mixu-spoiler</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>Temporal narrative property graph &amp; deterministic knowledge-horizon projection P(G, h).</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-renderer" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-renderer</strong>
-              <span class="license-pill">Apache-2.0</span>
-            </div>
-            <p>Compose Canvas force-directed graph layout with 1-bit E-Ink high-contrast rendering policy.</p>
-          </a>
-          <a class="arch-card" href="https://github.com/mixu-app/mixu-contracts" target="_blank" rel="noopener noreferrer">
-            <div class="arch-card-top">
-              <strong>mixu-contracts &amp; fixtures</strong>
-              <span class="license-pill">Apache-2.0 / CC0</span>
-            </div>
-            <p>JSON Schema graph pack specifications, HTTP API contracts, and CC0 spoiler regression fixtures.</p>
-          </a>
+      <div id="screenshot-lightbox" class="screenshot-lightbox" hidden aria-modal="true" role="dialog">
+        <div class="lightbox-backdrop" data-lightbox-close="true"></div>
+        <div class="lightbox-dialog">
+          <button type="button" class="lightbox-close-btn" data-lightbox-close="true" aria-label="Close preview">×</button>
+          <img id="lightbox-img" src="../screenshots/caseboard-2d.png" alt="" />
+          <div class="lightbox-caption">
+            <strong id="lightbox-title"></strong>
+            <p id="lightbox-desc"></p>
+          </div>
         </div>
-      </section>
+      </div>
 
       <footer class="footer-disclaimers note">
         <ul>
@@ -210,7 +552,9 @@
 <li>Client code is open source (Apache-2.0). Hosted sync services and graph packs are licensed separately. Book titles, brand marks, and third-party literary works are not covered by the open source license.</li>
 </ul>
         <div class="footer-meta-links">
-          <span>mixuread.com · Open-Core Mystery Reader</span>
+          <span>mixuread.com · Mixu Mystery Reader</span>
+          <span class="footer-sep">·</span>
+          <a href="mailto:support@mixuread.com">Contact: support@mixuread.com</a>
           <span class="footer-sep">·</span>
           <a href="../privacy.html">Privacy Policy</a>
           <span class="footer-sep">·</span>

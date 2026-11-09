@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-import { copyFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateRobotsTxt, generateSitemapXml, getSiteConfig } from "./site-config.ts";
@@ -34,6 +34,18 @@ export function copyAssets(options?: { srcDir?: string; distDir?: string }): str
     if (existsSync(srcPath)) {
       copyFileSync(srcPath, destPath);
       copied.push(asset);
+    }
+  }
+
+  const screenshotsSrcDir = resolve(srcDir, "screenshots");
+  const screenshotsDistDir = resolve(distDir, "screenshots");
+  if (existsSync(screenshotsSrcDir)) {
+    mkdirSync(screenshotsDistDir, { recursive: true });
+    for (const file of readdirSync(screenshotsSrcDir)) {
+      if (file.endsWith(".png") || file.endsWith(".webp") || file.endsWith(".jpg")) {
+        copyFileSync(resolve(screenshotsSrcDir, file), resolve(screenshotsDistDir, file));
+        copied.push(`screenshots/${file}`);
+      }
     }
   }
 
