@@ -317,7 +317,7 @@ const JA_LOCALE: LocaleConfig = {
 };
 
 const DEFAULT_CONFIG: SiteConfig = {
-  siteUrl: "https://mixu.app",
+  siteUrl: "https://mixuread.com",
   defaultLocale: "zh-CN",
   supportedLocales: ["zh-CN", "en", "ja"],
   ogImage: "/og.png",

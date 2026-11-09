@@ -194,6 +194,6 @@ l-22 -82 0 -2495 0 -2495 23 -50 c24 -51 106 -140 122 -130 4 3 10 1 12 -5 1
 
   <!-- Bottom Divider & Meta -->
   <line x1="100" y1="480" x2="1050" y2="480" stroke="#ede7dc" stroke-width="2" />
-  <text class="footer-url" x="100" y="525">mixu.app</text>
+  <text class="footer-url" x="100" y="525">mixuread.com</text>
   <text class="footer-badge" x="1050" y="525" text-anchor="end">案情板 · 知识地平线 · 开源阅读器</text>
 </svg>
