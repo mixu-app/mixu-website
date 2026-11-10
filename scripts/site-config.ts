@@ -319,7 +319,7 @@ const JA_LOCALE: LocaleConfig = {
 const DEFAULT_CONFIG: SiteConfig = {
   siteUrl: "https://mixuread.com",
   defaultLocale: "zh-CN",
-  supportedLocales: ["zh-CN", "en", "ja"],
+  supportedLocales: ["zh-CN"],
   ogImage: "/og.png",
   twitterCard: "summary_large_image",
   locales: {
@@ -331,10 +331,6 @@ const DEFAULT_CONFIG: SiteConfig = {
     entries: [
       { path: "/", changefreq: "weekly", priority: 1.0 },
       { path: "/download.html", changefreq: "weekly", priority: 0.8 },
-      { path: "/en/", changefreq: "weekly", priority: 0.9 },
-      { path: "/en/download.html", changefreq: "weekly", priority: 0.7 },
-      { path: "/ja/", changefreq: "weekly", priority: 0.9 },
-      { path: "/ja/download.html", changefreq: "weekly", priority: 0.7 },
     ],
   },
 };
@@ -425,6 +421,9 @@ export function renderLangSwitcher(
   config?: SiteConfig
 ): string {
   const cfg = config ?? getSiteConfig();
+  if (cfg.supportedLocales.length <= 1) {
+    return "";
+  }
   const currentLocCfg = getLocaleConfig(currentLocale, cfg);
   const langAriaLabel = currentLocCfg.ui?.langLabel ?? "Language";
 

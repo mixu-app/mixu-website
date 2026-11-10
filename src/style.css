@@ -551,49 +551,61 @@ main#app.landing-app {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.48rem;
 }
 
-.topbar-download-pill {
+.topbar-icon-btn {
+  appearance: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.48rem 1.1rem;
-  border-radius: 0.35rem;
-  background: var(--pill-dark);
-  color: var(--bg) !important;
-  border: 1.5px solid var(--border-strong);
-  font-size: 0.86rem;
-  font-weight: 700;
-  text-decoration: none !important;
-  box-shadow: 2px 2px 0 rgba(29, 31, 28, 0.22);
-}
-
-.topbar-download-pill:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 rgba(29, 31, 28, 0.3);
-}
-
-.eink-toggle-btn {
-  appearance: none;
   background: var(--bg);
   color: var(--fg);
   border: 1.5px solid var(--border-strong);
-  border-radius: 0.35rem;
-  padding: 0.36rem 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 700;
+  border-radius: 0.38rem;
+  text-decoration: none;
   cursor: pointer;
+  box-shadow: 2px 2px 0 rgba(29, 31, 28, 0.14);
 }
 
-.eink-toggle-btn:hover {
+.topbar-icon-btn:hover {
   background: var(--surface);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(29, 31, 28, 0.24);
+}
+
+.topbar-icon-btn-primary {
+  background: var(--pill-dark);
+  color: var(--bg) !important;
+}
+
+.topbar-icon-btn-primary:hover {
+  background: var(--fg);
+  color: var(--bg) !important;
+}
+
+.eink-toggle-btn .icon-sun {
+  display: none;
+}
+
+.eink-toggle-btn .icon-moon {
+  display: block;
 }
 
 .eink-toggle-btn[aria-pressed="true"] {
   background: var(--fg);
   color: var(--bg);
+}
+
+.eink-toggle-btn[aria-pressed="true"] .icon-moon {
+  display: none;
+}
+
+.eink-toggle-btn[aria-pressed="true"] .icon-sun {
+  display: block;
 }
 
 .lang-switcher {

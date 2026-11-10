@@ -240,11 +240,13 @@ function initLightDarkToggle(): void {
     if (isDark) {
       root.removeAttribute("data-panel-mode");
       toggleBtn.setAttribute("aria-pressed", "false");
-      toggleBtn.textContent = darkLabel;
+      toggleBtn.setAttribute("aria-label", darkLabel);
+      toggleBtn.setAttribute("title", darkLabel);
     } else {
       root.setAttribute("data-panel-mode", "dark");
       toggleBtn.setAttribute("aria-pressed", "true");
-      toggleBtn.textContent = lightLabel;
+      toggleBtn.setAttribute("aria-label", lightLabel);
+      toggleBtn.setAttribute("title", lightLabel);
     }
   });
 }

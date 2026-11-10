@@ -68,9 +68,7 @@ describe("site configuration & i18n extensibility", () => {
     const cfg = getSiteConfig();
     expect(cfg.siteUrl).toBe("https://mixuread.com");
     expect(cfg.defaultLocale).toBe("zh-CN");
-    expect(cfg.supportedLocales).toContain("zh-CN");
-    expect(cfg.supportedLocales).toContain("en");
-    expect(cfg.supportedLocales).toContain("ja");
+    expect(cfg.supportedLocales).toEqual(["zh-CN"]);
   });
 
   test("provides locale configurations for zh-CN, en and ja", () => {
