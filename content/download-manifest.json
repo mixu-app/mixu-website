@@ -8,7 +8,7 @@
       "channel": "alpha",
       "release_date": "2026-11-10",
       "download_url": "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
-      "sha256": "c1c16f18f941d6f672cfa606e526f092686c8ea8687f0f71f9acadf93432c31c",
+      "sha256": "2b435fa4e6c34571c3dbb5c2b8e3514bcf6f057299f6366b64258c902e5caa93",
       "min_sdk": 26,
       "changelog_zh": [
         "M0 阅读器基础：支持本地 EPUB 与 TXT 导入、章节目录跳转、细粒度阅读进度定位与墨水屏 (E-Ink) 高对比无动画模式",
