@@ -30,8 +30,12 @@ function initHeroRotatingWords(): void {
 }
 
 function initHeroWindowTabs(): void {
-  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>(".hero-window-tab"));
-  const stageImg = document.getElementById("hero-stage-img") as HTMLImageElement | null;
+  const tabs = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".hero-window-tab"),
+  );
+  const stageImg = document.getElementById(
+    "hero-stage-img",
+  ) as HTMLImageElement | null;
   const stageCaption = document.getElementById("hero-stage-caption");
   const stageTrigger = document.getElementById("hero-stage-trigger");
   const footerIdxEl = document.getElementById("kindle-footer-tab-idx");
@@ -79,7 +83,9 @@ function initHeroWindowTabs(): void {
       stageTrigger.setAttribute("data-lightbox-desc", caption);
     }
     if (footerIdxEl) {
-      const baseText = (footerIdxEl.textContent ?? "").replace(/·\s*\d+\s*\/\s*\d+\s*$/, "").trim();
+      const baseText = (footerIdxEl.textContent ?? "")
+        .replace(/·\s*\d+\s*\/\s*\d+\s*$/, "")
+        .trim();
       footerIdxEl.textContent = `${baseText} · ${normalized + 1} / ${tabs.length}`;
     }
   };
@@ -105,7 +111,9 @@ function initHeroWindowTabs(): void {
 
 function initHorizonShowcase(): void {
   const board = document.getElementById("horizon-board");
-  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-horizon-step]");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-horizon-step]",
+  );
   if (!board || buttons.length === 0) return;
 
   const updateStep = (step: number, withFlash = false): void => {
@@ -143,8 +151,12 @@ function initHorizonShowcase(): void {
 }
 
 function initScreenshotGallery(): void {
-  const filterBtns = document.querySelectorAll<HTMLButtonElement>("[data-gallery-filter]");
-  const cards = document.querySelectorAll<HTMLElement>(".screenshot-card[data-shot-category]");
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>(
+    "[data-gallery-filter]",
+  );
+  const cards = document.querySelectorAll<HTMLElement>(
+    ".screenshot-card[data-shot-category]",
+  );
   if (filterBtns.length > 0 && cards.length > 0) {
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -165,11 +177,17 @@ function initScreenshotGallery(): void {
   }
 
   const lightbox = document.getElementById("screenshot-lightbox");
-  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement | null;
+  const lightboxImg = document.getElementById(
+    "lightbox-img",
+  ) as HTMLImageElement | null;
   const lightboxTitle = document.getElementById("lightbox-title");
   const lightboxDesc = document.getElementById("lightbox-desc");
-  const triggers = document.querySelectorAll<HTMLElement>("[data-lightbox-src]");
-  const closeEls = document.querySelectorAll<HTMLElement>("[data-lightbox-close]");
+  const triggers = document.querySelectorAll<HTMLElement>(
+    "[data-lightbox-src]",
+  );
+  const closeEls = document.querySelectorAll<HTMLElement>(
+    "[data-lightbox-close]",
+  );
 
   if (!lightbox || !lightboxImg) return;
 
@@ -211,7 +229,8 @@ function initEmailCopyButton(): void {
   if (!copyBtn) return;
 
   copyBtn.addEventListener("click", async () => {
-    const val = copyBtn.getAttribute("data-copy-value") ?? "support@mixuread.com";
+    const val =
+      copyBtn.getAttribute("data-copy-value") ?? "support@mixuread.com";
     const defaultLabel = copyBtn.getAttribute("data-copy-label") ?? "Copy";
     const copiedLabel = copyBtn.getAttribute("data-copied-label") ?? "Copied ✓";
     try {
@@ -251,6 +270,65 @@ function initLightDarkToggle(): void {
   });
 }
 
+function initApkDownloadFeedback(): void {
+  const downloadLinks = document.querySelectorAll<HTMLAnchorElement>(
+    "[data-apk-download], a.download-button",
+  );
+  if (downloadLinks.length === 0) return;
+
+  const ensureToast = (): HTMLElement => {
+    let toast = document.getElementById("apk-download-toast");
+    if (toast) return toast;
+
+    toast = document.createElement("div");
+    toast.id = "apk-download-toast";
+    toast.className = "apk-download-toast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    document.body.appendChild(toast);
+    return toast;
+  };
+
+  downloadLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const toast = ensureToast();
+      const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+      const isInAppWebView = /MicroMessenger|QQ\/|Weibo/i.test(ua);
+
+      if (isInAppWebView) {
+        toast.innerHTML = `
+          <div class="apk-toast-body">
+            <strong>检测到内置浏览器限制直接下载 APK</strong>
+            <span>请点击右上角「⋯」选择「在系统浏览器中打开」，或前往 <a href="./download.html">下载与校验页</a>。</span>
+          </div>
+          <button type="button" class="apk-toast-close" aria-label="关闭提示">×</button>
+        `;
+      } else {
+        toast.innerHTML = `
+          <div class="apk-toast-body">
+            <strong>已开始下载 mixu-app-0.0.1.apk (8.9 MB)</strong>
+            <span>请留意浏览器下载栏 · <a href="./download.html">查看 SHA-256 校验和与签名说明 →</a></span>
+          </div>
+          <button type="button" class="apk-toast-close" aria-label="关闭提示">×</button>
+        `;
+      }
+
+      toast.classList.add("is-visible");
+      const closeBtn =
+        toast.querySelector<HTMLButtonElement>(".apk-toast-close");
+      if (closeBtn) {
+        closeBtn.addEventListener(
+          "click",
+          () => {
+            toast.classList.remove("is-visible");
+          },
+          { once: true },
+        );
+      }
+    });
+  });
+}
+
 function initAll(): void {
   initHeroRotatingWords();
   initHeroWindowTabs();
@@ -258,6 +336,7 @@ function initAll(): void {
   initScreenshotGallery();
   initEmailCopyButton();
   initLightDarkToggle();
+  initApkDownloadFeedback();
 }
 
 if (typeof document !== "undefined") {

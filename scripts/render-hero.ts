@@ -57,12 +57,16 @@ export function parseHeroMarkdown(source: string): HeroData {
     const block = blocks[i];
     if (!block) continue;
     const newline = block.indexOf("\n");
-    const title = newline === -1 ? block.trim() : block.slice(0, newline).trim();
+    const title =
+      newline === -1 ? block.trim() : block.slice(0, newline).trim();
     const body = newline === -1 ? "" : block.slice(newline + 1).trim();
     sections.set(title, body);
   }
 
-  function getSection(predicate: (title: string) => boolean, sectionName: string): { title: string; body: string } {
+  function getSection(
+    predicate: (title: string) => boolean,
+    sectionName: string,
+  ): { title: string; body: string } {
     for (const [title, body] of sections.entries()) {
       if (predicate(title)) {
         return { title, body };
@@ -73,7 +77,7 @@ export function parseHeroMarkdown(source: string): HeroData {
 
   const headlineSec = getSection(
     (t) => /(主标题|主見出し|主タイトル|メイン見出し|headline)/i.test(t),
-    "## 主标题 / Headline"
+    "## 主标题 / Headline",
   );
   const firstLine = headlineSec.body.split("\n")[0]?.trim() ?? "";
   const headline = firstLine.replace(/^\*\*|\*\*$/g, "").trim();
@@ -83,7 +87,7 @@ export function parseHeroMarkdown(source: string): HeroData {
 
   const subheadSec = getSection(
     (t) => /(副标题|副見出し|副タイトル|サブ|subhead|subtitle)/i.test(t),
-    "## 副标题 / Subhead"
+    "## 副标题 / Subhead",
   );
   const subheadHtml = Bun.markdown
     .html(subheadSec.body)
@@ -93,31 +97,44 @@ export function parseHeroMarkdown(source: string): HeroData {
 
   const valuesSec = getSection(
     (t) => /(价值|価値|value|feature)/i.test(t),
-    "## 三条价值 / Core Values"
+    "## 三条价值 / Core Values",
   );
-  const valuesHtml = Bun.markdown.html(valuesSec.body).replaceAll("&quot;", '"').trim();
+  const valuesHtml = Bun.markdown
+    .html(valuesSec.body)
+    .replaceAll("&quot;", '"')
+    .trim();
 
   const audienceSec = getSection(
-    (t) => /(适合谁|対象読者|おすすめ|who it is for|audience)/i.test(t) && !/(不适合|不適合|対象外|not)/i.test(t),
-    "## 适合谁 / Who It Is For"
+    (t) =>
+      /(适合谁|対象読者|おすすめ|who it is for|audience)/i.test(t) &&
+      !/(不适合|不適合|対象外|not)/i.test(t),
+    "## 适合谁 / Who It Is For",
   );
-  const audienceHtml = Bun.markdown.html(audienceSec.body).replaceAll("&quot;", '"').trim();
+  const audienceHtml = Bun.markdown
+    .html(audienceSec.body)
+    .replaceAll("&quot;", '"')
+    .trim();
 
   const limitationsSec = getSection(
     (t) => /(不适合|不適合|対象外|not for|limitation)/i.test(t),
-    "## 不适合谁 / Who It Is Not For"
+    "## 不适合谁 / Who It Is Not For",
   );
-  const limitationsHtml = Bun.markdown.html(limitationsSec.body).replaceAll("&quot;", '"').trim();
+  const limitationsHtml = Bun.markdown
+    .html(limitationsSec.body)
+    .replaceAll("&quot;", '"')
+    .trim();
 
   const ctaSec = getSection(
     (t) => /(按钮|ボタン|cta|button|action)/i.test(t),
-    "## 主按钮 / CTA Buttons"
+    "## 主按钮 / CTA Buttons",
   );
   const ctas: HeroCta[] = [];
   for (const line of ctaSec.body.split("\n")) {
     const trimmed = line.trim();
     if (!trimmed.startsWith("-")) continue;
-    const match = trimmed.match(/^-\s*(主|次|Primary|Secondary|Main|Sub|メイン|サブ)[：:]\s*\*\*(.+?)\*\*\s*(.+)?$/i);
+    const match = trimmed.match(
+      /^-\s*(主|次|Primary|Secondary|Main|Sub|メイン|サブ)[：:]\s*\*\*(.+?)\*\*\s*(.+)?$/i,
+    );
     if (match && match[1] && match[2]) {
       const typeStr = match[1].toLowerCase();
       const isPrimary = ["主", "primary", "main", "メイン"].includes(typeStr);
@@ -128,7 +145,9 @@ export function parseHeroMarkdown(source: string): HeroData {
         isPrimary,
         label,
         hint,
-        href: isPrimary ? "#showcase" : "https://github.com/mixu-app/mixu-client",
+        href: isPrimary
+          ? "#showcase"
+          : "https://github.com/mixu-app/mixu-client",
       });
     }
   }
@@ -139,9 +158,12 @@ export function parseHeroMarkdown(source: string): HeroData {
 
   const disclaimersSec = getSection(
     (t) => /(声明|免責|页脚|フッター|disclaimer|footer|notice)/i.test(t),
-    "## 页脚声明 / Footer Disclaimers"
+    "## 页脚声明 / Footer Disclaimers",
   );
-  const disclaimersHtml = Bun.markdown.html(disclaimersSec.body).replaceAll("&quot;", '"').trim();
+  const disclaimersHtml = Bun.markdown
+    .html(disclaimersSec.body)
+    .replaceAll("&quot;", '"')
+    .trim();
 
   return {
     headline,
@@ -293,37 +315,43 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         "Mystery Glossary",
       ],
       downloadNowBtn: "Download Now",
-      githubStarNote: "Open-core on GitHub — Star us to support spoiler-free reading",
+      githubStarNote:
+        "Open-core on GitHub — Star us to support spoiler-free reading",
       heroQuickTabs: [
         {
           id: "tab-caseboard",
           label: "2D CaseBoard",
           imageFile: "caseboard-2d.png",
-          caption: "Live 2D suspect & clue board with reading-progress rewind slider",
+          caption:
+            "Live 2D suspect & clue board with reading-progress rewind slider",
         },
         {
           id: "tab-reader",
           label: "Dual-Column Reader",
           imageFile: "reader-spread.png",
-          caption: "Book-grade dual-column spread pagination for tablets & wide screens",
+          caption:
+            "Book-grade dual-column spread pagination for tablets & wide screens",
         },
         {
           id: "tab-claims",
           label: "Alibi & Testimony Check",
           imageFile: "caseboard-claims.png",
-          caption: "Every witness testimony links directly back to the source sentence",
+          caption:
+            "Every witness testimony links directly back to the source sentence",
         },
         {
           id: "tab-dict",
           label: "Mystery Dictionary",
           imageFile: "dictionary-translate.png",
-          caption: "Offline mystery terminology lookup and dual-engine paragraph translation",
+          caption:
+            "Offline mystery terminology lookup and dual-engine paragraph translation",
         },
         {
           id: "tab-desk",
           label: "Detective Study",
           imageFile: "hero-mystery-desk.jpg",
-          caption: "Read on paper or E-Ink while keeping every suspect and alibi organized",
+          caption:
+            "Read on paper or E-Ink while keeping every suspect and alibi organized",
         },
       ],
       pillarsSubtitle: "An Upgraded Reading Experience for Long-Form Mystery",
@@ -429,22 +457,26 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       step2Label: "Ch. 8 · 48% (Alibi Broken)",
       step3Label: "Ch. 12 · 72% (Secret Passage Found)",
       firewallLabel: "Spoiler Guard Active",
-      firewallStatus: "14 future characters & 29 twists from unread chapters are safely hidden",
+      firewallStatus:
+        "14 future characters & 29 twists from unread chapters are safely hidden",
       badgeObservedText: "Verified Fact",
       badgeClaimedText: "Alibi Claim",
       badgeContradictedText: "Contradiction",
       badgeLockedText: "Unread Chapter",
       node1Title: "Lin Shen (Archivist)",
       node1Role: "Ch. 1 Paragraph 4",
-      node1Quote: "\"Entered the study at 21:15 carrying the brass ledger key.\"",
+      node1Quote: '"Entered the study at 21:15 carrying the brass ledger key."',
       node2Title: "Su Wan (Heir)",
       node2Role: "Ch. 2 Paragraph 19",
-      node2Quote: "\"Claims she never left the glasshouse between 21:00 and 22:00.\"",
+      node2Quote:
+        '"Claims she never left the glasshouse between 21:00 and 22:00."',
       node3Title: "Stopped Pocket Watch (21:38)",
       node3Role: "Ch. 8 Paragraph 11",
-      node3Quote: "\"Found beneath the glasshouse grates—directly contradicts Su Wan's alibi.\"",
+      node3Quote:
+        '"Found beneath the glasshouse grates—directly contradicts Su Wan\'s alibi."',
       node4LockedTitle: "[Hidden] Ch. 24 Cellar Truth",
-      node4LockedReason: "Automatically hidden until your reading progress reaches Chapter 24",
+      node4LockedReason:
+        "Automatically hidden until your reading progress reaches Chapter 24",
       moreFeaturesHeading: "More Features",
       moreFeaturesSubtitle:
         "Designed specifically for readers of classic whodunits, locked-room mysteries, and sprawling historical detective fiction.",
@@ -481,17 +513,20 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       faqHeading: "Frequently Asked Questions",
       faqs: [
         {
-          question: "How does Mixu guarantee I won't see spoilers from later chapters?",
+          question:
+            "How does Mixu guarantee I won't see spoilers from later chapters?",
           answer:
             "Every character, relationship, and testimony in a Graph Pack is tagged with the exact chapter and paragraph where it first appears. Mixu filters out everything beyond your current reading position before rendering the CaseBoard.",
         },
         {
-          question: "Can I use Mixu completely offline without creating an account?",
+          question:
+            "Can I use Mixu completely offline without creating an account?",
           answer:
             "Yes. Importing EPUB/TXT books, paginated reading, themes, bookmarks, the offline mystery dictionary, and local CaseBoard packs all work 100% offline with no login required.",
         },
         {
-          question: "Does it work well on Onyx Boox, iReader, and other Android E-Ink devices?",
+          question:
+            "Does it work well on Onyx Boox, iReader, and other Android E-Ink devices?",
           answer:
             "Yes. Mixu includes a dedicated E-Ink mode that disables spring animations, removes gradients, and uses crisp 1-bit solid borders to eliminate screen ghosting.",
         },
@@ -506,7 +541,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       copyBtnText: "Copy",
       copiedBtnText: "Copied ✓",
       footerCtaTitle: "Start Reading Spoiler-Free",
-      footerCtaSub: "Ready to keep every suspect, alibi, and clue organized as you read?",
+      footerCtaSub:
+        "Ready to keep every suspect, alibi, and clue organized as you read?",
       privacyLinkText: "Privacy Policy",
       termsLinkText: "Terms of Service",
       contactLabel: "Contact: support@mixuread.com",
@@ -539,7 +575,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         "ミステリー用語辞典",
       ],
       downloadNowBtn: "今すぐダウンロード",
-      githubStarNote: "Mixu はオープンコアプロジェクトです。GitHub での Star をお待ちしています",
+      githubStarNote:
+        "Mixu はオープンコアプロジェクトです。GitHub での Star をお待ちしています",
       heroQuickTabs: [
         {
           id: "tab-caseboard",
@@ -551,13 +588,15 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
           id: "tab-reader",
           label: "見開き2段組リーダー",
           imageFile: "reader-spread.png",
-          caption: "タブレットや大画面で紙の本のように読める見開き2段組レイアウト",
+          caption:
+            "タブレットや大画面で紙の本のように読める見開き2段組レイアウト",
         },
         {
           id: "tab-claims",
           label: "証言・アリバイ照合",
           imageFile: "caseboard-claims.png",
-          caption: "すべての証言と証拠カードから小説の該当段落へワンタップでジャンプ",
+          caption:
+            "すべての証言と証拠カードから小説の該当段落へワンタップでジャンプ",
         },
         {
           id: "tab-dict",
@@ -675,7 +714,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       step2Label: "第8章 · 48%（アリバイの矛盾）",
       step3Label: "第12章 · 72%（時計塔の隠し通路）",
       firewallLabel: "ネタバレ防止ロック有効",
-      firewallStatus: "まだ読んでいない後半の章の14件の人物・29件の真相を自動で伏せています",
+      firewallStatus:
+        "まだ読んでいない後半の章の14件の人物・29件の真相を自動で伏せています",
       badgeObservedText: "確認済の事実",
       badgeClaimedText: "本人の証言",
       badgeContradictedText: "アリバイ矛盾",
@@ -690,7 +730,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       node3Role: "第8章 第11段落",
       node3Quote: "「温室の格子下で発見。スー・ワンの不在証明と矛盾する。」",
       node4LockedTitle: "[未解放] 第24章 地下室の真相",
-      node4LockedReason: "第24章まで読み進めるまで、この手がかりは表示されません",
+      node4LockedReason:
+        "第24章まで読み進めるまで、この手がかりは表示されません",
       moreFeaturesHeading: "その他の機能",
       moreFeaturesSubtitle:
         "古典本格ミステリーから大作長編まで、手元の EPUB / TXT 書籍を快適に読み解くためのツールを揃えています。",
@@ -737,12 +778,14 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
             "はい。書籍のインポート、読書、テーマ変更、オフライン用語辞典、端末内の捜査ボード閲覧はすべてログイン不要・オフラインで利用できます。",
         },
         {
-          question: "BOOX などの Android 電子ペーパー（E-Ink）端末に対応していますか？",
+          question:
+            "BOOX などの Android 電子ペーパー（E-Ink）端末に対応していますか？",
           answer:
             "はい。アニメーションを無効化し、くっきりとした白黒実線のみで描画する専用 E-Ink モードを備えており、残像を抑えて快適に操作できます。",
         },
         {
-          question: "ダウンロードした APK ファイルの安全性はどう確認できますか？",
+          question:
+            "ダウンロードした APK ファイルの安全性はどう確認できますか？",
           answer:
             "ダウンロードページにて SHA-256 チェックサムと署名証明書のフィンガープリントを公開しており、インストール前に検証可能です。",
         },
@@ -790,25 +833,29 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         id: "tab-caseboard",
         label: "2D 案情图板",
         imageFile: "caseboard-2d.png",
-        caption: "随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节",
+        caption:
+          "随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节",
       },
       {
         id: "tab-reader",
         label: "双栏精排阅读",
         imageFile: "reader-spread.png",
-        caption: "媲美实体精装书的平板双栏分页排版，底部一键呼出目录、查词与案情板",
+        caption:
+          "媲美实体精装书的平板双栏分页排版，底部一键呼出目录、查词与案情板",
       },
       {
         id: "tab-claims",
         label: "证言与线索核对",
         imageFile: "caseboard-claims.png",
-        caption: "汇总已浮现的现场勘验与嫌疑人证词，点击任意条目直接跳回小说原句",
+        caption:
+          "汇总已浮现的现场勘验与嫌疑人证词，点击任意条目直接跳回小说原句",
       },
       {
         id: "tab-dict",
         label: "离线推理词典",
         imageFile: "dictionary-translate.png",
-        caption: "内置古典与本格推理专有名词词典，支持 1ms 离线秒查与双引擎段落精译",
+        caption:
+          "内置古典与本格推理专有名词词典，支持 1ms 离线秒查与双引擎段落精译",
       },
       {
         id: "tab-desk",
@@ -920,7 +967,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     step2Label: "读到第 8 章 · 48%（不在场证明破裂）",
     step3Label: "读到第 12 章 · 72%（钟楼密道浮现）",
     firewallLabel: "防剧透阅读保护已开启",
-    firewallStatus: "已自动隐藏第 12 章之后的 14 位未登场人物与 29 条后续反转线索",
+    firewallStatus:
+      "已自动隐藏第 12 章之后的 14 位未登场人物与 29 条后续反转线索",
     badgeObservedText: "已确认线索",
     badgeClaimedText: "嫌疑人证言",
     badgeContradictedText: "证言出现矛盾",
@@ -935,7 +983,8 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     node3Role: "第 8 章 第 11 段",
     node3Quote: "“在花房排水格栅下寻获，表壳刻痕与苏晚的不在场证明直接矛盾。”",
     node4LockedTitle: "[未读锁止] 第 24 章 地下酒窖真相",
-    node4LockedReason: "该线索位于第 24 章，在你读到对应章节前会自动锁止隐藏，彻底杜绝剧透",
+    node4LockedReason:
+      "该线索位于第 24 章，在你读到对应章节前会自动锁止隐藏，彻底杜绝剧透",
     moreFeaturesHeading: "更多功能",
     moreFeaturesSubtitle:
       "导入本地 EPUB 或 TXT 图书即可直接开读，把繁琐的人物谱系与时间线记忆交给谜序，把解谜的乐趣留给自己。",
@@ -1008,7 +1057,11 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
 /**
  * Formats the parsed hero data into semantic HTML elements, localized according to configuration.
  */
-export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?: SiteConfig): string {
+export function renderHeroHtml(
+  data: HeroData,
+  locale: string = "zh-CN",
+  config?: SiteConfig,
+): string {
   const cfg = config ?? getSiteConfig();
   const locCfg = getLocaleConfig(locale, cfg);
   const langSwitcher = renderLangSwitcher(locale, "index", cfg);
@@ -1017,9 +1070,19 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
 
   const heroUi = locCfg.ui?.hero;
   const valuesHeading =
-    heroUi?.valuesHeading ?? (locale === "en" ? "Core Values" : locale === "ja" ? "3つの価値" : "三条价值");
+    heroUi?.valuesHeading ??
+    (locale === "en"
+      ? "Core Values"
+      : locale === "ja"
+        ? "3つの価値"
+        : "三条价值");
   const audienceHeading =
-    heroUi?.audienceHeading ?? (locale === "en" ? "Who It Is For" : locale === "ja" ? "対象読者" : "适合谁");
+    heroUi?.audienceHeading ??
+    (locale === "en"
+      ? "Who It Is For"
+      : locale === "ja"
+        ? "対象読者"
+        : "适合谁");
   const limitationsHeading =
     heroUi?.limitationsHeading ??
     (locale === "en"
@@ -1031,8 +1094,12 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
   const primaryCta = data.ctas.find((c) => c.isPrimary) ?? data.ctas[0];
   const secondaryCta = data.ctas.find((c) => !c.isPrimary) ?? data.ctas[1];
 
-  const primaryHintHtml = primaryCta?.hint ? ` <span class="cta-hint">${primaryCta.hint}</span>` : "";
-  const secondaryHintHtml = secondaryCta?.hint ? ` <span class="cta-hint">${secondaryCta.hint}</span>` : "";
+  const primaryHintHtml = primaryCta?.hint
+    ? ` <span class="cta-hint">${primaryCta.hint}</span>`
+    : "";
+  const secondaryHintHtml = secondaryCta?.hint
+    ? ` <span class="cta-hint">${secondaryCta.hint}</span>`
+    : "";
 
   const heroTabsHtml = copy.heroQuickTabs
     .map(
@@ -1045,16 +1112,23 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
                   aria-selected="${idx === 0 ? "true" : "false"}"
                 >
                   ${escapeHtml(tab.label)}
-                </button>`
+                </button>`,
     )
     .join("\n");
 
-  const highlightCycle = ["hl-yellow", "hl-blue", "hl-pink", "hl-green", "hl-orange"] as const;
+  const highlightCycle = [
+    "hl-yellow",
+    "hl-blue",
+    "hl-pink",
+    "hl-green",
+    "hl-orange",
+  ] as const;
 
   const galleryCardsHtml = copy.screenshots
     .map((shot, idx) => {
       const folioNum = String(idx + 1).padStart(2, "0");
-      const hlClass = highlightCycle[idx % highlightCycle.length] ?? "hl-yellow";
+      const hlClass =
+        highlightCycle[idx % highlightCycle.length] ?? "hl-yellow";
       return `
             <article class="bento-feature-card screenshot-card" data-shot-category="${shot.category}">
               <div class="bento-card-head">
@@ -1114,7 +1188,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
               <span class="more-feature-num">§ 0${idx + 1}</span>
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(item.desc)}</p>
-            </div>`
+            </div>`,
     )
     .join("\n");
 
@@ -1129,7 +1203,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
               <div class="koodo-faq-answer">
                 <p>${escapeHtml(faq.answer)}</p>
               </div>
-            </details>`
+            </details>`,
     )
     .join("\n");
 
@@ -1227,7 +1301,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
             <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <span class="cta-label">${primaryCta?.label ?? ""}</span>${primaryHintHtml}
           </a>
-          <a class="cta cta-solid-pill" href="./download.html">
+          <a class="cta cta-solid-pill" href="/releases/v0.0.1/mixu-app-0.0.1.apk" download="mixu-app-0.0.1.apk" data-apk-download="v0.0.1">
             <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
           </a>
@@ -1619,7 +1693,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
               <a class="cta cta-footer-light" href="#showcase">
                 <span class="cta-label">${primaryCta?.label ?? ""}</span>
               </a>
-              <a class="cta cta-footer-outline" href="./download.html">
+              <a class="cta cta-footer-outline" href="/releases/v0.0.1/mixu-app-0.0.1.apk" download="mixu-app-0.0.1.apk" data-apk-download="v0.0.1">
                 <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
               </a>
             </div>
@@ -1652,17 +1726,25 @@ export function renderHero(
   templatePath?: string,
   outputPath?: string,
   locale?: string,
-  config?: SiteConfig
+  config?: SiteConfig,
 ): { data: HeroData; html: string; outputPath: string } {
   const currentLocale = locale ?? "zh-CN";
   const cfg = config ?? getSiteConfig();
   const locCfg = getLocaleConfig(currentLocale, cfg);
 
-  const defaultContentFilename = currentLocale === "zh-CN" ? "hero.zh-CN.md" : `hero.${currentLocale}.md`;
-  const resolvedContent = contentPath ?? resolve(import.meta.dir, `../content/${defaultContentFilename}`);
-  const resolvedTemplate = templatePath ?? resolve(import.meta.dir, "../src/index.template.html");
-  const defaultOutputRel = currentLocale === "zh-CN" ? "src/index.html" : `src/${currentLocale}/index.html`;
-  const resolvedOutput = outputPath ?? resolve(import.meta.dir, `../${defaultOutputRel}`);
+  const defaultContentFilename =
+    currentLocale === "zh-CN" ? "hero.zh-CN.md" : `hero.${currentLocale}.md`;
+  const resolvedContent =
+    contentPath ??
+    resolve(import.meta.dir, `../content/${defaultContentFilename}`);
+  const resolvedTemplate =
+    templatePath ?? resolve(import.meta.dir, "../src/index.template.html");
+  const defaultOutputRel =
+    currentLocale === "zh-CN"
+      ? "src/index.html"
+      : `src/${currentLocale}/index.html`;
+  const resolvedOutput =
+    outputPath ?? resolve(import.meta.dir, `../${defaultOutputRel}`);
 
   if (!existsSync(resolvedContent)) {
     throw new Error(`Missing content file: ${resolvedContent}`);
@@ -1676,15 +1758,27 @@ export function renderHero(
   const heroHtml = renderHeroHtml(data, currentLocale, cfg);
 
   const assetPrefix = currentLocale === "zh-CN" ? "." : "..";
-  const navAriaLabel = currentLocale === "en" ? "Navigation" : currentLocale === "ja" ? "ナビゲーション" : "页面导航";
-  const downloadLinkText = locCfg.ui?.downloadPageLink ?? "客户端下载与签名校验说明 →";
+  const navAriaLabel =
+    currentLocale === "en"
+      ? "Navigation"
+      : currentLocale === "ja"
+        ? "ナビゲーション"
+        : "页面导航";
+  const downloadLinkText =
+    locCfg.ui?.downloadPageLink ?? "客户端下载与签名校验说明 →";
 
   const rawTemplate = readFileSync(resolvedTemplate, "utf-8");
   const fullHtml = rawTemplate
     .replaceAll("{{HTML_LANG}}", currentLocale)
     .replaceAll("{{PAGE_TITLE}}", `${locCfg.siteName} — ${data.headline}`)
-    .replaceAll("{{PAGE_DESCRIPTION}}", locCfg.pages.index?.description ?? locCfg.tagline)
-    .replaceAll("{{CANONICAL_URL}}", getCanonicalUrl(locCfg.pages.index?.path ?? "/", cfg))
+    .replaceAll(
+      "{{PAGE_DESCRIPTION}}",
+      locCfg.pages.index?.description ?? locCfg.tagline,
+    )
+    .replaceAll(
+      "{{CANONICAL_URL}}",
+      getCanonicalUrl(locCfg.pages.index?.path ?? "/", cfg),
+    )
     .replaceAll("{{OG_SITE_NAME}}", locCfg.siteName)
     .replaceAll("{{OG_LOCALE}}", locCfg.ogLocale)
     .replaceAll("{{ASSET_PREFIX}}", assetPrefix)
@@ -1712,15 +1806,21 @@ export function renderHero(
 /**
  * Renders hero pages for all configured supported locales.
  */
-export function renderAllHeroPages(config?: SiteConfig): Array<{ locale: string; outputPath: string }> {
+export function renderAllHeroPages(
+  config?: SiteConfig,
+): Array<{ locale: string; outputPath: string }> {
   const cfg = config ?? getSiteConfig();
   const rootDir = resolve(import.meta.dir, "..");
   const results: Array<{ locale: string; outputPath: string }> = [];
 
   for (const loc of cfg.supportedLocales) {
-    const contentFilename = loc === "zh-CN" ? "hero.zh-CN.md" : `hero.${loc}.md`;
+    const contentFilename =
+      loc === "zh-CN" ? "hero.zh-CN.md" : `hero.${loc}.md`;
     const contentPath = resolve(rootDir, `content/${contentFilename}`);
-    const outputPath = loc === "zh-CN" ? resolve(rootDir, "src/index.html") : resolve(rootDir, `src/${loc}/index.html`);
+    const outputPath =
+      loc === "zh-CN"
+        ? resolve(rootDir, "src/index.html")
+        : resolve(rootDir, `src/${loc}/index.html`);
 
     const res = renderHero(contentPath, undefined, outputPath, loc, cfg);
     results.push({ locale: loc, outputPath: res.outputPath });
@@ -1733,10 +1833,14 @@ if (import.meta.main) {
   try {
     const rendered = renderAllHeroPages();
     for (const item of rendered) {
-      console.log(`Rendered hero content successfully [${item.locale}] into: ${item.outputPath}`);
+      console.log(
+        `Rendered hero content successfully [${item.locale}] into: ${item.outputPath}`,
+      );
     }
   } catch (err) {
-    console.error(`Build Error: ${err instanceof Error ? err.message : String(err)}`);
+    console.error(
+      `Build Error: ${err instanceof Error ? err.message : String(err)}`,
+    );
     process.exit(1);
   }
 }

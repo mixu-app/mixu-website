@@ -7,7 +7,7 @@
       "build_number": 1,
       "channel": "alpha",
       "release_date": "2026-11-10",
-      "download_url": "http://cdn.mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
+      "download_url": "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
       "sha256": "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb",
       "min_sdk": 26,
       "changelog_zh": [
