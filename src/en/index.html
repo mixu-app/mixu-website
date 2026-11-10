@@ -38,7 +38,98 @@
   </head>
   <body class="landing-body">
     <main id="app" class="landing-app">
-      <!-- Floating Pill Navbar (Koodo Reader Style) -->
+      <!-- E-Ink Carta 1200 & Kaleido 3 Colorsoft Optical Overlays -->
+      <svg id="eink-paper-texture" aria-hidden="true">
+        <filter id="eink-noise-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#eink-noise-filter)" />
+      </svg>
+      <div id="eink-cfa-layer" aria-hidden="true"></div>
+      <div id="eink-flash-layer" aria-hidden="true"></div>
+
+      <!-- Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade -->
+      <div class="kindle-system-bar" id="kindle-status-bar">
+        <div class="kindle-sys-inner">
+          <div class="kindle-sys-left">
+            <span class="kindle-sys-dot" aria-hidden="true"></span>
+            <span class="kindle-sys-brand">MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3</span>
+          </div>
+          <button
+            type="button"
+            id="kindle-shade-toggle"
+            class="kindle-shade-trigger-btn"
+            aria-expanded="false"
+            aria-controls="kindle-quick-shade"
+          >
+            <span>☀ Frontlight &amp; E-Ink Optics ▾</span>
+          </button>
+          <div class="kindle-sys-right">
+            <button type="button" id="eink-waveform-btn" class="kindle-sys-pill-btn">
+              ✦ Full Waveform Refresh
+            </button>
+            <span class="kindle-sys-telemetry" aria-hidden="true">Wi-Fi · 94% ▮ · <span id="kindle-clock">14:28</span></span>
+          </div>
+        </div>
+
+        <div id="kindle-quick-shade" class="kindle-quick-shade" hidden>
+          <div class="kindle-shade-grid">
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">E-Ink Panel Mode</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-eink-mode="colorsoft" aria-pressed="true">
+                  Colorsoft (Kaleido 3)
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="paperwhite" aria-pressed="false">
+                  Paperwhite (300 PPI BW)
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="dark" aria-pressed="false">
+                  Night Inverted E-Ink
+                </button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <div class="kindle-slider-row">
+                <label for="eink-brightness-slider" class="kindle-shade-label">
+                  Frontlight Brightness (0–24): <strong id="eink-brightness-val">16</strong>
+                </label>
+                <input id="eink-brightness-slider" type="range" min="0" max="24" value="16" class="eink-slider" />
+              </div>
+              <div class="kindle-slider-row">
+                <label for="eink-warmth-slider" class="kindle-shade-label">
+                  Amber Warmth LED (0–24): <strong id="eink-warmth-val">8</strong>
+                </label>
+                <input id="eink-warmth-slider" type="range" min="0" max="24" value="8" class="eink-slider" />
+              </div>
+              <div class="kindle-pill-group kindle-preset-row">
+                <button type="button" class="kindle-opt-pill" data-eink-preset="0,0">True Paper (0 / 0)</button>
+                <button type="button" class="kindle-opt-pill active" data-eink-preset="16,8">Daylight (16 / 6)</button>
+                <button type="button" class="kindle-opt-pill" data-eink-preset="12,20">Amber Study (12 / 20)</button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">Kindle Hardware Shell &amp; Bezel Finish</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-kindle-chassis="oasis">Oasis (Page Buttons)</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="colorsoft">Colorsoft Signature</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="paperwhite">Paperwhite Classic</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="frameless">Frameless Paper</button>
+              </div>
+              <div class="kindle-pill-group kindle-finish-row">
+                <button type="button" class="kindle-opt-pill active" data-kindle-finish="graphite">Graphite</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="matcha">Matcha</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="denim">Denim</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="silver">Silver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Ink Reader Navigation Bar -->
       <div class="koodo-nav-shell">
         <div class="site-topbar koodo-pill-navbar">
           <a class="brand-lockup" href="./index.html">
@@ -52,7 +143,7 @@
             <a href="#faq">FAQ</a>
           </nav>
           <div class="topbar-actions">
-            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink Mode</button>
+            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink Paperwhite</button>
             <nav class="lang-switcher" aria-label="Language">
         <a href="/">中文</a>
         <a href="/en/" class="active" aria-current="page">English</a>
@@ -63,7 +154,7 @@
         </div>
       </div>
 
-      <!-- Spacious Centered Hero Section (Koodo Reader Style) -->
+      <!-- Spacious Centered Kindle E-Ink Hero Section -->
       <header class="hero-header koodo-hero-section">
         <div class="hero-badge-row">
           <a class="release-pill" href="./download.html">
@@ -78,7 +169,7 @@
             <span class="hero-rotate-prefix">With</span>
             <span
               id="hero-rotate-word"
-              class="hero-rotate-word"
+              class="hero-rotate-word eink-hl-yellow"
               data-rotate-words="Spoiler-Free Lock|2D CaseBoard|One-Tap Source Jump|1-Bit E-Ink Mode|Mystery Glossary"
             >Spoiler-Free Lock</span>
           </span>
@@ -111,17 +202,42 @@
           </a>
         </div>
 
-        <!-- Interactive Framed App Stage in Hero -->
+        <!-- Interactive Physical Kindle Colorsoft / Paperwhite / Oasis Shell in Hero -->
         <div class="hero-window-stage">
-          <div class="hero-window-frame">
-            <div class="hero-window-topbar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="win-dot dot-red"></span>
-                <span class="win-dot dot-amber"></span>
-                <span class="win-dot dot-green"></span>
-              </div>
-              <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
-                
+          <div class="kindle-stage-toolbar">
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">Kindle Hardware Shell:</span>
+              <button type="button" class="kindle-hw-chip active" data-kindle-chassis="oasis">Oasis (Page Buttons)</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="colorsoft">Colorsoft Signature</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="paperwhite">Paperwhite Classic</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="frameless">Frameless Paper</button>
+            </div>
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">Bezel Finish:</span>
+              <button type="button" class="kindle-swatch-btn active" data-kindle-finish="graphite" title="Graphite"><span class="swatch-dot swatch-graphite"></span>Graphite</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="matcha" title="Matcha"><span class="swatch-dot swatch-matcha"></span>Matcha</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="denim" title="Denim"><span class="swatch-dot swatch-denim"></span>Denim</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="silver" title="Silver"><span class="swatch-dot swatch-silver"></span>Silver</button>
+            </div>
+          </div>
+
+          <div id="device-shell" class="hero-window-frame kindle-device-shell chassis-oasis finish-graphite">
+            <div id="screen-recess" class="kindle-screen-recess">
+              <button
+                type="button"
+                id="dog-ear-bookmark"
+                class="dog-ear-fold bookmarked"
+                title="Toggle Dog-Ear Bookmark"
+                aria-label="Toggle Dog-Ear Bookmark"
+              ></button>
+
+              <div class="hero-window-topbar kindle-reader-header">
+                <div class="kindle-running-title">
+                  <span class="kindle-book-icon" aria-hidden="true">📖</span>
+                  <span>THE MIST MANOR ALIBI · MIXU E-INK EDITION</span>
+                </div>
+                <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
+                  
                 <button
                   type="button"
                   class="hero-window-tab active"
@@ -171,24 +287,54 @@
                 >
                   Detective Study
                 </button>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                id="hero-stage-trigger"
+                class="hero-stage-screen"
+                data-lightbox-src="../screenshots/caseboard-2d.png"
+                data-lightbox-title="2D CaseBoard"
+                data-lightbox-desc="Live 2D suspect &amp; clue board with reading-progress rewind slider"
+              >
+                <img
+                  id="hero-stage-img"
+                  src="../screenshots/caseboard-2d.png"
+                  alt="Live 2D suspect &amp; clue board with reading-progress rewind slider"
+                  width="1280"
+                  height="691"
+                />
+              </button>
+
+              <div class="kindle-reader-footer">
+                <span class="kindle-footer-loc">Loc 128 · Ch. 8 · Spoiler Guard Locked</span>
+                <span id="kindle-footer-tab-idx" class="kindle-footer-pct">48% · 300 PPI · 1 / 5</span>
               </div>
             </div>
-            <button
-              type="button"
-              id="hero-stage-trigger"
-              class="hero-stage-screen"
-              data-lightbox-src="../screenshots/caseboard-2d.png"
-              data-lightbox-title="2D CaseBoard"
-              data-lightbox-desc="Live 2D suspect &amp; clue board with reading-progress rewind slider"
-            >
-              <img
-                id="hero-stage-img"
-                src="../screenshots/caseboard-2d.png"
-                alt="Live 2D suspect &amp; clue board with reading-progress rewind slider"
-                width="1280"
-                height="691"
-              />
-            </button>
+
+            <!-- Kindle Oasis Physical Ergonomic Page-Turn Buttons -->
+            <div class="oasis-grip-controls" aria-label="Kindle Oasis Page Turn Buttons">
+              <button
+                type="button"
+                id="btn-oasis-prev"
+                class="oasis-hw-btn"
+                title="Previous Screen (Oasis Upper Button)"
+                aria-label="Previous Screen (Oasis Upper Button)"
+              ></button>
+              <button
+                type="button"
+                id="btn-oasis-next"
+                class="oasis-hw-btn"
+                title="Next Screen (Oasis Lower Button)"
+                aria-label="Next Screen (Oasis Lower Button)"
+              ></button>
+            </div>
+
+            <div class="kindle-chin-bar">
+              <span id="chin-logo" class="kindle-chin-logo">KINDLE · MIXU EDITION</span>
+              <span class="kindle-power-led" aria-hidden="true"></span>
+            </div>
           </div>
           <p id="hero-stage-caption" class="hero-stage-caption">Live 2D suspect &amp; clue board with reading-progress rewind slider</p>
         </div>
@@ -322,6 +468,10 @@
             
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 01 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-yellow">CaseBoard · 2D Map</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Interactive 2D Suspect &amp; Clue Relationship Board</h3>
                   <button
@@ -351,6 +501,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">CaseBoard · 2D Map</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -366,6 +517,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 02 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-blue">CaseBoard · Hierarchy</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>One-Tap Hierarchical Topology View</h3>
                   <button
@@ -395,6 +550,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">CaseBoard · Hierarchy</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -410,6 +566,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 03 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-pink">Testimonies · Source Jump</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Testimony &amp; Evidence Checklist with Paragraph Links</h3>
                   <button
@@ -439,6 +599,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Testimonies · Source Jump</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -454,6 +615,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 04 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-green">Character Dossier</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Instant Character &amp; Evidence Dossier Drawer</h3>
                   <button
@@ -483,6 +648,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Character Dossier</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -498,6 +664,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 05 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-orange">Reader · Dual-Column</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Book-Grade Dual-Column Spread Layout</h3>
                   <button
@@ -527,6 +697,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Reader · Dual-Column</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -542,6 +713,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 06 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-yellow">Reader · Eye-Care &amp; E-Ink</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Daylight, Parchment, Night &amp; 1-Bit E-Ink Themes</h3>
                   <button
@@ -571,6 +746,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Reader · Eye-Care &amp; E-Ink</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -586,6 +762,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 07 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-blue">Reader · Green Tea Theme</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Soft Mint Eye-Care Theme for Marathon Reading</h3>
                   <button
@@ -615,6 +795,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Reader · Green Tea Theme</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -630,6 +811,10 @@
 
             <article class="bento-feature-card screenshot-card" data-shot-category="tools">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 08 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-pink">Offline Dictionary</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>Instant Mystery Dictionary &amp; Context-Safe Translation</h3>
                   <button
@@ -659,6 +844,7 @@
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">Offline Dictionary</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -753,31 +939,37 @@
           <div class="more-features-grid">
             
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 01</span>
               <h3>Flexible Single &amp; Dual-Column Layouts</h3>
               <p>Switch effortlessly between single-column phone mode, two-column tablet book spreads, and continuous scrolling.</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 02</span>
               <h3>Historical Timeline Rewind Slider</h3>
               <p>Drag the progress slider backward to see what the suspect network looked like three chapters ago without losing your current bookmark.</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 03</span>
               <h3>Contradiction &amp; Alibi Highlighting</h3>
               <p>Compare witness testimonies side by side with physical clues and jump directly to the source paragraph to verify every word.</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 04</span>
               <h3>Full Typography Customization</h3>
               <p>Adjust font family, font size, line height, paragraph spacing, and first-line indentation to create your ideal reading page.</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 05</span>
               <h3>Night, Parchment &amp; E-Ink Modes</h3>
               <p>Switch to warm parchment, soft mint, deep night mode, or 1-bit E-Ink high-contrast mode for zero-glare reading day or night.</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 06</span>
               <h3>Offline Mystery Glossary &amp; Notes</h3>
               <p>Look up classic detective terminology offline in 1ms and keep personal deduction notes anchored to specific characters and chapters.</p>
             </div>

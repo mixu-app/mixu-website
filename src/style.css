@@ -1,62 +1,126 @@
 /* SPDX-License-Identifier: Apache-2.0 */
+/* Mixu Website — Kindle Colorsoft / Paperwhite / Oasis E-Ink Design System */
 :root {
   color-scheme: light;
-  --bg: #f4f2ee;
-  --bg-beige: #eae7e1;
-  --bg-light: #f8f7f4;
-  --bg-dark: #222225;
-  --bg-dark-card: #2c2c30;
-  --bg-footer: #0f1623;
-  --fg: #1b1c1e;
-  --muted: #57585c;
-  --border: #dfdbd2;
-  --border-strong: #c8c2b6;
-  --accent: #e07b24;
-  --accent-bright: #fb9937;
-  --accent-hover: #c56716;
-  --pill-dark: #111622;
-  --surface: #eae7e1;
-  --surface-elevated: #ffffff;
-  --badge-observed-bg: #e3efe9;
-  --badge-observed-fg: #1e523f;
-  --badge-claimed-bg: #efe9d8;
-  --badge-claimed-fg: #6b4e16;
-  --badge-contradicted-bg: #f5e1de;
-  --badge-contradicted-fg: #8a2619;
-  --badge-locked-bg: #e6e3dc;
-  --badge-locked-fg: #4e4b45;
-  --shadow-subtle: 0 4px 20px rgba(24, 24, 27, 0.05);
-  --shadow-window: 0 20px 50px rgba(15, 22, 35, 0.14);
+  /* Carta 1200 & Kaleido 3 Colorsoft Frontlit Paper Surface */
+  --bg: #eceae2;
+  --bg-beige: #e1dfd6;
+  --bg-light: #f3f1e9;
+  --bg-dark: #dedcd2;
+  --bg-dark-card: #f2f0e8;
+  --bg-footer: #191b18;
+  --fg: #1d1f1c;
+  --muted: #4c4f49;
+  --faint: #70736b;
+  --border: #aba99f;
+  --border-strong: #333631;
+  --accent: #9e4718;
+  --accent-bright: #b8561e;
+  --accent-hover: #7d3610;
+  --pill-dark: #1d1f1c;
+  --surface: #e4e2d9;
+  --surface-elevated: #f5f3eb;
+
+  /* Kaleido 3 Colorsoft Pastel Highlighter Inks (150 PPI Color Layer) */
+  --hl-yellow-bg: rgba(230, 194, 62, 0.38);
+  --hl-yellow-border: #a88414;
+  --hl-pink-bg: rgba(214, 114, 138, 0.32);
+  --hl-pink-border: #a4445c;
+  --hl-blue-bg: rgba(98, 156, 206, 0.34);
+  --hl-blue-border: #386c9c;
+  --hl-orange-bg: rgba(226, 142, 76, 0.36);
+  --hl-orange-border: #ac581e;
+  --hl-green-bg: rgba(108, 174, 118, 0.34);
+  --hl-green-border: #3a7a46;
+
+  --badge-observed-bg: rgba(108, 174, 118, 0.34);
+  --badge-observed-fg: #1d4d26;
+  --badge-claimed-bg: rgba(230, 194, 62, 0.38);
+  --badge-claimed-fg: #5c4606;
+  --badge-contradicted-bg: rgba(214, 114, 138, 0.34);
+  --badge-contradicted-fg: #6e1d30;
+  --badge-locked-bg: #dcdad0;
+  --badge-locked-fg: #4a4d46;
+
+  --shadow-subtle: 3px 3px 0 rgba(29, 31, 28, 0.11);
+  --shadow-window: 0 24px 60px rgba(20, 22, 19, 0.28);
+
+  --font-serif:
+    "Noto Serif SC",
+    "Source Han Serif SC",
+    "Songti SC",
+    "EB Garamond",
+    "Bookerly",
+    "Georgia",
+    serif;
+  --font-sans:
+    "Plus Jakarta Sans",
+    "Inter",
+    "Noto Sans SC",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  --font-mono:
+    "JetBrains Mono",
+    ui-monospace,
+    "SFMono-Regular",
+    Menlo,
+    Consolas,
+    monospace;
 }
 
-/* 1-bit E-Ink High-Contrast Policy */
-:root[data-theme="eink"] {
-  --bg: #ffffff;
-  --bg-beige: #ffffff;
-  --bg-light: #ffffff;
-  --bg-dark: #ffffff;
-  --bg-dark-card: #ffffff;
-  --bg-footer: #ffffff;
-  --fg: #000000;
-  --muted: #111111;
-  --border: #000000;
-  --border-strong: #000000;
-  --accent: #000000;
-  --accent-bright: #000000;
+/* 1-bit / Paperwhite Monochrome Carta 1200 High-Contrast Policy */
+:root[data-theme="eink"],
+:root[data-panel-mode="paperwhite"] {
+  --bg: #e9e8e2;
+  --bg-beige: #deddd6;
+  --bg-light: #f0efe9;
+  --bg-dark: #dad9d2;
+  --bg-dark-card: #f0efe9;
+  --bg-footer: #161715;
+  --fg: #141513;
+  --muted: #383a36;
+  --border: #787a73;
+  --border-strong: #141513;
+  --accent: #141513;
+  --accent-bright: #141513;
   --accent-hover: #000000;
-  --pill-dark: #000000;
-  --surface: #ffffff;
-  --surface-elevated: #ffffff;
-  --badge-observed-bg: #ffffff;
-  --badge-observed-fg: #000000;
-  --badge-claimed-bg: #ffffff;
-  --badge-claimed-fg: #000000;
-  --badge-contradicted-bg: #000000;
-  --badge-contradicted-fg: #ffffff;
-  --badge-locked-bg: #ffffff;
-  --badge-locked-fg: #000000;
-  --shadow-subtle: none;
-  --shadow-window: none;
+  --pill-dark: #141513;
+  --surface: #e0dfd8;
+  --surface-elevated: #f3f2ec;
+  --badge-observed-bg: #e6e5de;
+  --badge-observed-fg: #141513;
+  --badge-claimed-bg: #e6e5de;
+  --badge-claimed-fg: #141513;
+  --badge-contradicted-bg: #141513;
+  --badge-contradicted-fg: #f3f2ec;
+  --badge-locked-bg: #dad9d2;
+  --badge-locked-fg: #383a36;
+  --shadow-subtle: 2px 2px 0 #141513;
+  filter: grayscale(1) contrast(1.06);
+}
+
+/* Night Inverted E-Ink Mode */
+:root[data-panel-mode="dark"] {
+  --bg: #171917;
+  --bg-beige: #1e201d;
+  --bg-light: #1b1d1a;
+  --bg-dark: #141614;
+  --bg-dark-card: #212421;
+  --bg-footer: #0f110f;
+  --fg: #dcdbd2;
+  --muted: #a0a39b;
+  --border: #3d403b;
+  --border-strong: #8c8f86;
+  --accent: #e09f5a;
+  --accent-bright: #eab06d;
+  --pill-dark: #dcdbd2;
+  --surface: #202320;
+  --surface-elevated: #242724;
+  --shadow-subtle: 3px 3px 0 rgba(0, 0, 0, 0.45);
 }
 
 :root[data-theme="eink"] *,
@@ -64,7 +128,6 @@
 :root[data-theme="eink"] *::after {
   transition: none !important;
   animation: none !important;
-  box-shadow: none !important;
 }
 
 * {
@@ -81,18 +144,140 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family:
-    "Plus Jakarta Sans",
-    "Inter",
-    "Noto Sans SC",
-    "PingFang SC",
-    "Hiragino Sans GB",
-    "Microsoft YaHei",
-    system-ui,
-    -apple-system,
-    sans-serif;
-  line-height: 1.68;
+  font-family: var(--font-sans);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   0. Global E-Ink Optical Layers (Carta 1200 Micro-Fiber + Kaleido 3 CFA + Waveform)
+   ========================================================================== */
+#eink-paper-texture {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.032;
+  mix-blend-mode: multiply;
+}
+
+:root[data-panel-mode="dark"] #eink-paper-texture {
+  opacity: 0.04;
+  mix-blend-mode: screen;
+}
+
+#eink-cfa-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8999;
+  opacity: 0.024;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(210, 55, 55, 0.35) 0px,
+      rgba(210, 55, 55, 0.35) 1px,
+      rgba(55, 175, 85, 0.35) 1px,
+      rgba(55, 175, 85, 0.35) 2px,
+      rgba(55, 105, 210, 0.35) 2px,
+      rgba(55, 105, 210, 0.35) 3px
+    );
+}
+
+:root[data-theme="eink"] #eink-cfa-layer {
+  opacity: 0;
+}
+
+#eink-flash-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9500;
+  opacity: 0;
+}
+
+@keyframes einkFullWaveform {
+  0% {
+    opacity: 0;
+    background: #141614;
+  }
+  28% {
+    opacity: 0.82;
+    background: #141614;
+  }
+  62% {
+    opacity: 0.78;
+    background: #f5f4ed;
+  }
+  100% {
+    opacity: 0;
+    background: transparent;
+  }
+}
+
+@keyframes einkColorWaveform {
+  0% {
+    opacity: 0;
+    background: #1b1d1a;
+  }
+  30% {
+    opacity: 0.72;
+    background: #1b1d1a;
+  }
+  65% {
+    opacity: 0.68;
+    background: #f2eee2;
+  }
+  100% {
+    opacity: 0;
+    background: transparent;
+  }
+}
+
+#eink-flash-layer.flash-active {
+  animation: einkFullWaveform 210ms steps(3, end) forwards !important;
+}
+
+#eink-flash-layer.flash-color-active {
+  animation: einkColorWaveform 220ms steps(3, end) forwards !important;
+}
+
+/* Colorsoft Pastel Highlighters */
+.eink-hl-yellow,
+.hl-yellow {
+  background: var(--hl-yellow-bg);
+  border-bottom: 2px solid var(--hl-yellow-border);
+  color: var(--fg);
+}
+
+.eink-hl-pink,
+.hl-pink {
+  background: var(--hl-pink-bg);
+  border-bottom: 2px solid var(--hl-pink-border);
+  color: var(--fg);
+}
+
+.eink-hl-blue,
+.hl-blue {
+  background: var(--hl-blue-bg);
+  border-bottom: 2px solid var(--hl-blue-border);
+  color: var(--fg);
+}
+
+.eink-hl-orange,
+.hl-orange {
+  background: var(--hl-orange-bg);
+  border-bottom: 2px solid var(--hl-orange-border);
+  color: var(--fg);
+}
+
+.eink-hl-green,
+.hl-green {
+  background: var(--hl-green-bg);
+  border-bottom: 2px solid var(--hl-green-border);
+  color: var(--fg);
 }
 
 /* Subpages (download.html, 404.html, privacy.html, terms.html) keep centered 60rem layout */
@@ -102,7 +287,6 @@ main#app:not(.landing-app) {
   padding: 2rem 1.5rem 5rem;
 }
 
-/* Landing page uses full-bleed Koodo Reader sections */
 main#app.landing-app {
   width: 100%;
   max-width: none;
@@ -117,19 +301,186 @@ main#app.landing-app {
 }
 
 /* ==========================================================================
-   1. Floating Pill Navigation Bar (Koodo Reader Style)
+   1. Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade
+   ========================================================================== */
+.kindle-system-bar {
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--fg);
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+}
+
+.kindle-sys-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.38rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.kindle-sys-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.kindle-sys-dot {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: var(--fg);
+  display: inline-block;
+}
+
+.kindle-shade-trigger-btn {
+  appearance: none;
+  background: var(--surface-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kindle-shade-trigger-btn:hover,
+.kindle-shade-trigger-btn[aria-expanded="true"] {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.kindle-sys-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.kindle-sys-pill-btn {
+  appearance: none;
+  background: var(--hl-yellow-bg);
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.25rem;
+  padding: 0.16rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kindle-sys-pill-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.kindle-sys-telemetry {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Pull-Down Quick Shade */
+.kindle-quick-shade {
+  background: var(--surface-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 2px solid var(--border-strong);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 12px 28px rgba(20, 22, 19, 0.18);
+}
+
+.kindle-quick-shade[hidden] {
+  display: none !important;
+}
+
+.kindle-shade-grid {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.25rem;
+}
+
+.kindle-shade-group {
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.35rem;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.kindle-shade-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.kindle-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.kindle-opt-pill {
+  appearance: none;
+  background: var(--surface-elevated);
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.25rem;
+  padding: 0.26rem 0.58rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kindle-opt-pill.active,
+.kindle-opt-pill[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.kindle-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.eink-slider {
+  width: 100%;
+  accent-color: var(--fg);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   2. E-Ink Paper Navigation Bar
    ========================================================================== */
 .koodo-nav-shell {
-  padding: 1.35rem 1.5rem 0;
+  padding: 1.15rem 1.5rem 0;
 }
 
 .koodo-pill-navbar {
   max-width: 70rem;
   margin: 0 auto;
-  padding: 0.65rem 0.85rem 0.65rem 1.35rem;
-  border-radius: 9999px;
+  padding: 0.6rem 0.95rem 0.6rem 1.25rem;
+  border-radius: 0.5rem;
   background: var(--surface-elevated);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-strong);
   box-shadow: var(--shadow-subtle);
   display: flex;
   flex-wrap: wrap;
@@ -144,34 +495,37 @@ main#app.landing-app {
   gap: 0.6rem;
   text-decoration: none;
   color: var(--fg);
+  font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   letter-spacing: -0.01em;
 }
 
 .brand-lockup .mark {
   display: block;
   margin: 0;
-  border-radius: 0.45rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border-strong);
 }
 
 .topbar-nav {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.65rem;
-  font-size: 0.94rem;
+  gap: 1.5rem;
+  font-size: 0.93rem;
 }
 
 .topbar-nav a {
   color: var(--fg);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s ease;
+  font-weight: 600;
+  padding-bottom: 0.1rem;
+  border-bottom: 1.5px solid transparent;
 }
 
 .topbar-nav a:hover {
-  color: var(--accent);
+  border-bottom-color: var(--fg);
 }
 
 .topbar-actions {
@@ -185,64 +539,62 @@ main#app.landing-app {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.52rem 1.2rem;
-  border-radius: 9999px;
+  padding: 0.48rem 1.1rem;
+  border-radius: 0.35rem;
   background: var(--pill-dark);
-  color: #ffffff !important;
-  font-size: 0.88rem;
+  color: var(--bg) !important;
+  border: 1.5px solid var(--border-strong);
+  font-size: 0.86rem;
   font-weight: 700;
   text-decoration: none !important;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  box-shadow: 2px 2px 0 rgba(29, 31, 28, 0.22);
 }
 
 .topbar-download-pill:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-}
-
-:root[data-theme="eink"] .topbar-download-pill {
-  border: 2px solid #000000;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(29, 31, 28, 0.3);
 }
 
 .eink-toggle-btn {
   appearance: none;
   background: var(--bg);
   color: var(--fg);
-  border: 1px solid var(--border-strong);
-  border-radius: 9999px;
-  padding: 0.36rem 0.78rem;
-  font-size: 0.78rem;
-  font-weight: 600;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.35rem;
+  padding: 0.36rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .eink-toggle-btn:hover {
-  border-color: var(--fg);
+  background: var(--surface);
 }
 
 .eink-toggle-btn[aria-pressed="true"] {
-  background: #000000;
-  color: #ffffff;
-  border-color: #000000;
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .lang-switcher {
   display: inline-flex;
-  gap: 0.2rem;
+  gap: 0.18rem;
   align-items: center;
   background: var(--bg);
-  padding: 0.18rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border);
-  font-size: 0.78rem;
+  padding: 0.16rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
 }
 
 .lang-switcher a {
   color: var(--muted);
   text-decoration: none;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  font-weight: 500;
+  padding: 0.18rem 0.5rem;
+  border-radius: 0.22rem;
+  font-weight: 600;
 }
 
 .lang-switcher a:hover {
@@ -250,67 +602,62 @@ main#app.landing-app {
 }
 
 .lang-switcher a.active {
-  color: var(--fg);
+  color: var(--bg);
   font-weight: 700;
-  background: var(--surface-elevated);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--fg);
 }
 
 /* ==========================================================================
-   2. Spacious Centered Hero Section (Koodo Reader Style)
+   3. Kindle E-Ink Editorial Hero + Physical Kindle Device Shell (#device-shell)
    ========================================================================== */
 .koodo-hero-section {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 3.75rem 1.5rem 4.75rem;
+  padding: 3.1rem 1.5rem 4.5rem;
   text-align: center;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
 }
 
 .hero-badge-row {
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.25rem;
 }
 
 .release-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.95rem;
-  border-radius: 9999px;
+  padding: 0.32rem 0.9rem;
+  border-radius: 0.3rem;
   background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
+  border: 1.5px solid var(--border-strong);
   color: var(--fg);
-  font-size: 0.84rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-subtle);
 }
 
 .release-pill:hover {
-  border-color: var(--accent);
+  background: var(--hl-yellow-bg);
 }
 
 .release-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.48rem;
+  height: 0.48rem;
   border-radius: 50%;
-  background: #16a34a;
+  background: #2f6f3e;
+  border: 1px solid var(--border-strong);
 }
 
 .koodo-hero-title {
-  font-size: clamp(2.35rem, 5.2vw, 4.15rem);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.9vw, 3.85rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  color: #1f2329;
-  margin: 0 auto 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.24;
+  color: var(--fg);
+  margin: 0 auto 1.25rem;
   max-width: 58rem;
-}
-
-:root[data-theme="eink"] .koodo-hero-title {
-  color: #000000;
 }
 
 .hero-main-headline {
@@ -323,44 +670,31 @@ main#app.landing-app {
   align-items: baseline;
   justify-content: center;
   gap: 0.45rem;
-  margin-top: 0.3rem;
-  font-size: clamp(1.75rem, 3.8vw, 3.1rem);
+  margin-top: 0.35rem;
+  font-size: clamp(1.65rem, 3.5vw, 2.75rem);
 }
 
 .hero-rotate-prefix {
-  color: #374151;
-  font-weight: 800;
-}
-
-:root[data-theme="eink"] .hero-rotate-prefix {
-  color: #000000;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .hero-rotate-word {
   display: inline-block;
-  color: var(--accent-bright);
+  padding: 0.04rem 0.48rem;
+  border-radius: 0.2rem;
   font-weight: 800;
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-:root[data-theme="eink"] .hero-rotate-word {
-  color: #000000;
-  text-decoration: underline;
-}
-
-.hero-rotate-word.is-switching {
-  opacity: 0;
-  transform: translateY(8px);
 }
 
 .koodo-hero-subhead {
-  max-width: 49rem;
-  margin: 0 auto 2.15rem;
+  max-width: 48rem;
+  margin: 0 auto 2rem;
 }
 
 .koodo-hero-subhead .subhead {
+  font-family: var(--font-serif);
   font-size: 1.08rem;
-  line-height: 1.75;
+  line-height: 1.82;
   color: var(--muted);
   margin: 0;
   text-wrap: pretty;
@@ -371,7 +705,7 @@ main#app.landing-app {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.95rem;
   margin: 0 auto;
 }
 
@@ -380,36 +714,32 @@ main#app.landing-app {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  padding: 0.88rem 2.1rem;
-  border-radius: 9999px;
-  font-size: 0.96rem;
+  padding: 0.82rem 1.95rem;
+  border-radius: 0.38rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: var(--shadow-subtle);
 }
 
 .cta-outline-pill {
-  background: transparent;
+  background: var(--surface-elevated);
   color: var(--fg);
-  border: 1.5px solid #9ca3af;
+  border: 1.5px solid var(--border-strong);
 }
 
 .cta-outline-pill:hover {
-  border-color: var(--fg);
-  background: rgba(255, 255, 255, 0.55);
-  transform: translateY(-1px);
+  background: var(--hl-yellow-bg);
 }
 
 .cta-solid-pill {
   background: var(--pill-dark);
-  color: #ffffff;
-  border: 1.5px solid var(--pill-dark);
-  box-shadow: 0 8px 20px rgba(17, 22, 34, 0.16);
+  color: var(--bg);
+  border: 1.5px solid var(--border-strong);
 }
 
 .cta-solid-pill:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(17, 22, 34, 0.22);
+  opacity: 0.92;
 }
 
 .cta-icon {
@@ -431,7 +761,7 @@ main#app.landing-app {
 }
 
 .koodo-github-row {
-  margin-top: 1.15rem;
+  margin-top: 1.1rem;
 }
 
 .koodo-github-link {
@@ -439,9 +769,10 @@ main#app.landing-app {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  color: #6b7280;
-  font-size: 0.86rem;
-  font-weight: 500;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -450,110 +781,246 @@ main#app.landing-app {
   text-decoration: underline;
 }
 
-/* Interactive Framed App Window in Hero */
+/* Hero Kindle Hardware Toolbar & Physical Device Shell (#device-shell) */
 .hero-window-stage {
-  max-width: 62rem;
-  margin: 2.85rem auto 0;
+  max-width: 65rem;
+  margin: 2.35rem auto 0;
 }
 
-.hero-window-frame {
-  background: #1e1f23;
-  border: 1px solid #34363d;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: var(--shadow-window);
-}
-
-:root[data-theme="eink"] .hero-window-frame {
-  background: #ffffff;
-  border: 2px solid #000000;
-}
-
-.hero-window-topbar {
+.kindle-stage-toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.65rem 1rem;
-  background: #27282d;
-  border-bottom: 1px solid #383a42;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.45rem;
+  box-shadow: var(--shadow-subtle);
 }
 
-:root[data-theme="eink"] .hero-window-topbar {
-  background: #ffffff;
-  border-bottom: 2px solid #000000;
+.kindle-toolbar-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.38rem;
 }
 
-.window-dots {
+.kindle-toolbar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-right: 0.2rem;
+}
+
+.kindle-hw-chip,
+.kindle-swatch-btn {
+  appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.42rem;
+  gap: 0.35rem;
+  padding: 0.25rem 0.62rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.win-dot {
-  width: 0.7rem;
-  height: 0.7rem;
+.kindle-hw-chip.active,
+.kindle-swatch-btn.active {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.swatch-dot {
+  width: 0.62rem;
+  height: 0.62rem;
   border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.45);
   display: inline-block;
 }
 
-.dot-red {
-  background: #ff5f56;
+.swatch-graphite {
+  background: #252729;
 }
 
-.dot-amber {
-  background: #ffbd2e;
+.swatch-matcha {
+  background: #778873;
 }
 
-.dot-green {
-  background: #27c93f;
+.swatch-denim {
+  background: #3d4d5e;
 }
 
-:root[data-theme="eink"] .win-dot {
-  background: #ffffff;
-  border: 1.5px solid #000000;
+.swatch-silver {
+  background: #c5c5c1;
+}
+
+/* Physical Kindle Shell (#device-shell) */
+.kindle-device-shell {
+  position: relative;
+  border-radius: 1.65rem;
+  padding: 1.35rem 1.45rem 2.35rem;
+  border: 2px solid #3c3e42;
+  box-shadow:
+    0 26px 65px rgba(15, 17, 15, 0.36),
+    inset 0 1px 1px rgba(255, 255, 255, 0.16),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.55);
+  transition: padding 0.22s ease, border-radius 0.22s ease, background 0.22s ease;
+}
+
+/* Bezel Finishes from kindle_colorsoft_paperwhite_oasis.html */
+.kindle-device-shell.finish-graphite {
+  background: linear-gradient(155deg, #2e3032 0%, #1f2022 50%, #17181a 100%);
+  border-color: #3e4044;
+}
+
+.kindle-device-shell.finish-matcha {
+  background: linear-gradient(155deg, #8b9c87 0%, #72836e 50%, #5f705c 100%);
+  border-color: #9cb098;
+}
+
+.kindle-device-shell.finish-denim {
+  background: linear-gradient(155deg, #4b5d70 0%, #394858 50%, #2c3947 100%);
+  border-color: #5e7287;
+}
+
+.kindle-device-shell.finish-silver {
+  background: linear-gradient(155deg, #d7d7d4 0%, #bcbcb8 50%, #a3a39e 100%);
+  border-color: #e4e4e0;
+}
+
+/* Oasis Asymmetric Ergonomic Grip Chassis */
+.kindle-device-shell.chassis-oasis {
+  padding-right: 4.5rem;
+  border-radius: 1.35rem 2.1rem 2.1rem 1.35rem;
+}
+
+/* Frameless Paper Mode */
+.kindle-device-shell.chassis-frameless {
+  padding: 0;
+  border-radius: 0.65rem;
+  background: var(--surface-elevated);
+  border: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-subtle);
+}
+
+.kindle-device-shell.chassis-frameless .kindle-chin-bar,
+.kindle-device-shell.chassis-frameless .oasis-grip-controls {
+  display: none !important;
+}
+
+/* Recessed Anti-Glare E-Ink Screen (#screen-recess) */
+.kindle-screen-recess {
+  position: relative;
+  background: var(--bg);
+  border-radius: 0.55rem;
+  overflow: hidden;
+  border: 2px solid #121314;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.26),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+}
+
+/* Dog-Ear Corner Bookmark Fold (.dog-ear-fold) */
+.dog-ear-fold {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  z-index: 35;
+  cursor: pointer;
+}
+
+.dog-ear-fold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 14px 14px 0;
+  border-color: transparent var(--border) transparent transparent;
+  opacity: 0.45;
+  transition: border-width 0.15s ease, opacity 0.15s ease;
+}
+
+.dog-ear-fold:hover::after {
+  opacity: 0.85;
+}
+
+.dog-ear-fold.bookmarked::after {
+  border-width: 0 26px 26px 0;
+  border-color: transparent var(--accent) transparent transparent;
+  opacity: 1;
+  filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.22));
+}
+
+/* Kindle Reader Running Header & Tab Bar inside Screen */
+.kindle-reader-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.55rem 2.1rem 0.55rem 1rem;
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--border-strong);
+}
+
+.kindle-running-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }
 
 .hero-window-tabs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.32rem;
 }
 
 .hero-window-tab {
   appearance: none;
-  padding: 0.32rem 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: #b4b7c0;
-  font-size: 0.8rem;
+  padding: 0.28rem 0.68rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .hero-window-tab:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--hl-yellow-bg);
 }
 
 .hero-window-tab.active {
-  background: var(--accent-bright);
-  color: #141518;
+  background: var(--fg);
+  color: var(--bg);
   font-weight: 700;
-}
-
-:root[data-theme="eink"] .hero-window-tab {
-  color: #000000;
-  border: 1px solid #000000;
-}
-
-:root[data-theme="eink"] .hero-window-tab.active {
-  background: #000000;
-  color: #ffffff;
 }
 
 .hero-stage-screen {
@@ -562,7 +1029,7 @@ main#app.landing-app {
   width: 100%;
   padding: 0;
   border: 0;
-  background: #ffffff;
+  background: var(--bg);
   cursor: zoom-in;
 }
 
@@ -570,25 +1037,146 @@ main#app.landing-app {
   display: block;
   width: 100%;
   height: auto;
+  filter: contrast(1.02) saturate(0.92);
+}
+
+.kindle-reader-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.42rem 1rem;
+  background: var(--surface);
+  border-top: 1.5px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Oasis Ergonomic Side Grip & Tactile Page-Turn Buttons (.oasis-grip-controls) */
+.oasis-grip-controls {
+  display: none;
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: 1.15rem;
+  z-index: 30;
+}
+
+.kindle-device-shell.chassis-oasis .oasis-grip-controls {
+  display: flex;
+}
+
+.oasis-hw-btn {
+  appearance: none;
+  width: 14px;
+  height: 82px;
+  padding: 0;
+  border-radius: 5px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.42));
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    -2px 0 5px rgba(0, 0, 0, 0.45),
+    inset 1px 0 1px rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  position: relative;
+}
+
+.oasis-hw-btn::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 22%;
+  bottom: 22%;
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.oasis-hw-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.oasis-hw-btn:active {
+  transform: translateX(1.5px);
+  box-shadow: -1px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Kindle Chin Wordmark & Power LED */
+.kindle-chin-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.58rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  pointer-events: none;
+}
+
+.kindle-chin-logo {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.kindle-device-shell.finish-silver .kindle-chin-logo {
+  color: rgba(25, 27, 24, 0.62);
+}
+
+.kindle-device-shell.chassis-colorsoft .kindle-chin-logo {
+  background: linear-gradient(90deg, #e5b567, #d9829b, #7eb2dd, #88c498);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.kindle-power-led {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: #48b868;
+  box-shadow: 0 0 6px rgba(72, 184, 104, 0.7);
 }
 
 .hero-stage-caption {
-  margin: 0.8rem 0 0;
-  font-size: 0.88rem;
+  margin: 0.85rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .kindle-device-shell.chassis-oasis {
+    padding-right: 1.2rem;
+    border-radius: 1.25rem;
+  }
+  .kindle-device-shell.chassis-oasis .oasis-grip-controls {
+    display: none;
+  }
 }
 
 /* ==========================================================================
-   3. Full-Bleed Alternating Sections & Band2 Pillars (Koodo Style)
+   4. Full-Bleed E-Ink Paper & Stippled Dither Alternating Bands
    ========================================================================== */
 .koodo-band {
   width: 100%;
-  padding: 5rem 0;
+  padding: 4.75rem 0;
+  border-top: 1.5px solid var(--border-strong);
 }
 
 .koodo-band-beige {
-  background: var(--bg-beige);
+  background-color: var(--bg-beige);
+  background-image: radial-gradient(rgba(29, 31, 28, 0.075) 0.75px, transparent 0.75px);
+  background-size: 4px 4px;
 }
 
 .koodo-band-paper {
@@ -599,87 +1187,78 @@ main#app.landing-app {
   background: var(--bg-light);
 }
 
+/* Band 3 ("我们的功能") uses Warm Stippled E-Ink Folio Surface instead of glossy dark LCD */
 .koodo-band-dark {
-  background: var(--bg-dark);
-  color: #f4f2ee;
-}
-
-:root[data-theme="eink"] .koodo-band-dark {
-  color: #000000;
-  border-top: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+  background-color: var(--bg-dark);
+  background-image: radial-gradient(rgba(29, 31, 28, 0.09) 0.75px, transparent 0.75px);
+  background-size: 4px 4px;
+  color: var(--fg);
 }
 
 .koodo-section-head {
   text-align: center;
   max-width: 54rem;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2.85rem;
 }
 
 .koodo-section-head h2 {
-  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.1vw, 2.45rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   margin: 0 0 0.65rem;
   color: var(--fg);
   text-wrap: balance;
 }
 
 .koodo-head-light h2 {
-  color: #ffffff;
-}
-
-:root[data-theme="eink"] .koodo-head-light h2 {
-  color: #000000;
+  color: var(--fg);
 }
 
 .koodo-section-sub {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: 1rem;
   color: var(--muted);
 }
 
 .koodo-head-light .koodo-section-sub {
-  color: #a8abb4;
-}
-
-:root[data-theme="eink"] .koodo-head-light .koodo-section-sub {
-  color: #000000;
+  color: var(--muted);
 }
 
 /* 3 Centered Icon Pillars */
 .koodo-pillars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: 2.25rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 2.75rem;
 }
 
 .koodo-pillar-card {
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 1.35rem;
+  background: var(--surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.45rem;
+  box-shadow: var(--shadow-subtle);
 }
 
 .koodo-pillar-icon {
-  width: 3.35rem;
-  height: 3.35rem;
-  margin: 0 auto 1.1rem;
-  border-radius: 0.9rem;
-  background: #242427;
+  width: 3.1rem;
+  height: 3.1rem;
+  margin: 0 auto 1rem;
+  border-radius: 0.35rem;
+  background: var(--fg);
+  border: 1.5px solid var(--border-strong);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-:root[data-theme="eink"] .koodo-pillar-icon {
-  background: #ffffff;
-  border: 2px solid #000000;
 }
 
 .koodo-pillar-card h3 {
-  font-size: 1.12rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.14rem;
+  font-weight: 800;
   margin: 0 0 0.5rem;
 }
 
@@ -689,7 +1268,7 @@ main#app.landing-app {
   color: var(--muted);
 }
 
-/* Bespoke Mystery Illustrations Trio */
+/* Bespoke Mystery Illustrations Trio (Bookplate Cards) */
 .values-visual-trio {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -700,8 +1279,8 @@ main#app.landing-app {
 .bookplate-card {
   margin: 0;
   background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.85rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.45rem;
   overflow: hidden;
   box-shadow: var(--shadow-subtle);
 }
@@ -712,7 +1291,7 @@ main#app.landing-app {
   width: 100%;
   padding: 0;
   border: 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1.5px solid var(--border-strong);
   background: var(--surface);
   cursor: zoom-in;
 }
@@ -721,16 +1300,13 @@ main#app.landing-app {
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.2s ease;
-}
-
-.bookplate-img-btn:hover img {
-  transform: scale(1.02);
+  filter: contrast(1.03) saturate(0.88);
 }
 
 .bookplate-card figcaption {
   padding: 0.65rem 0.9rem;
-  font-size: 0.84rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--fg);
   text-align: center;
@@ -747,61 +1323,50 @@ main#app.landing-app {
 
 .values-verbatim-box li {
   padding: 1.1rem 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: 0.45rem;
   background: var(--surface-elevated);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-subtle);
   font-size: 0.92rem;
   color: var(--muted);
 }
 
 .values-verbatim-box li strong {
   color: var(--fg);
+  font-family: var(--font-serif);
 }
 
 /* ==========================================================================
-   4. Dark Bento Framed Screenshot Section ("我们的功能" in Koodo Style)
+   5. E-Ink Reader Folio Screenshot Gallery ("我们的功能")
    ========================================================================== */
 .gallery-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   margin-bottom: 2.25rem;
 }
 
 .gallery-filter-btn {
-  padding: 0.52rem 1.15rem;
-  border-radius: 9999px;
-  border: 1px solid #3f4046;
-  background: #2c2c30;
-  color: #b8bbc2;
-  font-size: 0.86rem;
-  font-weight: 600;
+  padding: 0.48rem 1.1rem;
+  border-radius: 0.3rem;
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface-elevated);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.15s ease;
+  box-shadow: var(--shadow-subtle);
 }
 
 .gallery-filter-btn:hover {
-  color: #ffffff;
-  border-color: var(--accent-bright);
+  background: var(--hl-yellow-bg);
 }
 
 .gallery-filter-btn.active {
-  background: var(--accent-bright);
-  color: #16171a;
-  border-color: var(--accent-bright);
-  font-weight: 700;
-}
-
-:root[data-theme="eink"] .gallery-filter-btn {
-  background: #ffffff;
-  color: #000000;
-  border: 1.5px solid #000000;
-}
-
-:root[data-theme="eink"] .gallery-filter-btn.active {
-  background: #000000;
-  color: #ffffff;
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .bento-feature-grid {
@@ -817,24 +1382,29 @@ main#app.landing-app {
 }
 
 .bento-feature-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.75rem 1.75rem 1.5rem;
-  border-radius: 1.15rem;
-  background: var(--bg-dark-card);
-  border: 1px solid #3a3a40;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-subtle);
 }
 
-.bento-feature-card:hover {
-  border-color: #55565e;
-  transform: translateY(-2px);
-}
-
-:root[data-theme="eink"] .bento-feature-card {
-  background: #ffffff;
-  border: 2px solid #000000;
+/* Subtle Dog-Ear Fold on Folio Screenshot Cards */
+.bento-feature-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 18px 18px 0;
+  border-color: transparent var(--border-strong) transparent transparent;
+  pointer-events: none;
 }
 
 .bento-feature-card[hidden] {
@@ -842,7 +1412,32 @@ main#app.landing-app {
 }
 
 .bento-card-head {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.2rem;
+}
+
+.eink-folio-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px dashed var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.eink-folio-index {
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.eink-hl-tag {
+  padding: 0.12rem 0.5rem;
+  border-radius: 0.2rem;
+  font-weight: 700;
 }
 
 .bento-card-title-row {
@@ -850,29 +1445,26 @@ main#app.landing-app {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.5rem;
 }
 
 .bento-card-head h3 {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: 1.18rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.35;
-}
-
-:root[data-theme="eink"] .bento-card-head h3 {
-  color: #000000;
+  font-weight: 800;
+  color: var(--fg);
+  line-height: 1.38;
 }
 
 .bento-corner-btn {
   appearance: none;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
-  border: 1px solid #45464d;
-  background: #35353a;
-  color: #d4d6dc;
+  border-radius: 0.28rem;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg);
+  color: var(--fg);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -881,26 +1473,15 @@ main#app.landing-app {
 }
 
 .bento-corner-btn:hover {
-  background: var(--accent-bright);
-  color: #16171a;
-  border-color: var(--accent-bright);
-}
-
-:root[data-theme="eink"] .bento-corner-btn {
-  background: #ffffff;
-  color: #000000;
-  border: 1.5px solid #000000;
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .bento-card-head p {
   margin: 0;
   font-size: 0.9rem;
-  line-height: 1.62;
-  color: #a6a9b2;
-}
-
-:root[data-theme="eink"] .bento-card-head p {
-  color: #111111;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .bento-window-trigger {
@@ -915,63 +1496,72 @@ main#app.landing-app {
 }
 
 .app-window-frame {
-  border-radius: 0.75rem;
+  border-radius: 0.4rem;
   overflow: hidden;
-  border: 1px solid #45464e;
-  background: #1a1b1e;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-}
-
-:root[data-theme="eink"] .app-window-frame {
-  border: 2px solid #000000;
-  background: #ffffff;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg);
 }
 
 .app-window-bar {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.48rem 0.85rem;
-  background: #e9e7e2;
-  border-bottom: 1px solid #d5d1c8;
+  padding: 0.42rem 0.75rem;
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--border-strong);
+  font-family: var(--font-mono);
 }
 
-:root[data-theme="eink"] .app-window-bar {
-  background: #ffffff;
-  border-bottom: 1.5px solid #000000;
+.win-dot {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+}
+
+.dot-red {
+  background: var(--hl-pink-bg);
+}
+
+.dot-amber {
+  background: var(--hl-yellow-bg);
+}
+
+.dot-green {
+  background: var(--hl-green-bg);
 }
 
 .win-bar-title {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0.35rem;
   font-size: 0.72rem;
-  font-weight: 600;
-  color: #525357;
+  font-weight: 700;
+  color: var(--fg);
 }
 
-:root[data-theme="eink"] .win-bar-title {
-  color: #000000;
+.win-bar-ppi {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted);
 }
 
 .screenshot-frame {
   position: relative;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .screenshot-frame img {
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.22s ease;
-}
-
-.bento-window-trigger:hover .screenshot-frame img {
-  transform: scale(1.018);
+  filter: contrast(1.03) saturate(0.9);
 }
 
 /* ==========================================================================
-   5. Interactive 3-Step CaseBoard Progress Sandbox
+   6. Interactive 3-Step CaseBoard Progress Sandbox (Kindle X-Ray Dossier Style)
    ========================================================================== */
 .horizon-controls {
   display: flex;
@@ -982,33 +1572,32 @@ main#app.landing-app {
 
 .horizon-step-btn {
   flex: 1 1 14rem;
-  padding: 0.75rem 1.1rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border-strong);
+  padding: 0.72rem 1.05rem;
+  border-radius: 0.35rem;
+  border: 1.5px solid var(--border-strong);
   background: var(--surface-elevated);
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
-  transition: all 0.15s ease;
+  box-shadow: var(--shadow-subtle);
 }
 
 .horizon-step-btn:hover {
-  color: var(--fg);
-  border-color: var(--fg);
+  background: var(--hl-yellow-bg);
 }
 
 .horizon-step-btn.active {
-  background: var(--pill-dark);
-  color: #ffffff;
-  border-color: var(--pill-dark);
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .caseboard-stage {
   background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 1rem;
+  border: 2px solid var(--border-strong);
+  border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: var(--shadow-subtle);
 }
@@ -1021,20 +1610,20 @@ main#app.landing-app {
   gap: 0.5rem;
   padding: 0.65rem 1rem;
   margin-bottom: 1.2rem;
-  border-radius: 0.6rem;
-  background: var(--bg);
-  border: 1px dashed var(--border-strong);
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.84rem;
+  border-radius: 0.35rem;
+  background: var(--hl-yellow-bg);
+  border: 1.5px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
 }
 
 .firewall-tag {
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 800;
+  color: var(--fg);
 }
 
 .firewall-desc {
-  color: var(--muted);
+  color: var(--fg);
 }
 
 .caseboard-grid {
@@ -1045,10 +1634,10 @@ main#app.landing-app {
 
 .clue-node {
   padding: 1.1rem;
-  border-radius: 0.75rem;
-  border: 1px solid var(--border);
-  background: var(--bg-light);
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  border-radius: 0.4rem;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg);
+  box-shadow: 2px 2px 0 rgba(29, 31, 28, 0.08);
 }
 
 .clue-node.is-pending {
@@ -1057,9 +1646,11 @@ main#app.landing-app {
 }
 
 .clue-node.status-locked {
-  background: var(--bg);
+  background-color: var(--surface);
+  background-image: radial-gradient(rgba(29, 31, 28, 0.12) 0.75px, transparent 0.75px);
+  background-size: 4px 4px;
   border-style: dashed;
-  opacity: 0.72;
+  opacity: 0.82;
 }
 
 .clue-node-header {
@@ -1068,15 +1659,15 @@ main#app.landing-app {
   justify-content: space-between;
   gap: 0.4rem;
   margin-bottom: 0.5rem;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
 }
 
 .epistemic-badge {
-  padding: 0.14rem 0.5rem;
-  border-radius: 9999px;
+  padding: 0.14rem 0.48rem;
+  border-radius: 0.2rem;
   font-weight: 700;
-  border: 1px solid currentColor;
+  border: 1px solid var(--border-strong);
 }
 
 .badge-observed {
@@ -1105,43 +1696,65 @@ main#app.landing-app {
 }
 
 .clue-node h3 {
+  font-family: var(--font-serif);
   margin: 0.25rem 0 0.4rem;
-  font-size: 1rem;
+  font-size: 1.02rem;
 }
 
 .clue-quote {
   margin: 0;
+  font-family: var(--font-serif);
   font-size: 0.88rem;
   color: var(--muted);
 }
 
 /* ==========================================================================
-   6. "更多功能" 3x2 Grid & Audience Cards (Koodo Style)
+   7. "更多功能" 3x2 Book-Index Grid & Audience Cards
    ========================================================================== */
 .more-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 2.5rem;
-  margin-bottom: 3.5rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 860px) {
   .more-features-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }
 
+.more-feature-item {
+  padding: 1.35rem;
+  background: var(--surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.45rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.more-feature-num {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  padding: 0.08rem 0.4rem;
+  background: var(--hl-yellow-bg);
+  border-bottom: 1.5px solid var(--hl-yellow-border);
+}
+
 .more-feature-item h3 {
+  font-family: var(--font-serif);
   font-size: 1.08rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 0.45rem;
   color: var(--fg);
 }
 
 .more-feature-item p {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.91rem;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -1154,15 +1767,18 @@ main#app.landing-app {
 
 .audience-card {
   background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1.75rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.45rem;
+  padding: 1.65rem;
   box-shadow: var(--shadow-subtle);
 }
 
 .audience-card h2 {
+  font-family: var(--font-serif);
   font-size: 1.25rem;
   margin: 0 0 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid var(--border-strong);
 }
 
 .audience-card ul {
@@ -1173,16 +1789,16 @@ main#app.landing-app {
 .audience-card li {
   margin-bottom: 0.55rem;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.93rem;
 }
 
 /* ==========================================================================
-   7. Split Mobile & E-Ink Download Section (Koodo Style)
+   8. Split Mobile & E-Ink Edition Download Section
    ========================================================================== */
 .koodo-download-split {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 3rem;
+  gap: 2.75rem;
   align-items: center;
 }
 
@@ -1193,44 +1809,49 @@ main#app.landing-app {
 }
 
 .koodo-download-copy h2 {
-  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
   font-weight: 800;
   margin: 0 0 1rem;
-  letter-spacing: -0.02em;
 }
 
 .koodo-download-copy p {
-  font-size: 1.02rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
   color: var(--muted);
-  margin: 0 0 1.5rem;
-  line-height: 1.72;
+  margin: 0 0 1.45rem;
+  line-height: 1.75;
 }
 
 .koodo-amber-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: var(--accent);
-  font-size: 1.05rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--fg);
+  color: var(--bg);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.35rem;
+  font-size: 0.96rem;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: var(--shadow-subtle);
 }
 
 .koodo-amber-link:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+  opacity: 0.9;
 }
 
 .download-visual-card {
   appearance: none;
   display: block;
   width: 100%;
-  padding: 0;
-  border-radius: 1.15rem;
+  padding: 0.65rem;
+  border-radius: 0.65rem;
   overflow: hidden;
-  border: 4px solid #1e1f24;
-  background: #1e1f24;
-  box-shadow: var(--shadow-window);
+  border: 2px solid var(--border-strong);
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-subtle);
   cursor: zoom-in;
 }
 
@@ -1238,21 +1859,23 @@ main#app.landing-app {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 0.35rem;
+  border: 1px solid var(--border-strong);
 }
 
 /* ==========================================================================
-   8. FAQ Accordion & Contact Copy Box (Koodo Style)
+   9. FAQ Accordion & Contact Copy Box (E-Ink Index Style)
    ========================================================================== */
 .koodo-faq-container {
   max-width: 52rem;
 }
 
 .koodo-faq-list {
-  border-top: 1px solid var(--border-strong);
+  border-top: 2px solid var(--border-strong);
 }
 
 .koodo-faq-item {
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 1.5px solid var(--border-strong);
 }
 
 .koodo-faq-question {
@@ -1261,9 +1884,10 @@ main#app.landing-app {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 0.25rem;
+  padding: 1.2rem 0.25rem;
+  font-family: var(--font-serif);
   font-size: 1.04rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--fg);
   cursor: pointer;
 }
@@ -1273,11 +1897,11 @@ main#app.landing-app {
 }
 
 .faq-plus-icon {
-  color: var(--accent-bright);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--fg);
+  font-size: 1.35rem;
+  font-weight: 700;
   line-height: 1;
-  transition: transform 0.18s ease;
 }
 
 .koodo-faq-item[open] .faq-plus-icon {
@@ -1285,29 +1909,30 @@ main#app.landing-app {
 }
 
 .koodo-faq-answer {
-  padding: 0 0.25rem 1.25rem;
+  padding: 0 0.25rem 1.2rem;
 }
 
 .koodo-faq-answer p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
 .koodo-contact-box {
-  margin-top: 3.25rem;
+  margin-top: 3rem;
   text-align: center;
 }
 
 .koodo-contact-box h3 {
-  font-size: 1.35rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   font-weight: 800;
   margin: 0 0 0.35rem;
 }
 
 .koodo-contact-box p {
-  margin: 0 0 1.1rem;
+  margin: 0 0 1rem;
   font-size: 0.92rem;
   color: var(--muted);
 }
@@ -1316,115 +1941,83 @@ main#app.landing-app {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.45rem 0.55rem 0.45rem 1.15rem;
-  border-radius: 0.65rem;
+  padding: 0.45rem 0.55rem 0.45rem 1.1rem;
+  border-radius: 0.38rem;
   background: var(--surface-elevated);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-strong);
   box-shadow: var(--shadow-subtle);
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .koodo-copy-btn {
   appearance: none;
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.45rem;
-  border: 1px solid var(--border);
-  background: var(--bg);
+  padding: 0.32rem 0.72rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-strong);
+  background: var(--hl-yellow-bg);
   color: var(--fg);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .koodo-copy-btn:hover {
-  border-color: var(--fg);
+  background: var(--fg);
+  color: var(--bg);
 }
 
 /* ==========================================================================
-   9. Dark Navy Footer CTA ("开始免费使用" in Koodo Style)
+   10. E-Ink Colophon Ink-Block Footer
    ========================================================================== */
 .koodo-dark-footer {
   background: var(--bg-footer);
-  color: #d1d5db;
-  padding: 5rem 0 2.5rem;
-  margin-top: 0;
-  border-top: 0;
-}
-
-:root[data-theme="eink"] .koodo-dark-footer {
-  background: #ffffff;
-  color: #000000;
-  border-top: 2px solid #000000;
+  color: #e2e0d6;
+  padding: 4.5rem 0 2.25rem;
+  border-top: 2px solid var(--border-strong);
 }
 
 .koodo-footer-cta {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3.25rem;
 }
 
 .koodo-footer-cta h2 {
-  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.95rem, 3.6vw, 2.75rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #f4f2e9;
   margin: 0 0 0.65rem;
 }
 
-:root[data-theme="eink"] .koodo-footer-cta h2 {
-  color: #000000;
-}
-
 .koodo-footer-cta p {
+  font-family: var(--font-serif);
   font-size: 1rem;
-  color: #9ca3af;
-  margin: 0 0 1.85rem;
-}
-
-:root[data-theme="eink"] .koodo-footer-cta p {
-  color: #000000;
+  color: #b4b2a8;
+  margin: 0 0 1.75rem;
 }
 
 .cta-footer-light {
-  background: #ffffff;
-  color: #0f1623;
-  border: 1.5px solid #ffffff;
-}
-
-.cta-footer-light:hover {
-  background: #f3f4f6;
-  transform: translateY(-1px);
+  background: #f4f2e9;
+  color: #191b18;
+  border: 1.5px solid #f4f2e9;
 }
 
 .cta-footer-outline {
   background: transparent;
-  color: #ffffff;
-  border: 1.5px solid #4b5563;
-}
-
-.cta-footer-outline:hover {
-  border-color: #ffffff;
-  transform: translateY(-1px);
-}
-
-:root[data-theme="eink"] .cta-footer-light,
-:root[data-theme="eink"] .cta-footer-outline {
-  background: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  color: #f4f2e9;
+  border: 1.5px solid #75776e;
 }
 
 .koodo-footer-disclaimers {
   max-width: 54rem;
   margin: 0 auto 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(244, 242, 233, 0.16);
   font-size: 0.82rem;
-  color: #9ca3af;
-}
-
-:root[data-theme="eink"] .koodo-footer-disclaimers {
-  border-top: 1px solid #000000;
-  color: #000000;
+  color: #a8a69d;
 }
 
 .koodo-footer-disclaimers ul {
@@ -1442,28 +2035,19 @@ main#app.landing-app {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.82rem;
-  color: #9ca3af;
-}
-
-:root[data-theme="eink"] .footer-meta-links {
-  border-top: 1px solid #000000;
-  color: #000000;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(244, 242, 233, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #a8a69d;
 }
 
 .footer-meta-links a {
-  color: #d1d5db;
+  color: #e2e0d6;
   text-decoration: none;
 }
 
-:root[data-theme="eink"] .footer-meta-links a {
-  color: #000000;
-}
-
 .footer-meta-links a:hover {
-  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -1472,22 +2056,18 @@ main#app.landing-app {
   text-align: center;
   padding: 0 1.5rem 2rem;
   margin: 0;
-  border: 0;
-}
-
-:root[data-theme="eink"] .landing-bottom-nav {
-  background: #ffffff;
 }
 
 .landing-bottom-nav .download-link {
-  color: var(--accent-bright);
-  font-size: 0.88rem;
-  font-weight: 600;
+  color: #e6c23e;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
   text-decoration: none;
 }
 
 /* ==========================================================================
-   10. Lightbox Modal & Subpage Rules (download.html, 404.html)
+   11. Lightbox Modal & Subpage Rules (download.html, 404.html)
    ========================================================================== */
 .screenshot-lightbox {
   position: fixed;
@@ -1506,7 +2086,7 @@ main#app.landing-app {
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(15, 16, 20, 0.84);
+  background: rgba(18, 20, 18, 0.86);
 }
 
 .lightbox-dialog {
@@ -1517,30 +2097,30 @@ main#app.landing-app {
   max-height: 92vh;
   overflow-y: auto;
   background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.85rem;
+  border: 2px solid var(--border-strong);
+  border-radius: 0.5rem;
   padding: 1rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
 .lightbox-dialog img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.45rem;
-  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+  border: 1.5px solid var(--border-strong);
 }
 
 .lightbox-close-btn {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--pill-dark);
-  color: #ffffff;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid var(--border-strong);
+  background: var(--fg);
+  color: var(--bg);
   font-size: 1.35rem;
   line-height: 1;
   cursor: pointer;
@@ -1552,6 +2132,7 @@ main#app.landing-app {
 
 .lightbox-caption strong {
   display: block;
+  font-family: var(--font-serif);
   font-size: 1.05rem;
   margin-bottom: 0.25rem;
 }
@@ -1569,32 +2150,30 @@ main#app.landing-app {
 
 .nav-link,
 .download-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.nav-link:hover,
-.download-link:hover {
+  color: var(--fg);
   text-decoration: underline;
+  font-weight: 700;
 }
 
 .intro {
+  font-family: var(--font-serif);
   font-size: 1.05rem;
   color: var(--fg);
   margin: 0 0 2rem;
 }
 
 .callout {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 0.5rem;
+  background: var(--surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  border-left: 5px solid var(--fg);
+  border-radius: 0.4rem;
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;
+  box-shadow: var(--shadow-subtle);
 }
 
 .callout h2 {
+  font-family: var(--font-serif);
   margin-top: 0;
   font-size: 1.15rem;
 }
@@ -1605,32 +2184,33 @@ main#app.landing-app {
 
 .callout a,
 .verification-section a {
-  color: var(--accent);
+  color: var(--fg);
+  font-weight: 700;
 }
 
 .verification-section {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1.5px solid var(--border-strong);
 }
 
 pre {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 0.45rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.35rem;
   padding: 0.75rem 1rem;
   overflow-x: auto;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
   line-height: 1.5;
 }
 
 code {
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
   background: var(--surface);
   padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
 }
 
 pre code {
@@ -1646,8 +2226,8 @@ pre code {
 
 .release-card {
   background: var(--surface-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 0.75rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 0.5rem;
   padding: 1.5rem;
   margin-bottom: 1.25rem;
   box-shadow: var(--shadow-subtle);
@@ -1661,59 +2241,67 @@ pre code {
 }
 
 .release-header h3 {
+  font-family: var(--font-serif);
   margin: 0;
   font-size: 1.25rem;
 }
 
 .build-number {
+  font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
 .badge {
   display: inline-block;
   padding: 0.18rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   border: 1px solid var(--border-strong);
-  background: var(--surface);
+  background: var(--hl-yellow-bg);
 }
 
 .meta-row {
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
   color: var(--muted);
   margin: 0.5rem 0 1.1rem;
 }
 
 .download-button {
   display: inline-block;
-  background: var(--pill-dark);
-  color: #ffffff;
+  background: var(--fg);
+  color: var(--bg);
+  border: 1.5px solid var(--border-strong);
   padding: 0.65rem 1.35rem;
-  border-radius: 9999px;
+  border-radius: 0.35rem;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
+  box-shadow: var(--shadow-subtle);
 }
 
 .download-button:hover {
-  opacity: 0.92;
+  opacity: 0.9;
 }
 
 .checksum-block {
   margin-top: 1.1rem;
   padding: 0.65rem 0.85rem;
-  border-radius: 0.45rem;
+  border-radius: 0.35rem;
   background: var(--surface);
-  border: 1px solid var(--border);
-  font-size: 0.85rem;
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
   word-break: break-all;
 }
 
 .changelog-block h4 {
+  font-family: var(--font-serif);
   margin: 1.15rem 0 0.4rem;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
 }
