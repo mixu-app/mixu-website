@@ -38,7 +38,98 @@
   </head>
   <body class="landing-body">
     <main id="app" class="landing-app">
-      <!-- Floating Pill Navbar (Koodo Reader Style) -->
+      <!-- E-Ink Carta 1200 & Kaleido 3 Colorsoft Optical Overlays -->
+      <svg id="eink-paper-texture" aria-hidden="true">
+        <filter id="eink-noise-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#eink-noise-filter)" />
+      </svg>
+      <div id="eink-cfa-layer" aria-hidden="true"></div>
+      <div id="eink-flash-layer" aria-hidden="true"></div>
+
+      <!-- Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade -->
+      <div class="kindle-system-bar" id="kindle-status-bar">
+        <div class="kindle-sys-inner">
+          <div class="kindle-sys-left">
+            <span class="kindle-sys-dot" aria-hidden="true"></span>
+            <span class="kindle-sys-brand">MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3</span>
+          </div>
+          <button
+            type="button"
+            id="kindle-shade-toggle"
+            class="kindle-shade-trigger-btn"
+            aria-expanded="false"
+            aria-controls="kindle-quick-shade"
+          >
+            <span>☀ 前光亮度 · 琥珀色温 · 墨水屏机身设置 ▾</span>
+          </button>
+          <div class="kindle-sys-right">
+            <button type="button" id="eink-waveform-btn" class="kindle-sys-pill-btn">
+              ✦ 全刷消残影
+            </button>
+            <span class="kindle-sys-telemetry" aria-hidden="true">Wi-Fi · 94% ▮ · <span id="kindle-clock">14:28</span></span>
+          </div>
+        </div>
+
+        <div id="kindle-quick-shade" class="kindle-quick-shade" hidden>
+          <div class="kindle-shade-grid">
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">墨水屏面板模式</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-eink-mode="colorsoft" aria-pressed="true">
+                  Colorsoft 彩墨 (Kaleido 3)
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="paperwhite" aria-pressed="false">
+                  Paperwhite 纯黑白 (Carta 1200)
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="dark" aria-pressed="false">
+                  夜间反色夜读
+                </button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <div class="kindle-slider-row">
+                <label for="eink-brightness-slider" class="kindle-shade-label">
+                  前光导光板亮度 (0–24 级): <strong id="eink-brightness-val">16</strong>
+                </label>
+                <input id="eink-brightness-slider" type="range" min="0" max="24" value="16" class="eink-slider" />
+              </div>
+              <div class="kindle-slider-row">
+                <label for="eink-warmth-slider" class="kindle-shade-label">
+                  琥珀暖光色温 (0–24 级): <strong id="eink-warmth-val">8</strong>
+                </label>
+                <input id="eink-warmth-slider" type="range" min="0" max="24" value="8" class="eink-slider" />
+              </div>
+              <div class="kindle-pill-group kindle-preset-row">
+                <button type="button" class="kindle-opt-pill" data-eink-preset="0,0">无背光真纸 (0 / 0)</button>
+                <button type="button" class="kindle-opt-pill active" data-eink-preset="16,8">日间阅读 (16 / 6)</button>
+                <button type="button" class="kindle-opt-pill" data-eink-preset="12,20">琥珀夜读 (12 / 20)</button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">Kindle 硬件机身切换 &amp; 机身金属/磨砂配色</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-kindle-chassis="oasis">Oasis (实体翻页键)</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="colorsoft">Colorsoft 彩墨签名版</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="paperwhite">Paperwhite 经典平框</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="frameless">纯纸书无边框</button>
+              </div>
+              <div class="kindle-pill-group kindle-finish-row">
+                <button type="button" class="kindle-opt-pill active" data-kindle-finish="graphite">石墨黑 Graphite</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="matcha">抹茶绿 Matcha</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="denim">丹宁蓝 Denim</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="silver">氧化银 Silver</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Ink Reader Navigation Bar -->
       <div class="koodo-nav-shell">
         <div class="site-topbar koodo-pill-navbar">
           <a class="brand-lockup" href="./index.html">
@@ -52,7 +143,7 @@
             <a href="#faq">常见问题</a>
           </nav>
           <div class="topbar-actions">
-            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink 墨水屏</button>
+            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">Paperwhite 纯黑白</button>
             <nav class="lang-switcher" aria-label="Language">
         <a href="/" class="active" aria-current="page">中文</a>
         <a href="/en/">English</a>
@@ -63,7 +154,7 @@
         </div>
       </div>
 
-      <!-- Spacious Centered Hero Section (Koodo Reader Style) -->
+      <!-- Spacious Centered Kindle E-Ink Hero Section -->
       <header class="hero-header koodo-hero-section">
         <div class="hero-badge-row">
           <a class="release-pill" href="./download.html">
@@ -78,7 +169,7 @@
             <span class="hero-rotate-prefix">支持</span>
             <span
               id="hero-rotate-word"
-              class="hero-rotate-word"
+              class="hero-rotate-word eink-hl-yellow"
               data-rotate-words="防剧透进度锁|2D 案情关系板|证言一键回跳|墨水屏零残影|离线推理词典"
             >防剧透进度锁</span>
           </span>
@@ -112,17 +203,42 @@
           </a>
         </div>
 
-        <!-- Interactive Framed App Stage in Hero -->
+        <!-- Interactive Physical Kindle Colorsoft / Paperwhite / Oasis Shell in Hero -->
         <div class="hero-window-stage">
-          <div class="hero-window-frame">
-            <div class="hero-window-topbar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="win-dot dot-red"></span>
-                <span class="win-dot dot-amber"></span>
-                <span class="win-dot dot-green"></span>
-              </div>
-              <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
-                
+          <div class="kindle-stage-toolbar">
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">Kindle 硬件机身切换:</span>
+              <button type="button" class="kindle-hw-chip active" data-kindle-chassis="oasis">Oasis (实体翻页键)</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="colorsoft">Colorsoft 彩墨签名版</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="paperwhite">Paperwhite 经典平框</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="frameless">纯纸书无边框</button>
+            </div>
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">机身金属/磨砂配色:</span>
+              <button type="button" class="kindle-swatch-btn active" data-kindle-finish="graphite" title="石墨黑 Graphite"><span class="swatch-dot swatch-graphite"></span>石墨黑 Graphite</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="matcha" title="抹茶绿 Matcha"><span class="swatch-dot swatch-matcha"></span>抹茶绿 Matcha</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="denim" title="丹宁蓝 Denim"><span class="swatch-dot swatch-denim"></span>丹宁蓝 Denim</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="silver" title="氧化银 Silver"><span class="swatch-dot swatch-silver"></span>氧化银 Silver</button>
+            </div>
+          </div>
+
+          <div id="device-shell" class="hero-window-frame kindle-device-shell chassis-oasis finish-graphite">
+            <div id="screen-recess" class="kindle-screen-recess">
+              <button
+                type="button"
+                id="dog-ear-bookmark"
+                class="dog-ear-fold bookmarked"
+                title="折角书签（点击切换折角）"
+                aria-label="折角书签（点击切换折角）"
+              ></button>
+
+              <div class="hero-window-topbar kindle-reader-header">
+                <div class="kindle-running-title">
+                  <span class="kindle-book-icon" aria-hidden="true">📖</span>
+                  <span>《雾庄不在场证明》 · MIXU E-INK EDITION</span>
+                </div>
+                <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
+                  
                 <button
                   type="button"
                   class="hero-window-tab active"
@@ -172,24 +288,54 @@
                 >
                   侦探书房伴读
                 </button>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                id="hero-stage-trigger"
+                class="hero-stage-screen"
+                data-lightbox-src="./screenshots/caseboard-2d.png"
+                data-lightbox-title="2D 案情图板"
+                data-lightbox-desc="随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节"
+              >
+                <img
+                  id="hero-stage-img"
+                  src="./screenshots/caseboard-2d.png"
+                  alt="随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节"
+                  width="1280"
+                  height="691"
+                />
+              </button>
+
+              <div class="kindle-reader-footer">
+                <span class="kindle-footer-loc">位置 128 · 第 8 章 · 防剧透进度锁已开启</span>
+                <span id="kindle-footer-tab-idx" class="kindle-footer-pct">48% · 300 PPI · 1 / 5</span>
               </div>
             </div>
-            <button
-              type="button"
-              id="hero-stage-trigger"
-              class="hero-stage-screen"
-              data-lightbox-src="./screenshots/caseboard-2d.png"
-              data-lightbox-title="2D 案情图板"
-              data-lightbox-desc="随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节"
-            >
-              <img
-                id="hero-stage-img"
-                src="./screenshots/caseboard-2d.png"
-                alt="随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节"
-                width="1280"
-                height="691"
-              />
-            </button>
+
+            <!-- Kindle Oasis Physical Ergonomic Page-Turn Buttons -->
+            <div class="oasis-grip-controls" aria-label="Kindle Oasis Page Turn Buttons">
+              <button
+                type="button"
+                id="btn-oasis-prev"
+                class="oasis-hw-btn"
+                title="上一视图（Oasis 上翻页实体键）"
+                aria-label="上一视图（Oasis 上翻页实体键）"
+              ></button>
+              <button
+                type="button"
+                id="btn-oasis-next"
+                class="oasis-hw-btn"
+                title="下一视图（Oasis 下翻页实体键）"
+                aria-label="下一视图（Oasis 下翻页实体键）"
+              ></button>
+            </div>
+
+            <div class="kindle-chin-bar">
+              <span id="chin-logo" class="kindle-chin-logo">KINDLE · MIXU EDITION</span>
+              <span class="kindle-power-led" aria-hidden="true"></span>
+            </div>
           </div>
           <p id="hero-stage-caption" class="hero-stage-caption">随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节</p>
         </div>
@@ -324,6 +470,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
             
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 01 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-yellow">案情图板 · 2D 关系网</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>随阅读进度展开的 2D 人物与证物关系板</h3>
                   <button
@@ -353,6 +503,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">案情图板 · 2D 关系网</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -368,6 +519,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 02 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-blue">案情图板 · 层级拓扑</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>一键切换「层级拓扑」理清复杂家族与阵营</h3>
                   <button
@@ -397,6 +552,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">案情图板 · 层级拓扑</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -412,6 +568,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 03 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-pink">证言核对 · 原文锚点</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>各执一词的证言列表与一键回跳原文</h3>
                   <button
@@ -441,6 +601,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">证言核对 · 原文锚点</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -456,6 +617,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="caseboard">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 04 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-green">人物档案 · 登场追踪</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>点按节点即开的人物与证物专属档案卡</h3>
                   <button
@@ -485,6 +650,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">人物档案 · 登场追踪</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -500,6 +666,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 05 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-orange">双栏精排 · 纸书体验</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>媲美实体精装书的双栏分页阅读体验</h3>
                   <button
@@ -529,6 +699,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">双栏精排 · 纸书体验</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -544,6 +715,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 06 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-yellow">护眼预设 · 墨水屏适配</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>白昼、羊皮纸、深色夜间与墨水屏黑白高对比</h3>
                   <button
@@ -573,6 +748,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">护眼预设 · 墨水屏适配</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -588,6 +764,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="reader">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 07 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-blue">青茗护眼 · 长篇久读</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>柔和「青茗护眼」主题，长篇连读不累眼</h3>
                   <button
@@ -617,6 +797,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">青茗护眼 · 长篇久读</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -632,6 +813,10 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
 
             <article class="bento-feature-card screenshot-card" data-shot-category="tools">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO 08 · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag hl-pink">推理词典 · 双引擎秒译</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>内置推理专有名词词典与毫秒级离线段落翻译</h3>
                   <button
@@ -661,6 +846,7 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">推理词典 · 双引擎秒译</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -755,31 +941,37 @@ E-Ink 设备用同一个安装包，只是少一点动画。</li>
           <div class="more-features-grid">
             
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 01</span>
               <h3>灵活单双栏布局</h3>
               <p>在手机单栏、平板双栏仿真书页与连续滚动视图之间自由切换，自适应各种屏幕尺寸。</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 02</span>
               <h3>历史进度复盘滑块</h3>
               <p>随时向前回拨案情板顶部的时间轴滑块，安全回顾前几章的人物关系状态，不丢失当前阅读书签。</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 03</span>
               <h3>证言与不在场证明比对</h3>
               <p>集中归档各执一词的人物证言与现场物证，发现矛盾之处可一键跳回小说对应原句核实。</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 04</span>
               <h3>完全自定义排版</h3>
               <p>自由调节字号、行距、段距、首行缩进与页边距，打造最适合你长篇阅读习惯的纸书版面。</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 05</span>
               <h3>夜间、羊皮纸与墨水屏模式</h3>
               <p>切换到羊皮纸、青茗护眼、深色夜读或 E-Ink 1-bit 纯黑白高对比度模式，日夜阅读均清晰舒适。</p>
             </div>
 
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 06</span>
               <h3>离线推理词典与专属档案</h3>
               <p>毫秒级检索古典与本格推理专有术语，并为每位嫌疑人记录跟随阅读进度的无剧透随书笔记。</p>
             </div>

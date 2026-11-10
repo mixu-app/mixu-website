@@ -193,6 +193,34 @@ interface LocalizedLandingCopy {
   navFaq: string;
   navDownload: string;
   einkToggleLabel: string;
+  einkSysBrand: string;
+  einkShadeTrigger: string;
+  einkRefreshLabel: string;
+  einkPanelModeLabel: string;
+  einkModeColorsoft: string;
+  einkModePaperwhite: string;
+  einkModeDark: string;
+  einkBrightnessLabel: string;
+  einkWarmthLabel: string;
+  einkPresetPaper: string;
+  einkPresetDay: string;
+  einkPresetNight: string;
+  einkChassisLabel: string;
+  einkChassisOasis: string;
+  einkChassisColorsoft: string;
+  einkChassisPaperwhite: string;
+  einkChassisFrameless: string;
+  einkFinishLabel: string;
+  einkFinishGraphite: string;
+  einkFinishMatcha: string;
+  einkFinishDenim: string;
+  einkFinishSilver: string;
+  einkBookRunningHeader: string;
+  einkDogEarHint: string;
+  einkOasisPrevHint: string;
+  einkOasisNextHint: string;
+  einkFooterLocator: string;
+  einkFooterProgress: string;
   releaseBadge: string;
   rotatePrefix: string;
   rotateWords: string[];
@@ -268,7 +296,35 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       navFeatures: "Why Mixu",
       navFaq: "FAQ",
       navDownload: "Download v0.0.1",
-      einkToggleLabel: "E-Ink Mode",
+      einkToggleLabel: "E-Ink Paperwhite",
+      einkSysBrand: "MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3",
+      einkShadeTrigger: "☀ Frontlight & E-Ink Optics ▾",
+      einkRefreshLabel: "✦ Full Waveform Refresh",
+      einkPanelModeLabel: "E-Ink Panel Mode",
+      einkModeColorsoft: "Colorsoft (Kaleido 3)",
+      einkModePaperwhite: "Paperwhite (300 PPI BW)",
+      einkModeDark: "Night Inverted E-Ink",
+      einkBrightnessLabel: "Frontlight Brightness (0–24)",
+      einkWarmthLabel: "Amber Warmth LED (0–24)",
+      einkPresetPaper: "True Paper (0 / 0)",
+      einkPresetDay: "Daylight (16 / 6)",
+      einkPresetNight: "Amber Study (12 / 20)",
+      einkChassisLabel: "Kindle Hardware Shell",
+      einkChassisOasis: "Oasis (Page Buttons)",
+      einkChassisColorsoft: "Colorsoft Signature",
+      einkChassisPaperwhite: "Paperwhite Classic",
+      einkChassisFrameless: "Frameless Paper",
+      einkFinishLabel: "Bezel Finish",
+      einkFinishGraphite: "Graphite",
+      einkFinishMatcha: "Matcha",
+      einkFinishDenim: "Denim",
+      einkFinishSilver: "Silver",
+      einkBookRunningHeader: "THE MIST MANOR ALIBI · MIXU E-INK EDITION",
+      einkDogEarHint: "Toggle Dog-Ear Bookmark",
+      einkOasisPrevHint: "Previous Screen (Oasis Upper Button)",
+      einkOasisNextHint: "Next Screen (Oasis Lower Button)",
+      einkFooterLocator: "Loc 128 · Ch. 8 · Spoiler Guard Locked",
+      einkFooterProgress: "48% · 300 PPI",
       releaseBadge: "v0.0.1 Alpha · Android & E-Ink APK Available",
       rotatePrefix: "With",
       rotateWords: [
@@ -507,7 +563,35 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       navFeatures: "3つの価値",
       navFaq: "よくある質問",
       navDownload: "v0.0.1 ダウンロード",
-      einkToggleLabel: "E-Ink モード",
+      einkToggleLabel: "E-Ink 白黒モード",
+      einkSysBrand: "MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3",
+      einkShadeTrigger: "☀ フロントライト・色温度・筐体設定 ▾",
+      einkRefreshLabel: "✦ 全画面リフレッシュ",
+      einkPanelModeLabel: "E-Ink パネルモード",
+      einkModeColorsoft: "Colorsoft カラー電子ペーパー",
+      einkModePaperwhite: "Paperwhite 白黒 300 PPI",
+      einkModeDark: "夜間反転 E-Ink",
+      einkBrightnessLabel: "フロントライト輝度 (0–24)",
+      einkWarmthLabel: "アンバー色温度 (0–24)",
+      einkPresetPaper: "反射紙モード (0 / 0)",
+      einkPresetDay: "昼間読書 (16 / 6)",
+      einkPresetNight: "琥珀ナイト (12 / 20)",
+      einkChassisLabel: "Kindle ハードウェア筐体",
+      einkChassisOasis: "Oasis (物理ページボタン)",
+      einkChassisColorsoft: "Colorsoft シグニチャー",
+      einkChassisPaperwhite: "Paperwhite クラシック",
+      einkChassisFrameless: "ベゼルレス紙面",
+      einkFinishLabel: "ベゼル仕上げ",
+      einkFinishGraphite: "グラファイト",
+      einkFinishMatcha: "マッチャ",
+      einkFinishDenim: "デニム",
+      einkFinishSilver: "シルバー",
+      einkBookRunningHeader: "『霧荘のアリバイ』 · MIXU E-INK EDITION",
+      einkDogEarHint: "ドッグイヤー（角折りしおり）を切り替え",
+      einkOasisPrevHint: "前の画面へ（Oasis 上ボタン）",
+      einkOasisNextHint: "次の画面へ（Oasis 下ボタン）",
+      einkFooterLocator: "位置 No. 128 · 第8章 · ネタバレ防止ロック中",
+      einkFooterProgress: "48% · 300 PPI",
       releaseBadge: "v0.0.1 Alpha · Android / E-Ink 対応 APK 公開中",
       rotatePrefix: "対応：",
       rotateWords: [
@@ -745,7 +829,35 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     navFeatures: "三条价值",
     navFaq: "常见问题",
     navDownload: "下载 v0.0.1",
-    einkToggleLabel: "E-Ink 墨水屏",
+    einkToggleLabel: "Paperwhite 纯黑白",
+    einkSysBrand: "MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3",
+    einkShadeTrigger: "☀ 前光亮度 · 琥珀色温 · 墨水屏机身设置 ▾",
+    einkRefreshLabel: "✦ 全刷消残影",
+    einkPanelModeLabel: "墨水屏面板模式",
+    einkModeColorsoft: "Colorsoft 彩墨 (Kaleido 3)",
+    einkModePaperwhite: "Paperwhite 纯黑白 (Carta 1200)",
+    einkModeDark: "夜间反色夜读",
+    einkBrightnessLabel: "前光导光板亮度 (0–24 级)",
+    einkWarmthLabel: "琥珀暖光色温 (0–24 级)",
+    einkPresetPaper: "无背光真纸 (0 / 0)",
+    einkPresetDay: "日间阅读 (16 / 6)",
+    einkPresetNight: "琥珀夜读 (12 / 20)",
+    einkChassisLabel: "Kindle 硬件机身切换",
+    einkChassisOasis: "Oasis (实体翻页键)",
+    einkChassisColorsoft: "Colorsoft 彩墨签名版",
+    einkChassisPaperwhite: "Paperwhite 经典平框",
+    einkChassisFrameless: "纯纸书无边框",
+    einkFinishLabel: "机身金属/磨砂配色",
+    einkFinishGraphite: "石墨黑 Graphite",
+    einkFinishMatcha: "抹茶绿 Matcha",
+    einkFinishDenim: "丹宁蓝 Denim",
+    einkFinishSilver: "氧化银 Silver",
+    einkBookRunningHeader: "《雾庄不在场证明》 · MIXU E-INK EDITION",
+    einkDogEarHint: "折角书签（点击切换折角）",
+    einkOasisPrevHint: "上一视图（Oasis 上翻页实体键）",
+    einkOasisNextHint: "下一视图（Oasis 下翻页实体键）",
+    einkFooterLocator: "位置 128 · 第 8 章 · 防剧透进度锁已开启",
+    einkFooterProgress: "48% · 300 PPI",
     releaseBadge: "v0.0.1 Alpha · Android 与墨水屏安装包已发布",
     rotatePrefix: "支持",
     rotateWords: [
@@ -1021,11 +1133,19 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
     )
     .join("\n");
 
+  const highlightCycle = ["hl-yellow", "hl-blue", "hl-pink", "hl-green", "hl-orange"] as const;
+
   const galleryCardsHtml = copy.screenshots
-    .map(
-      (shot) => `
+    .map((shot, idx) => {
+      const folioNum = String(idx + 1).padStart(2, "0");
+      const hlClass = highlightCycle[idx % highlightCycle.length] ?? "hl-yellow";
+      return `
             <article class="bento-feature-card screenshot-card" data-shot-category="${shot.category}">
               <div class="bento-card-head">
+                <div class="eink-folio-meta">
+                  <span class="eink-folio-index">FOLIO ${folioNum} · 300 PPI E-INK</span>
+                  <span class="eink-hl-tag ${hlClass}">${escapeHtml(shot.badge)}</span>
+                </div>
                 <div class="bento-card-title-row">
                   <h3>${escapeHtml(shot.title)}</h3>
                   <button
@@ -1055,6 +1175,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
                     <span class="win-dot dot-amber"></span>
                     <span class="win-dot dot-green"></span>
                     <span class="win-bar-title">${escapeHtml(shot.badge)}</span>
+                    <span class="win-bar-ppi">CARTA 1200</span>
                   </div>
                   <div class="screenshot-frame">
                     <img
@@ -1066,14 +1187,15 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
                   </div>
                 </div>
               </button>
-            </article>`
-    )
+            </article>`;
+    })
     .join("\n");
 
   const moreFeaturesHtml = copy.moreFeatures
     .map(
-      (item) => `
+      (item, idx) => `
             <div class="more-feature-item">
+              <span class="more-feature-num">§ 0${idx + 1}</span>
               <h3>${escapeHtml(item.title)}</h3>
               <p>${escapeHtml(item.desc)}</p>
             </div>`
@@ -1098,7 +1220,98 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
   const firstTab = copy.heroQuickTabs[0];
 
   return `
-      <!-- Floating Pill Navbar (Koodo Reader Style) -->
+      <!-- E-Ink Carta 1200 & Kaleido 3 Colorsoft Optical Overlays -->
+      <svg id="eink-paper-texture" aria-hidden="true">
+        <filter id="eink-noise-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#eink-noise-filter)" />
+      </svg>
+      <div id="eink-cfa-layer" aria-hidden="true"></div>
+      <div id="eink-flash-layer" aria-hidden="true"></div>
+
+      <!-- Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade -->
+      <div class="kindle-system-bar" id="kindle-status-bar">
+        <div class="kindle-sys-inner">
+          <div class="kindle-sys-left">
+            <span class="kindle-sys-dot" aria-hidden="true"></span>
+            <span class="kindle-sys-brand">${escapeHtml(copy.einkSysBrand)}</span>
+          </div>
+          <button
+            type="button"
+            id="kindle-shade-toggle"
+            class="kindle-shade-trigger-btn"
+            aria-expanded="false"
+            aria-controls="kindle-quick-shade"
+          >
+            <span>${escapeHtml(copy.einkShadeTrigger)}</span>
+          </button>
+          <div class="kindle-sys-right">
+            <button type="button" id="eink-waveform-btn" class="kindle-sys-pill-btn">
+              ${escapeHtml(copy.einkRefreshLabel)}
+            </button>
+            <span class="kindle-sys-telemetry" aria-hidden="true">Wi-Fi · 94% ▮ · <span id="kindle-clock">14:28</span></span>
+          </div>
+        </div>
+
+        <div id="kindle-quick-shade" class="kindle-quick-shade" hidden>
+          <div class="kindle-shade-grid">
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">${escapeHtml(copy.einkPanelModeLabel)}</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-eink-mode="colorsoft" aria-pressed="true">
+                  ${escapeHtml(copy.einkModeColorsoft)}
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="paperwhite" aria-pressed="false">
+                  ${escapeHtml(copy.einkModePaperwhite)}
+                </button>
+                <button type="button" class="kindle-opt-pill" data-eink-mode="dark" aria-pressed="false">
+                  ${escapeHtml(copy.einkModeDark)}
+                </button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <div class="kindle-slider-row">
+                <label for="eink-brightness-slider" class="kindle-shade-label">
+                  ${escapeHtml(copy.einkBrightnessLabel)}: <strong id="eink-brightness-val">16</strong>
+                </label>
+                <input id="eink-brightness-slider" type="range" min="0" max="24" value="16" class="eink-slider" />
+              </div>
+              <div class="kindle-slider-row">
+                <label for="eink-warmth-slider" class="kindle-shade-label">
+                  ${escapeHtml(copy.einkWarmthLabel)}: <strong id="eink-warmth-val">8</strong>
+                </label>
+                <input id="eink-warmth-slider" type="range" min="0" max="24" value="8" class="eink-slider" />
+              </div>
+              <div class="kindle-pill-group kindle-preset-row">
+                <button type="button" class="kindle-opt-pill" data-eink-preset="0,0">${escapeHtml(copy.einkPresetPaper)}</button>
+                <button type="button" class="kindle-opt-pill active" data-eink-preset="16,8">${escapeHtml(copy.einkPresetDay)}</button>
+                <button type="button" class="kindle-opt-pill" data-eink-preset="12,20">${escapeHtml(copy.einkPresetNight)}</button>
+              </div>
+            </div>
+
+            <div class="kindle-shade-group">
+              <span class="kindle-shade-label">${escapeHtml(copy.einkChassisLabel)} &amp; ${escapeHtml(copy.einkFinishLabel)}</span>
+              <div class="kindle-pill-group">
+                <button type="button" class="kindle-opt-pill active" data-kindle-chassis="oasis">${escapeHtml(copy.einkChassisOasis)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="colorsoft">${escapeHtml(copy.einkChassisColorsoft)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="paperwhite">${escapeHtml(copy.einkChassisPaperwhite)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-chassis="frameless">${escapeHtml(copy.einkChassisFrameless)}</button>
+              </div>
+              <div class="kindle-pill-group kindle-finish-row">
+                <button type="button" class="kindle-opt-pill active" data-kindle-finish="graphite">${escapeHtml(copy.einkFinishGraphite)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="matcha">${escapeHtml(copy.einkFinishMatcha)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="denim">${escapeHtml(copy.einkFinishDenim)}</button>
+                <button type="button" class="kindle-opt-pill" data-kindle-finish="silver">${escapeHtml(copy.einkFinishSilver)}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Ink Reader Navigation Bar -->
       <div class="koodo-nav-shell">
         <div class="site-topbar koodo-pill-navbar">
           <a class="brand-lockup" href="./index.html">
@@ -1119,7 +1332,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
         </div>
       </div>
 
-      <!-- Spacious Centered Hero Section (Koodo Reader Style) -->
+      <!-- Spacious Centered Kindle E-Ink Hero Section -->
       <header class="hero-header koodo-hero-section">
         <div class="hero-badge-row">
           <a class="release-pill" href="./download.html">
@@ -1134,7 +1347,7 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
             <span class="hero-rotate-prefix">${escapeHtml(copy.rotatePrefix)}</span>
             <span
               id="hero-rotate-word"
-              class="hero-rotate-word"
+              class="hero-rotate-word eink-hl-yellow"
               data-rotate-words="${escapeHtml(copy.rotateWords.join("|"))}"
             >${escapeHtml(copy.rotateWords[0] ?? "")}</span>
           </span>
@@ -1167,35 +1380,90 @@ export function renderHeroHtml(data: HeroData, locale: string = "zh-CN", config?
           </a>
         </div>
 
-        <!-- Interactive Framed App Stage in Hero -->
+        <!-- Interactive Physical Kindle Colorsoft / Paperwhite / Oasis Shell in Hero -->
         <div class="hero-window-stage">
-          <div class="hero-window-frame">
-            <div class="hero-window-topbar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="win-dot dot-red"></span>
-                <span class="win-dot dot-amber"></span>
-                <span class="win-dot dot-green"></span>
+          <div class="kindle-stage-toolbar">
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">${escapeHtml(copy.einkChassisLabel)}:</span>
+              <button type="button" class="kindle-hw-chip active" data-kindle-chassis="oasis">${escapeHtml(copy.einkChassisOasis)}</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="colorsoft">${escapeHtml(copy.einkChassisColorsoft)}</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="paperwhite">${escapeHtml(copy.einkChassisPaperwhite)}</button>
+              <button type="button" class="kindle-hw-chip" data-kindle-chassis="frameless">${escapeHtml(copy.einkChassisFrameless)}</button>
+            </div>
+            <div class="kindle-toolbar-cluster">
+              <span class="kindle-toolbar-tag">${escapeHtml(copy.einkFinishLabel)}:</span>
+              <button type="button" class="kindle-swatch-btn active" data-kindle-finish="graphite" title="${escapeHtml(copy.einkFinishGraphite)}"><span class="swatch-dot swatch-graphite"></span>${escapeHtml(copy.einkFinishGraphite)}</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="matcha" title="${escapeHtml(copy.einkFinishMatcha)}"><span class="swatch-dot swatch-matcha"></span>${escapeHtml(copy.einkFinishMatcha)}</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="denim" title="${escapeHtml(copy.einkFinishDenim)}"><span class="swatch-dot swatch-denim"></span>${escapeHtml(copy.einkFinishDenim)}</button>
+              <button type="button" class="kindle-swatch-btn" data-kindle-finish="silver" title="${escapeHtml(copy.einkFinishSilver)}"><span class="swatch-dot swatch-silver"></span>${escapeHtml(copy.einkFinishSilver)}</button>
+            </div>
+          </div>
+
+          <div id="device-shell" class="hero-window-frame kindle-device-shell chassis-oasis finish-graphite">
+            <div id="screen-recess" class="kindle-screen-recess">
+              <button
+                type="button"
+                id="dog-ear-bookmark"
+                class="dog-ear-fold bookmarked"
+                title="${escapeHtml(copy.einkDogEarHint)}"
+                aria-label="${escapeHtml(copy.einkDogEarHint)}"
+              ></button>
+
+              <div class="hero-window-topbar kindle-reader-header">
+                <div class="kindle-running-title">
+                  <span class="kindle-book-icon" aria-hidden="true">📖</span>
+                  <span>${escapeHtml(copy.einkBookRunningHeader)}</span>
+                </div>
+                <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
+                  ${heroTabsHtml}
+                </div>
               </div>
-              <div class="hero-window-tabs" role="tablist" aria-label="Hero Preview Switcher">
-                ${heroTabsHtml}
+
+              <button
+                type="button"
+                id="hero-stage-trigger"
+                class="hero-stage-screen"
+                data-lightbox-src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+                data-lightbox-title="${escapeHtml(firstTab?.label ?? "")}"
+                data-lightbox-desc="${escapeHtml(firstTab?.caption ?? "")}"
+              >
+                <img
+                  id="hero-stage-img"
+                  src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+                  alt="${escapeHtml(firstTab?.caption ?? "")}"
+                  width="1280"
+                  height="691"
+                />
+              </button>
+
+              <div class="kindle-reader-footer">
+                <span class="kindle-footer-loc">${escapeHtml(copy.einkFooterLocator)}</span>
+                <span id="kindle-footer-tab-idx" class="kindle-footer-pct">${escapeHtml(copy.einkFooterProgress)} · 1 / ${copy.heroQuickTabs.length}</span>
               </div>
             </div>
-            <button
-              type="button"
-              id="hero-stage-trigger"
-              class="hero-stage-screen"
-              data-lightbox-src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
-              data-lightbox-title="${escapeHtml(firstTab?.label ?? "")}"
-              data-lightbox-desc="${escapeHtml(firstTab?.caption ?? "")}"
-            >
-              <img
-                id="hero-stage-img"
-                src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
-                alt="${escapeHtml(firstTab?.caption ?? "")}"
-                width="1280"
-                height="691"
-              />
-            </button>
+
+            <!-- Kindle Oasis Physical Ergonomic Page-Turn Buttons -->
+            <div class="oasis-grip-controls" aria-label="Kindle Oasis Page Turn Buttons">
+              <button
+                type="button"
+                id="btn-oasis-prev"
+                class="oasis-hw-btn"
+                title="${escapeHtml(copy.einkOasisPrevHint)}"
+                aria-label="${escapeHtml(copy.einkOasisPrevHint)}"
+              ></button>
+              <button
+                type="button"
+                id="btn-oasis-next"
+                class="oasis-hw-btn"
+                title="${escapeHtml(copy.einkOasisNextHint)}"
+                aria-label="${escapeHtml(copy.einkOasisNextHint)}"
+              ></button>
+            </div>
+
+            <div class="kindle-chin-bar">
+              <span id="chin-logo" class="kindle-chin-logo">KINDLE · MIXU EDITION</span>
+              <span class="kindle-power-led" aria-hidden="true"></span>
+            </div>
           </div>
           <p id="hero-stage-caption" class="hero-stage-caption">${escapeHtml(firstTab?.caption ?? "")}</p>
         </div>
