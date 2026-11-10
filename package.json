@@ -12,7 +12,7 @@
     "generate:og": "bun scripts/generate-og-image.ts",
     "copy:assets": "bun scripts/copy-assets.ts",
     "prebuild": "bun run render:hero && bun run render:download && bun run render:404 && bun run generate:og",
-    "build": "bun run prebuild && bun build --root ./src ./src/index.html ./src/download.html ./src/404.html ./src/en/index.html ./src/en/download.html ./src/en/404.html ./src/ja/index.html ./src/ja/download.html ./src/ja/404.html --outdir ./dist --minify && bun run copy:assets",
+    "build": "bun run prebuild && bun build --root ./src ./src/index.html ./src/download.html ./src/404.html --outdir ./dist --minify && bun run copy:assets",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
     "check": "bun run prebuild && bun run typecheck && bun run test && bun run build"
