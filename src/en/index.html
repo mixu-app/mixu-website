@@ -49,86 +49,6 @@
       <div id="eink-cfa-layer" aria-hidden="true"></div>
       <div id="eink-flash-layer" aria-hidden="true"></div>
 
-      <!-- Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade -->
-      <div class="kindle-system-bar" id="kindle-status-bar">
-        <div class="kindle-sys-inner">
-          <div class="kindle-sys-left">
-            <span class="kindle-sys-dot" aria-hidden="true"></span>
-            <span class="kindle-sys-brand">MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3</span>
-          </div>
-          <button
-            type="button"
-            id="kindle-shade-toggle"
-            class="kindle-shade-trigger-btn"
-            aria-expanded="false"
-            aria-controls="kindle-quick-shade"
-          >
-            <span>☀ Frontlight &amp; E-Ink Optics ▾</span>
-          </button>
-          <div class="kindle-sys-right">
-            <button type="button" id="eink-waveform-btn" class="kindle-sys-pill-btn">
-              ✦ Full Waveform Refresh
-            </button>
-            <span class="kindle-sys-telemetry" aria-hidden="true">Wi-Fi · 94% ▮ · <span id="kindle-clock">14:28</span></span>
-          </div>
-        </div>
-
-        <div id="kindle-quick-shade" class="kindle-quick-shade" hidden>
-          <div class="kindle-shade-grid">
-            <div class="kindle-shade-group">
-              <span class="kindle-shade-label">E-Ink Panel Mode</span>
-              <div class="kindle-pill-group">
-                <button type="button" class="kindle-opt-pill active" data-eink-mode="colorsoft" aria-pressed="true">
-                  Colorsoft (Kaleido 3)
-                </button>
-                <button type="button" class="kindle-opt-pill" data-eink-mode="paperwhite" aria-pressed="false">
-                  Paperwhite (300 PPI BW)
-                </button>
-                <button type="button" class="kindle-opt-pill" data-eink-mode="dark" aria-pressed="false">
-                  Night Inverted E-Ink
-                </button>
-              </div>
-            </div>
-
-            <div class="kindle-shade-group">
-              <div class="kindle-slider-row">
-                <label for="eink-brightness-slider" class="kindle-shade-label">
-                  Frontlight Brightness (0–24): <strong id="eink-brightness-val">16</strong>
-                </label>
-                <input id="eink-brightness-slider" type="range" min="0" max="24" value="16" class="eink-slider" />
-              </div>
-              <div class="kindle-slider-row">
-                <label for="eink-warmth-slider" class="kindle-shade-label">
-                  Amber Warmth LED (0–24): <strong id="eink-warmth-val">8</strong>
-                </label>
-                <input id="eink-warmth-slider" type="range" min="0" max="24" value="8" class="eink-slider" />
-              </div>
-              <div class="kindle-pill-group kindle-preset-row">
-                <button type="button" class="kindle-opt-pill" data-eink-preset="0,0">True Paper (0 / 0)</button>
-                <button type="button" class="kindle-opt-pill active" data-eink-preset="16,8">Daylight (16 / 6)</button>
-                <button type="button" class="kindle-opt-pill" data-eink-preset="12,20">Amber Study (12 / 20)</button>
-              </div>
-            </div>
-
-            <div class="kindle-shade-group">
-              <span class="kindle-shade-label">Kindle Hardware Shell &amp; Bezel Finish</span>
-              <div class="kindle-pill-group">
-                <button type="button" class="kindle-opt-pill active" data-kindle-chassis="oasis">Oasis (Page Buttons)</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="colorsoft">Colorsoft Signature</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="paperwhite">Paperwhite Classic</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="frameless">Frameless Paper</button>
-              </div>
-              <div class="kindle-pill-group kindle-finish-row">
-                <button type="button" class="kindle-opt-pill active" data-kindle-finish="graphite">Graphite</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="matcha">Matcha</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="denim">Denim</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="silver">Silver</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- E-Ink Reader Navigation Bar -->
       <div class="koodo-nav-shell">
         <div class="site-topbar koodo-pill-navbar">
@@ -143,7 +63,14 @@
             <a href="#faq">FAQ</a>
           </nav>
           <div class="topbar-actions">
-            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink Paperwhite</button>
+            <button
+              type="button"
+              id="eink-toggle"
+              class="eink-toggle-btn"
+              aria-pressed="false"
+              data-label-light="☀ Light"
+              data-label-dark="☾ Dark"
+            >☾ Dark</button>
             <nav class="lang-switcher" aria-label="Language">
         <a href="/">中文</a>
         <a href="/en/" class="active" aria-current="page">English</a>
@@ -202,25 +129,8 @@
           </a>
         </div>
 
-        <!-- Interactive Physical Kindle Colorsoft / Paperwhite / Oasis Shell in Hero -->
+        <!-- Interactive Physical Kindle E-Ink Shell in Hero -->
         <div class="hero-window-stage">
-          <div class="kindle-stage-toolbar">
-            <div class="kindle-toolbar-cluster">
-              <span class="kindle-toolbar-tag">Kindle Hardware Shell:</span>
-              <button type="button" class="kindle-hw-chip active" data-kindle-chassis="oasis">Oasis (Page Buttons)</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="colorsoft">Colorsoft Signature</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="paperwhite">Paperwhite Classic</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="frameless">Frameless Paper</button>
-            </div>
-            <div class="kindle-toolbar-cluster">
-              <span class="kindle-toolbar-tag">Bezel Finish:</span>
-              <button type="button" class="kindle-swatch-btn active" data-kindle-finish="graphite" title="Graphite"><span class="swatch-dot swatch-graphite"></span>Graphite</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="matcha" title="Matcha"><span class="swatch-dot swatch-matcha"></span>Matcha</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="denim" title="Denim"><span class="swatch-dot swatch-denim"></span>Denim</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="silver" title="Silver"><span class="swatch-dot swatch-silver"></span>Silver</button>
-            </div>
-          </div>
-
           <div id="device-shell" class="hero-window-frame kindle-device-shell chassis-oasis finish-graphite">
             <div id="screen-recess" class="kindle-screen-recess">
               <button

@@ -49,86 +49,6 @@
       <div id="eink-cfa-layer" aria-hidden="true"></div>
       <div id="eink-flash-layer" aria-hidden="true"></div>
 
-      <!-- Kindle E-Ink Top System Status Bar & Pull-Down Quick Shade -->
-      <div class="kindle-system-bar" id="kindle-status-bar">
-        <div class="kindle-sys-inner">
-          <div class="kindle-sys-left">
-            <span class="kindle-sys-dot" aria-hidden="true"></span>
-            <span class="kindle-sys-brand">MIXU E-INK OS · 300 PPI CARTA 1200 / KALEIDO 3</span>
-          </div>
-          <button
-            type="button"
-            id="kindle-shade-toggle"
-            class="kindle-shade-trigger-btn"
-            aria-expanded="false"
-            aria-controls="kindle-quick-shade"
-          >
-            <span>☀ フロントライト・色温度・筐体設定 ▾</span>
-          </button>
-          <div class="kindle-sys-right">
-            <button type="button" id="eink-waveform-btn" class="kindle-sys-pill-btn">
-              ✦ 全画面リフレッシュ
-            </button>
-            <span class="kindle-sys-telemetry" aria-hidden="true">Wi-Fi · 94% ▮ · <span id="kindle-clock">14:28</span></span>
-          </div>
-        </div>
-
-        <div id="kindle-quick-shade" class="kindle-quick-shade" hidden>
-          <div class="kindle-shade-grid">
-            <div class="kindle-shade-group">
-              <span class="kindle-shade-label">E-Ink パネルモード</span>
-              <div class="kindle-pill-group">
-                <button type="button" class="kindle-opt-pill active" data-eink-mode="colorsoft" aria-pressed="true">
-                  Colorsoft カラー電子ペーパー
-                </button>
-                <button type="button" class="kindle-opt-pill" data-eink-mode="paperwhite" aria-pressed="false">
-                  Paperwhite 白黒 300 PPI
-                </button>
-                <button type="button" class="kindle-opt-pill" data-eink-mode="dark" aria-pressed="false">
-                  夜間反転 E-Ink
-                </button>
-              </div>
-            </div>
-
-            <div class="kindle-shade-group">
-              <div class="kindle-slider-row">
-                <label for="eink-brightness-slider" class="kindle-shade-label">
-                  フロントライト輝度 (0–24): <strong id="eink-brightness-val">16</strong>
-                </label>
-                <input id="eink-brightness-slider" type="range" min="0" max="24" value="16" class="eink-slider" />
-              </div>
-              <div class="kindle-slider-row">
-                <label for="eink-warmth-slider" class="kindle-shade-label">
-                  アンバー色温度 (0–24): <strong id="eink-warmth-val">8</strong>
-                </label>
-                <input id="eink-warmth-slider" type="range" min="0" max="24" value="8" class="eink-slider" />
-              </div>
-              <div class="kindle-pill-group kindle-preset-row">
-                <button type="button" class="kindle-opt-pill" data-eink-preset="0,0">反射紙モード (0 / 0)</button>
-                <button type="button" class="kindle-opt-pill active" data-eink-preset="16,8">昼間読書 (16 / 6)</button>
-                <button type="button" class="kindle-opt-pill" data-eink-preset="12,20">琥珀ナイト (12 / 20)</button>
-              </div>
-            </div>
-
-            <div class="kindle-shade-group">
-              <span class="kindle-shade-label">Kindle ハードウェア筐体 &amp; ベゼル仕上げ</span>
-              <div class="kindle-pill-group">
-                <button type="button" class="kindle-opt-pill active" data-kindle-chassis="oasis">Oasis (物理ページボタン)</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="colorsoft">Colorsoft シグニチャー</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="paperwhite">Paperwhite クラシック</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-chassis="frameless">ベゼルレス紙面</button>
-              </div>
-              <div class="kindle-pill-group kindle-finish-row">
-                <button type="button" class="kindle-opt-pill active" data-kindle-finish="graphite">グラファイト</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="matcha">マッチャ</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="denim">デニム</button>
-                <button type="button" class="kindle-opt-pill" data-kindle-finish="silver">シルバー</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- E-Ink Reader Navigation Bar -->
       <div class="koodo-nav-shell">
         <div class="site-topbar koodo-pill-navbar">
@@ -143,7 +63,14 @@
             <a href="#faq">よくある質問</a>
           </nav>
           <div class="topbar-actions">
-            <button type="button" id="eink-toggle" class="eink-toggle-btn" aria-pressed="false">E-Ink 白黒モード</button>
+            <button
+              type="button"
+              id="eink-toggle"
+              class="eink-toggle-btn"
+              aria-pressed="false"
+              data-label-light="☀ ライト"
+              data-label-dark="☾ ダーク"
+            >☾ ダーク</button>
             <nav class="lang-switcher" aria-label="言語">
         <a href="/">中文</a>
         <a href="/en/">English</a>
@@ -202,25 +129,8 @@
           </a>
         </div>
 
-        <!-- Interactive Physical Kindle Colorsoft / Paperwhite / Oasis Shell in Hero -->
+        <!-- Interactive Physical Kindle E-Ink Shell in Hero -->
         <div class="hero-window-stage">
-          <div class="kindle-stage-toolbar">
-            <div class="kindle-toolbar-cluster">
-              <span class="kindle-toolbar-tag">Kindle ハードウェア筐体:</span>
-              <button type="button" class="kindle-hw-chip active" data-kindle-chassis="oasis">Oasis (物理ページボタン)</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="colorsoft">Colorsoft シグニチャー</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="paperwhite">Paperwhite クラシック</button>
-              <button type="button" class="kindle-hw-chip" data-kindle-chassis="frameless">ベゼルレス紙面</button>
-            </div>
-            <div class="kindle-toolbar-cluster">
-              <span class="kindle-toolbar-tag">ベゼル仕上げ:</span>
-              <button type="button" class="kindle-swatch-btn active" data-kindle-finish="graphite" title="グラファイト"><span class="swatch-dot swatch-graphite"></span>グラファイト</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="matcha" title="マッチャ"><span class="swatch-dot swatch-matcha"></span>マッチャ</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="denim" title="デニム"><span class="swatch-dot swatch-denim"></span>デニム</button>
-              <button type="button" class="kindle-swatch-btn" data-kindle-finish="silver" title="シルバー"><span class="swatch-dot swatch-silver"></span>シルバー</button>
-            </div>
-          </div>
-
           <div id="device-shell" class="hero-window-frame kindle-device-shell chassis-oasis finish-graphite">
             <div id="screen-recess" class="kindle-screen-recess">
               <button
