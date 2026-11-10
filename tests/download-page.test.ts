@@ -10,8 +10,14 @@ import {
   type Release,
 } from "../scripts/render-download.ts";
 
-const manifestPath = resolve(import.meta.dir, "../content/download-manifest.json");
-const schemaPath = resolve(import.meta.dir, "../content/download-manifest.schema.json");
+const manifestPath = resolve(
+  import.meta.dir,
+  "../content/download-manifest.json",
+);
+const schemaPath = resolve(
+  import.meta.dir,
+  "../content/download-manifest.schema.json",
+);
 const templatePath = resolve(import.meta.dir, "../src/download.template.html");
 const sourceHtmlPath = resolve(import.meta.dir, "../src/download.html");
 const distHtmlPath = resolve(import.meta.dir, "../dist/download.html");
@@ -34,13 +40,18 @@ describe("download manifest and schema", () => {
   });
 
   test("manifest contains official v0.0.1 alpha release", () => {
-    const manifest = JSON.parse(readFileSync(manifestPath, "utf-8")) as DownloadManifest;
+    const manifest = JSON.parse(
+      readFileSync(manifestPath, "utf-8"),
+    ) as DownloadManifest;
     expect(manifest.schema_version).toBeGreaterThanOrEqual(1);
     expect(Array.isArray(manifest.releases)).toBe(true);
     expect(manifest.releases.length).toBeGreaterThanOrEqual(1);
     expect(manifest.releases[0]?.version).toBe("0.0.1");
+    expect(manifest.releases[0]?.download_url).toBe(
+      "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
+    );
     expect(manifest.releases[0]?.sha256).toBe(
-      "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb"
+      "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb",
     );
   });
 });
@@ -54,7 +65,13 @@ describe("download page content and phase honesty", () => {
     const html = readFileSync(sourceHtmlPath, "utf-8");
     expect(html).toContain('class="release-card"');
     expect(html).toContain("v0.0.1");
-    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
+    expect(html).toContain('download="mixu-app-0.0.1.apk"');
+    expect(html).toContain(
+      "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
+    );
+    expect(html).toContain(
+      "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb",
+    );
   });
 
   test("provides link back to main page and client repository", () => {
@@ -82,7 +99,7 @@ describe("download page content and phase honesty", () => {
 
 describe("render-download generator logic", () => {
   test("escapes HTML special characters in release content", () => {
-    const raw = '<script>alert("xss")</script> & \'test\'';
+    const raw = "<script>alert(\"xss\")</script> & 'test'";
     const escaped = escapeHtml(raw);
     expect(escaped).not.toContain("<script>");
     expect(escaped).toContain("&lt;script&gt;");
@@ -96,8 +113,10 @@ describe("render-download generator logic", () => {
       build_number: 1,
       channel: "alpha",
       release_date: "2026-11-08",
-      download_url: "https://github.com/mixu-app/mixu-client/releases/download/v0.1.0/mixu-v0.1.0.apk",
-      sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      download_url:
+        "https://github.com/mixu-app/mixu-client/releases/download/v0.1.0/mixu-v0.1.0.apk",
+      sha256:
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       min_sdk: 26,
       changelog_zh: ["首个测试版本", "案情板初始原型"],
     };
@@ -123,7 +142,9 @@ describe("render-download generator logic", () => {
     };
     const result = renderDownloadPage(manifest, template);
     expect(result).not.toContain("<!-- {{RELEASES_CONTENT}} -->");
-    expect(result).toContain("当前处于文档与开发起步阶段，尚未发布公开安装包 (APK)");
+    expect(result).toContain(
+      "当前处于文档与开发起步阶段，尚未发布公开安装包 (APK)",
+    );
   });
 });
 
@@ -138,7 +159,9 @@ describe("built distribution artifact", () => {
     expect(existsSync(distHtmlPath)).toBe(true);
     const distHtml = readFileSync(distHtmlPath, "utf-8");
     expect(distHtml).toContain("v0.0.1");
-    expect(distHtml).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
+    expect(distHtml).toContain(
+      "a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb",
+    );
     expect(distHtml).toContain("sha256sum");
     expect(distHtml).toContain("apksigner");
     expect(distHtml).toContain("https://github.com/mixu-app/mixu-client");
