@@ -117,7 +117,7 @@ describe("zh-CN hero, download, and 404 page rendering", () => {
     expect(html).toContain('<html lang="zh-CN">');
     expect(html).toContain("客户端下载");
     expect(html).toContain("v0.0.1");
-    expect(html).toContain("a22ec1fa93c5b1d7f37abc7ab18544f39cc4f82246b1494b36cb2c50eeb9f9cb");
+    expect(html).toContain("c1c16f18f941d6f672cfa606e526f092686c8ea8687f0f71f9acadf93432c31c");
     expect(html).toContain("安装包真实性与签名校验");
     expect(html).toContain("SHA-256 校验和");
     expect(html).toContain("apksigner");
