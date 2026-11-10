@@ -21,24 +21,24 @@
   --surface: #e4e2d9;
   --surface-elevated: #f5f3eb;
 
-  /* Kaleido 3 Colorsoft Pastel Highlighter Inks (150 PPI Color Layer) */
-  --hl-yellow-bg: rgba(230, 194, 62, 0.38);
-  --hl-yellow-border: #a88414;
-  --hl-pink-bg: rgba(214, 114, 138, 0.32);
-  --hl-pink-border: #a4445c;
-  --hl-blue-bg: rgba(98, 156, 206, 0.34);
-  --hl-blue-border: #386c9c;
-  --hl-orange-bg: rgba(226, 142, 76, 0.36);
-  --hl-orange-border: #ac581e;
-  --hl-green-bg: rgba(108, 174, 118, 0.34);
-  --hl-green-border: #3a7a46;
+  /* Unified E-Ink Warm Paper Highlight Ink */
+  --hl-yellow-bg: rgba(226, 192, 74, 0.34);
+  --hl-yellow-border: #8c6d14;
+  --hl-pink-bg: rgba(226, 192, 74, 0.34);
+  --hl-pink-border: #8c6d14;
+  --hl-blue-bg: rgba(226, 192, 74, 0.34);
+  --hl-blue-border: #8c6d14;
+  --hl-orange-bg: rgba(226, 192, 74, 0.34);
+  --hl-orange-border: #8c6d14;
+  --hl-green-bg: rgba(226, 192, 74, 0.34);
+  --hl-green-border: #8c6d14;
 
-  --badge-observed-bg: rgba(108, 174, 118, 0.34);
-  --badge-observed-fg: #1d4d26;
-  --badge-claimed-bg: rgba(230, 194, 62, 0.38);
-  --badge-claimed-fg: #5c4606;
-  --badge-contradicted-bg: rgba(214, 114, 138, 0.34);
-  --badge-contradicted-fg: #6e1d30;
+  --badge-observed-bg: #e2dfd5;
+  --badge-observed-fg: #1d1f1c;
+  --badge-claimed-bg: rgba(226, 192, 74, 0.34);
+  --badge-claimed-fg: #3b2e06;
+  --badge-contradicted-bg: #1d1f1c;
+  --badge-contradicted-fg: #f5f3eb;
   --badge-locked-bg: #dcdad0;
   --badge-locked-fg: #4a4d46;
 
@@ -105,6 +105,7 @@
 
 /* Night Inverted E-Ink Mode */
 :root[data-panel-mode="dark"] {
+  color-scheme: dark;
   --bg: #171917;
   --bg-beige: #1e201d;
   --bg-light: #1b1d1a;
@@ -115,11 +116,29 @@
   --muted: #a0a39b;
   --border: #3d403b;
   --border-strong: #8c8f86;
-  --accent: #e09f5a;
-  --accent-bright: #eab06d;
+  --accent: #dcdbd2;
+  --accent-bright: #dcdbd2;
   --pill-dark: #dcdbd2;
   --surface: #202320;
   --surface-elevated: #242724;
+  --hl-yellow-bg: rgba(226, 192, 74, 0.22);
+  --hl-yellow-border: #b89832;
+  --hl-pink-bg: rgba(226, 192, 74, 0.22);
+  --hl-pink-border: #b89832;
+  --hl-blue-bg: rgba(226, 192, 74, 0.22);
+  --hl-blue-border: #b89832;
+  --hl-orange-bg: rgba(226, 192, 74, 0.22);
+  --hl-orange-border: #b89832;
+  --hl-green-bg: rgba(226, 192, 74, 0.22);
+  --hl-green-border: #b89832;
+  --badge-observed-bg: #2a2d29;
+  --badge-observed-fg: #dcdbd2;
+  --badge-claimed-bg: rgba(226, 192, 74, 0.24);
+  --badge-claimed-fg: #f0df9c;
+  --badge-contradicted-bg: #dcdbd2;
+  --badge-contradicted-fg: #171917;
+  --badge-locked-bg: #1e201d;
+  --badge-locked-fg: #8c8f86;
   --shadow-subtle: 3px 3px 0 rgba(0, 0, 0, 0.45);
 }
 
