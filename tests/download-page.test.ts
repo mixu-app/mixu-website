@@ -51,7 +51,7 @@ describe("download manifest and schema", () => {
       "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
     );
     expect(manifest.releases[0]?.sha256).toBe(
-      "c1c16f18f941d6f672cfa606e526f092686c8ea8687f0f71f9acadf93432c31c",
+      "2b435fa4e6c34571c3dbb5c2b8e3514bcf6f057299f6366b64258c902e5caa93",
     );
   });
 });
@@ -70,7 +70,7 @@ describe("download page content and phase honesty", () => {
       "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
     );
     expect(html).toContain(
-      "c1c16f18f941d6f672cfa606e526f092686c8ea8687f0f71f9acadf93432c31c",
+      "2b435fa4e6c34571c3dbb5c2b8e3514bcf6f057299f6366b64258c902e5caa93",
     );
   });
 
@@ -160,7 +160,7 @@ describe("built distribution artifact", () => {
     const distHtml = readFileSync(distHtmlPath, "utf-8");
     expect(distHtml).toContain("v0.0.1");
     expect(distHtml).toContain(
-      "c1c16f18f941d6f672cfa606e526f092686c8ea8687f0f71f9acadf93432c31c",
+      "2b435fa4e6c34571c3dbb5c2b8e3514bcf6f057299f6366b64258c902e5caa93",
     );
     expect(distHtml).toContain("sha256sum");
     expect(distHtml).toContain("apksigner");
