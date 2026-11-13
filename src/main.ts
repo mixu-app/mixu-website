@@ -306,7 +306,7 @@ function initApkDownloadFeedback(): void {
       } else {
         toast.innerHTML = `
           <div class="apk-toast-body">
-            <strong>已开始下载 mixu-app-0.0.1.apk (8.9 MB)</strong>
+            <strong>已开始下载 mixu-app-0.0.2.apk (9.0 MB)</strong>
             <span>请留意浏览器下载栏 · <a href="./download.html">查看 SHA-256 校验和与签名说明 →</a></span>
           </div>
           <button type="button" class="apk-toast-close" aria-label="关闭提示">×</button>

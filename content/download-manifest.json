@@ -3,6 +3,30 @@
   "schema_version": 1,
   "releases": [
     {
+      "version": "0.0.2",
+      "build_number": 2,
+      "channel": "alpha",
+      "release_date": "2026-11-13",
+      "download_url": "https://mixuread.com/releases/v0.0.2/mixu-app-0.0.2.apk",
+      "sha256": "ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59",
+      "min_sdk": 26,
+      "changelog_zh": [
+        "多格式本地导入与云端存储成长：新增 TXT、MOBI、AZW3 本地解析导入，上线 5 级云存储升级（100 MB 起）、签到与补签机制",
+        "Copilot 划词伴读与「推理点」体系：整合选段翻译/解释、会话历史持久化，切换为「推理点」货币并支持 ¥12 / ¥24 月度方案及激励积分",
+        "客户端与服务端同步升级：正式对齐阿里云百炼网关、端云邮箱验证码登录及合规端点配置"
+      ],
+      "changelog_en": [
+        "Multi-format import & 5-level cloud storage: added local TXT, MOBI, and AZW3 import alongside 5-tier storage progression and check-in makeup",
+        "Copilot contextual translation & Reasoning Points: unified passage lookup/translation via AI Copilot, persistent chat history, monthly plans, and reward packs",
+        "Client/server alignment: synced email OTP auth, Bailian gateway routing, and release endpoint controls"
+      ],
+      "changelog_ja": [
+        "マルチフォーマット対応とクラウド容量成長：TXT・MOBI・AZW3 インポートおよび 5 段階ストレージ拡張・連続チェックイン機能を追加",
+        "Copilot 文脈翻訳と推理ポイント：選択箇所の翻訳・解説、会話履歴保存、月額プラン・リワードパックを統合",
+        "端雲連携アップデート：メール認証ログインおよびクラウドゲートウェイ設定を最新化"
+      ]
+    },
+    {
       "version": "0.0.1",
       "build_number": 1,
       "channel": "alpha",

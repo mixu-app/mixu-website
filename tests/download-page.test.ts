@@ -39,19 +39,19 @@ describe("download manifest and schema", () => {
     expect(releaseItemProps).toHaveProperty("changelog_zh");
   });
 
-  test("manifest contains official v0.0.1 alpha release", () => {
+  test("manifest contains official v0.0.2 alpha release", () => {
     const manifest = JSON.parse(
       readFileSync(manifestPath, "utf-8"),
     ) as DownloadManifest;
     expect(manifest.schema_version).toBeGreaterThanOrEqual(1);
     expect(Array.isArray(manifest.releases)).toBe(true);
     expect(manifest.releases.length).toBeGreaterThanOrEqual(1);
-    expect(manifest.releases[0]?.version).toBe("0.0.1");
+    expect(manifest.releases[0]?.version).toBe("0.0.2");
     expect(manifest.releases[0]?.download_url).toBe(
-      "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
+      "https://mixuread.com/releases/v0.0.2/mixu-app-0.0.2.apk",
     );
     expect(manifest.releases[0]?.sha256).toBe(
-      "ee7b8e2f54cb4fc654645306f375ff0e507d882813ce23ddc352d170bbe0bc42",
+      "ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59",
     );
   });
 });
@@ -61,16 +61,16 @@ describe("download page content and phase honesty", () => {
     runDownload();
   });
 
-  test("renders the official v0.0.1 release card with SHA-256 checksum", () => {
+  test("renders the official v0.0.2 release card with SHA-256 checksum", () => {
     const html = readFileSync(sourceHtmlPath, "utf-8");
     expect(html).toContain('class="release-card"');
-    expect(html).toContain("v0.0.1");
-    expect(html).toContain('download="mixu-app-0.0.1.apk"');
+    expect(html).toContain("v0.0.2");
+    expect(html).toContain('download="mixu-app-0.0.2.apk"');
     expect(html).toContain(
-      "https://mixuread.com/releases/v0.0.1/mixu-app-0.0.1.apk",
+      "https://mixuread.com/releases/v0.0.2/mixu-app-0.0.2.apk",
     );
     expect(html).toContain(
-      "ee7b8e2f54cb4fc654645306f375ff0e507d882813ce23ddc352d170bbe0bc42",
+      "ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59",
     );
   });
 
@@ -158,9 +158,9 @@ describe("built distribution artifact", () => {
   test("dist/download.html exists and contains bundled content", () => {
     expect(existsSync(distHtmlPath)).toBe(true);
     const distHtml = readFileSync(distHtmlPath, "utf-8");
-    expect(distHtml).toContain("v0.0.1");
+    expect(distHtml).toContain("v0.0.2");
     expect(distHtml).toContain(
-      "ee7b8e2f54cb4fc654645306f375ff0e507d882813ce23ddc352d170bbe0bc42",
+      "ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59",
     );
     expect(distHtml).toContain("sha256sum");
     expect(distHtml).toContain("apksigner");
