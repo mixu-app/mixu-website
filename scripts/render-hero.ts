@@ -296,7 +296,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       navShowcase: "Interactive Demo",
       navFeatures: "Why Mixu",
       navFaq: "FAQ",
-      navDownload: "Download v0.0.1",
+      navDownload: "Download v0.0.2",
       themeToggleLight: "☀ Light",
       themeToggleDark: "☾ Dark",
       einkBookRunningHeader: "THE MIST MANOR ALIBI · MIXU E-INK EDITION",
@@ -305,7 +305,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       einkOasisNextHint: "Next Screen (Oasis Lower Button)",
       einkFooterLocator: "Loc 128 · Ch. 8 · Spoiler Guard Locked",
       einkFooterProgress: "48% · 300 PPI",
-      releaseBadge: "v0.0.1 Alpha · Android & E-Ink APK Available",
+      releaseBadge: "v0.0.2 Alpha · Android & E-Ink APK Available",
       rotatePrefix: "With",
       rotateWords: [
         "Spoiler-Free Lock",
@@ -509,7 +509,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       mobileSectionTitle: "Download for Android, Tablets & E-Ink",
       mobileSectionDesc:
         "Enjoy distraction-free mystery reading and a live spoiler-safe CaseBoard on your phone, tablet, or Android E-Ink reader—completely offline-capable from the first page.",
-      mobileSectionCta: "Download the App (v0.0.1 APK) →",
+      mobileSectionCta: "Download the App (v0.0.2 APK) →",
       faqHeading: "Frequently Asked Questions",
       faqs: [
         {
@@ -556,7 +556,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       navShowcase: "捜査ボード実演",
       navFeatures: "3つの価値",
       navFaq: "よくある質問",
-      navDownload: "v0.0.1 ダウンロード",
+      navDownload: "v0.0.2 ダウンロード",
       themeToggleLight: "☀ ライト",
       themeToggleDark: "☾ ダーク",
       einkBookRunningHeader: "『霧荘のアリバイ』 · MIXU E-INK EDITION",
@@ -565,7 +565,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       einkOasisNextHint: "次の画面へ（Oasis 下ボタン）",
       einkFooterLocator: "位置 No. 128 · 第8章 · ネタバレ防止ロック中",
       einkFooterProgress: "48% · 300 PPI",
-      releaseBadge: "v0.0.1 Alpha · Android / E-Ink 対応 APK 公開中",
+      releaseBadge: "v0.0.2 Alpha · Android / E-Ink 対応 APK 公開中",
       rotatePrefix: "対応：",
       rotateWords: [
         "ネタバレ防止ロック",
@@ -764,7 +764,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       mobileSectionTitle: "モバイル＆ E-Ink 版をダウンロード",
       mobileSectionDesc:
         "スマートフォン、タブレット、Android 搭載 E-Ink リーダーで、ネタバレのない捜査ボード付き読書をいつでもどこでも楽しめます。",
-      mobileSectionCta: "アプリをダウンロード (v0.0.1 APK) →",
+      mobileSectionCta: "アプリをダウンロード (v0.0.2 APK) →",
       faqHeading: "よくある質問",
       faqs: [
         {
@@ -808,7 +808,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     navShowcase: "案情板体验",
     navFeatures: "三条价值",
     navFaq: "常见问题",
-    navDownload: "下载 v0.0.1",
+    navDownload: "下载 v0.0.2",
     themeToggleLight: "☀ 浅色纸面",
     themeToggleDark: "☾ 深色夜读",
     einkBookRunningHeader: "《雾庄不在场证明》 · MIXU E-INK EDITION",
@@ -817,7 +817,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     einkOasisNextHint: "下一视图（Oasis 下翻页实体键）",
     einkFooterLocator: "位置 128 · 第 8 章 · 防剧透进度锁已开启",
     einkFooterProgress: "48% · 300 PPI",
-    releaseBadge: "v0.0.1 Alpha · Android 与墨水屏安装包已发布",
+    releaseBadge: "v0.0.2 Alpha · Android 与墨水屏安装包已发布",
     rotatePrefix: "支持",
     rotateWords: [
       "防剧透进度锁",
@@ -1017,7 +1017,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
     mobileSectionTitle: "下载移动版与墨水屏客户端",
     mobileSectionDesc:
       "随时随地享受不剧透的悬疑伴读体验。谜序 Mixu 为 Android 手机、平板与电纸书墨水屏设备提供离线优先、免登录即用的现代推理阅读器。",
-    mobileSectionCta: "下载应用 (v0.0.1 APK) →",
+    mobileSectionCta: "下载应用 (v0.0.2 APK) →",
     faqHeading: "常见问题",
     faqs: [
       {
@@ -1301,7 +1301,7 @@ export function renderHeroHtml(
             <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <span class="cta-label">${primaryCta?.label ?? ""}</span>${primaryHintHtml}
           </a>
-          <a class="cta cta-solid-pill" href="/releases/v0.0.1/mixu-app-0.0.1.apk" download="mixu-app-0.0.1.apk" data-apk-download="v0.0.1">
+          <a class="cta cta-solid-pill" href="/releases/v0.0.2/mixu-app-0.0.2.apk" download="mixu-app-0.0.2.apk" data-apk-download="v0.0.2">
             <svg class="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
           </a>
@@ -1693,7 +1693,7 @@ export function renderHeroHtml(
               <a class="cta cta-footer-light" href="#showcase">
                 <span class="cta-label">${primaryCta?.label ?? ""}</span>
               </a>
-              <a class="cta cta-footer-outline" href="/releases/v0.0.1/mixu-app-0.0.1.apk" download="mixu-app-0.0.1.apk" data-apk-download="v0.0.1">
+              <a class="cta cta-footer-outline" href="/releases/v0.0.2/mixu-app-0.0.2.apk" download="mixu-app-0.0.2.apk" data-apk-download="v0.0.2">
                 <span class="cta-label">${escapeHtml(copy.downloadNowBtn)}</span>
               </a>
             </div>
