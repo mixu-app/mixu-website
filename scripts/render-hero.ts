@@ -321,35 +321,35 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "tab-caseboard",
           label: "2D CaseBoard",
-          imageFile: "caseboard-2d.png",
+          imageFile: "caseboard-2d.webp",
           caption:
             "Live 2D suspect & clue board with reading-progress rewind slider",
         },
         {
           id: "tab-reader",
           label: "Dual-Column Reader",
-          imageFile: "reader-spread.png",
+          imageFile: "reader-spread.webp",
           caption:
             "Book-grade dual-column spread pagination for tablets & wide screens",
         },
         {
           id: "tab-claims",
           label: "Alibi & Testimony Check",
-          imageFile: "caseboard-claims.png",
+          imageFile: "caseboard-claims.webp",
           caption:
             "Every witness testimony links directly back to the source sentence",
         },
         {
           id: "tab-dict",
           label: "Mystery Dictionary",
-          imageFile: "dictionary-translate.png",
+          imageFile: "dictionary-translate.webp",
           caption:
             "Offline mystery terminology lookup and dual-engine paragraph translation",
         },
         {
           id: "tab-desk",
           label: "Detective Study",
-          imageFile: "hero-mystery-desk.jpg",
+          imageFile: "hero-mystery-desk.webp",
           caption:
             "Read on paper or E-Ink while keeping every suspect and alibi organized",
         },
@@ -380,7 +380,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-2d",
           category: "caseboard",
-          imageFile: "caseboard-2d.png",
+          imageFile: "caseboard-2d.webp",
           badge: "CaseBoard · 2D Map",
           title: "Interactive 2D Suspect & Clue Relationship Board",
           description:
@@ -389,7 +389,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-hierarchy",
           category: "caseboard",
-          imageFile: "caseboard-hierarchy.png",
+          imageFile: "caseboard-hierarchy.webp",
           badge: "CaseBoard · Hierarchy",
           title: "One-Tap Hierarchical Topology View",
           description:
@@ -398,7 +398,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-claims",
           category: "caseboard",
-          imageFile: "caseboard-claims.png",
+          imageFile: "caseboard-claims.webp",
           badge: "Testimonies · Source Jump",
           title: "Testimony & Evidence Checklist with Paragraph Links",
           description:
@@ -407,7 +407,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-entity-dossier",
           category: "caseboard",
-          imageFile: "entity-dossier.png",
+          imageFile: "entity-dossier.webp",
           badge: "Character Dossier",
           title: "Instant Character & Evidence Dossier Drawer",
           description:
@@ -416,7 +416,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-spread",
           category: "reader",
-          imageFile: "reader-spread.png",
+          imageFile: "reader-spread.webp",
           badge: "Reader · Dual-Column",
           title: "Book-Grade Dual-Column Spread Layout",
           description:
@@ -425,7 +425,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-themes",
           category: "reader",
-          imageFile: "reader-themes.png",
+          imageFile: "reader-themes.webp",
           badge: "Reader · Eye-Care & E-Ink",
           title: "Daylight, Parchment, Night & 1-Bit E-Ink Themes",
           description:
@@ -434,7 +434,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-mint",
           category: "reader",
-          imageFile: "reader-mint.png",
+          imageFile: "reader-mint.webp",
           badge: "Reader · Green Tea Theme",
           title: "Soft Mint Eye-Care Theme for Marathon Reading",
           description:
@@ -443,7 +443,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-dictionary",
           category: "tools",
-          imageFile: "dictionary-translate.png",
+          imageFile: "dictionary-translate.webp",
           badge: "Offline Dictionary",
           title: "Instant Mystery Dictionary & Context-Safe Translation",
           description:
@@ -581,33 +581,33 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "tab-caseboard",
           label: "2D 捜査ボード",
-          imageFile: "caseboard-2d.png",
+          imageFile: "caseboard-2d.webp",
           caption: "読書進度に合わせて広がる 2D 相関図と振り返りスライダー",
         },
         {
           id: "tab-reader",
           label: "見開き2段組リーダー",
-          imageFile: "reader-spread.png",
+          imageFile: "reader-spread.webp",
           caption:
             "タブレットや大画面で紙の本のように読める見開き2段組レイアウト",
         },
         {
           id: "tab-claims",
           label: "証言・アリバイ照合",
-          imageFile: "caseboard-claims.png",
+          imageFile: "caseboard-claims.webp",
           caption:
             "すべての証言と証拠カードから小説の該当段落へワンタップでジャンプ",
         },
         {
           id: "tab-dict",
           label: "ミステリー辞典・翻訳",
-          imageFile: "dictionary-translate.png",
+          imageFile: "dictionary-translate.webp",
           caption: "本格ミステリー用語のオフライン即時検索と段落翻訳",
         },
         {
           id: "tab-desk",
           label: "ミステリー読書机",
-          imageFile: "hero-mystery-desk.jpg",
+          imageFile: "hero-mystery-desk.webp",
           caption: "物語を読み進めながら、隣で手がかりと人物関係を整理",
         },
       ],
@@ -637,7 +637,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-2d",
           category: "caseboard",
-          imageFile: "caseboard-2d.png",
+          imageFile: "caseboard-2d.webp",
           badge: "捜査ボード · 2D 相関図",
           title: "読書進度に合わせて広がる 2D 人物・証拠相関図",
           description:
@@ -646,7 +646,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-hierarchy",
           category: "caseboard",
-          imageFile: "caseboard-hierarchy.png",
+          imageFile: "caseboard-hierarchy.webp",
           badge: "捜査ボード · 階層ビュー",
           title: "ワンタップで階層構造ビューに切り替え",
           description:
@@ -655,7 +655,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-caseboard-claims",
           category: "caseboard",
-          imageFile: "caseboard-claims.png",
+          imageFile: "caseboard-claims.webp",
           badge: "証言一覧 · 原文ジャンプ",
           title: "証言・証拠リストと原文段落へのダイレクトジャンプ",
           description:
@@ -664,7 +664,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-entity-dossier",
           category: "caseboard",
-          imageFile: "entity-dossier.png",
+          imageFile: "entity-dossier.webp",
           badge: "人物ファイル · 初出追跡",
           title: "人物・証拠品の個別ファイルカード",
           description:
@@ -673,7 +673,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-spread",
           category: "reader",
-          imageFile: "reader-spread.png",
+          imageFile: "reader-spread.webp",
           badge: "リーダー · 見開き2段組",
           title: "紙の本のように読みやすい見開き2段組レイアウト",
           description:
@@ -682,7 +682,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-themes",
           category: "reader",
-          imageFile: "reader-themes.png",
+          imageFile: "reader-themes.webp",
           badge: "リーダー · テーマと E-Ink",
           title: "昼間・羊皮紙・夜間・E-Ink 電子ペーパーの4大プリセット",
           description:
@@ -691,7 +691,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-reader-mint",
           category: "reader",
-          imageFile: "reader-mint.png",
+          imageFile: "reader-mint.webp",
           badge: "リーダー · アイケア配色",
           title: "長編ミステリーの長時間読書に優しいアイケアテーマ",
           description:
@@ -700,7 +700,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
         {
           id: "shot-dictionary",
           category: "tools",
-          imageFile: "dictionary-translate.png",
+          imageFile: "dictionary-translate.webp",
           badge: "オフライン辞典 · 翻訳",
           title: "ミステリー用語辞典の即時検索とネタバレ防止翻訳",
           description:
@@ -832,35 +832,35 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "tab-caseboard",
         label: "2D 案情图板",
-        imageFile: "caseboard-2d.png",
+        imageFile: "caseboard-2d.webp",
         caption:
           "随阅读进度展开的 2D 人物与证物关系板，支持顶部滑块回看历史章节",
       },
       {
         id: "tab-reader",
         label: "双栏精排阅读",
-        imageFile: "reader-spread.png",
+        imageFile: "reader-spread.webp",
         caption:
           "媲美实体精装书的平板双栏分页排版，底部一键呼出目录、查词与案情板",
       },
       {
         id: "tab-claims",
         label: "证言与线索核对",
-        imageFile: "caseboard-claims.png",
+        imageFile: "caseboard-claims.webp",
         caption:
           "汇总已浮现的现场勘验与嫌疑人证词，点击任意条目直接跳回小说原句",
       },
       {
         id: "tab-dict",
         label: "离线推理词典",
-        imageFile: "dictionary-translate.png",
+        imageFile: "dictionary-translate.webp",
         caption:
           "内置古典与本格推理专有名词词典，支持 1ms 离线秒查与双引擎段落精译",
       },
       {
         id: "tab-desk",
         label: "侦探书房伴读",
-        imageFile: "hero-mystery-desk.jpg",
+        imageFile: "hero-mystery-desk.webp",
         caption: "一边展卷阅读长篇悬疑，一边在平板或墨水屏上梳理线索网",
       },
     ],
@@ -890,7 +890,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-caseboard-2d",
         category: "caseboard",
-        imageFile: "caseboard-2d.png",
+        imageFile: "caseboard-2d.webp",
         badge: "案情图板 · 2D 关系网",
         title: "随阅读进度展开的 2D 人物与证物关系板",
         description:
@@ -899,7 +899,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-caseboard-hierarchy",
         category: "caseboard",
-        imageFile: "caseboard-hierarchy.png",
+        imageFile: "caseboard-hierarchy.webp",
         badge: "案情图板 · 层级拓扑",
         title: "一键切换「层级拓扑」理清复杂家族与阵营",
         description:
@@ -908,7 +908,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-caseboard-claims",
         category: "caseboard",
-        imageFile: "caseboard-claims.png",
+        imageFile: "caseboard-claims.webp",
         badge: "证言核对 · 原文锚点",
         title: "各执一词的证言列表与一键回跳原文",
         description:
@@ -917,7 +917,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-entity-dossier",
         category: "caseboard",
-        imageFile: "entity-dossier.png",
+        imageFile: "entity-dossier.webp",
         badge: "人物档案 · 登场追踪",
         title: "点按节点即开的人物与证物专属档案卡",
         description:
@@ -926,7 +926,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-reader-spread",
         category: "reader",
-        imageFile: "reader-spread.png",
+        imageFile: "reader-spread.webp",
         badge: "双栏精排 · 纸书体验",
         title: "媲美实体精装书的双栏分页阅读体验",
         description:
@@ -935,7 +935,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-reader-themes",
         category: "reader",
-        imageFile: "reader-themes.png",
+        imageFile: "reader-themes.webp",
         badge: "护眼预设 · 墨水屏适配",
         title: "白昼、羊皮纸、深色夜间与墨水屏黑白高对比",
         description:
@@ -944,7 +944,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-reader-mint",
         category: "reader",
-        imageFile: "reader-mint.png",
+        imageFile: "reader-mint.webp",
         badge: "青茗护眼 · 长篇久读",
         title: "柔和「青茗护眼」主题，长篇连读不累眼",
         description:
@@ -953,7 +953,7 @@ function getLandingCopy(locale: string): LocalizedLandingCopy {
       {
         id: "shot-dictionary",
         category: "tools",
-        imageFile: "dictionary-translate.png",
+        imageFile: "dictionary-translate.webp",
         badge: "推理词典 · 双引擎秒译",
         title: "内置推理专有名词词典与毫秒级离线段落翻译",
         description:
@@ -1345,13 +1345,13 @@ export function renderHeroHtml(
                 type="button"
                 id="hero-stage-trigger"
                 class="hero-stage-screen"
-                data-lightbox-src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+                data-lightbox-src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.webp"}"
                 data-lightbox-title="${escapeHtml(firstTab?.label ?? "")}"
                 data-lightbox-desc="${escapeHtml(firstTab?.caption ?? "")}"
               >
                 <img
                   id="hero-stage-img"
-                  src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.png"}"
+                  src="${assetPrefix}/screenshots/${firstTab?.imageFile ?? "caseboard-2d.webp"}"
                   alt="${escapeHtml(firstTab?.caption ?? "")}"
                   width="1280"
                   height="691"
@@ -1430,12 +1430,12 @@ export function renderHeroHtml(
               <button
                 type="button"
                 class="bookplate-img-btn"
-                data-lightbox-src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-spoiler-shield.webp"
                 data-lightbox-title="${escapeHtml(copy.valArt1Label)}"
                 data-lightbox-desc="${escapeHtml(copy.pillar1Desc)}"
               >
                 <img
-                  src="${assetPrefix}/screenshots/illus-spoiler-shield.jpg"
+                  src="${assetPrefix}/screenshots/illus-spoiler-shield.webp"
                   alt="${escapeHtml(copy.valArt1Label)}"
                   width="800"
                   height="597"
@@ -1448,12 +1448,12 @@ export function renderHeroHtml(
               <button
                 type="button"
                 class="bookplate-img-btn"
-                data-lightbox-src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-caseboard-threads.webp"
                 data-lightbox-title="${escapeHtml(copy.valArt2Label)}"
                 data-lightbox-desc="${escapeHtml(copy.pillar2Desc)}"
               >
                 <img
-                  src="${assetPrefix}/screenshots/illus-caseboard-threads.jpg"
+                  src="${assetPrefix}/screenshots/illus-caseboard-threads.webp"
                   alt="${escapeHtml(copy.valArt2Label)}"
                   width="800"
                   height="597"
@@ -1466,12 +1466,12 @@ export function renderHeroHtml(
               <button
                 type="button"
                 class="bookplate-img-btn"
-                data-lightbox-src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+                data-lightbox-src="${assetPrefix}/screenshots/illus-eink-reading.webp"
                 data-lightbox-title="${escapeHtml(copy.valArt3Label)}"
                 data-lightbox-desc="${escapeHtml(copy.pillar3Desc)}"
               >
                 <img
-                  src="${assetPrefix}/screenshots/illus-eink-reading.jpg"
+                  src="${assetPrefix}/screenshots/illus-eink-reading.webp"
                   alt="${escapeHtml(copy.valArt3Label)}"
                   width="800"
                   height="597"
@@ -1623,12 +1623,12 @@ export function renderHeroHtml(
               <button
                 type="button"
                 class="download-visual-card"
-                data-lightbox-src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+                data-lightbox-src="${assetPrefix}/screenshots/hero-mystery-desk.webp"
                 data-lightbox-title="${escapeHtml(copy.mobileSectionTitle)}"
                 data-lightbox-desc="${escapeHtml(copy.mobileSectionDesc)}"
               >
                 <img
-                  src="${assetPrefix}/screenshots/hero-mystery-desk.jpg"
+                  src="${assetPrefix}/screenshots/hero-mystery-desk.webp"
                   alt="${escapeHtml(copy.mobileSectionTitle)}"
                   width="1280"
                   height="714"
@@ -1675,7 +1675,7 @@ export function renderHeroHtml(
         <div class="lightbox-backdrop" data-lightbox-close="true"></div>
         <div class="lightbox-dialog">
           <button type="button" class="lightbox-close-btn" data-lightbox-close="true" aria-label="${escapeHtml(copy.lightboxCloseLabel)}">×</button>
-          <img id="lightbox-img" src="${assetPrefix}/screenshots/caseboard-2d.png" alt="" />
+          <img id="lightbox-img" src="${assetPrefix}/screenshots/caseboard-2d.webp" alt="" />
           <div class="lightbox-caption">
             <strong id="lightbox-title"></strong>
             <p id="lightbox-desc"></p>
