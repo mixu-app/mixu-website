@@ -2,7 +2,9 @@
   "$schema": "./site.schema.json",
   "siteUrl": "https://mixuread.com",
   "defaultLocale": "zh-CN",
-  "supportedLocales": ["zh-CN"],
+  "supportedLocales": [
+    "zh-CN"
+  ],
   "ogImage": "/og.png",
   "twitterCard": "summary_large_image",
   "locales": {
@@ -67,7 +69,7 @@
         "download": {
           "path": "/download.html",
           "title": "客户端下载与校验 — 谜序 Mixu",
-          "description": "谜序 (Mixu) 官方客户端下载与安装包完整性校验说明。当前处于开发起步阶段，尚未发布公开安装包。"
+          "description": "谜序官方 Android 0.0.3 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含原生阅读界面改进与已知限制。"
         },
         "notFound": {
           "path": "/404.html",
@@ -141,7 +143,7 @@
         "download": {
           "path": "/en/download.html",
           "title": "Download & Verification — Mixu",
-          "description": "Official Mixu client download and package integrity verification guide."
+          "description": "Download the official Mixu Android 0.0.3 Alpha APK, browse previous releases and verify SHA-256 checksums. Includes native reader UI improvements and known limitations."
         },
         "notFound": {
           "path": "/en/404.html",
@@ -215,7 +217,7 @@
         "download": {
           "path": "/ja/download.html",
           "title": "ダウンロードと検証 — Mixu",
-          "description": "Mixu 公式クライアントのダウンロードとパッケージ整合性検証の手引き。"
+          "description": "Mixu Android 0.0.3 Alphaの公式APK、過去バージョンとSHA-256検証の案内。読書UIの改善と既知の制限を掲載しています。"
         },
         "notFound": {
           "path": "/ja/404.html",
