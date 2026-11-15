@@ -3,6 +3,36 @@
   "schema_version": 1,
   "releases": [
     {
+      "version": "0.0.3",
+      "build_number": 3,
+      "channel": "alpha",
+      "release_date": "2026-11-15",
+      "download_url": "https://mixuread.com/releases/v0.0.3/mixu-app-0.0.3.apk",
+      "sha256": "54058dd0f66b1b38236ebbd1601d074ebe934697398fb3a348316463a1f17b59",
+      "min_sdk": 26,
+      "changelog_zh": [
+        "统一原生界面：精简阅读工具栏，新增按需打开的阅读设置、目录和伴读面板，改善手机、横屏与平板布局。",
+        "支持现有主题包注入界面字体与圆角；切换内置主题后重启仍保留选择，并使用官方标志。",
+        "选文操作改为简洁的复制、高亮、批注和查词菜单；未知词不伪造释义字段，书内图片不再显示自动生成的分类图注。",
+        "已知限制：部分阅读位置恢复偏差和图片较多的书籍打开超时仍在跟进；首页收藏夹创建、改名及原型式分页尚未完整覆盖，实体墨水屏仍待验证。",
+        "0.0.3 的云端登录目前尚不可用；离线访客阅读仍可使用，修复正在准备中。"
+      ],
+      "changelog_en": [
+        "Native UI refinement: compact reader controls, focused reading settings, contents and companion panels, with improved phone, landscape and tablet layouts.",
+        "Existing theme packs can customize app typography and corners; built-in theme selection persists after restart, with the official brand mark.",
+        "Selection uses focused copy, highlight, note and dictionary actions. Missing dictionary entries are reported honestly, and generated image classifications are no longer displayed.",
+        "Known limits: visual-page restoration drift and some image-heavy opening timeouts remain; home collection creation/rename and prototype pagination are incomplete, and physical E-Ink validation is pending.",
+        "Cloud sign-in is not yet usable in 0.0.3. Offline guest reading remains available; a fix is being prepared."
+      ],
+      "changelog_ja": [
+        "ネイティブUIを整理し、読書ツールバー、必要時に開く読書設定・目次・伴読パネル、スマートフォン・横画面・タブレットの表示を改善しました。",
+        "既存テーマパックで画面の書体と角丸を調整でき、内蔵テーマへの切替は再起動後も保持されます。公式ロゴを使用します。",
+        "選択メニューをコピー・ハイライト・メモ・辞書に整理しました。未登録語の発音や品詞を捏造せず、画像の自動分類キャプションも表示しません。",
+        "既知の制限：表示ページの復元ずれ、一部の画像の多い書籍の起動タイムアウト、ホームのコレクション作成・改名や原型式ページ切替は未解決です。実機E-Ink検証も継続します。",
+        "0.0.3ではクラウドへのログインをまだ利用できません。オフラインのゲスト読書は利用でき、修正を準備中です。"
+      ]
+    },
+    {
       "version": "0.0.2",
       "build_number": 2,
       "channel": "alpha",

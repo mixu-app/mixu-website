@@ -306,13 +306,18 @@ function initApkDownloadFeedback(): void {
       } else {
         toast.innerHTML = `
           <div class="apk-toast-body">
-            <strong>已开始下载 mixu-app-0.0.2.apk (9.0 MB)</strong>
+            <strong>正在请求安装包</strong>
             <span>请留意浏览器下载栏 · <a href="./download.html">查看 SHA-256 校验和与签名说明 →</a></span>
           </div>
           <button type="button" class="apk-toast-close" aria-label="关闭提示">×</button>
         `;
       }
 
+      if (!isInAppWebView) {
+        const fileName = link.download || new URL(link.href).pathname.split("/").pop() || "APK";
+        const heading = toast.querySelector("strong");
+        if (heading) heading.textContent = `正在请求下载 ${fileName}`;
+      }
       toast.classList.add("is-visible");
       const closeBtn =
         toast.querySelector<HTMLButtonElement>(".apk-toast-close");
