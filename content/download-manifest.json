@@ -3,6 +3,37 @@
   "schema_version": 1,
   "releases": [
     {
+      "version": "0.0.4",
+      "build_number": 4,
+      "channel": "alpha",
+      "release_date": "2026-11-16",
+      "download_url": "https://mixuread.com/releases/v0.0.4/mixu-app-0.0.4.apk",
+      "sha256": "57e98405ac6faafec47977ce1318f54b65f4114411316f440ece04dd53794858",
+      "min_sdk": 26,
+      "size_bytes": 9069558,
+      "changelog_zh": [
+        "接入真实邮箱验证码登录与注册；加密保存登录凭据，支持会话恢复、过期处理与退出，访客仍可离线导入和阅读。",
+        "账号余额、五级云空间及成长记录读取服务器状态；永久空间、当日下载额度与临时下载加量分开展示，签到仅采用服务器确认结果。",
+        "移除本地模拟广告、补签、充值、订阅与空间状态授予；这些奖励和支付操作暂未开放，不影响既有五级空间与独立当日下载加量政策。",
+        "验证范围：真实登录、余额与会话生命周期已在保持正常域名和 TLS 校验的受控网络下通过；普通 Android 网络及新的配额、签到仍待联合设备验收。云端测试状态的持久保存仍在完善，不承诺服务重启后保留全部测试状态。",
+        "已知限制：部分阅读位置恢复偏差、图片较多书籍打开超时与实体墨水屏验证仍在跟进。"
+      ],
+      "changelog_en": [
+        "Real passwordless email-code sign-in and registration, encrypted session storage, restoration, expiry and logout; offline guest import and reading remain available.",
+        "Account balances, five-level cloud storage and progression use server state. Permanent storage, daily downloads and temporary download boosts are shown separately; check-in adopts server-confirmed results only.",
+        "Local simulated ad rewards, makeup check-ins, top-ups, subscriptions and storage-status grants are removed. Reward and payment operations remain unavailable; existing five-level storage and independent same-day download-boost policy are unchanged.",
+        "Acceptance limits: real sign-in, wallet and session lifecycle passed controlled-transport lab checks with normal hostname and TLS verification. Ordinary Android networking and the new quota/check-in device checks remain pending. Hosted test-state persistence is still being improved; retention across service restarts is not promised.",
+        "Known limits: visual-page restoration drift, some image-heavy opening timeouts and physical E-Ink validation remain outstanding."
+      ],
+      "changelog_ja": [
+        "実際のメール認証コードでログイン・新規登録し、ログイン情報を暗号化保存します。セッション復元・期限切れ・ログアウトに対応し、ゲストのオフライン読書・インポートも維持します。",
+        "残高、5段階クラウド容量と成長記録はサーバーの状態を表示します。永続容量、当日のダウンロード枠と一時的な追加枠を分け、チェックインはサーバーの確認結果だけを反映します。",
+        "端末内で模擬的に付与していた広告報酬、追加チェックイン、チャージ、定期購入、容量状態変更を削除しました。報酬・決済操作は未提供です。5段階容量と独立した当日ダウンロード追加枠の方針は変わりません。",
+        "検証範囲：通常のホスト名・TLS検証を維持した管理下の通信経路で、実際のログイン・残高・セッション動作を確認しました。通常のAndroid通信と新しい容量表示・チェックインの実機検証は未完了です。テスト用クラウド状態の永続保存は改善中で、サービス再起動後の保持は保証しません。",
+        "既知の制限：表示ページの復元ずれ、一部の画像の多い書籍の起動タイムアウト、実機E-Ink検証は引き続き対応中です。"
+      ]
+    },
+    {
       "version": "0.0.3",
       "build_number": 3,
       "channel": "alpha",
