@@ -39,25 +39,27 @@ describe("download manifest and schema", () => {
     expect(releaseItemProps).toHaveProperty("changelog_zh");
   });
 
-  test("manifest contains official v0.0.3 alpha release", () => {
+  test("manifest contains official v0.0.4 alpha release", () => {
     const manifest = JSON.parse(
       readFileSync(manifestPath, "utf-8"),
     ) as DownloadManifest;
     expect(manifest.schema_version).toBeGreaterThanOrEqual(1);
     expect(Array.isArray(manifest.releases)).toBe(true);
     expect(manifest.releases.length).toBeGreaterThanOrEqual(1);
-    expect(manifest.releases[0]?.version).toBe("0.0.3");
+    expect(manifest.releases[0]?.version).toBe("0.0.4");
     expect(manifest.releases[0]?.download_url).toBe(
-      "https://mixuread.com/releases/v0.0.3/mixu-app-0.0.3.apk",
+      "https://mixuread.com/releases/v0.0.4/mixu-app-0.0.4.apk",
     );
     expect(manifest.releases[0]?.sha256).toBe(
-      "54058dd0f66b1b38236ebbd1601d074ebe934697398fb3a348316463a1f17b59",
+      "57e98405ac6faafec47977ce1318f54b65f4114411316f440ece04dd53794858",
     );
-    expect(manifest.releases[0]?.build_number).toBe(3);
-    expect(manifest.releases[0]?.release_date).toBe("2026-11-15");
+    expect(manifest.releases[0]?.build_number).toBe(4);
+    expect(manifest.releases[0]?.release_date).toBe("2026-11-16");
     expect(manifest.releases[0]?.min_sdk).toBe(26);
-    expect(manifest.releases.slice(1).map((release) => release.version)).toEqual(["0.0.2", "0.0.1"]);
-    expect(manifest.releases[1]?.sha256).toBe("ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59");
+    expect(manifest.releases[0]?.size_bytes).toBe(9069558);
+    expect(manifest.releases[1]?.sha256).toBe("54058dd0f66b1b38236ebbd1601d074ebe934697398fb3a348316463a1f17b59");
+    expect(manifest.releases.slice(1).map((release) => release.version)).toEqual(["0.0.3", "0.0.2", "0.0.1"]);
+    expect(manifest.releases[2]?.sha256).toBe("ce16fce0402d1d5c8248ec09c4d9895ba144077c91d57e086a84eeb5f323df59");
   });
 });
 
@@ -66,16 +68,16 @@ describe("download page content and phase honesty", () => {
     runDownload();
   });
 
-  test("renders the official v0.0.3 release card with SHA-256 checksum", () => {
+  test("renders the official v0.0.4 release card with SHA-256 checksum", () => {
     const html = readFileSync(sourceHtmlPath, "utf-8");
     expect(html).toContain('class="release-card"');
-    expect(html).toContain("v0.0.3");
-    expect(html).toContain('download="mixu-app-0.0.3.apk"');
+    expect(html).toContain("v0.0.4");
+    expect(html).toContain('download="mixu-app-0.0.4.apk"');
     expect(html).toContain(
-      "https://mixuread.com/releases/v0.0.3/mixu-app-0.0.3.apk",
+      "https://mixuread.com/releases/v0.0.4/mixu-app-0.0.4.apk",
     );
     expect(html).toContain(
-      "54058dd0f66b1b38236ebbd1601d074ebe934697398fb3a348316463a1f17b59",
+      "57e98405ac6faafec47977ce1318f54b65f4114411316f440ece04dd53794858",
     );
   });
 
@@ -163,12 +165,12 @@ describe("built distribution artifact", () => {
   test("dist/download.html exists and contains bundled content", () => {
     expect(existsSync(distHtmlPath)).toBe(true);
     const distHtml = readFileSync(distHtmlPath, "utf-8");
-    expect(distHtml).toContain("v0.0.3");
+    expect(distHtml).toContain("v0.0.4");
     expect(distHtml).toContain(
-      "54058dd0f66b1b38236ebbd1601d074ebe934697398fb3a348316463a1f17b59",
+      "57e98405ac6faafec47977ce1318f54b65f4114411316f440ece04dd53794858",
     );
     const homepage = readFileSync(resolve(import.meta.dir, "../dist/index.html"), "utf-8");
-    expect(homepage).toContain('href="/releases/v0.0.3/mixu-app-0.0.3.apk"');
+    expect(homepage).toContain('href="/releases/v0.0.4/mixu-app-0.0.4.apk"');
     expect(homepage).not.toContain('/releases/v0.0.2/');
     expect(distHtml).toContain("sha256sum");
     expect(distHtml).toContain("apksigner");

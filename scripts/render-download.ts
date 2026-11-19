@@ -17,6 +17,7 @@ export interface Release {
   release_date: string;
   download_url: string;
   sha256: string;
+  size_bytes?: number;
   min_sdk: number;
   changelog_zh: string[];
   changelog_en?: string[];
@@ -98,7 +99,7 @@ export function renderReleasesSection(
             <span class="badge ${escapeHtml(rel.channel)}">${escapeHtml(rel.channel)}</span>
           </div>
           <div class="meta-row">
-            <span>${escapeHtml(releaseDateLabel)}${escapeHtml(rel.release_date)}</span> · <span>${escapeHtml(minSdkLabel)}${rel.min_sdk}+</span>
+            <span>${escapeHtml(releaseDateLabel)}${escapeHtml(rel.release_date)}</span> · <span>${escapeHtml(minSdkLabel)}${rel.min_sdk}+</span>${rel.size_bytes === undefined ? "" : ` · <span>${rel.size_bytes} bytes</span>`}
           </div>
           <div class="download-action">
             <a class="download-button" href="${escapeHtml(rel.download_url)}" download="mixu-app-${escapeHtml(rel.version)}.apk" data-apk-download="v${escapeHtml(rel.version)}">${escapeHtml(downloadButtonText)}</a>

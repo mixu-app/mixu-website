@@ -6,7 +6,7 @@
     <title>客户端下载与校验 — 谜序 Mixu</title>
     <meta
       name="description"
-      content="谜序官方 Android 0.0.3 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含原生阅读界面改进与已知限制。"
+      content="谜序官方 Android 0.0.4 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含邮箱验证码登录、账号状态与验证范围说明。"
     />
     <link rel="canonical" href="https://mixuread.com/download.html" />
 
@@ -14,7 +14,7 @@
     <meta property="og:title" content="客户端下载与校验 — 谜序 Mixu" />
     <meta
       property="og:description"
-      content="谜序官方 Android 0.0.3 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含原生阅读界面改进与已知限制。"
+      content="谜序官方 Android 0.0.4 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含邮箱验证码登录、账号状态与验证范围说明。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://mixuread.com/og.png" />
@@ -27,7 +27,7 @@
     <meta name="twitter:title" content="客户端下载与校验 — 谜序 Mixu" />
     <meta
       name="twitter:description"
-      content="谜序官方 Android 0.0.3 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含原生阅读界面改进与已知限制。"
+      content="谜序官方 Android 0.0.4 Alpha 安装包下载、历史版本及 SHA-256 校验说明。包含邮箱验证码登录、账号状态与验证范围说明。"
     />
     <meta name="twitter:image" content="https://mixuread.com/og.png" />
 
@@ -51,6 +51,32 @@
       <section class="releases-section">
         <h2>可用版本</h2>
         <ul class="release-list">
+        <li class="release-card">
+          <div class="release-header">
+            <h3>v0.0.4 <span class="build-number">(Build 4)</span></h3>
+            <span class="badge alpha">alpha</span>
+          </div>
+          <div class="meta-row">
+            <span>发布日期：2026-11-16</span> · <span>最低系统要求：Android API 26+</span> · <span>9069558 bytes</span>
+          </div>
+          <div class="download-action">
+            <a class="download-button" href="https://mixuread.com/releases/v0.0.4/mixu-app-0.0.4.apk" download="mixu-app-0.0.4.apk" data-apk-download="v0.0.4">下载 APK</a>
+          </div>
+          <div class="checksum-block">
+            <span class="checksum-label">SHA-256 校验和：</span>
+            <code class="checksum">57e98405ac6faafec47977ce1318f54b65f4114411316f440ece04dd53794858</code>
+          </div>
+          <div class="changelog-block">
+            <h4>更新日志</h4>
+            <ul>
+            <li>接入真实邮箱验证码登录与注册；加密保存登录凭据，支持会话恢复、过期处理与退出，访客仍可离线导入和阅读。</li>
+            <li>账号余额、五级云空间及成长记录读取服务器状态；永久空间、当日下载额度与临时下载加量分开展示，签到仅采用服务器确认结果。</li>
+            <li>移除本地模拟广告、补签、充值、订阅与空间状态授予；这些奖励和支付操作暂未开放，不影响既有五级空间与独立当日下载加量政策。</li>
+            <li>验证范围：真实登录、余额与会话生命周期已在保持正常域名和 TLS 校验的受控网络下通过；普通 Android 网络及新的配额、签到仍待联合设备验收。云端测试状态的持久保存仍在完善，不承诺服务重启后保留全部测试状态。</li>
+            <li>已知限制：部分阅读位置恢复偏差、图片较多书籍打开超时与实体墨水屏验证仍在跟进。</li>
+            </ul>
+          </div>
+        </li>
         <li class="release-card">
           <div class="release-header">
             <h3>v0.0.3 <span class="build-number">(Build 3)</span></h3>

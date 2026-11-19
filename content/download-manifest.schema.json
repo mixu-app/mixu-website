@@ -95,6 +95,11 @@
               "type": "string"
             },
             "description": "Japanese release notes highlighting changes in this build."
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Exact APK file size in bytes when available."
           }
         }
       }
